@@ -1,0 +1,23 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"  # Adjust based on your package manager (npm, bundler, composer, etc.)
+    directory: "/backend"
+    schedule:
+      interval: "daily"
+      time: "every day"
+    open-pull-requests-limit: 100  # Adjust the limit as needed
+    labels:
+      - "dependencies"
+  - package-ecosystem: "npm"  # Same or different package manager as needed
+    directory: "/frontend"
+    schedule:
+      interval: "daily"
+      time: "every day"
+    open-pull-requests-limit: 100  # Adjust the limit as needed
+    labels:
+      - "dependencies"
