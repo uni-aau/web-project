@@ -11,13 +11,9 @@ updates:
       interval: "daily"
       time: "00:00"
     open-pull-requests-limit: 100  # Adjust the limit as needed
-    labels:
-      - "dependencies"
   - package-ecosystem: "npm"  # Same or different package manager as needed
     directory: "/frontend"
     schedule:
       interval: "daily"
       time: "00:00"
     open-pull-requests-limit: 100  # Adjust the limit as needed
-    labels:
-      - "dependencies"
