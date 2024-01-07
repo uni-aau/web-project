@@ -7,11 +7,12 @@ import { HomeBikes } from './home-bikes/home-bikes.component'
 import { Navbar } from './navbar/navbar.component'
 import { Footer } from './footer/footer.component'
 import { ImprintComponent } from './imprint-component/imprint-component.component'
+import { DataPrivacyComponent } from './data-privacy-component/data-privacy-component.component'
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

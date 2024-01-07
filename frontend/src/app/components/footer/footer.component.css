@@ -42,11 +42,12 @@
 .footer-navlink:hover {
   color: var(--dl-color-gray-500);
 }
-.footer-link {
+.footer-navlink1 {
   transition: 0.3s;
   padding-left: var(--dl-space-space-twounits);
+  text-decoration: none;
 }
-.footer-link:hover {
+.footer-navlink1:hover {
   color: var(--dl-color-gray-500);
 }
 .footer-container2 {
@@ -82,6 +83,7 @@
   width: 30px;
   height: 30px;
 }
+
 
 @media(max-width: 767px) {
   .footer-footer {

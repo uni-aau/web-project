@@ -1,0 +1,17 @@
+:host { 
+  display: contents; 
+}
+.data-privacy-component-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.data-privacy-component-text1 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
