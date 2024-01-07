@@ -34,18 +34,19 @@
   padding-bottom: var(--dl-space-space-halfunit);
   justify-content: center;
 }
-.footer-link {
+.footer-navlink {
   transition: 0.3s;
   padding-right: var(--dl-space-space-twounits);
+  text-decoration: none;
 }
-.footer-link:hover {
+.footer-navlink:hover {
   color: var(--dl-color-gray-500);
 }
-.footer-link1 {
+.footer-link {
   transition: 0.3s;
   padding-left: var(--dl-space-space-twounits);
 }
-.footer-link1:hover {
+.footer-link:hover {
   color: var(--dl-color-gray-500);
 }
 .footer-container2 {
@@ -81,6 +82,7 @@
   width: 30px;
   height: 30px;
 }
+
 @media(max-width: 767px) {
   .footer-footer {
     padding-left: var(--dl-space-space-twounits);

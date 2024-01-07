@@ -7,8 +7,6 @@ import { Component, Input } from '@angular/core'
 })
 export class Footer {
   @Input()
-  footer_imprint_link: string = 'https://example.com'
-  @Input()
   footer_data_privacy_link: string = 'https://example.com'
   @Input()
   footer_data_privacy_text: string = 'Datenschutz'
@@ -21,5 +19,7 @@ export class Footer {
     'https://presentation-website-assets.teleporthq.io/logos/logo.png'
   @Input()
   footer_copyright: string = '© 2024 JaLeHD, All Rights Reserved.'
+  @Input()
+  rootClassName: string = ''
   constructor() {}
 }

@@ -1,14 +1,8 @@
-<footer class="footer-footer">
+<footer class="footer-footer" [ngClass]="rootClassName">
   <img [attr.alt]="image_alt" [attr.src]="image_src" class="footer-image" />
   <div class="footer-container">
     <div class="footer-container1">
-      <a
-        [attr.href]="footer_imprint_link"
-        id="footer_imprint"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="footer-link"
-      >
+      <a routerLink="/imprint" id="footer_imprint" class="footer-navlink">
         {{ footer_imprint_text }}
       </a>
       <a
@@ -16,7 +10,7 @@
         id="footer_data_privacy"
         target="_blank"
         rel="noreferrer noopener"
-        class="footer-link1"
+        class="footer-link"
       >
         {{ footer_data_privacy_text }}
       </a>
