@@ -10,5 +10,7 @@ export class DataPrivacyComponent {
   headline_dataprivacy: string = 'Datenschutz'
   @Input()
   text_dataprivacy: string = 'Hier steht mal was zum Datenschutz'
+  @Input()
+  rootClassName: string = ''
   constructor() {}
 }

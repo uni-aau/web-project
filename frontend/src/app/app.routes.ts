@@ -1,12 +1,12 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {Home} from "./pages/home/home.component";
-import { ImprintComponent } from './components/imprint-component/imprint-component.component';
-import { DataPrivacyComponent } from './components/data-privacy-component/data-privacy-component.component';
+import {Imprint} from "./pages/imprint/imprint.component";
+import {DataPrivacy} from "./pages/data-privacy/data-privacy.component";
 
 export const routes: Routes = [
   {path: '', component: Home},
-  {path: 'imprint', component: ImprintComponent},
-  {path: 'data-privacy', component: DataPrivacyComponent},
+  {path: 'imprint', component: Imprint},
+  {path: 'data-privacy', component: DataPrivacy},
 ];
 
 /* Example Routes (Ex3 blatt-9)

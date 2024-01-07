@@ -5,9 +5,9 @@ import {ComponentsModule} from "../../components/components.module";
 @Component({
   selector: 'data-privacy',
   standalone: true,
+  imports: [ComponentsModule],
   templateUrl: 'data-privacy.component.html',
   styleUrls: ['data-privacy.component.css'],
-  imports: [ComponentsModule],
 })
 export class DataPrivacy {
   constructor(private title: Title, private meta: Meta) {
