@@ -7,8 +7,6 @@ import { Component, Input } from '@angular/core'
 })
 export class Footer {
   @Input()
-  footer_data_privacy_link: string = 'https://example.com'
-  @Input()
   footer_data_privacy_text: string = 'Datenschutz'
   @Input()
   footer_imprint_text: string = 'Impressum'

@@ -1,14 +1,16 @@
 <footer class="footer-footer" [ngClass]="rootClassName">
-  <img [attr.alt]="image_alt" [attr.src]="image_src" class="footer-image" />
+  <a routerLink="/" class="footer-navlink">
+    <img [attr.alt]="image_alt" [attr.src]="image_src" class="footer-image" />
+  </a>
   <div class="footer-container">
     <div class="footer-container1">
-      <a routerLink="/imprint" id="footer_imprint" class="footer-navlink">
+      <a routerLink="/imprint" id="footer_imprint" class="footer-navlink1">
         {{ footer_imprint_text }}
       </a>
       <a
         routerLink="/data-privacy"
         id="footer_data_privacy"
-        class="footer-navlink1"
+        class="footer-navlink2"
       >
         {{ footer_data_privacy_text }}
       </a>
