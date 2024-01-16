@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .login-component-container {
   width: 368px;
@@ -44,15 +44,16 @@
   color: #1e76d2;
 }
 .login-component-button {
-  color: var(--dl-color-gray-900);
+  color: var(--dl-color-gray-white);
   width: 100%;
   font-size: 17px;
   transition: 0.3s;
   margin-bottom: var(--dl-space-space-halfunit);
-  background-color: #146cbc;
+  background-color: #1f75cb;
 }
 .login-component-button:hover {
-  background: #1673d8;
+  color: var(--dl-color-gray-white);
+  background: #084f9e;
 }
 .login-component-text2 {
   font-size: 15px;

@@ -37,25 +37,26 @@
   flex-direction: row;
   justify-content: flex-start;
 }
-.navbar-link {
+.navbar-navlink {
   transition: 0.3s;
   margin-left: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.navbar-navlink:hover {
+  color: var(--dl-color-gray-500);
+}
+.navbar-link {
+  transition: 0.3s;
+  margin-left: var(--dl-space-space-twounits);
 }
 .navbar-link:hover {
   color: var(--dl-color-gray-500);
 }
 .navbar-link1 {
   transition: 0.3s;
-  margin-left: var(--dl-space-space-twounits);
-}
-.navbar-link1:hover {
-  color: var(--dl-color-gray-500);
-}
-.navbar-link2 {
-  transition: 0.3s;
   padding-left: var(--dl-space-space-twounits);
 }
-.navbar-link2:hover {
+.navbar-link1:hover {
   color: var(--dl-color-gray-500);
 }
 .navbar-buttons {
@@ -76,18 +77,20 @@
 .navbar-button:hover {
   background: whitesmoke;
 }
-.navbar-button1 {
+.navbar-navlink1 {
   transition: 0.3s;
   border-style: hidden;
   margin-right: var(--dl-space-space-unit);
+  text-decoration: none;
 }
-.navbar-button1:hover {
+.navbar-navlink1:hover {
   background: whitesmoke;
 }
-.navbar-button2 {
+.navbar-navlink2 {
   transition: 0.3s;
+  text-decoration: none;
 }
-.navbar-button2:hover {
+.navbar-navlink2:hover {
   background: whitesmoke;
 }
 .navbar-burger-menu {
@@ -180,6 +183,7 @@
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
 }
+
 
 
 @media(max-width: 767px) {

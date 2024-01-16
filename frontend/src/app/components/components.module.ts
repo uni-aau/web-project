@@ -10,11 +10,12 @@ import { ImprintComponent } from './imprint-component/imprint-component.componen
 import { DataPrivacyComponent } from './data-privacy-component/data-privacy-component.component'
 import {LoginComponent} from "./login-component/login-component.component";
 import {LoginRegisterImageComponent} from "./login-register-image-component/login-register-image-component.component";
+import {RegisterComponent} from "./register-component/register-component.component";
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}
