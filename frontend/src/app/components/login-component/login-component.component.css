@@ -11,6 +11,7 @@
   justify-content: flex-start;
 }
 .login-component-text {
+  font-size: 18px;
   align-self: flex-start;
   font-style: normal;
   font-weight: 600;
@@ -20,16 +21,18 @@
   margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 .login-component-text1 {
+  font-size: 18px;
   align-self: flex-start;
   font-style: normal;
   font-weight: 600;
 }
 .login-component-textinput1 {
   width: 100%;
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 .login-component-navlink {
   color: #3582d0;
-  font-size: 13px;
+  font-size: 14px;
   align-self: flex-end;
   font-style: normal;
   transition: 0.3s;
@@ -43,6 +46,7 @@
 .login-component-button {
   color: var(--dl-color-gray-900);
   width: 100%;
+  font-size: 17px;
   transition: 0.3s;
   margin-bottom: var(--dl-space-space-halfunit);
   background-color: #146cbc;
