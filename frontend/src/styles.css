@@ -36,6 +36,7 @@
 }
 .button {
   color: var(--dl-color-gray-black);
+  cursor: pointer;
   display: inline-block;
   padding: 0.5rem 1rem;
   border-color: var(--dl-color-gray-black);
