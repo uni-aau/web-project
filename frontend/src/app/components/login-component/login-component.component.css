@@ -1,0 +1,71 @@
+:host { 
+  display: contents; 
+}
+.login-component-container {
+  width: 368px;
+  height: 501px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.login-component-text {
+  align-self: flex-start;
+  font-style: normal;
+  font-weight: 600;
+}
+.login-component-textinput {
+  width: 100%;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.login-component-text1 {
+  align-self: flex-start;
+  font-style: normal;
+  font-weight: 600;
+}
+.login-component-textinput1 {
+  width: 100%;
+}
+.login-component-navlink {
+  color: #3582d0;
+  font-size: 13px;
+  align-self: flex-end;
+  font-style: normal;
+  transition: 0.3s;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.login-component-navlink:hover {
+  color: #1e76d2;
+}
+.login-component-button {
+  color: var(--dl-color-gray-900);
+  width: 100%;
+  transition: 0.3s;
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: #146cbc;
+}
+.login-component-button:hover {
+  background: #1673d8;
+}
+.login-component-text2 {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+}
+.login-component-navlink1 {
+  color: #3582d0;
+  font-size: 15px;
+  font-style: normal;
+  transition: 0.3s;
+  font-weight: 500;
+  text-decoration: none;
+}
+.login-component-navlink1:hover {
+  color: #1e76d2;
+}
+.login-component-root-class-name {
+  align-self: center;
+}

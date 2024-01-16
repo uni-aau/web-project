@@ -3,8 +3,9 @@
 }
 .footer-footer {
   width: 100%;
+  bottom: 0;
   display: flex;
-  position: relative;
+  position: fixed;
   max-width: var(--dl-size-size-maxwidth);
   align-items: center;
   padding-top: var(--dl-space-space-twounits);
@@ -83,6 +84,7 @@
   width: 30px;
   height: 30px;
 }
+
 
 
 @media(max-width: 767px) {

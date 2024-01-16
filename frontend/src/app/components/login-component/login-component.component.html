@@ -1,0 +1,27 @@
+<div class="login-component-container" [ngClass]="rootClassName">
+  <login-register-image-component
+    rootClassName="login-register-image-component-root-class-name"
+  ></login-register-image-component>
+  <span class="login-component-text">{{ login_username_title }}</span>
+  <input
+    type="text"
+    [attr.placeholder]="input_password_username_text"
+    class="login-component-textinput input"
+  />
+  <span class="login-component-text1">{{ login_password_title }}</span>
+  <input
+    type="password"
+    [attr.placeholder]="input_password_placeholder_text"
+    class="login-component-textinput1 input"
+  />
+  <a routerLink="/reset-password" class="login-component-navlink">
+    {{ forgot_password_text }}
+  </a>
+  <button type="button" class="login-component-button button">
+    {{ login_button_text }}
+  </button>
+  <span class="login-component-text2">{{ no_account }}</span>
+  <a routerLink="/register" class="login-component-navlink1">
+    {{ no_account_subtext }}
+  </a>
+</div>
