@@ -1,29 +1,17 @@
 <div class="navbar-container" [ngClass]="rootClassName">
   <header data-thq="thq-navbar" class="navbar-navbar-interactive">
-    <img
-      alt="logo"
-      src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-      class="navbar-image"
-    />
+    <a routerLink="/" class="navbar-navlink">
+      <img
+        alt="logo"
+        src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+        class="navbar-image"
+      />
+    </a>
     <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
       <nav class="navbar-links">
-        <a routerLink="/" class="navbar-navlink">{{ text_navbar_link31 }}</a>
-        <a
-          [attr.href]="link_navbar_link2"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="navbar-link"
-        >
-          {{ text_navbar_link2 }}
-        </a>
-        <a
-          [attr.href]="link_navbar_link3"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="navbar-link1"
-        >
-          {{ text_navbar_link3 }}
-        </a>
+        <a routerLink="/" class="navbar-navlink1">{{ text_navbar_link31 }}</a>
+        <a routerLink="**" class="navbar-navlink2">{{ text_navbar_link2 }}</a>
+        <a routerLink="**" class="navbar-navlink3">{{ text_navbar_link3 }}</a>
       </nav>
       <div class="navbar-buttons">
         <select class="navbar-select list">
@@ -33,10 +21,10 @@
         <button type="button" class="navbar-button button">
           {{ button_navbar_basket_text }}
         </button>
-        <a routerLink="/login" class="navbar-navlink1 button">
+        <a routerLink="/login" class="navbar-navlink4 button">
           {{ button_navbar_login_text }}
         </a>
-        <a routerLink="/register" class="navbar-navlink2 button">
+        <a routerLink="/register" class="navbar-navlink5 button">
           {{ button_navbar_register_text }}
         </a>
       </div>
