@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class ImprintComponent {
   @Input()
-  heading: string = 'Impressum'
-  @Input()
-  text: string = 'Hier steht ein Impressum'
+  headline_imprint: string = 'Imprint'
   @Input()
   rootClassName: string = ''
+  @Input()
+  text_imprint: string = 'Hier steht ein Impressum'
   constructor() {}
 }

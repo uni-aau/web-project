@@ -7,16 +7,15 @@ import {ComponentsModule} from "../../components/components.module";
   standalone: true,
   imports: [ComponentsModule],
   templateUrl: 'login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['login.component.css'],
 })
-
 export class Login {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Login - Diligent Jam Packed Wallaby')
+    this.title.setTitle('Login - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Login - Diligent Jam Packed Wallaby',
+        content: 'Login - WebProject',
       },
     ])
   }

@@ -168,6 +168,10 @@
   height: 35px;
   transition: 0.3s;
 }
+.hea {
+  font-size: 2.2em;
+  padding-bottom: var(--dl-space-space-twounits);
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -184,3 +188,6 @@
   text-transform: none;
   text-decoration: none;
 }
+
+
+

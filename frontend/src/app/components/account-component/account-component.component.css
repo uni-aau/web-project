@@ -2,13 +2,16 @@
   display: contents; 
 }
 .account-component-container {
-  width: 100%;
+  width: 80%;
   height: 175px;
   display: flex;
   position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+}
+.account-component-text {
+  margin-bottom: var(--dl-space-space-twounits);
 }
 .account-component-container1 {
   flex: 0 0 auto;
@@ -17,7 +20,6 @@
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
-  margin-left: var(--dl-space-space-threeunits);
   justify-content: center;
 }
 .account-component-image {
@@ -31,18 +33,21 @@
 .account-component-container2 {
   flex: 0 0 auto;
   width: auto;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 .account-component-text1 {
   font-size: 25px;
   font-style: normal;
   font-weight: 500;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  margin-bottom: var(--dl-space-space-unit);
 }
 .account-component-text2 {
   color: var(--dl-color-gray-500);
 }
-
+.account-component-root-class-name {
+  margin-bottom: var(--dl-space-space-twounits);
+}

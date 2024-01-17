@@ -11,11 +11,11 @@ import {ComponentsModule} from "../../components/components.module";
 })
 export class NotFound {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('NotFound - Diligent Jam Packed Wallaby')
+    this.title.setTitle('NotFound - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'NotFound - Diligent Jam Packed Wallaby',
+        content: 'NotFound - WebProject',
       },
     ])
   }

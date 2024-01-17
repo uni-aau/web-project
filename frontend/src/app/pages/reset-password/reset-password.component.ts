@@ -3,19 +3,19 @@ import { Title, Meta } from '@angular/platform-browser'
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
-  selector: 'app-imprint',
+  selector: 'reset-password',
   standalone: true,
   imports: [ComponentsModule],
-  templateUrl: 'imprint.component.html',
-  styleUrls: ['imprint.component.css'],
+  templateUrl: 'reset-password.component.html',
+  styleUrls: ['reset-password.component.css'],
 })
-export class Imprint {
+export class ResetPassword {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Imprint - WebProject')
+    this.title.setTitle('ResetPassword - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Imprint - WebProject',
+        content: 'ResetPassword - WebProject',
       },
     ])
   }

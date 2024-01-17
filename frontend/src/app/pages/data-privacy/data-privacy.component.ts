@@ -11,11 +11,11 @@ import {ComponentsModule} from "../../components/components.module";
 })
 export class DataPrivacy {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('DataPrivacy - Diligent Jam Packed Wallaby')
+    this.title.setTitle('DataPrivacy - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'DataPrivacy - Diligent Jam Packed Wallaby',
+        content: 'DataPrivacy - WebProject',
       },
     ])
   }

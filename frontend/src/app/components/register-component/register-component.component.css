@@ -1,5 +1,5 @@
-:host {
-  display: contents;
+:host { 
+  display: contents; 
 }
 .register-component-container {
   width: 368px;
@@ -11,7 +11,7 @@
   justify-content: flex-start;
 }
 .register-component-container1 {
-  flex: 0 0 auto;
+  flex: 1;
   width: 100%;
   display: flex;
   margin-top: var(--dl-space-space-twounits);

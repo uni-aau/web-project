@@ -3,7 +3,7 @@
 }
 .home-showcase-container {
   width: 100%;
-  height: 604px;
+  height: auto;
   display: flex;
   position: relative;
   align-items: center;
@@ -11,18 +11,19 @@
   justify-content: flex-start;
 }
 .home-showcase-text {
-  font-size: 2.2em;
-  padding-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-twounits);
 }
 .home-showcase-container1 {
   width: 100%;
-  height: 490px;
+  height: auto;
   display: flex;
   align-items: center;
+  margin-bottom: var(--dl-space-space-twounits);
   justify-content: flex-start;
 }
 .home-showcase-image {
   width: 60%;
+  height: 462px;
   align-self: stretch;
   object-fit: cover;
   padding-left: var(--dl-space-space-halfunit);
@@ -44,19 +45,21 @@
   font-style: normal;
   font-family: "Fira Sans";
   font-weight: 500;
-  padding-top: var(--dl-space-space-sixunits);
+  padding-top: var(--dl-space-space-fiveunits);
   padding-left: var(--dl-space-space-fourunits);
   padding-right: var(--dl-space-space-fourunits);
 }
 .home-showcase-text2 {
   height: 20%;
   align-self: stretch;
+  margin-top: var(--dl-space-space-halfunit);
   text-align: justify;
   padding-left: var(--dl-space-space-fourunits);
   padding-right: var(--dl-space-space-fourunits);
 }
 .home-showcase-button {
   color: var(--dl-color-gray-white);
+  margin-top: var(--dl-space-space-unit);
   transition: 0.3s;
   background-color: var(--dl-color-primary-100);
 }

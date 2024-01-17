@@ -10,6 +10,9 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+.imprint-component-text {
+  margin-bottom: var(--dl-space-space-twounits);
+}
 .imprint-component-text1 {
   width: 100%;
   height: 100%;

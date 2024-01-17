@@ -1,5 +1,5 @@
 <div class="home-showcase-container" [ngClass]="rootClassName">
-  <h1 id="title_home_showcase" class="home-showcase-text">
+  <h1 id="title_home_showcase" class="home-showcase-text heading">
     {{ title_home_showcase }}
   </h1>
   <div class="home-showcase-container1">
@@ -7,6 +7,7 @@
       id="image_home_showcase"
       [attr.alt]="image_alt_home_showcase"
       [attr.src]="image_src_home_showcase"
+      loading="lazy"
       class="home-showcase-image"
     />
     <div class="home-showcase-container2">

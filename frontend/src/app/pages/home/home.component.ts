@@ -7,15 +7,15 @@ import {ComponentsModule} from "../../components/components.module";
   standalone: true,
   imports: [ComponentsModule],
   templateUrl: 'home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['home.component.css'],
 })
 export class Home {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Diligent Jam Packed Wallaby')
+    this.title.setTitle('WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Diligent Jam Packed Wallaby',
+        content: 'WebProject',
       },
     ])
   }

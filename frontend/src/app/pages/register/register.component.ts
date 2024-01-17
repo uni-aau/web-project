@@ -11,11 +11,11 @@ import {ComponentsModule} from "../../components/components.module";
 })
 export class Register {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Register - Diligent Jam Packed Wallaby')
+    this.title.setTitle('Register - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Register - Diligent Jam Packed Wallaby',
+        content: 'Register - WebProject',
       },
     ])
   }
