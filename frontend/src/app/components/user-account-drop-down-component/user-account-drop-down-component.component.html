@@ -2,10 +2,7 @@
   class="user-account-drop-down-component-container"
   [ngClass]="rootClassName"
 >
-  <div
-    data-thq="thq-dropdown"
-    class="user-account-drop-down-component-thq-dropdown drop-down-main-element"
-  >
+  <div data-thq="thq-dropdown" class="drop-down-main-element">
     <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
       <svg
         viewBox="0 0 1024 1024"
@@ -32,10 +29,10 @@
       <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
         <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
           <div class="user-account-drop-down-component-container1">
-            <span class="user-account-drop-down-component-text03">
+            <span class="user-account-drop-down-component-text3">
               {{ user_settings_change_name_title }}
             </span>
-            <span class="user-account-drop-down-component-text04">
+            <span class="user-account-drop-down-component-text4">
               {{ user_settings_change_name_subtitle }}
             </span>
             <input
@@ -55,10 +52,10 @@
       <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
         <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
           <div class="user-account-drop-down-component-container2">
-            <span class="user-account-drop-down-component-text05">
+            <span class="user-account-drop-down-component-text5">
               {{ user_settings_change_mail_title }}
             </span>
-            <span class="user-account-drop-down-component-text06">
+            <span class="user-account-drop-down-component-text6">
               {{ user_settings_change_email_subtitle }}
             </span>
             <input
@@ -78,48 +75,20 @@
       <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
         <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
           <div class="user-account-drop-down-component-container3">
-            <span class="user-account-drop-down-component-text07">
-              {{ user_settings_change_password_title }}
-            </span>
-            <span class="user-account-drop-down-component-text08">
-              {{ user_settings_change_password_subtitle }}
-            </span>
-            <input
-              type="text"
-              [attr.placeholder]="user_settings_change_password_placeholder"
-              class="user-account-drop-down-component-textinput2 input"
-            />
-            <input
-              type="text"
-              [attr.placeholder]="user_settings_change_password_confirm_placeholder"
-              class="user-account-drop-down-component-textinput3 input"
-            />
-            <button
-              type="button"
-              class="user-account-drop-down-component-button2 button button_blue"
-            >
-              {{ button_save_password }}
-            </button>
-          </div>
-        </div>
-      </li>
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div class="user-account-drop-down-component-container4">
-            <span class="user-account-drop-down-component-text09">
+            <span class="user-account-drop-down-component-text7">
               {{ user_settings_change_username_title1 }}
             </span>
-            <span class="user-account-drop-down-component-text10">
+            <span class="user-account-drop-down-component-text8">
               {{ user_settings_change_username_subtitle }}
             </span>
             <input
               type="text"
               [attr.placeholder]="user_settings_change_username_placeholder"
-              class="user-account-drop-down-component-textinput4 input"
+              class="user-account-drop-down-component-textinput2 input"
             />
             <button
               type="button"
-              class="user-account-drop-down-component-button3 button button_blue"
+              class="user-account-drop-down-component-button2 button button_blue"
             >
               {{ button_save_username }}
             </button>

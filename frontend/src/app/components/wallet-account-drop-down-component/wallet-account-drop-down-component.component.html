@@ -1,0 +1,78 @@
+<div
+  class="wallet-account-drop-down-component-container"
+  [ngClass]="rootClassName"
+>
+  <div data-thq="thq-dropdown" class="drop-down-main-element">
+    <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
+      <svg
+        viewBox="0 0 1024 1024"
+        class="wallet-account-drop-down-component-icon"
+      >
+        <path
+          d="M504 466q44 12 73 24t61 33 49 53 17 76q0 62-41 101t-109 51v92h-128v-92q-66-14-109-56t-47-108h94q8 90 126 90 62 0 89-23t27-53q0-72-128-104-200-46-200-176 0-58 42-99t106-55v-92h128v94q66 16 101 60t37 102h-94q-4-90-108-90-52 0-83 22t-31 58q0 58 128 92z"
+        ></path>
+      </svg>
+      <span class="wallet-account-drop-down-component-text">
+        <span>Wallet</span>
+        <br />
+      </span>
+      <span class="wallet-account-drop-down-component-text3">
+        {{ wallet_amount }}
+      </span>
+      <div data-thq="thq-dropdown-arrow" class="drop-down-arrow">
+        <svg
+          viewBox="0 0 1024 1024"
+          class="wallet-account-drop-down-component-icon2 arror-style"
+        >
+          <path d="M426 726v-428l214 214z"></path>
+        </svg>
+      </div>
+    </div>
+    <ul data-thq="thq-dropdown-list" class="drop-down-list">
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
+          <div class="wallet-account-drop-down-component-container1">
+            <span class="wallet-account-drop-down-component-text4">
+              {{ wallet_deposit_money_title }}
+            </span>
+            <span class="wallet-account-drop-down-component-text5">
+              {{ wallet_deposit_money_subtitle }}
+            </span>
+            <button
+              type="button"
+              class="wallet-account-drop-down-component-button button_blue"
+            >
+              {{ button_deposit_money }}
+            </button>
+          </div>
+        </div>
+      </li>
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
+          <div class="wallet-account-drop-down-component-container2">
+            <span class="wallet-account-drop-down-component-text6">
+              {{ wallet_connect_wallet_title }}
+            </span>
+            <span class="wallet-account-drop-down-component-text7">
+              {{ wallet_connect_wallet_subtitle }}
+            </span>
+            <div class="wallet-account-drop-down-component-container3">
+              <button
+                type="button"
+                class="wallet-account-drop-down-component-button1 button_blue"
+              >
+                {{ button_connect_wallet }}
+              </button>
+              <button
+                type="button"
+                class="wallet-account-drop-down-component-button2 button_blue"
+              >
+                {{ button_remove_wallet1 }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
