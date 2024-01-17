@@ -38,11 +38,26 @@ Muss in Index rein
           var dropdownList = dropdown.querySelector('[data-thq="thq-dropdown-list"]');
 
           dropdown.addEventListener("click", function () {
-            console.log("Test")
+            console.log("Test");
+
+            // Close all other open dropdowns
+            dropdowns.forEach(function (otherDropdown) {
+              if (otherDropdown !== dropdown) {
+                otherDropdown.classList.remove("open");
+                var otherDropDownList = otherDropdown.querySelector('[data-thq="thq-dropdown-list"]')
+                if (otherDropDownList) {
+                  otherDropDownList.classList.remove("show");
+                }
+                console.log(otherDropDownList)
+              }
+            });
+
+            // Toggle the current dropdown
             dropdown.classList.toggle("open");
             dropdownList.classList.toggle("show");
           });
         });
       });
+
     </script>
 ```
