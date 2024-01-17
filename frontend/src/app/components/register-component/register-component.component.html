@@ -2,42 +2,52 @@
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name1"
   ></login-register-image-component>
-  <div class="register-component-container1">
-    <div class="register-component-container2">
-      <span class="register-component-text">
-        {{ register_first_name_title }}
-      </span>
-      <span class="register-component-text1">
-        {{ register_last_name_title }}
-      </span>
+  <form class="register-component-form">
+    <div class="register-component-container1">
+      <div class="register-component-container2">
+        <span class="register-component-text">
+          {{ register_first_name_title }}
+        </span>
+        <span class="register-component-text1">
+          {{ register_last_name_title }}
+        </span>
+      </div>
+      <div class="register-component-container3">
+        <input
+          type="text"
+          [attr.placeholder]="input_firstname_placeholder_text"
+          class="register-component-textinput input"
+        />
+        <input
+          type="text"
+          [attr.placeholder]="input_lastname_placeholder_text"
+          class="register-component-textinput1 input"
+        />
+      </div>
     </div>
-    <div class="register-component-container3">
-      <input
-        type="text"
-        [attr.placeholder]="input_firstname_placeholder_text"
-        class="register-component-textinput input"
-      />
-      <input
-        type="text"
-        [attr.placeholder]="input_lastname_placeholder_text"
-        class="register-component-textinput1 input"
-      />
+    <span class="register-component-text2">{{ register_username_title }}</span>
+    <input
+      type="text"
+      [attr.placeholder]="input_username_placeholder"
+      class="register-component-textinput2 input"
+    />
+    <span class="register-component-text3">{{ register_email_title }}</span>
+    <input
+      type="text"
+      [attr.placeholder]="input_email_placeholder"
+      class="register-component-textinput3 input"
+    />
+    <div class="register-component-container4">
+      <span class="register-component-text4">{{ login_password_title }}</span>
     </div>
-  </div>
-  <span class="register-component-text2">{{ login_username_title }}</span>
-  <input
-    type="text"
-    [attr.placeholder]="input_password_username_text"
-    class="register-component-textinput2 input"
-  />
-  <span class="register-component-text3">{{ login_password_title }}</span>
-  <input
-    type="password"
-    [attr.placeholder]="input_password_placeholder_text"
-    class="register-component-textinput3 input"
-  />
+    <input
+      type="password"
+      [attr.placeholder]="input_password_placeholder_text"
+      class="register-component-textinput4 input"
+    />
+  </form>
   <button type="button" class="register-component-button button">
     {{ register_button_text }}
   </button>
-  <span class="register-component-text4">{{ register_account_hint }}</span>
+  <span class="register-component-text5">{{ register_account_hint }}</span>
 </div>

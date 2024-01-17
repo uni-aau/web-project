@@ -7,13 +7,15 @@ import { Component, Input } from '@angular/core'
 })
 export class RegisterComponent {
   @Input()
-  input_lastname_placeholder_text: string = 'Enter last name'
+  input_email_placeholder: string = 'Enter email'
   @Input()
-  no_account_subtext: string = 'Click here to register'
+  input_lastname_placeholder_text: string = 'Enter last name'
   @Input()
   login_password_title: string = 'Password'
   @Input()
-  login_username_title: string = 'Username or email'
+  register_username_title: string = 'Username'
+  @Input()
+  register_email_title: string = 'Email'
   @Input()
   rootClassName: string = ''
   @Input()
@@ -30,6 +32,6 @@ export class RegisterComponent {
   @Input()
   register_last_name_title: string = 'Last Name'
   @Input()
-  input_password_username_text: string = 'Enter username or email'
+  input_username_placeholder: string = 'Enter username'
   constructor() {}
 }
