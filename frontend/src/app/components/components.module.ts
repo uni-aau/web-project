@@ -12,11 +12,18 @@ import {LoginComponent} from "./login-component/login-component.component";
 import {LoginRegisterImageComponent} from "./login-register-image-component/login-register-image-component.component";
 import {RegisterComponent} from "./register-component/register-component.component";
 import {NotFoundComponent} from "./not-found-component/not-found-component.component";
+import {
+  UserAccountDropDownComponent
+} from "./user-account-drop-down-component/user-account-drop-down-component.component";
+import {AccountComponent} from "./account-component/account-component.component";
+import {
+  UserAccountDropDownComponentNew
+} from "./user-account-drop-down-component-new/user-account-drop-down-component-new.component";
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, UserAccountDropDownComponentNew],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, UserAccountDropDownComponentNew],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

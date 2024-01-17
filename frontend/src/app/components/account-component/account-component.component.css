@@ -1,0 +1,48 @@
+:host { 
+  display: contents; 
+}
+.account-component-container {
+  width: 100%;
+  height: 175px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.account-component-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  margin-left: var(--dl-space-space-threeunits);
+  justify-content: center;
+}
+.account-component-image {
+  width: var(--dl-size-size-medium);
+  object-fit: cover;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  margin-right: var(--dl-space-space-twounits);
+  border-radius: var(--dl-radius-radius-round);
+}
+.account-component-container2 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.account-component-text1 {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.account-component-text2 {
+  color: var(--dl-color-gray-500);
+}
+
