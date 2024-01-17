@@ -17,13 +17,13 @@ import {
 } from "./user-account-drop-down-component/user-account-drop-down-component.component";
 import {AccountComponent} from "./account-component/account-component.component";
 import {
-  UserAccountDropDownComponentNew
-} from "./user-account-drop-down-component-new/user-account-drop-down-component-new.component";
+  WalletAccountDropDownComponent
+} from "./wallet-account-drop-down-component/wallet-account-drop-down-component.component";
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, UserAccountDropDownComponentNew],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, UserAccountDropDownComponentNew],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

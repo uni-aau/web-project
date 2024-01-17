@@ -6,10 +6,7 @@
     data-thq="thq-dropdown"
     class="user-account-drop-down-component-thq-dropdown drop-down-main-element"
   >
-    <div
-      data-thq="thq-dropdown-toggle"
-      class="user-account-drop-down-component-dropdown-toggle drop-down-toggle-main"
-    >
+    <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
       <svg
         viewBox="0 0 1024 1024"
         class="user-account-drop-down-component-icon"
@@ -19,13 +16,10 @@
         ></path>
       </svg>
       <span class="user-account-drop-down-component-text">
-        <span>User Account</span>
+        <span>User Settings</span>
         <br />
       </span>
-      <div
-        data-thq="thq-dropdown-arrow"
-        class="user-account-drop-down-component-dropdown-arrow drop-down-arrow"
-      >
+      <div data-thq="thq-dropdown-arrow" class="drop-down-arrow">
         <svg
           viewBox="0 0 1024 1024"
           class="user-account-drop-down-component-icon2 arror-style"
@@ -34,63 +28,102 @@
         </svg>
       </div>
     </div>
-    <ul
-      data-thq="thq-dropdown-list"
-      class="user-account-drop-down-component-dropdown-list drop-down-list"
-    >
-      <li
-        data-thq="thq-dropdown"
-        class="user-account-drop-down-component-dropdown drop-down-list-drop-down"
-      >
-        <div
-          data-thq="thq-dropdown-toggle"
-          class="user-account-drop-down-component-dropdown-toggle1"
-        >
+    <ul data-thq="thq-dropdown-list" class="drop-down-list">
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
           <div class="user-account-drop-down-component-container1">
-            <span class="user-account-drop-down-component-text3">
-              {{ text }}
+            <span class="user-account-drop-down-component-text03">
+              {{ user_settings_change_name_title }}
             </span>
-            <span class="user-account-drop-down-component-text4">
-              {{ text1 }}
+            <span class="user-account-drop-down-component-text04">
+              {{ user_settings_change_name_subtitle }}
             </span>
             <input
               type="text"
-              [attr.placeholder]="textinput_placeholder"
+              [attr.placeholder]="user_settings_input_name_placeholder"
               class="user-account-drop-down-component-textinput input"
             />
             <button
               type="button"
               class="user-account-drop-down-component-button button button_blue"
             >
-              {{ button }}
+              {{ button_save_name }}
             </button>
           </div>
         </div>
       </li>
-      <li
-        data-thq="thq-dropdown"
-        class="user-account-drop-down-component-dropdown1 drop-down-list-drop-down"
-      >
-        <div
-          data-thq="thq-dropdown-toggle"
-          class="user-account-drop-down-component-dropdown-toggle2"
-        >
-          <span class="user-account-drop-down-component-text5">
-            Sub-menu Item
-          </span>
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
+          <div class="user-account-drop-down-component-container2">
+            <span class="user-account-drop-down-component-text05">
+              {{ user_settings_change_mail_title }}
+            </span>
+            <span class="user-account-drop-down-component-text06">
+              {{ user_settings_change_email_subtitle }}
+            </span>
+            <input
+              type="text"
+              [attr.placeholder]="user_settings_change_email_placeholder"
+              class="user-account-drop-down-component-textinput1 input"
+            />
+            <button
+              type="button"
+              class="user-account-drop-down-component-button1 button button_blue"
+            >
+              {{ button_save_email }}
+            </button>
+          </div>
         </div>
       </li>
-      <li
-        data-thq="thq-dropdown"
-        class="user-account-drop-down-component-dropdown2 list-item drop-down-list-drop-down"
-      >
-        <div
-          data-thq="thq-dropdown-toggle"
-          class="user-account-drop-down-component-dropdown-toggle3"
-        >
-          <span class="user-account-drop-down-component-text6">
-            Sub-menu Item
-          </span>
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
+          <div class="user-account-drop-down-component-container3">
+            <span class="user-account-drop-down-component-text07">
+              {{ user_settings_change_password_title }}
+            </span>
+            <span class="user-account-drop-down-component-text08">
+              {{ user_settings_change_password_subtitle }}
+            </span>
+            <input
+              type="text"
+              [attr.placeholder]="user_settings_change_password_placeholder"
+              class="user-account-drop-down-component-textinput2 input"
+            />
+            <input
+              type="text"
+              [attr.placeholder]="user_settings_change_password_confirm_placeholder"
+              class="user-account-drop-down-component-textinput3 input"
+            />
+            <button
+              type="button"
+              class="user-account-drop-down-component-button2 button button_blue"
+            >
+              {{ button_save_password }}
+            </button>
+          </div>
+        </div>
+      </li>
+      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
+        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
+          <div class="user-account-drop-down-component-container4">
+            <span class="user-account-drop-down-component-text09">
+              {{ user_settings_change_username_title1 }}
+            </span>
+            <span class="user-account-drop-down-component-text10">
+              {{ user_settings_change_username_subtitle }}
+            </span>
+            <input
+              type="text"
+              [attr.placeholder]="user_settings_change_username_placeholder"
+              class="user-account-drop-down-component-textinput4 input"
+            />
+            <button
+              type="button"
+              class="user-account-drop-down-component-button3 button button_blue"
+            >
+              {{ button_save_username }}
+            </button>
+          </div>
         </div>
       </li>
     </ul>
