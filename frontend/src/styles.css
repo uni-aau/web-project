@@ -60,13 +60,14 @@
 .button-review {
   color: var(--dl-color-gray-black);
   font-size: 17px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
   transition: 0.3s;
   border-width: 0px;
   border-radius: 10px;
   background-color: #ffd814;
 }
 .button-review:hover {
-  background: #e6be0e;
+  background: #d4ae08;
 }
 .button-general {
   cursor: pointer;
