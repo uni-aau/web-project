@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class LoginRegisterImageComponent {
   @Input()
-  image_src: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
+  image_src: string = 'assets/logo_black.png'
   @Input()
   rootClassName: string = ''
   @Input()

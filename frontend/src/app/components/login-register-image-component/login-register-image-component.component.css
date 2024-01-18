@@ -18,7 +18,7 @@
   justify-content: center;
 }
 .login-register-image-component-image {
-  width: var(--dl-size-size-large);
+  width: auto;
   height: var(--dl-size-size-medium);
   object-fit: cover;
 }

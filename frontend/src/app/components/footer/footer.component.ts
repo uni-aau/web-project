@@ -14,7 +14,7 @@ export class Footer {
   image_alt: string = 'logo'
   @Input()
   image_src: string =
-    'https://presentation-website-assets.teleporthq.io/logos/logo.png'
+    'assets/logo_black.png'
   @Input()
   footer_copyright: string = '© 2024 JaLeHD, All Rights Reserved.'
   @Input()
