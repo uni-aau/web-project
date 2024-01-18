@@ -61,3 +61,7 @@ Muss in Index rein
 
     </script>
 ```
+
+
+### Popup
+https://jacobnarayan.com/blogs/how-to-easily-create-a-popup-with-angular-material

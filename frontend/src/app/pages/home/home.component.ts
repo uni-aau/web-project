@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import {ComponentsModule} from "../../components/components.module";
+import {PopupService} from "../../popup.service";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import {ComponentsModule} from "../../components/components.module";
   styleUrls: ['home.component.css'],
 })
 export class Home {
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private title: Title, private meta: Meta, private _dialog: PopupService) {
     this.title.setTitle('WebProject')
     this.meta.addTags([
       {
@@ -18,5 +19,9 @@ export class Home {
         content: 'WebProject',
       },
     ])
+  }
+
+  click() {
+    this._dialog.open({name: "First Last"})
   }
 }
