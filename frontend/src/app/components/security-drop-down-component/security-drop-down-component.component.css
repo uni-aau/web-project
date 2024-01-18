@@ -58,6 +58,11 @@
 }
 .security-drop-down-component-button {
   align-self: center;
+  transition: 0.3s;
   margin-bottom: var(--dl-space-space-halfunit);
+  background-color: var(--dl-color-danger-700);
+}
+.security-drop-down-component-button:hover {
+  background-color: #bd3131;
 }
 
