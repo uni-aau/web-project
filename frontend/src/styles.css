@@ -44,11 +44,8 @@
   border-radius: 4px;
   background-color: var(--dl-color-gray-white);
 }
-.button_blue {
+.button-blue {
   color: var(--dl-color-gray-white);
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.5rem 1rem;
   font-size: 17px;
   transition: 0.3s;
   border-color: var(--dl-color-gray-black);
@@ -56,9 +53,26 @@
   border-radius: 4px;
   background-color: #1f75cb;
 }
-.button_blue:hover {
+.button-blue:hover {
   color: var(--dl-color-gray-white);
   background: #084f9e;
+}
+.button-review {
+  color: var(--dl-color-gray-black);
+  font-size: 17px;
+  transition: 0.3s;
+  border-width: 0px;
+  border-radius: 10px;
+  background-color: #ffd814;
+}
+.button-review:hover {
+  background: #e6be0e;
+}
+.button-general {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  transition: 0.3s;
 }
 .input {
   color: var(--dl-color-gray-black);
@@ -168,9 +182,16 @@
   height: 35px;
   transition: 0.3s;
 }
-.hea {
-  font-size: 2.2em;
-  padding-bottom: var(--dl-space-space-twounits);
+.review-star {
+  width: 28px;
+  height: 28px;
+}
+.link-text-font {
+  color: #3582d0;
+  font-weight: 500;
+}
+.link-text-font:hover {
+  color: #1e76d2;
 }
 .Heading {
   font-size: 32px;
@@ -188,6 +209,3 @@
   text-transform: none;
   text-decoration: none;
 }
-
-
-

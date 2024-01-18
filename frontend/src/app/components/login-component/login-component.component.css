@@ -31,25 +31,16 @@
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .login-component-navlink {
-  color: #3582d0;
   font-size: 14px;
   align-self: flex-end;
   font-style: normal;
-  transition: 0.3s;
-  font-weight: 500;
   margin-bottom: var(--dl-space-space-twounits);
   text-decoration: none;
 }
-.login-component-navlink:hover {
-  color: #1e76d2;
-}
 .login-component-button {
-  color: var(--dl-color-gray-white);
   width: 100%;
-  font-size: 17px;
   transition: 0.3s;
   margin-bottom: var(--dl-space-space-halfunit);
-  background-color: #1f75cb;
 }
 .login-component-button:hover {
   color: var(--dl-color-gray-white);
@@ -61,15 +52,9 @@
   font-weight: 400;
 }
 .login-component-navlink1 {
-  color: #3582d0;
   font-size: 15px;
   font-style: normal;
-  transition: 0.3s;
-  font-weight: 500;
   text-decoration: none;
-}
-.login-component-navlink1:hover {
-  color: #1e76d2;
 }
 .login-component-root-class-name {
   align-self: center;

@@ -61,7 +61,6 @@
   color: var(--dl-color-gray-white);
   margin-top: var(--dl-space-space-unit);
   transition: 0.3s;
-  background-color: var(--dl-color-primary-100);
 }
 .home-showcase-button:hover {
   background: #012364;
