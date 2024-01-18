@@ -20,11 +20,13 @@ import {
   WalletAccountDropDownComponent
 } from "./wallet-account-drop-down-component/wallet-account-drop-down-component.component";
 import {SecurityDropDownComponent} from "./security-drop-down-component/security-drop-down-component.component";
+import {ResetPassword} from "../pages/reset-password/reset-password.component";
+import {ResetPasswordComponent} from "./reset-password-component/reset-password-component.component";
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

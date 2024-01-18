@@ -6,6 +6,7 @@ import {Login} from "./pages/login/login.component";
 import {Register} from "./pages/register/register.component";
 import {NotFound} from "./pages/not-found/not-found.component";
 import {Account} from "./pages/account/account.component";
+import {ResetPassword} from "./pages/reset-password/reset-password.component";
 
 export const routes: Routes = [
   {path: '', component: Home},
@@ -16,5 +17,6 @@ export const routes: Routes = [
   {path: 'register', component: Register},
   {path: 'account', component: Account},
   {path: 'not-found', component: NotFound},
+  {path: 'reset-password', component: ResetPassword},
   {path: '**', component: NotFound},
 ];
