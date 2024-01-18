@@ -1,0 +1,105 @@
+:host { 
+  display: contents; 
+}
+.new-review-component-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.new-review-component-container1 {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.new-review-component-text {
+  font-size: 1.6em;
+  margin-top: var(--dl-space-space-unit);
+  text-align: center;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.new-review-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: center;
+}
+.new-review-component-text1 {
+  font-size: 1.4em;
+  font-style: normal;
+  font-weight: 600;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.new-review-component-text2 {
+  font-size: 1.1em;
+  align-self: center;
+  margin-left: var(--dl-space-space-halfunit);
+}
+.new-review-component-container3 {
+  flex: 0 0 auto;
+  width: auto;
+  height: 24px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  justify-content: center;
+}
+.new-review-component-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-unit);
+  padding-right: var(--dl-space-space-unit);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-unit);
+  justify-content: flex-start;
+}
+.new-review-component-text3 {
+  font-size: 18px;
+  font-style: normal;
+  margin-top: var(--dl-space-space-halfunit);
+  font-weight: 600;
+}
+.new-review-component-textinput {
+  width: 100%;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.new-review-component-text4 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.new-review-component-textarea {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 50%;
+  max-height: 100%;
+  min-height: 30%;
+}
+.new-review-component-button {
+  color: black;
+  align-self: flex-end;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  border-width: 0px;
+  margin-right: var(--dl-space-space-halfunit);
+  border-radius: 10px;
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: #ffd814;
+}
+

@@ -1,0 +1,57 @@
+<div class="new-review-component-container" [ngClass]="rootClassName">
+  <div class="new-review-component-container1">
+    <h1 class="new-review-component-text">{{ review_heading }}</h1>
+    <div class="new-review-component-container2">
+      <span class="new-review-component-text1">{{ review_rating_title }}</span>
+      <span class="new-review-component-text2 link-text-font">
+        {{ review_delete_review }}
+      </span>
+    </div>
+    <div class="new-review-component-container3">
+      <svg viewBox="0 0 1024 1024" class="review-star">
+        <path
+          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ></path></svg
+      ><svg viewBox="0 0 1024 1024" class="review-star">
+        <path
+          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ></path></svg
+      ><svg viewBox="0 0 1024 1024" class="review-star">
+        <path
+          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ></path></svg
+      ><svg viewBox="0 0 1024 1024" class="review-star">
+        <path
+          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ></path></svg
+      ><svg viewBox="0 0 1024 1024" class="review-star">
+        <path
+          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ></path>
+      </svg>
+    </div>
+    <form class="new-review-component-form">
+      <span class="new-review-component-text3">{{ review_input_title }}</span>
+      <input
+        type="text"
+        [attr.placeholder]="review_input_title_placeholder"
+        required
+        class="new-review-component-textinput input"
+      />
+      <span class="new-review-component-text4">
+        {{ review_input_description }}
+      </span>
+      <textarea
+        [attr.placeholder]="review_input_description_placeholder"
+        disabled
+        class="new-review-component-textarea textarea"
+      ></textarea>
+    </form>
+  </div>
+  <button
+    type="button"
+    class="new-review-component-button button-general button-review"
+  >
+    {{ button_send }}
+  </button>
+</div>
