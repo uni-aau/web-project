@@ -7,16 +7,16 @@ import { Component, Input } from '@angular/core'
 })
 export class NewReviewComponent {
   @Input()
-  review_heading: string = 'Create Review'
-  @Input()
-  review_rating_title: string = 'Rating'
-  @Input()
-  review_delete_review: string = '(Delete)'
-  @Input()
   review_input_title: string = 'Enter Title'
   @Input()
   review_input_title_placeholder: string =
     'What is the most important information?'
+  @Input()
+  review_delete_review: string = '(Delete)'
+  @Input()
+  rootClassName: string = ''
+  @Input()
+  review_heading: string = 'Create Review'
   @Input()
   review_input_description: string = 'Enter a description for your rating'
   @Input()
@@ -25,6 +25,6 @@ export class NewReviewComponent {
   @Input()
   button_send: string = 'Send'
   @Input()
-  rootClassName: string = ''
+  review_rating_title: string = 'Rating'
   constructor() {}
 }

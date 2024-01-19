@@ -1,11 +1,11 @@
-import { Component } from '@angular/core'
-import { Title, Meta } from '@angular/platform-browser'
+import {Component} from '@angular/core'
+import {Meta, Title} from '@angular/platform-browser'
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
   selector: 'app-testpage',
-  imports: [ComponentsModule],
   standalone: true,
+  imports: [ComponentsModule],
   templateUrl: 'testpage.component.html',
   styleUrls: ['testpage.component.css'],
 })

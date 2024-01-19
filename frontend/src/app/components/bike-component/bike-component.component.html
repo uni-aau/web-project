@@ -1,0 +1,28 @@
+<div class="bike-component-container" [ngClass]="rootClassName">
+  <div class="bike-component-container1">
+    <div class="bike-component-container2">
+      <div class="bike-component-container3">
+        <div class="bike-component-container4">
+          <span class="bike-component-text">{{ text1 }}</span>
+          <span class="bike-info-texts">{{ text2 }}</span>
+          <span class="bike-info-texts">{{ text3 }}</span>
+          <span class="bike-info-texts">{{ text4 }}</span>
+          <span class="bike-info-texts">{{ text5 }}</span>
+        </div>
+      </div>
+      <div class="bike-component-container5">
+        <img
+          [attr.alt]="image_alt"
+          [attr.src]="bike_station_image_src"
+          class="bike-component-image"
+        />
+        <button
+          type="button"
+          class="bike-component-button button-blue button-general"
+        >
+          {{ button1 }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

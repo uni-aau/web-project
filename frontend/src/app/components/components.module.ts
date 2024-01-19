@@ -23,11 +23,12 @@ import {SecurityDropDownComponent} from "./security-drop-down-component/security
 import {ResetPasswordComponent} from "./reset-password-component/reset-password-component.component";
 import {NewReviewComponent} from "./new-review-component/new-review-component.component";
 import {BikeStationComponent} from "./bike-station-component/bike-station-component.component";
+import {BikeComponent} from "./bike-component/bike-component.component";
 
 @NgModule({
-  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent, NewReviewComponent, BikeStationComponent],
+  declarations: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, LoginRegisterImageComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent, NewReviewComponent, BikeStationComponent, BikeComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent, NewReviewComponent, BikeStationComponent],
+  exports: [HomeShowcase, HomeBikes, Navbar, Footer, ImprintComponent, DataPrivacyComponent, LoginComponent, RegisterComponent, NotFoundComponent, UserAccountDropDownComponent, AccountComponent, WalletAccountDropDownComponent, SecurityDropDownComponent, ResetPasswordComponent, NewReviewComponent, BikeStationComponent, BikeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {

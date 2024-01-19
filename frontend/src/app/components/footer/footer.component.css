@@ -3,15 +3,15 @@
 }
 .footer-footer {
   width: 100%;
-  bottom: 0;
   display: flex;
-  position: fixed;
   max-width: var(--dl-size-size-maxwidth);
+  margin-top: auto;
+  max-height: auto;
   align-items: center;
   padding-top: var(--dl-space-space-twounits);
   padding-left: var(--dl-space-space-threeunits);
   padding-right: var(--dl-space-space-threeunits);
-  padding-bottom: var(--dl-space-space-twounits);
+  padding-bottom: var(--dl-space-space-unit);
   justify-content: space-between;
 }
 .footer-navlink {
@@ -27,6 +27,7 @@
   width: 300px;
   height: auto;
   display: flex;
+  align-self: center;
   align-items: space-between;
   flex-direction: column;
 }
@@ -92,6 +93,7 @@
   width: 30px;
   height: 30px;
 }
+
 
 
 

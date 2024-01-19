@@ -44,7 +44,9 @@
   margin-right: var(--dl-space-space-halfunit);
 }
 .new-review-component-text2 {
-  font-size: 1.1em;
+  width: auto;
+  height: 100%;
+  font-size: 1.4em;
   align-self: center;
   margin-left: var(--dl-space-space-halfunit);
 }
@@ -71,7 +73,6 @@
 .new-review-component-text3 {
   font-size: 18px;
   font-style: normal;
-  margin-top: var(--dl-space-space-halfunit);
   font-weight: 600;
 }
 .new-review-component-textinput {
@@ -82,7 +83,6 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: var(--dl-space-space-halfunit);
 }
 .new-review-component-textarea {
   width: 100%;
@@ -94,7 +94,7 @@
 }
 .new-review-component-button {
   align-self: flex-end;
-  margin-right: var(--dl-space-space-halfunit);
+  border-width: 1px;
+  margin-right: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
-

@@ -57,5 +57,9 @@
   text-decoration: none;
 }
 .login-component-root-class-name {
+  top: 180px;
+  left: 416px;
+  position: static;
   align-self: center;
+  margin-top: 15%;
 }

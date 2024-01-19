@@ -15,6 +15,8 @@ export class Navbar {
   @Input()
   button_navbar_basket_text: string = 'Warenkorb (%s)'
   @Input()
+  image_src: string = '/assets/logo_black-1500w.png'
+  @Input()
   button_navbar_login_text: string = 'Login'
   @Input()
   text_navbar_link2: string = 'Bike Stations'

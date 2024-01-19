@@ -1,11 +1,7 @@
 <div class="navbar-container" [ngClass]="rootClassName">
   <header data-thq="thq-navbar" class="navbar-navbar-interactive">
     <a routerLink="/" class="navbar-navlink">
-      <img
-        alt="logo"
-        src="assets/logo_black.png"
-        class="navbar-image"
-      />
+      <img alt="logo" [attr.src]="image_src" class="navbar-image" />
     </a>
     <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
       <nav class="navbar-links">

@@ -60,10 +60,10 @@
 .button-review {
   color: var(--dl-color-gray-black);
   font-size: 17px;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  box-shadow: 3px 3px 10px 0px #d4d4d4;
   transition: 0.3s;
   border-width: 0px;
-  border-radius: 14px;
+  border-radius: 4px;
   background-color: #ffd814;
 }
 .button-review:hover {
@@ -193,6 +193,11 @@
 }
 .link-text-font:hover {
   color: #1e76d2;
+}
+.bike-info-texts {
+  font-size: 17px;
+  align-self: flex-start;
+  margin-bottom: 5px;
 }
 .Heading {
   font-size: 32px;

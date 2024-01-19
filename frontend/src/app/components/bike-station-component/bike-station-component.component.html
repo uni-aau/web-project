@@ -3,14 +3,17 @@
     <div class="bike-station-component-container2">
       <div class="bike-station-component-container3">
         <div class="bike-station-component-container4">
-          <div class="bike-station-component-container5">
-            <span class="bike-station-component-text">{{ text }}</span>
-            <span class="bike-station-component-text1">{{ text3 }}</span>
-          </div>
-          <span class="bike-station-component-text2">{{ text2 }}</span>
-          <span class="bike-station-component-text3">{{ text1 }}</span>
+          <span class="bike-station-component-text">
+            {{ bike_station_location_title }}
+          </span>
+          <span class="bike-station-component-text1">
+            {{ bike_station_description_title }}
+          </span>
+          <span class="bike-station-component-text2">
+            {{ bike_station_description }}
+          </span>
         </div>
-        <div class="bike-station-component-container6">
+        <div class="bike-station-component-container5">
           <svg viewBox="0 0 1024 1024" class="review-star">
             <path
               d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
@@ -27,31 +30,35 @@
             <path
               d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
             ></path></svg
-          ><svg viewBox="0 0 1024 1024" class="review-star">
+          ><svg
+            viewBox="0 0 1024 1024"
+            class="bike-station-component-icon08 review-star"
+          >
             <path
               d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
             ></path>
           </svg>
+          <span class="bike-station-component-text3">{{ text }}</span>
         </div>
       </div>
       <img
         [attr.alt]="image_alt"
-        [attr.src]="image_src"
+        [attr.src]="bike_station_image_src"
         class="bike-station-component-image"
       />
     </div>
-    <div class="bike-station-component-container7">
+    <div class="bike-station-component-container6">
       <button
         type="button"
         class="bike-station-component-button button-blue button-general"
       >
-        {{ button }}
+        {{ bike_station_button_rate }}
       </button>
       <button
         type="button"
         class="bike-station-component-button1 button-blue button-general"
       >
-        {{ button1 }}
+        {{ bike_station_button_more_infos }}
       </button>
     </div>
   </div>
