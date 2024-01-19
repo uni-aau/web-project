@@ -4,8 +4,8 @@ import {ComponentsModule} from "../../components/components.module";
 
 @Component({
   selector: 'app-testpage',
-  standalone: true,
   imports: [ComponentsModule],
+  standalone: true,
   templateUrl: 'testpage.component.html',
   styleUrls: ['testpage.component.css'],
 })

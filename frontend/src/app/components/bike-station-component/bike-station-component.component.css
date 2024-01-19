@@ -1,0 +1,111 @@
+:host {
+  display: contents;
+}
+.bike-station-component-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.bike-station-component-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+  flex-direction: column;
+}
+.bike-station-component-container2 {
+  flex: 0 0 auto;
+  width: auto;
+  height: 150px;
+  display: flex;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: flex-start;
+}
+.bike-station-component-container3 {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 150px;
+  display: flex;
+  margin-right: var(--dl-space-space-twounits);
+  flex-direction: column;
+}
+.bike-station-component-container4 {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.bike-station-component-container5 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.bike-station-component-text {
+  width: 50%;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  padding-left: var(--dl-space-space-halfunit);
+}
+.bike-station-component-text1 {
+  width: 50%;
+  font-size: 19px;
+  text-align: center;
+}
+.bike-station-component-text2 {
+  width: 100%;
+  font-size: 19px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+}
+.bike-station-component-text3 {
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  text-align: justify;
+  padding-left: var(--dl-space-space-halfunit);
+}
+.bike-station-component-container6 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.bike-station-component-image {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.bike-station-component-container7 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: center;
+  justify-content: center;
+}
+.bike-station-component-button {
+  margin-right: var(--dl-space-space-twounits);
+}
+.bike-station-component-button1 {
+  margin-left: var(--dl-space-space-twounits);
+}
+
