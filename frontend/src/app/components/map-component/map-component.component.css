@@ -13,6 +13,7 @@
 .map-component-container1 {
   width: 100%;
   height: 100%;
+  padding-right: var(--dl-space-space-halfunit);
 }
 .map-component-container2 {
   display: contents;

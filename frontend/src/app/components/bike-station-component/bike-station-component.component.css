@@ -7,7 +7,7 @@
   display: flex;
   position: relative;
   align-items: center;
-  margin-bottom: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
   flex-direction: row;
   justify-content: center;
 }

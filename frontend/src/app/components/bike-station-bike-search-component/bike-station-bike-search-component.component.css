@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 .bike-station-bike-search-component-text {
-  margin-bottom: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 .bike-station-bike-search-component-container2 {
   flex: 0 0 auto;
@@ -32,6 +32,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 .bike-station-bike-search-component-container3 {
   flex: 0 0 auto;
@@ -44,7 +45,7 @@
 }
 .bike-station-bike-search-component-textinput {
   width: 100%;
-  margin-right: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-unit);
 }
 .bike-station-bike-search-component-root-class-name {
   width: 80%;
