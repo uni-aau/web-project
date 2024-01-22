@@ -7,18 +7,18 @@ import { Component, Input } from '@angular/core'
 })
 export class ResetPasswordComponent {
   @Input()
-  login_button_text: string = 'Login'
+  loginButtonText: string = 'Login'
   @Input()
-  already_have_account_text: string = 'Already account created?'
+  alreadyHaveAccountText: string = 'Already account created?'
   @Input()
-  already_have_account_subtext: string = 'Log in'
+  alreadyHaveAccountSubtext: string = 'Log in'
   @Input()
-  reset_password_hint: string =
+  resetPasswordHint: string =
     'You will receive a password reset link via your inserted email'
   @Input()
-  reset_pw_email_title: string = 'Email'
+  resetPwEmailTitle: string = 'Email'
   @Input()
-  input_email_placeholder: string = 'Enter email'
+  inputEmailPlaceholder: string = 'Enter email'
   @Input()
   rootClassName: string = ''
   constructor() {}

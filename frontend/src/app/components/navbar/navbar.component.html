@@ -1,13 +1,15 @@
 <div class="navbar-container" [ngClass]="rootClassName">
   <header data-thq="thq-navbar" class="navbar-navbar-interactive">
     <a routerLink="/" class="navbar-navlink">
-      <img alt="logo" [attr.src]="image_src" class="navbar-image" />
+      <img alt="logo" [attr.src]="imageSrc" class="navbar-image" />
     </a>
     <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
       <nav class="navbar-links">
-        <a routerLink="/" class="navbar-navlink1">{{ text_navbar_link31 }}</a>
-        <a routerLink="**" class="navbar-navlink2">{{ text_navbar_link2 }}</a>
-        <a routerLink="**" class="navbar-navlink3">{{ text_navbar_link3 }}</a>
+        <a routerLink="/" class="navbar-navlink1">{{ textNavbarLink31 }}</a>
+        <a routerLink="/bike-stations" class="navbar-navlink2">
+          {{ textNavbarLink2 }}
+        </a>
+        <a routerLink="**" class="navbar-navlink3">{{ textNavbarLink3 }}</a>
       </nav>
       <div class="navbar-buttons">
         <select class="navbar-select list">
@@ -15,13 +17,13 @@
           <option value="English">English</option>
         </select>
         <button type="button" class="navbar-button button">
-          {{ button_navbar_basket_text }}
+          {{ buttonNavbarBasketText }}
         </button>
         <a routerLink="/login" class="navbar-navlink4 button">
-          {{ button_navbar_login_text }}
+          {{ buttonNavbarLoginText }}
         </a>
         <a routerLink="/register" class="navbar-navlink5 button">
-          {{ button_navbar_register_text }}
+          {{ buttonNavbarRegisterText }}
         </a>
       </div>
     </div>

@@ -8,6 +8,7 @@ import {NotFound} from "./pages/not-found/not-found.component";
 import {Account} from "./pages/account/account.component";
 import {ResetPassword} from "./pages/reset-password/reset-password.component";
 import {Testpage} from "./pages/testpage/testpage.component";
+import {BikeStations} from "./pages/bike-stations/bike-stations.component";
 
 export const routes: Routes = [
   {path: '', component: Home},
@@ -20,5 +21,6 @@ export const routes: Routes = [
   {path: 'not-found', component: NotFound},
   {path: 'test', component: Testpage},
   {path: 'reset-password', component: ResetPassword},
+  {path: 'bike-stations', component: BikeStations},
   {path: '**', component: NotFound},
 ];

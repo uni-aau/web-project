@@ -9,21 +9,21 @@ export class BikeComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  text1: string = '<Bikename>'
+  bikesBikeName: string = '<Bikename>'
   @Input()
-  text5: string = 'Status: %s'
+  bikesStatus: string = 'Status: %s'
   @Input()
-  button1: string = 'Book'
+  bikesBook: string = 'Book'
   @Input()
-  text3: string = 'Model: %s'
+  bikesModel: string = 'Model: %s'
   @Input()
-  bike_station_image_src: string =
+  bikesImageSrc: string =
     'https://play.teleporthq.io/static/svg/default-img.svg'
   @Input()
-  text2: string = 'Size: %s'
+  bikesSize: string = 'Size: %s'
   @Input()
-  text4: string = 'Type: %s'
+  bikesType: string = 'Type: %s'
   @Input()
-  image_alt: string = 'More Infos'
+  imageAlt: string = 'More Infos'
   constructor() {}
 }

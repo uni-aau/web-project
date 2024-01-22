@@ -199,6 +199,7 @@
 .navbar-root-class-name4 {
   margin-bottom: 0px;
 }
+
 @media(max-width: 767px) {
   .navbar-navbar-interactive {
     padding-left: var(--dl-space-space-twounits);

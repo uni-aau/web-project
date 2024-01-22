@@ -9,16 +9,15 @@ export class SecurityDropDownComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  user_settings_change_password_title: string = 'Change Password'
+  userSettingsChangePasswordTitle: string = 'Change Password'
   @Input()
-  user_settings_change_password_confirm_placeholder: string =
-    'Confirm new password'
+  userSettingsChangePasswordConfirmPlaceholder: string = 'Confirm new password'
   @Input()
-  user_settings_change_password_subtitle: string =
+  userSettingsChangePasswordSubtitle: string =
     'Update your password to ensure account security. Use a strong password!'
   @Input()
-  button_save_password: string = 'Change'
+  buttonSavePassword: string = 'Change'
   @Input()
-  user_settings_change_password_placeholder: string = 'Insert new password'
+  userSettingsChangePasswordPlaceholder: string = 'Insert new password'
   constructor() {}
 }

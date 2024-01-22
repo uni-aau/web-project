@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class LoginRegisterImageComponent {
   @Input()
-  image_src: string = 'assets/logo_black.png'
+  imageSrc: string = '/assets/logo_black.png'
   @Input()
   rootClassName: string = ''
   @Input()
-  image_alt: string = 'image'
+  imageAlt: string = 'image'
   constructor() {}
 }

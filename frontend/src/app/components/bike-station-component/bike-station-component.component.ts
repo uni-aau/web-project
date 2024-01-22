@@ -7,23 +7,23 @@ import { Component, Input } from '@angular/core'
 })
 export class BikeStationComponent {
   @Input()
-  bike_station_description_title: string = '<Location>'
+  bikeStationDescriptionTitle: string = '<Location>'
   @Input()
   rootClassName: string = ''
   @Input()
-  image_alt: string = 'More Infos'
+  imageAlt: string = 'More Infos'
   @Input()
-  text: string = '(%s)'
+  bikeStationStarRatingNumber: string = '(%s)'
   @Input()
-  bike_station_description: string = 'Lorem ipsum dolor sit amet'
+  bikeStationDescription: string = 'Lorem ipsum dolor sit amet'
   @Input()
-  bike_station_button_rate: string = 'Rate'
+  bikeStationButtonRate: string = 'Rate'
   @Input()
-  bike_station_button_more_infos: string = 'More Infos'
+  bikeStationButtonMoreInfos: string = 'More Infos'
   @Input()
-  bike_station_location_title: string = '<Stationname>'
+  bikeStationLocationTitle: string = '<Stationname>'
   @Input()
-  bike_station_image_src: string =
+  bikeStationImageSrc: string =
     'https://play.teleporthq.io/static/svg/default-img.svg'
   constructor() {}
 }

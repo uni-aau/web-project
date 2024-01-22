@@ -1,0 +1,19 @@
+<div class="bike-station-search-component-container" [ngClass]="rootClassName">
+  <div class="bike-station-search-component-container1">
+    <h1 class="bike-station-search-component-text heading">
+      {{ bikeStationsTitle }}
+    </h1>
+    <div class="bike-station-search-component-container2">
+      <div class="bike-station-search-component-container3">
+        <input
+          type="text"
+          [attr.placeholder]="bikeStationsSearchInputPlaceholder"
+          class="bike-station-search-component-textinput input"
+        />
+        <button type="button" class="button-blue button-general">
+          {{ bikeStationsSearchButtonSearch }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

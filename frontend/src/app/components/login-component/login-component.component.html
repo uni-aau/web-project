@@ -2,29 +2,29 @@
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name"
   ></login-register-image-component>
-  <span class="login-component-text">{{ login_username_title }}</span>
+  <span class="login-component-text">{{ loginUsernameTitle }}</span>
   <input
     type="text"
-    [attr.placeholder]="input_password_username_text"
+    [attr.placeholder]="inputPasswordUsernameText"
     class="login-component-textinput input"
   />
-  <span class="login-component-text1">{{ login_password_title }}</span>
+  <span class="login-component-text1">{{ loginPasswordTitle }}</span>
   <input
     type="password"
-    [attr.placeholder]="input_password_placeholder_text"
+    [attr.placeholder]="inputPasswordPlaceholderText"
     class="login-component-textinput1 input"
   />
   <a
     routerLink="/reset-password"
     class="login-component-navlink link-text-font"
   >
-    {{ forgot_password_text }}
+    {{ forgotPasswordText }}
   </a>
   <button type="button" class="login-component-button button button-blue">
-    {{ login_button_text }}
+    {{ loginButtonText }}
   </button>
-  <span class="login-component-text2">{{ no_account }}</span>
+  <span class="login-component-text2">{{ noAccount }}</span>
   <a routerLink="/register" class="login-component-navlink1 link-text-font">
-    {{ no_account_subtext }}
+    {{ noAccountSubtext }}
   </a>
 </div>

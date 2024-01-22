@@ -7,21 +7,21 @@ import { Component, Input } from '@angular/core'
 })
 export class HomeShowcase {
   @Input()
-  text_home_showcase: string =
+  textHomeShowcase: string =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere sapien nibh, quis maximus libero faucibus non.'
   @Input()
-  image_alt_home_showcase: string = 'image'
+  imageAltHomeShowcase: string = 'image'
   @Input()
-  title_home_showcase: string = 'Pedal Paradise'
+  titleHomeShowcase: string = 'Pedal Paradise'
   @Input()
   rootClassName: string = ''
   @Input()
-  image_src_home_showcase: string =
+  imageSrcHomeShowcase: string =
     'https://play.teleporthq.io/static/svg/default-img.svg'
   @Input()
-  heading_home_showcase: string =
+  headingHomeShowcase: string =
     'Bike Rental mit geringen Kosten und langem Fahren'
   @Input()
-  button_text_home_showcase: string = '>> Rent Now'
+  buttonTextHomeShowcase: string = '>> Rent Now'
   constructor() {}
 }

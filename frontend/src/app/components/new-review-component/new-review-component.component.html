@@ -1,10 +1,10 @@
 <div class="new-review-component-container" [ngClass]="rootClassName">
   <div class="new-review-component-container1">
-    <h1 class="new-review-component-text">{{ review_heading }}</h1>
+    <h1 class="new-review-component-text">{{ reviewHeading }}</h1>
     <div class="new-review-component-container2">
-      <span class="new-review-component-text1">{{ review_rating_title }}</span>
+      <span class="new-review-component-text1">{{ reviewRatingTitle }}</span>
       <span class="new-review-component-text2 link-text-font">
-        {{ review_delete_review }}
+        {{ reviewDeleteReview }}
       </span>
     </div>
     <div class="new-review-component-container3">
@@ -31,26 +31,26 @@
       </svg>
     </div>
     <form class="new-review-component-form">
-      <span class="new-review-component-text3">{{ review_input_title }}</span>
+      <span class="new-review-component-text3">{{ reviewInputTitle }}</span>
       <input
         type="text"
         required
-        [attr.placeholder]="review_input_title_placeholder"
+        [attr.placeholder]="reviewInputTitlePlaceholder"
         class="new-review-component-textinput input"
       />
       <span class="new-review-component-text4">
-        {{ review_input_description }}
+        {{ reviewInputDescription }}
       </span>
       <textarea
-        [attr.placeholder]="review_input_description_placeholder"
+        [attr.placeholder]="reviewInputDescriptionPlaceholder"
         class="new-review-component-textarea textarea"
       ></textarea>
     </form>
   </div>
   <button
     type="button"
-    class="new-review-component-button button-general button-blue"
+    class="new-review-component-button button-blue button-general"
   >
-    {{ button_send }}
+    {{ buttonSend }}
   </button>
 </div>

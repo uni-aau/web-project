@@ -2,27 +2,29 @@
   display: contents; 
 }
 .bike-component-container {
-  width: auto;
+  width: 80%;
   height: auto;
   display: flex;
   position: relative;
   align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
   flex-direction: row;
   justify-content: center;
 }
 .bike-component-container1 {
   flex: 0 0 auto;
-  width: auto;
+  width: 100%;
   display: flex;
   box-shadow: 3px 3px 10px 0px #d4d4d4;
   align-items: flex-start;
   border-radius: var(--dl-radius-radius-radius4);
+  margin-bottom: var(--dl-space-space-threeunits);
   flex-direction: column;
   background-color: #f5f5f5;
 }
 .bike-component-container2 {
   flex: 0 0 auto;
-  width: auto;
+  width: 100%;
   height: 150px;
   display: flex;
   margin-top: var(--dl-space-space-halfunit);
@@ -30,7 +32,7 @@
 }
 .bike-component-container3 {
   flex: 0 0 auto;
-  width: 250px;
+  width: 50%;
   height: 150px;
   display: flex;
   flex-direction: column;
@@ -54,7 +56,7 @@
 }
 .bike-component-container5 {
   flex: 0 0 auto;
-  width: 200px;
+  width: 50%;
   height: 100%;
   display: flex;
   margin-right: var(--dl-space-space-halfunit);
@@ -63,14 +65,30 @@
 .bike-component-image {
   width: 200px;
   height: 65%;
+  align-self: flex-end;
   object-fit: cover;
+  margin-right: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .bike-component-button {
   width: var(--dl-size-size-medium);
-  align-self: center;
+  align-self: flex-end;
+  transition: 0.3s;
+  margin-right: var(--dl-space-space-halfunit);
   background-color: green;
+}
+.bike-component-button:hover {
+  background-color: #015601;
 }
 .bike-component-root-class-name {
   margin-left: var(--dl-space-space-threeunits);
+}
+.bike-component-root-class-name1 {
+  margin-bottom: 0px;
+}
+.bike-component-root-class-name2 {
+  margin-bottom: 0px;
+}
+.bike-component-root-class-name3 {
+  margin-bottom: 0px;
 }

@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class NotFoundComponent {
   @Input()
-  subtext_404: string =
+  subtext404: string =
     'This page could not be found, please go back to our main page!'
   @Input()
-  title_404: string = '404 Not Found :('
+  title404: string = '404 Not Found :('
   @Input()
   rootClassName: string = ''
   constructor() {}
