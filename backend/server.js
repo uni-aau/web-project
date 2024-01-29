@@ -1,27 +1,42 @@
-let express = require('express');
-let cors = require('cors');
+const express = require('express');
+const cors = require('cors');
+const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session);
 
 const app = express();
-app.use(express.static('public')); // host public folder
-app.use(cors()); // Acccess-Control-Allow-Origin: *
 
-const pool = require('./pool');
+app.use(express.static('public'));
+app.use(cors());
+app.use(express.json());
 
-const session = require('express-session'); // Implement session based authentication (TODO)
-const pgSession = require('connect-pg-simple')(session); // Stare session data in PostgreSQL DB
+const userRoutes = require('./routes/user');
+const ticketRoutes = require('./routes/ticket');
+const stationRoutes = require('./routes/station');
+const bikeRoutes = require('./routes/bike');
+const bikeModelRoutes = require('./routes/bikeModel');
+const stationReviewRoutes = require('./routes/stationReview');
+const transactionRoutes = require('./routes/transaction');
+const bikeModelReviewRoutes = require('./routes/bikeModelReview');
+const walletRoutes = require('./routes/wallet');
+const parkingSpotRoutes = require('./routes/parkingSpot');
 
-/* For json parsing if needed
-let bodyParser = require('body-parser');
-app.use(bodyParser.json());
-*/
-
-// Session Stuff in blatt-6/ex4
+app.use('/api/users', userRoutes);
+app.use('/api/tickets', ticketRoutes);
+app.use('/api/stations', stationRoutes);
+app.use('/api/bikes', bikeRoutes);
+app.use('/api/bikeModels', bikeModelRoutes);
+app.use('/api/stationReviews', stationReviewRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/bikeModelReviews', bikeModelReviewRoutes);
+app.use('/api/wallets', walletRoutes);
+app.use('/api/parkingSpots', parkingSpotRoutes);
 
 app.get("/", (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.status(200).send('First structure, without frontend!');
-})
+    res.status(200).send('Bike Rental Service API');
+});
 
-let port = 3000;
-app.listen(port);
-console.log("Server running at: http://localhost:" + port);
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server läuft auf http://localhost:${port}`);
+});

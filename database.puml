@@ -1,0 +1,113 @@
+@startuml
+!theme plain
+
+entity "User" {
+  +user_id : int [PK]
+  --
+  username : varchar
+  email : varchar [Unique]
+  password_hash : varchar
+  +wallet_id : int [FK]
+}
+
+entity "Wallet" {
+  +wallet_id : int [PK]
+  --
+  balance : decimal
+}
+
+entity "Station" {
+  +station_id : int [PK]
+  --
+  name : varchar
+  location : varchar
+  longitude : decimal
+  latitude : decimal
+}
+
+entity "BikeCategory" {
+  +category_id : int [PK]
+  --
+  name : varchar
+}
+
+entity "BikeModel" {
+  +model_id : int [PK]
+  --
+  #category_id : int [FK]
+  name : varchar
+  description : text
+  wheel_size : int
+  extra_features : text
+}
+
+entity "Bike" {
+  +bike_id : int [PK]
+  --
+  #station_id : int [FK]
+  #model_id : int [FK]
+  is_available : boolean
+}
+
+entity "Ticket" {
+  +ticket_id : int [PK]
+  --
+  #user_id : int [FK]
+  #category_id : int [FK]
+  start_time : timestamp
+  end_time : timestamp
+  status : varchar
+}
+
+entity "Transaction" {
+  +transaction_id : int [PK]
+  --
+  #user_id : int [FK]
+  amount : decimal
+  transaction_type : varchar
+  timestamp : timestamp
+}
+
+entity "ParkingSpot" {
+  +spot_id : int [PK]
+  --
+  #station_id : int [FK]
+  spot_number : int
+  #category_id : int [FK]
+}
+
+entity "StationReview" {
+  +review_id : int [PK]
+  --
+  #station_id : int [FK]
+  #user_id : int [FK]
+  rating : int
+  comment : text
+  timestamp : timestamp
+}
+
+entity "BikeModelReview" {
+  +review_id : int [PK]
+  --
+  #model_id : int [FK]
+  #user_id : int [FK]
+  rating : int
+  comment : text
+  timestamp : timestamp
+}
+
+User ||--o{ Wallet : "owns"
+User ||--o{ Ticket : "books"
+User ||--o{ Transaction : "performs"
+User ||--o{ StationReview : "writes"
+User ||--o{ BikeModelReview : "writes"
+Station ||--o{ Bike : "hosts"
+Station ||--o{ StationReview : "receives"
+Station ||--o{ ParkingSpot : "contains"
+BikeCategory ||--o{ BikeModel : "includes"
+BikeModel ||--o{ Bike : "includes"
+BikeModel ||--o{ BikeModelReview : "receives"
+BikeCategory ||--o{ Ticket : "categorized in"
+BikeCategory ||--o{ ParkingSpot : "accommodates"
+
+@enduml

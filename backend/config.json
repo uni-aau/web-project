@@ -1,8 +1,9 @@
 {
   "database": {
-    "host": "",
-    "user": "",
-    "password": "",
-    "db": ""
+    "host": "localhost",
+    "user": "postgres",
+    "password": "postgres",
+    "db": "postgres",
+    "port": 5433
   }
 }
