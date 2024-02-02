@@ -19,6 +19,13 @@ const transactionRoutes = require('./routes/transaction');
 const bikeModelReviewRoutes = require('./routes/bikeModelReview');
 const walletRoutes = require('./routes/wallet');
 const parkingSpotRoutes = require('./routes/parkingSpot');
+const authRoutes = require('./routes/login')
+const checkToken = require('./auth')
+
+
+app.use('/api/auth', authRoutes);
+
+app.use(checkToken);
 
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);

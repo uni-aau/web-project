@@ -3,8 +3,8 @@ VALUES (100.00),
        (150.00);
 
 INSERT INTO "User" (username, email, password_hash, wallet_id)
-VALUES ('JohnDoe', 'john@example.com', 'hash1', 1),
-       ('JaneDoe', 'jane@example.com', 'hash2', 2);
+VALUES ('JohnDoe', 'john@example.com', '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
+       ('JaneDoe', 'jane@example.com', '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2);
 
 INSERT INTO Station (name, location, longitude, latitude)
 VALUES ('Central Station', 'Central Square', 10.123, 20.456),
