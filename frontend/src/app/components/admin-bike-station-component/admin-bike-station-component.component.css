@@ -1,0 +1,134 @@
+:host { 
+  display: contents; 
+}
+.admin-bike-station-component-container {
+  width: 95%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+  flex-direction: row;
+  justify-content: center;
+}
+.admin-bike-station-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  box-shadow: 0 3px 2px -2px gray;
+  align-items: flex-start;
+  border-bottom: 1px solid #D3D3D3;
+  flex-direction: column;
+}
+.admin-bike-station-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: flex-start;
+}
+.admin-bike-station-component-container3 {
+  flex: 0 0 auto;
+  width: 60%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+.admin-bike-station-component-container4 {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.admin-bike-station-component-text {
+  width: 100%;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  padding-left: var(--dl-space-space-halfunit);
+}
+.admin-bike-station-component-text1 {
+  width: 100%;
+  font-size: 17px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  padding-left: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.admin-bike-station-component-text2 {
+  color: var(--dl-color-gray-500);
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  text-align: justify;
+  padding-left: var(--dl-space-space-halfunit);
+}
+.admin-bike-station-component-container5 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  padding-left: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.admin-bike-station-component-icon08 {
+  margin-right: var(--dl-space-space-halfunit);
+}
+.admin-bike-station-component-text3 {
+  font-size: 17px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+}
+.admin-bike-station-component-container6 {
+  flex: 0 0 auto;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.admin-bike-station-component-image {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.admin-bike-station-component-container7 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  position: relative;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: center;
+  justify-content: center;
+}
+.admin-bike-station-component-button {
+  top: 6px;
+  left: var(--dl-space-space-halfunit);
+  position: absolute;
+}
+.admin-bike-station-component-container8 {
+  top: 6px;
+  flex: 0 0 auto;
+  right: var(--dl-space-space-halfunit);
+  width: auto;
+  height: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  justify-content: center;
+}
+.admin-bike-station-component-button1 {
+  margin-right: var(--dl-space-space-unit);
+}
+
+

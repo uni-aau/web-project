@@ -1,0 +1,50 @@
+:host { 
+  display: contents; 
+}
+.admin-bike-station-search-component-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: row;
+  justify-content: center;
+}
+.admin-bike-station-search-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.admin-bike-station-search-component-text {
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.admin-bike-station-search-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.admin-bike-station-search-component-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+}
+.admin-bike-station-search-component-textinput {
+  width: 100%;
+  margin-right: var(--dl-space-space-unit);
+}
+.admin-bike-station-search-component-button1 {
+  margin-left: var(--dl-space-space-unit);
+}
+.admin-bike-station-search-component-root-class-name {
+  width: 95%;
+}

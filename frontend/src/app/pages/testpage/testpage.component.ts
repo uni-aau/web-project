@@ -1,5 +1,6 @@
-import {Component} from '@angular/core'
-import {Meta, Title} from '@angular/platform-browser'
+import { Component } from '@angular/core'
+import { Title, Meta } from '@angular/platform-browser'
+import {combineLatestAll} from "rxjs";
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
@@ -9,6 +10,7 @@ import {ComponentsModule} from "../../components/components.module";
   templateUrl: 'testpage.component.html',
   styleUrls: ['testpage.component.css'],
 })
+
 export class Testpage {
   constructor(private title: Title, private meta: Meta) {
     this.title.setTitle('Testpage - WebProject')
