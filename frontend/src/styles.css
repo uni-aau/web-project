@@ -57,6 +57,30 @@
   color: var(--dl-color-gray-white);
   background: #084f9e;
 }
+.button-red {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #c91313;
+}
+.button-red:hover {
+  background-color: #a20b0b;
+}
+.button-green {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #1b831a;
+}
+.button-green:hover {
+  background-color: #127f11;
+}
 .button-review {
   color: var(--dl-color-gray-black);
   font-size: 17px;

@@ -98,3 +98,8 @@
   margin-right: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
+@media(max-width: 479px) {
+  .new-review-component-container1 {
+    width: 100%;
+  }
+}

@@ -128,3 +128,13 @@
 
 
 
+@media(max-width: 767px) {
+  .bike-station-component-container3 {
+    padding-right: var(--dl-space-space-halfunit);
+  }
+}
+@media(max-width: 479px) {
+  .bike-station-component-image {
+    min-width: 100px;
+  }
+}

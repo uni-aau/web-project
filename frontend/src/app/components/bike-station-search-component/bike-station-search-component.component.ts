@@ -7,12 +7,12 @@ import { Component, Input } from '@angular/core'
 })
 export class BikeStationSearchComponent {
   @Input()
+  bikeStationsSearchButtonSearch: string = 'Search'
+  @Input()
   rootClassName: string = ''
   @Input()
   bikeStationsTitle: string = 'Bike Stations'
   @Input()
   bikeStationsSearchInputPlaceholder: string = 'Search for bike stations'
-  @Input()
-  bikeStationsSearchButtonSearch: string = 'Search'
   constructor() {}
 }

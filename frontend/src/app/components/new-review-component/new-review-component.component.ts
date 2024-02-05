@@ -9,8 +9,7 @@ export class NewReviewComponent {
   @Input()
   reviewInputTitle: string = 'Enter Title'
   @Input()
-  reviewInputTitlePlaceholder: string =
-    'What is the most important information?'
+  reviewInputTitlePlaceholder: string = 'What is important?'
   @Input()
   reviewDeleteReview: string = '(Delete)'
   @Input()

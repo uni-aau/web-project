@@ -92,3 +92,14 @@
 .bike-component-root-class-name3 {
   margin-bottom: 0px;
 }
+
+@media(max-width: 991px) {
+  .bike-component-container4 {
+    padding-right: var(--dl-space-space-halfunit);
+  }
+}
+@media(max-width: 767px) {
+  .bike-component-image {
+    min-width: 100px;
+  }
+}
