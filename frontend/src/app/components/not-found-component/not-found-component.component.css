@@ -7,7 +7,11 @@
   display: flex;
   position: relative;
   align-items: center;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
   flex-direction: column;
+  padding-bottom: var(--dl-space-space-halfunit);
   justify-content: flex-start;
 }
 .not-found-component-text {

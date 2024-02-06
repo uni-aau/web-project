@@ -1,9 +1,6 @@
-<div
-  class="user-account-drop-down-component-container"
-  [ngClass]="rootClassName"
->
-  <div data-thq="thq-dropdown" class="drop-down-main-element">
-    <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
+<div class="drop-down-component" [ngClass]="rootClassName">
+  <div class="drop-down-main-element">
+    <div class="drop-down-toggle-main">
       <svg
         viewBox="0 0 1024 1024"
         class="user-account-drop-down-component-icon"
@@ -16,85 +13,88 @@
         <span>User Settings</span>
         <br />
       </span>
-      <div data-thq="thq-dropdown-arrow" class="drop-down-arrow">
-        <svg
-          viewBox="0 0 1024 1024"
-          class="user-account-drop-down-component-icon2 arror-style"
-        >
-          <path d="M426 726v-428l214 214z"></path>
+      <div class="drop-down-arrow">
+        <svg viewBox="0 0 1024 1024" class="arror-style">
+          <path d="M298 426h428l-214 214z"></path>
         </svg>
       </div>
     </div>
-    <ul data-thq="thq-dropdown-list" class="drop-down-list">
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div class="user-account-drop-down-component-container1">
-            <span class="user-account-drop-down-component-text3">
-              {{ userSettingsChangeNameTitle }}
-            </span>
-            <span class="user-account-drop-down-component-text4">
-              {{ userSettingsChangeNameSubtitle }}
-            </span>
-            <input
-              type="text"
-              [attr.placeholder]="userSettingsInputNamePlaceholder"
-              class="user-account-drop-down-component-textinput input"
-            />
-            <button
-              type="button"
-              class="user-account-drop-down-component-button button-blue button-general"
-            >
-              {{ buttonSaveName }}
-            </button>
-          </div>
+  </div>
+  <div class="drop-down-list">
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div
+          class="drop-down-container-style user-account-drop-down-component-container07"
+        >
+          <span class="user-account-drop-down-component-text3">
+            {{ userSettingsChangeNameTitle }}
+          </span>
+          <span class="user-account-drop-down-component-text4">
+            {{ userSettingsChangeNameSubtitle }}
+          </span>
+          <input
+            type="text"
+            [attr.placeholder]="userSettingsInputNamePlaceholder"
+            class="input account-settings-input"
+          />
+          <button
+            type="button"
+            class="user-account-drop-down-component-button button-blue button-general"
+          >
+            {{ buttonSaveName }}
+          </button>
         </div>
-      </li>
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div class="user-account-drop-down-component-container2">
-            <span class="user-account-drop-down-component-text5">
-              {{ userSettingsChangeMailTitle }}
-            </span>
-            <span class="user-account-drop-down-component-text6">
-              {{ userSettingsChangeEmailSubtitle }}
-            </span>
-            <input
-              type="text"
-              [attr.placeholder]="userSettingsChangeEmailPlaceholder"
-              class="user-account-drop-down-component-textinput1 input"
-            />
-            <button
-              type="button"
-              class="user-account-drop-down-component-button1 button-blue button-general"
-            >
-              {{ buttonSaveEmail }}
-            </button>
-          </div>
+      </div>
+    </div>
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div
+          class="drop-down-container-style user-account-drop-down-component-container10"
+        >
+          <span class="user-account-drop-down-component-text5">
+            {{ userSettingsChangeMailTitle }}
+          </span>
+          <span class="user-account-drop-down-component-text6">
+            {{ userSettingsChangeEmailSubtitle }}
+          </span>
+          <input
+            type="text"
+            [attr.placeholder]="userSettingsChangeEmailPlaceholder"
+            class="input account-settings-input"
+          />
+          <button
+            type="button"
+            class="user-account-drop-down-component-button1 button-blue button-general"
+          >
+            {{ buttonSaveEmail }}
+          </button>
         </div>
-      </li>
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div class="user-account-drop-down-component-container3">
-            <span class="user-account-drop-down-component-text7">
-              {{ userSettingsChangeUsernameTitle1 }}
-            </span>
-            <span class="user-account-drop-down-component-text8">
-              {{ userSettingsChangeUsernameSubtitle }}
-            </span>
-            <input
-              type="text"
-              [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
-              class="user-account-drop-down-component-textinput2 input"
-            />
-            <button
-              type="button"
-              class="user-account-drop-down-component-button2 button-blue button-general"
-            >
-              {{ buttonSaveUsername }}
-            </button>
-          </div>
+      </div>
+    </div>
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div
+          class="drop-down-container-style user-account-drop-down-component-container13"
+        >
+          <span class="user-account-drop-down-component-text7">
+            {{ userSettingsChangeUsernameTitle1 }}
+          </span>
+          <span class="user-account-drop-down-component-text8">
+            {{ userSettingsChangeUsernameSubtitle }}
+          </span>
+          <input
+            type="text"
+            [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
+            class="input account-settings-input"
+          />
+          <button
+            type="button"
+            class="user-account-drop-down-component-button2 button-blue button-general"
+          >
+            {{ buttonSaveUsername }}
+          </button>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="security-drop-down-component-container" [ngClass]="rootClassName">
+<div class="drop-down-component" [ngClass]="rootClassName">
   <div data-thq="thq-dropdown" class="drop-down-main-element">
     <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
       <svg viewBox="0 0 1024 1024" class="security-drop-down-component-icon">
@@ -11,18 +11,15 @@
         <br />
       </span>
       <div data-thq="thq-dropdown-arrow" class="drop-down-arrow">
-        <svg
-          viewBox="0 0 1024 1024"
-          class="security-drop-down-component-icon2 arror-style"
-        >
-          <path d="M426 726v-428l214 214z"></path>
+        <svg viewBox="0 0 1024 1024" class="arror-style">
+          <path d="M298 426h428l-214 214z"></path>
         </svg>
       </div>
     </div>
     <ul data-thq="thq-dropdown-list" class="drop-down-list">
       <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
         <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div class="security-drop-down-component-container1">
+          <div class="drop-down-container-style">
             <span class="security-drop-down-component-text3">
               {{ userSettingsChangePasswordTitle }}
             </span>
@@ -32,12 +29,12 @@
             <input
               type="text"
               [attr.placeholder]="userSettingsChangePasswordPlaceholder"
-              class="security-drop-down-component-textinput input"
+              class="security-drop-down-component-textinput input account-settings-input"
             />
             <input
               type="text"
               [attr.placeholder]="userSettingsChangePasswordConfirmPlaceholder"
-              class="security-drop-down-component-textinput1 input"
+              class="input account-settings-input"
             />
             <button
               type="button"

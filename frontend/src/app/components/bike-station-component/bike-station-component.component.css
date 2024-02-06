@@ -107,16 +107,23 @@
   height: 50px;
   display: flex;
   position: relative;
+  align-self: flex-start;
   margin-top: var(--dl-space-space-halfunit);
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+.bike-station-component-container8 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-left: var(--dl-space-space-halfunit);
 }
 .bike-station-component-button {
-  top: 6px;
-  left: var(--dl-space-space-halfunit);
-  position: absolute;
+  margin-right: var(--dl-space-space-unit);
 }
-.bike-station-component-button1 {
+.bike-station-component-button2 {
   top: 6px;
   right: var(--dl-space-space-halfunit);
   position: absolute;
@@ -134,7 +141,35 @@
   }
 }
 @media(max-width: 479px) {
+  .bike-station-component-container2 {
+    height: auto;
+    flex-direction: column;
+  }
+  .bike-station-component-container3 {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .bike-station-component-container6 {
+    justify-content: center;
+  }
   .bike-station-component-image {
     min-width: 100px;
+    margin-right: 0px;
+  }
+  .bike-station-component-container7 {
+    height: 100%;
+    flex-direction: column;
+  }
+  .bike-station-component-button {
+    position: static;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .bike-station-component-button1 {
+    position: static;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .bike-station-component-button2 {
+    position: static;
   }
 }

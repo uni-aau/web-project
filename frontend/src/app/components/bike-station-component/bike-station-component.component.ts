@@ -13,6 +13,8 @@ export class BikeStationComponent {
   @Input()
   imageAlt: string = 'More Infos'
   @Input()
+  bikeStationButtonViewRatings: string = 'View Ratings'
+  @Input()
   bikeStationStarRatingNumber: string = '(%s)'
   @Input()
   bikeStationDescription: string = 'Lorem ipsum dolor sit amet'

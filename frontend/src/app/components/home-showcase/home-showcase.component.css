@@ -73,6 +73,7 @@
   .home-showcase-container2 {
     width: 39%;
     margin-left: 0px;
+    padding-left: var(--dl-space-space-halfunit);
   }
   .home-showcase-text1 {
     padding: 0px;

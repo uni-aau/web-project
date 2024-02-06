@@ -1,15 +1,6 @@
 :host { 
   display: contents; 
 }
-.wallet-account-drop-down-component-container {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
 .wallet-account-drop-down-component-icon {
   width: 24px;
   height: 24px;
@@ -33,15 +24,6 @@
   height: 35px;
   transition: 0.3s;
 }
-.wallet-account-drop-down-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
-}
 .wallet-account-drop-down-component-text4 {
   color: var(--dl-color-gray-black);
   font-size: 20px;
@@ -56,15 +38,6 @@
 .wallet-account-drop-down-component-button {
   align-self: center;
   margin-bottom: var(--dl-space-space-halfunit);
-}
-.wallet-account-drop-down-component-container2 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .wallet-account-drop-down-component-text6 {
   color: var(--dl-color-gray-black);
@@ -106,6 +79,27 @@
 .wallet-account-drop-down-component-button2:hover {
   background-color: var(--dl-color-danger-300);
 }
-.wallet-account-drop-down-component-root-class-name {
+.wallet-account-drop-down-component-root-class-name1 {
   margin-bottom: var(--dl-space-space-twounits);
+}
+
+@media(max-width: 479px) {
+  .wallet-account-drop-down-component-container1 {
+    align-items: center;
+  }
+  .wallet-account-drop-down-component-text4 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-container2 {
+    align-items: center;
+  }
+  .wallet-account-drop-down-component-text6 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-button1 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-button2 {
+    text-align: center;
+  }
 }

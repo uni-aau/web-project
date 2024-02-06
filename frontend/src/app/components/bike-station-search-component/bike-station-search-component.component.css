@@ -16,7 +16,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding-right: var(--dl-space-space-halfunit);
   flex-direction: column;
 }
 .bike-station-search-component-text {
