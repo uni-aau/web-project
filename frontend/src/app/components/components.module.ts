@@ -34,11 +34,12 @@ import {AdminBikeStationComponent} from "./admin-bike-station-component/admin-bi
 import {
   AdminBikeStationSearchComponent
 } from "./admin-bike-station-search-component/admin-bike-station-search-component.component";
+import {RatingComponent} from "./rating-component/rating-component.component";
 
 @NgModule({
-  declarations: [AccountComponent, BikeComponent, BikeStationBikeSearchComponent, BikeStationComponent, BikeStationSearchComponent, DataPrivacyComponent, Footer, HomeBikes, HomeShowcase, ImprintComponent, LoginComponent, LoginRegisterImageComponent, MapComponent, Navbar, NewReviewComponent, NotFoundComponent, RegisterComponent, ResetPasswordComponent, SecurityDropDownComponent, UserAccountDropDownComponent, WalletAccountDropDownComponent, AdminNavbar, AdminBikeStationComponent, AdminBikeStationSearchComponent],
+  declarations: [AccountComponent, BikeComponent, BikeStationBikeSearchComponent, BikeStationComponent, BikeStationSearchComponent, DataPrivacyComponent, Footer, HomeBikes, HomeShowcase, ImprintComponent, LoginComponent, LoginRegisterImageComponent, MapComponent, Navbar, NewReviewComponent, NotFoundComponent, RegisterComponent, ResetPasswordComponent, SecurityDropDownComponent, UserAccountDropDownComponent, WalletAccountDropDownComponent, AdminNavbar, AdminBikeStationComponent, AdminBikeStationSearchComponent, RatingComponent],
   imports: [CommonModule, RouterModule],
-  exports: [AccountComponent, BikeComponent, BikeStationBikeSearchComponent, BikeStationComponent, BikeStationSearchComponent, DataPrivacyComponent, Footer, HomeBikes, HomeShowcase, ImprintComponent, LoginComponent, LoginRegisterImageComponent, MapComponent, Navbar, NewReviewComponent, NotFoundComponent, RegisterComponent, ResetPasswordComponent, SecurityDropDownComponent, UserAccountDropDownComponent, WalletAccountDropDownComponent, AdminNavbar, AdminBikeStationComponent, AdminBikeStationSearchComponent],
+  exports: [AccountComponent, BikeComponent, BikeStationBikeSearchComponent, BikeStationComponent, BikeStationSearchComponent, DataPrivacyComponent, Footer, HomeBikes, HomeShowcase, ImprintComponent, LoginComponent, LoginRegisterImageComponent, MapComponent, Navbar, NewReviewComponent, NotFoundComponent, RegisterComponent, ResetPasswordComponent, SecurityDropDownComponent, UserAccountDropDownComponent, WalletAccountDropDownComponent, AdminNavbar, AdminBikeStationComponent, AdminBikeStationSearchComponent, NewReviewComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {
