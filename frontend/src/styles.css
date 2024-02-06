@@ -145,9 +145,7 @@
 
 .drop-down-list {
   left: 0%;
-  width: max-content;
   z-index: 100;
-  position: absolute;
   min-width: 100%;
   transition: 0.3s;
   align-items: stretch;
