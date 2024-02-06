@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
-import {CommonModule} from "@angular/common";
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
