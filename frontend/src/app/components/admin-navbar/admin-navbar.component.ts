@@ -7,26 +7,29 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminNavbar {
   @Input()
-  imageSrc1: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
+  navbarSettingsImage: string =
+    'https://play.teleporthq.io/static/svg/default-img.svg'
   @Input()
-  textNavbarLink31: string = 'Bike Stations'
+  navbarLinkBikeStations: string = 'Bike Stations'
   @Input()
-  textNavbarLink4: string = 'Models'
+  navbarLinkModels: string = 'Models'
   @Input()
-  imageSrc: string = '/assets/logo_black-1500w.png'
+  navbarImage: string = '/assets/logo_black-1500h.png'
   @Input()
-  textNavbarLink2: string = 'Bikes'
+  navbarLinkBikes: string = 'Bikes'
   @Input()
-  textNavbarLink41: string = 'User Management'
+  navbarLinkUserManagement: string = 'User Management'
   @Input()
-  textNavbarLink3: string = 'Categories'
+  navbarLinkCategories: string = 'Categories'
   @Input()
-  buttonAdminNavbarLogout: string = 'Logout'
+  navbarButtonLogout: string = 'Logout'
   @Input()
   imageAlt: string = 'image'
   @Input()
   rootClassName: string = ''
   @Input()
-  text: string = '<Benutzername>'
+  imageSrc: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
+  @Input()
+  imageAlt1: string = 'image'
   constructor() {}
 }

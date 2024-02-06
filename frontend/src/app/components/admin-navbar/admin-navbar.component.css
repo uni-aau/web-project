@@ -1,5 +1,5 @@
-:host {
-  display: contents;
+:host { 
+  display: contents; 
 }
 .admin-navbar-container {
   width: 100%;
@@ -98,17 +98,10 @@
 }
 .admin-navbar-button {
   transition: 0.3s;
+  margin-right: var(--dl-space-space-unit);
 }
 .admin-navbar-button:hover {
   background: whitesmoke;
-}
-.admin-navbar-container1 {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  margin-left: var(--dl-space-space-unit);
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .admin-navbar-image1 {
   width: var(--dl-size-size-small);
@@ -192,6 +185,12 @@
 .admin-navbar-login {
   margin-right: var(--dl-space-space-twounits);
 }
+.admin-navbar-image2 {
+  width: var(--dl-size-size-small);
+  height: var(--dl-size-size-small);
+  object-fit: cover;
+  border-radius: var(--dl-radius-radius-round);
+}
 .admin-navbar-icon04 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
@@ -206,6 +205,9 @@
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
 }
+
+
+
 
 
 @media(max-width: 767px) {

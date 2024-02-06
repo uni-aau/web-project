@@ -1,24 +1,24 @@
 <div class="admin-navbar-container" [ngClass]="rootClassName">
   <header data-thq="thq-navbar" class="admin-navbar-navbar-interactive">
     <a routerLink="/" class="admin-navbar-navlink">
-      <img alt="logo" [attr.src]="imageSrc" class="admin-navbar-image" />
+      <img alt="logo" [attr.src]="navbarImage" class="admin-navbar-image" />
     </a>
     <div data-thq="thq-navbar-nav" class="admin-navbar-desktop-menu">
       <nav class="admin-navbar-links">
-        <a routerLink="**" class="admin-navbar-navlink1">
-          {{ textNavbarLink31 }}
+        <a routerLink="/admin-bike-stations" class="admin-navbar-navlink1">
+          {{ navbarLinkBikeStations }}
         </a>
         <a routerLink="**" class="admin-navbar-navlink2">
-          {{ textNavbarLink2 }}
+          {{ navbarLinkBikes }}
         </a>
-        <a routerLink="**" class="admin-navbar-navlink3">
-          {{ textNavbarLink3 }}
+        <a routerLink="/admin-manage-categories" class="admin-navbar-navlink3">
+          {{ navbarLinkCategories }}
         </a>
-        <a routerLink="**" class="admin-navbar-navlink4">
-          {{ textNavbarLink4 }}
+        <a routerLink="/admin-manage-models" class="admin-navbar-navlink4">
+          {{ navbarLinkModels }}
         </a>
         <a routerLink="**" class="admin-navbar-navlink5">
-          {{ textNavbarLink41 }}
+          {{ navbarLinkUserManagement }}
         </a>
       </nav>
       <div class="admin-navbar-buttons">
@@ -30,15 +30,13 @@
           <option value="Option 3">Option 3</option>
         </select>
         <button type="button" class="admin-navbar-button button">
-          {{ buttonAdminNavbarLogout }}
+          {{ navbarButtonLogout }}
         </button>
-        <div class="admin-navbar-container1">
-          <img
-            [attr.alt]="imageAlt"
-            [attr.src]="imageSrc1"
-            class="admin-navbar-image1"
-          />
-        </div>
+        <img
+          [attr.alt]="imageAlt"
+          [attr.src]="navbarSettingsImage"
+          class="admin-navbar-image1"
+        />
       </div>
     </div>
     <div data-thq="thq-burger-menu" class="admin-navbar-burger-menu">
@@ -51,11 +49,7 @@
     <div data-thq="thq-mobile-menu" class="admin-navbar-mobile-menu">
       <div class="admin-navbar-nav">
         <div class="admin-navbar-top">
-          <img
-            alt="image"
-            src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-            class="admin-navbar-logo"
-          />
+          <img alt="image" [attr.src]="navbarImage" class="admin-navbar-logo" />
           <div data-thq="thq-close-menu" class="admin-navbar-close-menu">
             <svg viewBox="0 0 1024 1024" class="admin-navbar-icon02">
               <path
@@ -65,15 +59,21 @@
           </div>
         </div>
         <nav class="admin-navbar-links1">
-          <span class="admin-navbar-text">About</span>
-          <span class="admin-navbar-text1">Features</span>
-          <span class="admin-navbar-text2">Pricing</span>
-          <span class="admin-navbar-text3">Team</span>
-          <span class="admin-navbar-text4">Blog</span>
+          <span class="admin-navbar-text">{{ navbarLinkBikeStations }}</span>
+          <span class="admin-navbar-text1">{{ navbarLinkBikes }}</span>
+          <span class="admin-navbar-text2">{{ navbarLinkCategories }}</span>
+          <span class="admin-navbar-text3">{{ navbarLinkModels }}</span>
+          <span class="admin-navbar-text4">{{ navbarLinkUserManagement }}</span>
         </nav>
         <div class="admin-navbar-buttons1">
-          <button class="admin-navbar-login button">Login</button>
-          <button class="button">Register</button>
+          <button class="admin-navbar-login button">
+            {{ navbarButtonLogout }}
+          </button>
+          <img
+            [attr.src]="imageSrc"
+            [attr.alt]="imageAlt1"
+            class="admin-navbar-image2"
+          />
         </div>
       </div>
       <div>

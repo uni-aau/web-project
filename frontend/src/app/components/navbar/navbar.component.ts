@@ -9,18 +9,18 @@ export class Navbar {
   @Input()
   rootClassName: string = ''
   @Input()
-  textNavbarLink3: string = 'Pricing'
+  navbarLinkPricing: string = 'Pricing'
   @Input()
-  textNavbarLink31: string = 'About'
+  navbarLinkAbout: string = 'About'
   @Input()
-  buttonNavbarBasketText: string = 'Warenkorb (%s)'
+  navbarButtonBasket: string = 'Warenkorb (%s)'
   @Input()
   imageSrc: string = '/assets/logo_black.png'
   @Input()
-  buttonNavbarLoginText: string = 'Login'
+  navbarButtonLogin: string = 'Login'
   @Input()
-  textNavbarLink2: string = 'Bike Stations'
+  navbarLinkBikeStations: string = 'Bike Stations'
   @Input()
-  buttonNavbarRegisterText: string = 'Register'
+  navbarButtonRegister: string = 'Register'
   constructor() {}
 }

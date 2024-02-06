@@ -5,11 +5,11 @@
     </a>
     <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
       <nav class="navbar-links">
-        <a routerLink="/" class="navbar-navlink1">{{ textNavbarLink31 }}</a>
+        <a routerLink="/" class="navbar-navlink1">{{ navbarLinkAbout }}</a>
         <a routerLink="/bike-stations" class="navbar-navlink2">
-          {{ textNavbarLink2 }}
+          {{ navbarLinkBikeStations }}
         </a>
-        <a routerLink="**" class="navbar-navlink3">{{ textNavbarLink3 }}</a>
+        <a routerLink="**" class="navbar-navlink3">{{ navbarLinkPricing }}</a>
       </nav>
       <div class="navbar-buttons">
         <select class="navbar-select list">
@@ -17,13 +17,13 @@
           <option value="English">English</option>
         </select>
         <button type="button" class="navbar-button button">
-          {{ buttonNavbarBasketText }}
+          {{ navbarButtonBasket }}
         </button>
         <a routerLink="/login" class="navbar-navlink4 button">
-          {{ buttonNavbarLoginText }}
+          {{ navbarButtonLogin }}
         </a>
         <a routerLink="/register" class="navbar-navlink5 button">
-          {{ buttonNavbarRegisterText }}
+          {{ navbarButtonRegister }}
         </a>
       </div>
     </div>
@@ -37,11 +37,7 @@
     <div data-thq="thq-mobile-menu" class="navbar-mobile-menu">
       <div class="navbar-nav">
         <div class="navbar-top">
-          <img
-            alt="image"
-            src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-            class="navbar-logo"
-          />
+          <img alt="image" [attr.src]="imageSrc" class="navbar-logo" />
           <div data-thq="thq-close-menu" class="navbar-close-menu">
             <svg viewBox="0 0 1024 1024" class="navbar-icon02">
               <path
@@ -51,15 +47,19 @@
           </div>
         </div>
         <nav class="navbar-links1">
-          <span class="navbar-text">About</span>
-          <span class="navbar-text1">Features</span>
-          <span class="navbar-text2">Pricing</span>
-          <span class="navbar-text3">Team</span>
-          <span class="navbar-text4">Blog</span>
+          <a routerLink="/" class="navbar-navlink6">{{ navbarLinkAbout }}</a>
+          <a routerLink="/bike-stations" class="navbar-navlink7">
+            {{ navbarLinkBikeStations }}
+          </a>
+          <a routerLink="**" class="navbar-navlink8">{{ navbarLinkPricing }}</a>
         </nav>
         <div class="navbar-buttons1">
-          <button class="navbar-login button">Login</button>
-          <button class="button">Register</button>
+          <a routerLink="/login" class="navbar-login button">
+            {{ navbarButtonLogin }}
+          </a>
+          <a routerLink="/register" class="navbar-register button">
+            {{ navbarButtonRegister }}
+          </a>
         </div>
       </div>
       <div>
