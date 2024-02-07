@@ -111,7 +111,6 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100vh;
   display: none;
   padding: 32px;
   z-index: 100;
@@ -140,7 +139,7 @@
   align-items: center;
   justify-content: center;
 }
-.navbar-icon02 {
+.navbar-icon2 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
 }
@@ -176,20 +175,6 @@
 }
 .navbar-register {
   text-decoration: none;
-}
-.navbar-icon04 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.navbar-icon06 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.navbar-icon08 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
 }
 
 
