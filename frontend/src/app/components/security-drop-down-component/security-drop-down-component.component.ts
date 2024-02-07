@@ -11,13 +11,13 @@ export class SecurityDropDownComponent {
   @Input()
   userSettingsChangePasswordTitle: string = 'Change Password'
   @Input()
-  userSettingsChangePasswordConfirmPlaceholder: string = 'Confirm new password'
-  @Input()
   userSettingsChangePasswordSubtitle: string =
     'Update your password to ensure account security. Use a strong password!'
   @Input()
-  buttonSavePassword: string = 'Change'
-  @Input()
   userSettingsChangePasswordPlaceholder: string = 'Insert new password'
+  @Input()
+  userSettingsChangePasswordConfirmPlaceholder: string = 'Confirm new password'
+  @Input()
+  buttonSavePassword: string = 'Change'
   constructor() {}
 }

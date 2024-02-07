@@ -1,6 +1,6 @@
 <div class="drop-down-component" [ngClass]="rootClassName">
-  <div data-thq="thq-dropdown" class="drop-down-main-element">
-    <div data-thq="thq-dropdown-toggle" class="drop-down-toggle-main">
+  <div class="drop-down-main-element">
+    <div class="drop-down-toggle-main">
       <svg
         viewBox="0 0 1024 1024"
         class="wallet-account-drop-down-component-icon"
@@ -16,64 +16,57 @@
       <span class="wallet-account-drop-down-component-text3">
         {{ walletAmount }}
       </span>
-      <div data-thq="thq-dropdown-arrow" class="drop-down-arrow">
-        <svg
-          viewBox="0 0 1024 1024"
-          class="wallet-account-drop-down-component-icon2 arror-style"
-        >
-          <path d="M426 726v-428l214 214z"></path>
+      <div class="drop-down-arrow">
+        <svg viewBox="0 0 1024 1024" class="arrow-style">
+          <path d="M298 426h428l-214 214z"></path>
         </svg>
       </div>
     </div>
-    <ul data-thq="thq-dropdown-list" class="drop-down-list">
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div
-            class="drop-down-container-style wallet-account-drop-down-component-container1"
+  </div>
+  <div class="drop-down-list">
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div class="drop-down-container-style">
+          <span class="wallet-account-drop-down-component-text4">
+            {{ walletDepositMoneyTitle }}
+          </span>
+          <span class="wallet-account-drop-down-component-text5">
+            {{ walletDepositMoneySubtitle }}
+          </span>
+          <button
+            type="button"
+            class="wallet-account-drop-down-component-button button-blue button-general"
           >
-            <span class="wallet-account-drop-down-component-text4">
-              {{ walletDepositMoneyTitle }}
-            </span>
-            <span class="wallet-account-drop-down-component-text5">
-              {{ walletDepositMoneySubtitle }}
-            </span>
+            {{ buttonDepositMoney }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div class="drop-down-container-style">
+          <span class="wallet-account-drop-down-component-text6">
+            {{ walletConnectWalletTitle }}
+          </span>
+          <span class="wallet-account-drop-down-component-text7">
+            {{ walletConnectWalletSubtitle }}
+          </span>
+          <div class="wallet-account-drop-down-component-container11">
             <button
               type="button"
-              class="wallet-account-drop-down-component-button button-blue button-general"
+              class="wallet-account-drop-down-component-button1 button-blue button-general"
             >
-              {{ buttonDepositMoney }}
+              {{ buttonConnectWallet }}
+            </button>
+            <button
+              type="button"
+              class="wallet-account-drop-down-component-button2 button-blue button-general"
+            >
+              {{ buttonRemoveWallet1 }}
             </button>
           </div>
         </div>
-      </li>
-      <li data-thq="thq-dropdown" class="drop-down-list-drop-down">
-        <div data-thq="thq-dropdown-toggle" class="drop-down-toggle">
-          <div
-            class="drop-down-container-style wallet-account-drop-down-component-container2"
-          >
-            <span class="wallet-account-drop-down-component-text6">
-              {{ walletConnectWalletTitle }}
-            </span>
-            <span class="wallet-account-drop-down-component-text7">
-              {{ walletConnectWalletSubtitle }}
-            </span>
-            <div class="wallet-account-drop-down-component-container3">
-              <button
-                type="button"
-                class="wallet-account-drop-down-component-button1 button-blue button-general"
-              >
-                {{ buttonConnectWallet }}
-              </button>
-              <button
-                type="button"
-                class="wallet-account-drop-down-component-button2 button-blue button-general"
-              >
-                {{ buttonRemoveWallet1 }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>

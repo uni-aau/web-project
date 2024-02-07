@@ -7,51 +7,33 @@ import { Component, Input } from '@angular/core'
 })
 export class UserAccountDropDownComponent {
   @Input()
+  userSettingsInputNamePlaceholder: string = 'Insert your full name'
+  @Input()
+  userSettingsChangeUsernameTitle1: string = 'Update Username'
+  @Input()
+  userSettingsChangeMailTitle: string = 'Update E-Mail'
+  @Input()
+  userSettingsChangeEmailPlaceholder: string = 'Insert your new email'
+  @Input()
+  userSettingsChangeUsernamePlaceholder: string = 'Update username'
+  @Input()
+  buttonSaveName: string = 'Save'
+  @Input()
+  buttonSaveUsername: string = 'Save'
+  @Input()
+  buttonSaveEmail: string = 'Save'
+  @Input()
   userSettingsChangeNameTitle: string = 'Update Name'
   @Input()
   userSettingsChangeNameSubtitle: string =
     'Here you can change your name by inserting your first and last name'
   @Input()
-  userSettingsInputNamePlaceholder: string = 'Insert your full name'
-  @Input()
-  buttonSaveName: string = 'Save'
-  @Input()
-  rootClassName: string = ''
-  @Input()
-  userSettingsChangeNameTitle1: string = 'Update Name'
-  @Input()
-  userSettingsChangeNameSubtitle1: string =
-    'Here you can change your name by inserting your first and last name'
-  @Input()
-  userSettingsInputNamePlaceholder1: string = 'Insert your full name'
-  @Input()
-  buttonSaveName1: string = 'Save'
-  @Input()
-  userSettingsChangeNameTitle11: string = 'Update Name'
-  @Input()
-  userSettingsChangeNameSubtitle11: string =
-    'Here you can change your name by inserting your first and last name'
-  @Input()
-  userSettingsInputNamePlaceholder11: string = 'Insert your full name'
-  @Input()
-  buttonSaveName11: string = 'Save'
-  @Input()
-  userSettingsChangeMailTitle: string = 'Update E-Mail'
-  @Input()
-  userSettingsChangeEmailSubtitle: string =
-    'Change your email by inserting a new one in the input field below'
-  @Input()
-  userSettingsChangeEmailPlaceholder: string = 'Insert your new email'
-  @Input()
-  buttonSaveEmail: string = 'Save'
-  @Input()
-  userSettingsChangeUsernameTitle1: string = 'Update Username'
-  @Input()
   userSettingsChangeUsernameSubtitle: string =
     'Change your username with which you will be identified. This username has to be unique!'
   @Input()
-  userSettingsChangeUsernamePlaceholder: string = 'Update username'
+  rootClassName: string = ''
   @Input()
-  buttonSaveUsername: string = 'Save'
+  userSettingsChangeEmailSubtitle: string =
+    'Change your email by inserting a new one in the input field below'
   constructor() {}
 }

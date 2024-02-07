@@ -198,7 +198,7 @@
   position: absolute;
   transition: 0.3s;
 }
-.arror-style {
+.arrow-style {
   width: 40px;
   height: 35px;
   transition: 0.3s;
@@ -292,6 +292,9 @@
   }
 }
 @media(max-width: 479px) {
+  .drop-down-container-style {
+    align-items: center;
+  }
   .drop-down-component {
     width: 90%;
   }

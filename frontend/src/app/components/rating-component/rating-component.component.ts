@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class RatingComponent {
   @Input()
-  ratingTitle: string = 'Du Hurensohn'
+  ratingTitle: string = '%s'
   @Input()
   imageAlt: string = 'image'
   @Input()
