@@ -27,7 +27,7 @@
   margin-bottom: var(--dl-space-space-unit);
 }
 .user-account-drop-down-component-button {
-  align-self: center;
+  align-self: flex-end;
   margin-top: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
@@ -43,7 +43,7 @@
   margin-bottom: var(--dl-space-space-unit);
 }
 .user-account-drop-down-component-button1 {
-  align-self: center;
+  align-self: flex-end;
   margin-top: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
@@ -59,7 +59,7 @@
   margin-bottom: var(--dl-space-space-unit);
 }
 .user-account-drop-down-component-button2 {
-  align-self: center;
+  align-self: flex-end;
   margin-top: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
 }

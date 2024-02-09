@@ -31,7 +31,7 @@
   margin-bottom: var(--dl-space-space-unit);
 }
 .wallet-account-drop-down-component-button {
-  align-self: center;
+  align-self: flex-end;
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .wallet-account-drop-down-component-text6 {
@@ -52,7 +52,7 @@
   display: flex;
   align-self: center;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .wallet-account-drop-down-component-button1 {
   align-self: center;

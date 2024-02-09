@@ -30,12 +30,8 @@
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .security-drop-down-component-button {
-  align-self: center;
+  align-self: flex-end;
   margin-top: var(--dl-space-space-halfunit);
-  transition: 0.3s;
   margin-bottom: var(--dl-space-space-halfunit);
-}
-.security-drop-down-component-button:hover {
-  background-color: #bd3131;
 }
 
