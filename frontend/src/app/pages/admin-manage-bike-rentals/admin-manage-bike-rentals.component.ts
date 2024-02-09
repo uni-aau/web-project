@@ -3,19 +3,19 @@ import {Meta, Title} from '@angular/platform-browser'
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
-  selector: 'app-account',
+  selector: 'admin-manage-bike-rentals',
   standalone: true,
   imports: [ComponentsModule],
-  templateUrl: 'account.component.html',
-  styleUrls: ['account.component.css'],
+  templateUrl: 'admin-manage-bike-rentals.component.html',
+  styleUrls: ['admin-manage-bike-rentals.component.css'],
 })
-export class Account {
+export class AdminManageBikeRentals {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Account - WebProject')
+    this.title.setTitle('AdminManageBikeRentals - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Account - WebProject',
+        content: 'AdminManageBikeRentals - WebProject',
       },
     ])
   }

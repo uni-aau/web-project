@@ -4,8 +4,8 @@ import {ComponentsModule} from "../../components/components.module";
 
 @Component({
   selector: 'bike-stations',
-  imports: [ComponentsModule],
   standalone: true,
+  imports: [ComponentsModule],
   templateUrl: 'bike-stations.component.html',
   styleUrls: ['bike-stations.component.css'],
 })

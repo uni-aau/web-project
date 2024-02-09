@@ -1,7 +1,7 @@
 :host { 
   display: contents; 
 }
-.bike-stations-container {
+.admin-manage-bike-station-container {
   width: 100%;
   display: flex;
   overflow: auto;

@@ -3,19 +3,19 @@ import { Title, Meta } from '@angular/platform-browser'
 import {ComponentsModule} from "../../components/components.module";
 
 @Component({
-  selector: 'app-register',
+  selector: 'manage-tickets-user',
   standalone: true,
   imports: [ComponentsModule],
-  templateUrl: 'register.component.html',
-  styleUrls: ['register.component.css'],
+  templateUrl: 'manage-tickets-user.component.html',
+  styleUrls: ['manage-tickets-user.component.css'],
 })
-export class Register {
+export class ManageTicketsUser {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Register - WebProject')
+    this.title.setTitle('ManageTicketsUser - WebProject')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Register - WebProject',
+        content: 'ManageTicketsUser - WebProject',
       },
     ])
   }

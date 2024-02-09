@@ -4,8 +4,8 @@ import {ComponentsModule} from "../../components/components.module";
 
 @Component({
   selector: 'reset-password',
-  imports: [ComponentsModule],
   standalone: true,
+  imports: [ComponentsModule],
   templateUrl: 'reset-password.component.html',
   styleUrls: ['reset-password.component.css'],
 })
