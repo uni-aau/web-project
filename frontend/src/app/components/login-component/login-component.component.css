@@ -3,7 +3,7 @@
 }
 .login-component-container {
   width: 368px;
-  height: 501px;
+  height: auto;
   display: flex;
   position: relative;
   align-items: center;
@@ -51,9 +51,17 @@
   align-self: center;
   margin-top: 10%;
 }
+@media(max-width: 1200px) {
+  .login-component-root-class-name {
+    height: auto;
+  }
+}
 @media(max-width: 479px) {
   .login-component-container {
-    width: 100%;
+    width: 95%;
     padding: var(--dl-space-space-halfunit);
+  }
+  .login-component-root-class-name {
+    margin-top: 30%;
   }
 }

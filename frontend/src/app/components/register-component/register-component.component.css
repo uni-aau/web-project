@@ -101,7 +101,7 @@
 }
 @media(max-width: 479px) {
   .register-component-container {
-    width: 100%;
+    width: 95%;
     padding: var(--dl-space-space-halfunit);
   }
 }
