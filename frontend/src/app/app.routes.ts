@@ -17,6 +17,7 @@ import {AdminManageModels} from "./pages/admin-manage-models/admin-manage-models
 import {Booking} from "./pages/booking/booking.component";
 import {ManageTicketsUser} from "./pages/manage-tickets-user/manage-tickets-user.component";
 import {ReviewsList} from "./pages/reviews-list/reviews-list.component";
+import {AdminManageBikes} from "./pages/admin-manage-bikes/admin-manage-bikes.component";
 
 export const routes: Routes = [
   {path: '', component: Home},
@@ -25,6 +26,7 @@ export const routes: Routes = [
   {path: 'admin-manage-bike-rentals', component: AdminManageBikeRentals},
   {path: 'admin-manage-bike-station', component: AdminManageBikeStation},
   {path: 'admin-manage-categories', component: AdminManageCategories},
+  {path: 'admin-manage-bikes', component: AdminManageBikes},
   {path: 'admin-manage-models', component: AdminManageModels},
   {path: 'bike-stations', component: BikeStations},
   {path: 'booking', component: Booking},
