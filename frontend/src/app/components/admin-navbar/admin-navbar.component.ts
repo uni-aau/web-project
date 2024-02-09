@@ -7,8 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminNavbar {
   @Input()
-  navbarSettingsImage: string =
-    'https://play.teleporthq.io/static/svg/default-img.svg'
+  navbarSettingsImage: string = '/assets/no-image.svg'
   @Input()
   navbarLinkBikeStations: string = 'Bike Stations'
   @Input()
@@ -16,7 +15,11 @@ export class AdminNavbar {
   @Input()
   navbarImage: string = '/assets/logo_black-1500h.png'
   @Input()
+  imageAlt1: string = 'image'
+  @Input()
   navbarLinkBikes: string = 'Bikes'
+  @Input()
+  imageSrc: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
   @Input()
   navbarLinkUserManagement: string = 'User Management'
   @Input()
@@ -27,9 +30,5 @@ export class AdminNavbar {
   imageAlt: string = 'image'
   @Input()
   rootClassName: string = ''
-  @Input()
-  imageSrc: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
-  @Input()
-  imageAlt1: string = 'image'
   constructor() {}
 }

@@ -10,21 +10,9 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.login-component-text {
-  font-size: 18px;
-  align-self: flex-start;
-  font-style: normal;
-  font-weight: 600;
-}
 .login-component-textinput {
   width: 100%;
   margin-bottom: var(--dl-space-space-oneandhalfunits);
-}
-.login-component-text1 {
-  font-size: 18px;
-  align-self: flex-start;
-  font-style: normal;
-  font-weight: 600;
 }
 .login-component-textinput1 {
   width: 100%;
@@ -62,4 +50,10 @@
   position: static;
   align-self: center;
   margin-top: 10%;
+}
+@media(max-width: 479px) {
+  .login-component-container {
+    width: 100%;
+    padding: var(--dl-space-space-halfunit);
+  }
 }

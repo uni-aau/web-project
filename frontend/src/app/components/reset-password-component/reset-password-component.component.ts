@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class ResetPasswordComponent {
   @Input()
-  loginButtonText: string = 'Login'
+  loginButtonText: string = 'Reset Password'
   @Input()
   alreadyHaveAccountText: string = 'Already account created?'
   @Input()

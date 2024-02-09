@@ -1,0 +1,23 @@
+:host { 
+  display: contents; 
+}
+.booking-qr-code-popup-component-container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.booking-qr-code-popup-component-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media(max-width: 767px) {
+  .booking-qr-code-popup-component-container {
+    width: 200px;
+    height: 200px;
+  }
+}

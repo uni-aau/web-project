@@ -2,16 +2,18 @@
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name"
   ></login-register-image-component>
-  <span class="login-component-text">{{ loginUsernameTitle }}</span>
+  <span class="input-label-text">{{ loginUsernameTitle }}</span>
   <input
     type="text"
     [attr.placeholder]="inputPasswordUsernameText"
+    id="login-username-input"
     class="login-component-textinput input"
   />
-  <span class="login-component-text1">{{ loginPasswordTitle }}</span>
+  <span class="input-label-text">{{ loginPasswordTitle }}</span>
   <input
     type="password"
     [attr.placeholder]="inputPasswordPlaceholderText"
+    id="login-password-input"
     class="login-component-textinput1 input"
   />
   <a
@@ -20,7 +22,11 @@
   >
     {{ forgotPasswordText }}
   </a>
-  <button type="button" class="login-component-button button button-blue">
+  <button
+    type="button"
+    id="login-button"
+    class="login-component-button button button-blue"
+  >
     {{ loginButtonText }}
   </button>
   <span class="login-component-text2">{{ noAccount }}</span>

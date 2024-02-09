@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core'
 export class HomeShowcase {
   @Input()
   textHomeShowcase: string =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere sapien nibh, quis maximus libero faucibus non.'
+    'Explore our wide range of bikes, from sleek road models to rugged mountain options, innovative e-bikes, and many more! All designed to offer an unmatched cycling experience for every adventurer.'
   @Input()
   imageAltHomeShowcase: string = 'image'
   @Input()
@@ -16,11 +16,9 @@ export class HomeShowcase {
   @Input()
   rootClassName: string = ''
   @Input()
-  imageSrcHomeShowcase: string =
-    'https://play.teleporthq.io/static/svg/default-img.svg'
+  imageSrcHomeShowcase: string = '/assets/bikestation-1500w.png'
   @Input()
-  headingHomeShowcase: string =
-    'Bike Rental mit geringen Kosten und langem Fahren'
+  headingHomeShowcase: string = 'Your gateway to adventure on two wheels'
   @Input()
   buttonTextHomeShowcase: string = '>> Rent Now'
   constructor() {}

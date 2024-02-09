@@ -2,83 +2,45 @@
   display: contents; 
 }
 .bike-component-container {
-  width: 80%;
+  width: 100%;
   height: auto;
   display: flex;
   position: relative;
   align-items: center;
-  margin-bottom: var(--dl-space-space-threeunits);
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
   flex-direction: row;
   justify-content: center;
-}
-.bike-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  box-shadow: 3px 3px 10px 0px #d4d4d4;
-  align-items: flex-start;
-  border-radius: var(--dl-radius-radius-radius4);
-  margin-bottom: var(--dl-space-space-threeunits);
-  flex-direction: column;
-  background-color: #f5f5f5;
 }
 .bike-component-container2 {
   flex: 0 0 auto;
   width: 100%;
-  height: 150px;
+  height: auto;
   display: flex;
-  margin-top: var(--dl-space-space-halfunit);
   align-items: flex-start;
 }
 .bike-component-container3 {
   flex: 0 0 auto;
   width: 50%;
-  height: 150px;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 .bike-component-container4 {
-  width: auto;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: var(--dl-space-space-unit);
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.bike-component-text {
-  font-size: 20px;
-  align-self: center;
-  font-style: normal;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: var(--dl-space-space-halfunit);
-}
-.bike-component-container5 {
   flex: 0 0 auto;
   width: 50%;
   height: 100%;
   display: flex;
+  align-items: flex-end;
   margin-right: var(--dl-space-space-halfunit);
   flex-direction: column;
 }
 .bike-component-image {
   width: 200px;
-  height: 65%;
+  height: 120px;
   align-self: flex-end;
   object-fit: cover;
   margin-right: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
-}
-.bike-component-button {
-  width: var(--dl-size-size-medium);
-  align-self: flex-end;
-  transition: 0.3s;
-  margin-right: var(--dl-space-space-halfunit);
-  background-color: green;
-}
-.bike-component-button:hover {
-  background-color: #015601;
 }
 .bike-component-root-class-name {
   margin-left: var(--dl-space-space-threeunits);
@@ -92,17 +54,23 @@
 .bike-component-root-class-name3 {
   margin-bottom: 0px;
 }
-@media(max-width: 991px) {
-  .bike-component-container4 {
-    padding-right: var(--dl-space-space-halfunit);
-  }
-}
+
+
+
+
+
+
+
+
 @media(max-width: 767px) {
   .bike-component-image {
     min-width: 100px;
   }
 }
 @media(max-width: 479px) {
+  .bike-component-container1 {
+    width: 100%;
+  }
   .bike-component-container2 {
     height: 100%;
     flex-direction: column;
@@ -110,16 +78,13 @@
   .bike-component-container3 {
     width: 100%;
   }
-  .bike-component-container5 {
+  .bike-component-container4 {
     width: 100%;
+    align-items: center;
   }
   .bike-component-image {
     width: 40%;
     min-width: 30%;
     align-self: center;
-  }
-  .bike-component-button {
-    align-self: center;
-    margin-bottom: var(--dl-space-space-unit);
   }
 }

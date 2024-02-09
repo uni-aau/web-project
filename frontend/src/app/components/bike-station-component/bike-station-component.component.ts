@@ -25,7 +25,6 @@ export class BikeStationComponent {
   @Input()
   bikeStationLocationTitle: string = '<Stationname>'
   @Input()
-  bikeStationImageSrc: string =
-    'https://play.teleporthq.io/static/svg/default-img.svg'
+  bikeStationImageSrc: string = '/assets/no-image.svg'
   constructor() {}
 }

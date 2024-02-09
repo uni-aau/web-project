@@ -1,0 +1,29 @@
+:host { 
+  display: contents; 
+}
+.booking-ticket-history-component-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.booking-ticket-history-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.booking-ticket-history-component-root-class-name {
+  width: 50%;
+}
+@media(max-width: 767px) {
+  .booking-ticket-history-component-root-class-name {
+    width: 95%;
+    align-self: center;
+  }
+}

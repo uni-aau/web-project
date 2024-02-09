@@ -13,7 +13,7 @@ export class Footer {
   @Input()
   imageAlt: string = 'logo'
   @Input()
-  imageSrc: string = '/assets/logo_black.png'
+  imageSrc: string = '40007250-130a-4c14-a98c-29137ce9d520'
   @Input()
   footerCopyright: string = '© 2024 JaLeHD, All Rights Reserved.'
   @Input()

@@ -1,0 +1,59 @@
+:host { 
+  display: contents; 
+}
+.book-ticket-booking-information-component-container1 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.book-ticket-booking-information-component-container2 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.book-ticket-booking-information-component-text {
+  align-self: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.book-ticket-booking-information-component-icon {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s;
+}
+
+.book-ticket-booking-information-component-container3 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.book-ticket-booking-information-component-text1 {
+  align-self: center;
+}
+.book-ticket-booking-information-component-root-class-name {
+  width: 95%;
+}
+@media(max-width: 767px) {
+  .book-ticket-booking-information-component-container1 {
+    width: 100%;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .book-ticket-booking-information-component-container3 {
+    width: 100%;
+  }
+}
+@media(max-width: 479px) {
+  .book-ticket-booking-information-component-text {
+    width: 100%;
+  }
+}

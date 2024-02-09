@@ -1,0 +1,40 @@
+<div
+  class="admin-manage-bike-rentals-list-entry-container"
+  [ngClass]="rootClassName"
+>
+  <div class="model-bike-category-main-component">
+    <div class="admin-manage-bike-rentals-list-entry-container2">
+      <span class="model-bike-category-title">{{ bookedTypeEntryTitle }}</span>
+      <span class="model-bike-category-general-text">
+        {{ bookedTypeEntryBookedType }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ manageBikeRentalsRentedBy }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ bookedTypeEntryBookingDate }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ bookedTypeEntryRentingInformation }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ bookedTypeEntryDueDate }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ bookedTypeEntryStatus }}
+      </span>
+    </div>
+    <span class="model-bike-category-general-text">{{ text1 }}</span>
+    <div class="admin-manage-bike-rentals-list-entry-container3">
+      <button-show-qr-code
+        rootClassName="button-show-qr-code-root-class-name1"
+      ></button-show-qr-code>
+      <button-manual-bike-return
+        rootClassName="button-manual-bike-return-root-class-name"
+      ></button-manual-bike-return>
+      <button-cancel-booking-component
+        rootClassName="button-cancel-booking-component-root-class-name1"
+      ></button-cancel-booking-component>
+    </div>
+  </div>
+</div>

@@ -9,20 +9,19 @@ export class BikeComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  bikesBikeName: string = '<Bikename>'
+  bikesBikeName: string = '%s'
   @Input()
   bikesStatus: string = 'Status: %s'
   @Input()
-  bikesBook: string = 'Book'
-  @Input()
   bikesModel: string = 'Model: %s'
   @Input()
-  bikesImageSrc: string =
-    'https://play.teleporthq.io/static/svg/default-img.svg'
+  bikePrice: string = 'Price: %s'
+  @Input()
+  bikesImageSrc: string = '/assets/no-image.svg'
   @Input()
   bikesSize: string = 'Size: %s'
   @Input()
-  bikesType: string = 'Type: %s'
+  bikesType: string = 'Category: %s'
   @Input()
   imageAlt: string = 'More Infos'
   constructor() {}

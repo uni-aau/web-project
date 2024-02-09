@@ -1,0 +1,11 @@
+:host { 
+  display: contents; 
+}
+.button-show-qr-code-container {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+

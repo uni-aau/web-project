@@ -87,12 +87,17 @@
 .footer-icon2 {
   width: 30px;
   height: 30px;
-  margin-right: var(--dl-space-space-twounits);
 }
-.footer-icon4 {
-  width: 30px;
-  height: 30px;
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -111,6 +116,9 @@
     margin-left: var(--dl-space-space-unit);
     margin-right: var(--dl-space-space-unit);
   }
+  .footer-icon {
+    margin-right: var(--dl-space-space-halfunit);
+  }
 }
 @media(max-width: 479px) {
   .footer-footer {
@@ -124,5 +132,8 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: var(--dl-space-space-unit);
+  }
+  .footer-icon {
+    margin-right: var(--dl-space-space-twounits);
   }
 }

@@ -1,0 +1,18 @@
+:host { 
+  display: contents; 
+}
+.button-update-delete-component-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+}
+.button-update-delete-component-button {
+  margin-right: var(--dl-space-space-unit);
+}
+
+
+.button-update-delete-component-root-class-name2 {
+  display: none;
+}

@@ -1,0 +1,40 @@
+<div class="admin-manage-category-popup-component-container">
+  <span class="heading">{{ adminManageCategoryTitle }}</span>
+  <form class="admin-manage-category-popup-component-form">
+    <div class="admin-manage-category-popup-component-container1">
+      <div class="admin-manage-category-popup-component-container2">
+        <span class="input-label-text">{{ adminManageCategoryNameLabel }}</span>
+        <input
+          type="text"
+          id="manage-category-name-input"
+          [attr.placeholder]="adminManageCategoryInputPlaceholderName"
+          class="admin-manage-category-popup-component-textinput input"
+        />
+      </div>
+      <div class="admin-manage-category-popup-component-container3">
+        <span class="input-label-text">
+          {{ adminManageCategoryPriceLabel }}
+        </span>
+        <input
+          type="number"
+          id="manage-category-price-input"
+          [attr.placeholder]="adminManageCategoryInputPlaceholderPrice"
+          class="admin-manage-category-popup-component-textinput1 input"
+        />
+      </div>
+    </div>
+  </form>
+  <span class="admin-manage-category-popup-component-text3 input-label-text">
+    {{ adminManageCategoryAssignModels }}
+  </span>
+  <select
+    id="manage-category-models-selector"
+    class="admin-manage-category-popup-component-select selector-style"
+  >
+    <option value="Option 1">Option 1</option>
+    <option value="Option 3">Option 3</option>
+  </select>
+  <button-save-discard-component
+    rootClassName="button-save-discard-component-root-class-name"
+  ></button-save-discard-component>
+</div>

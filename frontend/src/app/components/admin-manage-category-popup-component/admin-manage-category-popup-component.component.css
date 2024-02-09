@@ -1,0 +1,62 @@
+:host { 
+  display: contents; 
+}
+.admin-manage-category-popup-component-container {
+  width: 500px;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.admin-manage-category-popup-component-form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-manage-category-popup-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.admin-manage-category-popup-component-container2 {
+  flex: 0 0 auto;
+  width: 65%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.admin-manage-category-popup-component-textinput {
+  width: 100%;
+}
+.admin-manage-category-popup-component-container3 {
+  flex: 0 0 auto;
+  width: 35%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.admin-manage-category-popup-component-textinput1 {
+  width: 100%;
+}
+.admin-manage-category-popup-component-text3 {
+  font-size: 22px;
+  align-self: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.admin-manage-category-popup-component-select {
+  width: 65%;
+  height: 40px;
+}

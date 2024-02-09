@@ -28,17 +28,20 @@
             {{ userSettingsChangePasswordSubtitle }}
           </span>
           <input
-            type="text"
+            type="password"
             [attr.placeholder]="userSettingsChangePasswordPlaceholder"
+            id="security-new-password-input"
             class="security-drop-down-component-textinput input account-settings-input"
           />
           <input
-            type="text"
+            type="password"
             [attr.placeholder]="userSettingsChangePasswordConfirmPlaceholder"
+            id="security-new-password-confirmation"
             class="input account-settings-input"
           />
           <button
             type="button"
+            id="security-change-button"
             class="security-drop-down-component-button button-general button-red"
           >
             {{ buttonSavePassword }}

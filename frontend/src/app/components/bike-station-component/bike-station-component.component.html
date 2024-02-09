@@ -3,7 +3,7 @@
     <div class="bike-station-component-container2">
       <div class="bike-station-component-container3">
         <div class="bike-station-component-container4">
-          <span class="bike-station-component-text">
+          <span class="bike-station-component-text model-bike-category-title">
             {{ bikeStationLocationTitle }}
           </span>
           <span class="bike-station-component-text1">
@@ -45,6 +45,7 @@
       </div>
       <div class="bike-station-component-container6">
         <img
+          id="bike-station-image"
           [attr.alt]="imageAlt"
           [attr.src]="bikeStationImageSrc"
           class="bike-station-component-image"
@@ -54,12 +55,14 @@
     <div class="bike-station-component-container7">
       <div class="bike-station-component-container8">
         <button
+          id="bike-station-rate-button"
           type="button"
           class="bike-station-component-button button-blue button-general"
         >
           {{ bikeStationButtonRate }}
         </button>
         <button
+          id="bike-station-view-ratings-button"
           type="button"
           class="button-blue button-general bike-station-component-button1"
         >
@@ -67,6 +70,7 @@
         </button>
       </div>
       <button
+        id="bike-station-more-infos-button"
         type="button"
         class="bike-station-component-button2 button-blue button-general"
       >

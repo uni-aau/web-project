@@ -44,11 +44,8 @@
   justify-content: flex-start;
 }
 .bike-station-component-text {
-  width: 100%;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
   padding-left: var(--dl-space-space-halfunit);
+  margin-bottom: 0px;
 }
 .bike-station-component-text1 {
   width: 100%;
@@ -159,6 +156,7 @@
   }
   .bike-station-component-container7 {
     height: 100%;
+    margin-bottom: var(--dl-space-space-halfunit);
     flex-direction: column;
   }
   .bike-station-component-button {

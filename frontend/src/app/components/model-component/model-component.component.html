@@ -1,0 +1,22 @@
+<div class="model-component-container" [ngClass]="rootClassName">
+  <div class="model-bike-category-main-component">
+    <div class="model-component-container2">
+      <span class="model-bike-category-title">{{ modelName }}</span>
+      <span class="model-bike-category-general-text">
+        {{ modelAssignedToCategory }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ modelStatusAvailbility }}
+      </span>
+      <span class="model-bike-category-general-text">{{ modelPrice }}</span>
+    </div>
+    <div class="list-button-container">
+      <button-update-delete-component
+        rootClassName="button-update-delete-component-root-class-name"
+      ></button-update-delete-component>
+      <button-book-component
+        rootClassName="button-book-component-root-class-name"
+      ></button-book-component>
+    </div>
+  </div>
+</div>

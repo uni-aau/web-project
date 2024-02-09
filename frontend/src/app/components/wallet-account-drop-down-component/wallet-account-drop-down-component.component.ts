@@ -7,23 +7,23 @@ import { Component, Input } from '@angular/core'
 })
 export class WalletAccountDropDownComponent {
   @Input()
-  rootClassName: string = ''
-  @Input()
-  walletAmount: string = '(Amount: %s$)'
-  @Input()
-  walletDepositMoneyTitle: string = 'Deposit Money'
+  walletConnectWalletSubtitle: string = 'Connect or remove your wallet'
   @Input()
   walletDepositMoneySubtitle: string =
     'Deposit money into your account wallet to be able to buy tickets'
   @Input()
+  buttonRemoveWallet1: string = 'Remove Wallet'
+  @Input()
+  walletDepositMoneyTitle: string = 'Deposit Money'
+  @Input()
   buttonDepositMoney: string = 'Deposit Money'
-  @Input()
-  walletConnectWalletTitle: string = 'Connect/Remove Wallet (%s)'
-  @Input()
-  walletConnectWalletSubtitle: string = 'Connect or remove your wallet'
   @Input()
   buttonConnectWallet: string = 'Connect Wallet'
   @Input()
-  buttonRemoveWallet1: string = 'Remove Wallet'
+  rootClassName: string = ''
+  @Input()
+  walletConnectWalletTitle: string = 'Connect/Remove Wallet (%s)'
+  @Input()
+  walletAmount: string = '(Current Amount: %s$)'
   constructor() {}
 }

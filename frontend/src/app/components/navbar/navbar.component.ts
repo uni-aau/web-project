@@ -13,8 +13,6 @@ export class Navbar {
   @Input()
   navbarLinkAbout: string = 'About'
   @Input()
-  navbarButtonBasket: string = 'Warenkorb (%s)'
-  @Input()
   imageSrc: string = '/assets/logo_black-1500h.png'
   @Input()
   navbarButtonLogin: string = 'Login'

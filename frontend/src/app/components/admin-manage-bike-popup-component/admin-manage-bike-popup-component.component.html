@@ -1,0 +1,59 @@
+<div class="admin-manage-bike-popup-component-container">
+  <span class="heading">{{ adminManageBikeTitle }}</span>
+  <form class="admin-manage-bike-popup-component-form">
+    <div class="admin-manage-bike-popup-component-container1">
+      <div class="admin-manage-bike-popup-component-container2">
+        <div class="admin-manage-bike-popup-component-container3">
+          <span class="input-label-text">{{ adminManageBikeNameLabel }}</span>
+          <input
+            type="text"
+            id="manage-bike-name-input"
+            [attr.placeholder]="adminManageBikeInputPlaceholderLongitude"
+            class="admin-manage-bike-popup-component-textinput input"
+          />
+        </div>
+        <div class="admin-manage-bike-popup-component-container4">
+          <span class="input-label-text">{{ adminManageBikePriceLabel }}</span>
+          <input
+            type="number"
+            id="manage-bike-price-input"
+            [attr.placeholder]="adminManageBikeInputPlaceholderPrice"
+            class="admin-manage-bike-popup-component-textinput1 input"
+          />
+        </div>
+      </div>
+      <div class="admin-manage-bike-popup-component-container5">
+        <div class="admin-manage-bike-popup-component-container6">
+          <span class="input-label-text">
+            {{ adminManageBikeAssignModelsLabel }}
+          </span>
+          <select
+            id="manage-bike-models-selector"
+            class="admin-manage-bike-popup-component-select selector-style"
+          >
+            <option value="Option 1">Option 1</option>
+            <option value="Option 3">Option 3</option>
+          </select>
+        </div>
+        <div class="admin-manage-bike-popup-component-container7">
+          <span
+            class="admin-manage-bike-popup-component-text4 input-label-text"
+          >
+            {{ adminManageBikeStatus }}
+          </span>
+          <input
+            type="checkbox"
+            id="manage-bike-operational-checkbox"
+            checked="true"
+            class="checkbox-style"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+  <span class="admin-manage-bike-popup-component-text5">
+    {{ adminManageBikeImageTitle }}
+  </span>
+  <image-upload-preview-component></image-upload-preview-component>
+  <button-save-discard-component></button-save-discard-component>
+</div>

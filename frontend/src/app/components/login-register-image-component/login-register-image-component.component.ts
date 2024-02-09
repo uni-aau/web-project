@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class LoginRegisterImageComponent {
   @Input()
-  imageSrc: string = '/assets/logo_black.png'
+  imageSrc: string = '/assets/logo_black-200h.png'
   @Input()
   rootClassName: string = ''
   @Input()
