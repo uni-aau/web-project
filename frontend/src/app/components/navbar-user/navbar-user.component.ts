@@ -7,44 +7,24 @@ import { Component, Input } from '@angular/core'
 })
 export class NavbarUser {
   @Input()
-  imageSrc: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
-  @Input()
-  navbarLinkBikes1: string = 'Bikes'
-  @Input()
-  navbarSettingsImage: string = '/assets/no-image.svg'
-  @Input()
-  navbarLinkBikeStations1: string = 'Bike Stations'
+  userNavbarSettingsImageSrc: string = '/assets/no-image.svg'
   @Input()
   rootClassName: string = ''
   @Input()
-  navbarLinkCategories: string = 'Your Tickets'
+  userNavbarLinkYourTickets: string = 'Your Tickets'
   @Input()
-  navbarLinkBikes: string = 'Bike Stations'
+  userNavbarLinkBikeStations: string = 'Bike Stations'
   @Input()
-  navbarImage: string = '/assets/logo_black-1500h.png'
+  userNavbarLogo: string = '/assets/logo_black-1500h.png'
   @Input()
-  button: string = 'Your Tickets (%s)'
+  userNavbarButtonLogout: string = 'Logout'
   @Input()
-  navbarButtonLogout: string = 'Logout'
+  userNavbarSettingsImageAlt: string = 'image'
   @Input()
-  imageAlt1: string = 'image'
+  userNavbarLinkAbout: string = 'About'
   @Input()
-  imageAlt: string = 'image'
+  userNavbarLinkRentedBikes: string = 'Rented Bikes'
   @Input()
-  navbarLinkModels2: string = 'Models'
-  @Input()
-  navbarImage1: string = '/assets/logo_black-1500h.png'
-  @Input()
-  navbarLinkBikeStations: string = 'About'
-  @Input()
-  navbarLinkUserManagement1: string = 'User Management'
-  @Input()
-  navbarButtonLogout1: string = 'Logout'
-  @Input()
-  navbarLinkModels1: string = 'Models'
-  @Input()
-  navbarLinkCategories1: string = 'Categories'
-  @Input()
-  text: string = 'Rented Bikes'
+  userNavbarLogoImageAlt: string = 'logo'
   constructor() {}
 }

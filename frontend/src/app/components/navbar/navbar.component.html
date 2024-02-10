@@ -1,12 +1,12 @@
 <div class="navbar-container" [ngClass]="rootClassName">
-  <header data-thq="thq-navbar" class="navbar-navbar-interactive">
-    <a routerLink="/" class="navbar-navlink">
-      <img alt="logo" [attr.src]="imageSrc" class="navbar-image" />
+  <header data-thq="thq-navbar" class="navbar-general">
+    <a routerLink="/">
+      <img alt="logo" [attr.src]="navbarLogoSrc" class="navbar-image" />
     </a>
     <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
       <nav class="navbar-links">
-        <a routerLink="/" class="navbar-navlink1">{{ navbarLinkAbout }}</a>
-        <a routerLink="/bike-stations" class="navbar-navlink2">
+        <a routerLink="/" class="navbar-links-style">{{ navbarLinkAbout }}</a>
+        <a routerLink="/bike-stations" class="navbar-links-style">
           {{ navbarLinkBikeStations }}
         </a>
       </nav>
@@ -15,10 +15,18 @@
           <option value="German" selected>Deutsch</option>
           <option value="English">English</option>
         </select>
-        <a routerLink="/login" class="navbar-navlink3 button">
+        <a
+          routerLink="/login"
+          id="navbar-button-login"
+          class="navbar-navlink3 button"
+        >
           {{ navbarButtonLogin }}
         </a>
-        <a routerLink="/register" class="navbar-navlink4 button">
+        <a
+          routerLink="/register"
+          id="navbar-button-register"
+          class="button navbar-navlink4"
+        >
           {{ navbarButtonRegister }}
         </a>
       </div>
@@ -30,10 +38,13 @@
         ></path>
       </svg>
     </div>
-    <div data-thq="thq-mobile-menu" class="navbar-mobile-menu">
+    <div
+      data-thq="thq-mobile-menu"
+      class="navbar-mobile-menu navbar-general-mobile"
+    >
       <div class="navbar-nav">
         <div class="navbar-top">
-          <img alt="image" [attr.src]="imageSrc" class="navbar-logo" />
+          <img alt="image" [attr.src]="navbarLogoSrc" class="navbar-logo" />
           <div data-thq="thq-close-menu" class="navbar-close-menu">
             <svg viewBox="0 0 1024 1024" class="navbar-icon2">
               <path
@@ -43,17 +54,26 @@
           </div>
         </div>
         <nav class="navbar-links1">
-          <a routerLink="/" class="navbar-navlink5">{{ navbarLinkAbout }}</a>
-          <a routerLink="/bike-stations" class="navbar-navlink6">
+          <a routerLink="/" class="navbar-links-style-mobile">
+            {{ navbarLinkAbout }}
+          </a>
+          <a routerLink="/bike-stations" class="navbar-links-style-mobile">
             {{ navbarLinkBikeStations }}
           </a>
-          <a routerLink="**" class="navbar-navlink7">{{ navbarLinkPricing }}</a>
         </nav>
         <div class="navbar-buttons1">
-          <a routerLink="/login" class="navbar-login button">
+          <a
+            routerLink="/login"
+            id="navbar-button-login-mobile"
+            class="navbar-login button"
+          >
             {{ navbarButtonLogin }}
           </a>
-          <a routerLink="/register" class="navbar-register button">
+          <a
+            routerLink="/register"
+            id="navbar-button-register-mobile"
+            class="button"
+          >
             {{ navbarButtonRegister }}
           </a>
         </div>

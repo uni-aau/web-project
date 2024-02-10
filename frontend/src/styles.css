@@ -39,6 +39,7 @@
   cursor: pointer;
   display: inline-block;
   padding: 0.5rem 1rem;
+  transition: 0.3s;
   border-color: var(--dl-color-gray-black);
   border-width: 1px;
   border-radius: 4px;
@@ -355,6 +356,48 @@
 .bike-showcase-heading {
   font-size: 30px;
 }
+.navbar-links-style {
+  font-style: normal;
+  text-align: center;
+  transition: 0.3s;
+  font-weight: 500;
+  margin-left: var(--dl-space-space-oneandhalfunits);
+  text-decoration: none;
+}
+.navbar-links-style:hover {
+  color: var(--dl-color-primary-300);
+}
+.navbar-links-style-mobile {
+  font-weight: 400;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.navbar-links-style-mobile:hover {
+  color: var(--dl-color-primary-300);
+}
+.navbar-general {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-threeunits);
+  margin-bottom: var(--dl-space-space-twounits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-unit);
+  justify-content: space-between;
+}
+.navbar-general-mobile {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  padding: 32px;
+  z-index: 100;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -408,6 +451,10 @@
   .bike-showcase-heading {
     font-size: 28px;
   }
+  .navbar-general {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
 }
 @media(max-width: 479px) {
   .heading {
@@ -436,5 +483,11 @@
   .list-button-container {
     margin-bottom: 0px;
     justify-content: center;
+  }
+  .navbar-general {
+    padding: var(--dl-space-space-unit);
+  }
+  .navbar-general-mobile {
+    padding: 16px;
   }
 }

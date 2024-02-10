@@ -9,11 +9,9 @@ export class Navbar {
   @Input()
   rootClassName: string = ''
   @Input()
-  navbarLinkPricing: string = 'Pricing'
-  @Input()
   navbarLinkAbout: string = 'About'
   @Input()
-  imageSrc: string = '/assets/logo_black-1500h.png'
+  navbarLogoSrc: string = '/assets/logo_black-1500h.png'
   @Input()
   navbarButtonLogin: string = 'Login'
   @Input()
