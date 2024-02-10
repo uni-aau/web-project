@@ -11,8 +11,7 @@ export class NavbarUser {
   @Input()
   navbarLinkBikes1: string = 'Bikes'
   @Input()
-  navbarSettingsImage: string =
-    'https://play.teleporthq.io/static/svg/default-img.svg'
+  navbarSettingsImage: string = '/assets/no-image.svg'
   @Input()
   navbarLinkBikeStations1: string = 'Bike Stations'
   @Input()
@@ -45,5 +44,7 @@ export class NavbarUser {
   navbarLinkModels1: string = 'Models'
   @Input()
   navbarLinkCategories1: string = 'Categories'
+  @Input()
+  text: string = 'Rented Bikes'
   constructor() {}
 }

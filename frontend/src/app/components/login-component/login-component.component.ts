@@ -7,22 +7,22 @@ import { Component, Input } from '@angular/core'
 })
 export class LoginComponent {
   @Input()
-  loginPasswordTitle: string = 'Password'
+  loginInputLabelPassword: string = 'Password'
   @Input()
-  loginUsernameTitle: string = 'Username or email'
+  loginInputLabelUsername: string = 'Username or email'
   @Input()
-  inputPasswordUsernameText: string = 'Enter username or email'
+  loginInputPlaceholderUsername: string = 'Enter username or email'
   @Input()
   rootClassName: string = ''
   @Input()
-  loginButtonText: string = 'Login'
+  loginButtonLogin: string = 'Login'
   @Input()
-  noAccountSubtext: string = 'Click here to register'
+  loginNoAccountSubText: string = 'Click here to register'
   @Input()
-  forgotPasswordText: string = 'Forgot your password?'
+  loginForgotPasswordText: string = 'Forgot your password?'
   @Input()
-  noAccount: string = "Don't have an account yet?"
+  loginNoAccount: string = "Don't have an account yet?"
   @Input()
-  inputPasswordPlaceholderText: string = 'Enter your password'
+  loginInputPlaceholderPassword: string = 'Enter your password'
   constructor() {}
 }

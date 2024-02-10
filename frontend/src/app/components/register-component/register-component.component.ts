@@ -7,31 +7,31 @@ import { Component, Input } from '@angular/core'
 })
 export class RegisterComponent {
   @Input()
-  inputEmailPlaceholder: string = 'Enter email'
+  registerInputPlaceholderEmail: string = 'Enter email'
   @Input()
-  inputLastnamePlaceholderText: string = 'Enter last name'
+  registerInputPlaceholderLastName: string = 'Enter last name'
   @Input()
-  loginPasswordTitle: string = 'Password'
+  registerInputLabelPassword: string = 'Password'
   @Input()
-  registerUsernameTitle: string = 'Username'
+  registerInputLabelUsername: string = 'Username'
   @Input()
-  registerEmailTitle: string = 'Email'
+  registerInputLabelEmail: string = 'Email'
   @Input()
   rootClassName: string = ''
   @Input()
-  registerButtonText: string = 'Register'
+  registerButton: string = 'Register'
   @Input()
-  registerFirstNameTitle: string = 'First Name'
+  registerInputLabelFirstName: string = 'First Name'
   @Input()
   registerAccountHint: string =
     'By clicking Register you accept the JaleHD Terms of Use and acknowledge the Privacy Statement and Cookie Policy'
   @Input()
-  inputFirstnamePlaceholderText: string = 'Enter first name'
+  registerInputPlaceholderFirstName: string = 'Enter first name'
   @Input()
-  inputPasswordPlaceholderText: string = 'Enter your password'
+  registerInputPlaceholderPassword: string = 'Enter your password'
   @Input()
-  registerLastNameTitle: string = 'Last Name'
+  registerInputLbaleLastName: string = 'Last Name'
   @Input()
-  inputUsernamePlaceholder: string = 'Enter username'
+  registerInputPlaceholderUsername: string = 'Enter username'
   constructor() {}
 }

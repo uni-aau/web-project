@@ -371,7 +371,15 @@
   text-transform: none;
   text-decoration: none;
 }
+@media(max-width: 1200px) {
+  .drop-down-component {
+    width: 70%;
+  }
+}
 @media(max-width: 991px) {
+  .drop-down-component {
+    width: 75%;
+  }
   .bike-showcase-heading {
     font-size: 23px;
   }
@@ -387,6 +395,9 @@
     height: 20%;
     margin-bottom: var(--dl-space-space-unit);
     padding-right: var(--dl-space-space-halfunit);
+  }
+  .drop-down-component {
+    width: 80%;
   }
   .account-settings-input {
     width: auto;

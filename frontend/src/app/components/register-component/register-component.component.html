@@ -6,48 +6,48 @@
     <div class="register-component-container1">
       <div class="register-component-container2">
         <span class="register-component-text input-label-text">
-          {{ registerFirstNameTitle }}
+          {{ registerInputLabelFirstName }}
         </span>
         <span class="register-component-text1 input-label-text">
-          {{ registerLastNameTitle }}
+          {{ registerInputLbaleLastName }}
         </span>
       </div>
       <div class="register-component-container3">
         <input
           type="text"
           id="register-first-name-input"
-          [attr.placeholder]="inputFirstnamePlaceholderText"
+          [attr.placeholder]="registerInputPlaceholderFirstName"
           class="register-component-textinput input"
         />
         <input
           type="text"
           id="register-last-name-input"
-          [attr.placeholder]="inputLastnamePlaceholderText"
+          [attr.placeholder]="registerInputPlaceholderLastName"
           class="register-component-textinput1 input"
         />
       </div>
     </div>
-    <span class="input-label-text">{{ registerUsernameTitle }}</span>
+    <span class="input-label-text">{{ registerInputLabelUsername }}</span>
     <input
       type="text"
       id="register-user-name-input"
-      [attr.placeholder]="inputUsernamePlaceholder"
+      [attr.placeholder]="registerInputPlaceholderUsername"
       class="register-component-textinput2 input"
     />
-    <span class="input-label-text">{{ registerEmailTitle }}</span>
+    <span class="input-label-text">{{ registerInputLabelEmail }}</span>
     <input
       type="email"
       id="register-email-input"
-      [attr.placeholder]="inputEmailPlaceholder"
+      [attr.placeholder]="registerInputPlaceholderEmail"
       class="register-component-textinput3 input"
     />
     <div class="register-component-container4">
-      <span class="input-label-text">{{ loginPasswordTitle }}</span>
+      <span class="input-label-text">{{ registerInputLabelPassword }}</span>
     </div>
     <input
       type="password"
       id="register-password-input"
-      [attr.placeholder]="inputPasswordPlaceholderText"
+      [attr.placeholder]="registerInputPlaceholderPassword"
       class="register-component-textinput4 input"
     />
   </form>
@@ -56,7 +56,7 @@
     type="button"
     class="register-component-button button-blue button-general"
   >
-    {{ registerButtonText }}
+    {{ registerButton }}
   </button>
   <span class="register-component-text5">{{ registerAccountHint }}</span>
 </div>

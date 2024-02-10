@@ -7,15 +7,15 @@ import { Component, Input } from '@angular/core'
 })
 export class Footer {
   @Input()
-  footerDataPrivacyText: string = 'Datenschutz'
+  footerDataPrivacy: string = 'Data Privacy'
   @Input()
-  footerImprintText: string = 'Impressum'
+  footerImprint: string = 'Imprint'
   @Input()
   imageAlt: string = 'logo'
   @Input()
-  imageSrc: string = '/assets/logo_black-1500h.png'
+  footerImageSrc: string = '/assets/logo_black-1500h.png'
   @Input()
-  footerCopyright: string = '© 2024 JaLeHD, All Rights Reserved.'
+  footerCopyrightInformation: string = '© 2024 JaLeHD, All Rights Reserved.'
   @Input()
   rootClassName: string = ''
   constructor() {}

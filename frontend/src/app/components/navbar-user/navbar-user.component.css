@@ -69,6 +69,10 @@
 .navbar-user-navlink3:hover {
   color: var(--dl-color-gray-500);
 }
+.navbar-user-navlink4 {
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
 .navbar-user-buttons {
   display: flex;
   align-items: center;
@@ -85,11 +89,15 @@
 .navbar-user-button:hover {
   background: whitesmoke;
 }
+.navbar-user-navlink5 {
+  display: contents;
+}
 .navbar-user-image1 {
   width: var(--dl-size-size-small);
   height: var(--dl-size-size-small);
   object-fit: cover;
   border-radius: var(--dl-radius-radius-round);
+  text-decoration: none;
 }
 .navbar-user-burger-menu {
   display: none;

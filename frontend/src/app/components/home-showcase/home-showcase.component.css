@@ -5,10 +5,12 @@
   width: 100%;
   height: auto;
   display: flex;
-  padding: var(--dl-space-space-halfunit);
   position: relative;
   align-items: center;
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
   flex-direction: column;
+  padding-bottom: var(--dl-space-space-halfunit);
   justify-content: flex-start;
 }
 .home-showcase-container1 {
@@ -50,6 +52,7 @@
 }
 .home-showcase-text2 {
   height: 20%;
+  font-size: 18px;
   align-self: stretch;
   margin-top: var(--dl-space-space-halfunit);
   text-align: justify;
@@ -93,5 +96,8 @@
     width: 100%;
     margin-top: var(--dl-space-space-halfunit);
     padding-left: 0px;
+  }
+  .home-showcase-text2 {
+    font-size: 16px;
   }
 }

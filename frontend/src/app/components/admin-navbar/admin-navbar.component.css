@@ -103,11 +103,15 @@
 .admin-navbar-button:hover {
   background: whitesmoke;
 }
+.admin-navbar-navlink6 {
+  display: contents;
+}
 .admin-navbar-image1 {
   width: var(--dl-size-size-small);
   height: var(--dl-size-size-small);
   object-fit: cover;
   border-radius: var(--dl-radius-radius-round);
+  text-decoration: none;
 }
 .admin-navbar-burger-menu {
   display: none;

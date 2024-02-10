@@ -39,10 +39,12 @@
 }
 .register-component-text {
   width: 50%;
+  text-align: left;
   margin-right: var(--dl-space-space-halfunit);
 }
 .register-component-text1 {
   width: 50%;
+  text-align: left;
   margin-left: var(--dl-space-space-halfunit);
 }
 .register-component-container3 {

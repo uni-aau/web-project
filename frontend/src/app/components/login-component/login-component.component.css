@@ -56,12 +56,17 @@
     height: auto;
   }
 }
+@media(max-width: 767px) {
+  .login-component-root-class-name {
+    margin-top: 20%;
+  }
+}
 @media(max-width: 479px) {
   .login-component-container {
     width: 95%;
     padding: var(--dl-space-space-halfunit);
   }
   .login-component-root-class-name {
-    margin-top: 30%;
+    margin-top: 25%;
   }
 }

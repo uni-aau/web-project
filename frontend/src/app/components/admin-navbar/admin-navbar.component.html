@@ -8,7 +8,7 @@
         <a routerLink="/admin-bike-stations" class="admin-navbar-navlink1">
           {{ navbarLinkBikeStations }}
         </a>
-        <a routerLink="**" class="admin-navbar-navlink2">
+        <a routerLink="/admin-manage-bikes" class="admin-navbar-navlink2">
           {{ navbarLinkBikes }}
         </a>
         <a routerLink="/admin-manage-categories" class="admin-navbar-navlink3">
@@ -32,11 +32,13 @@
         <button type="button" class="admin-navbar-button button">
           {{ navbarButtonLogout }}
         </button>
-        <img
-          [attr.alt]="imageAlt"
-          [attr.src]="navbarSettingsImage"
-          class="admin-navbar-image1"
-        />
+        <a routerLink="/account" class="admin-navbar-navlink6">
+          <img
+            [attr.alt]="imageAlt"
+            [attr.src]="navbarSettingsImage"
+            class="admin-navbar-image1"
+          />
+        </a>
       </div>
     </div>
     <div data-thq="thq-burger-menu" class="admin-navbar-burger-menu">
