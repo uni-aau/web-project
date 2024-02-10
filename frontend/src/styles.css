@@ -1,4 +1,440 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-space-space-threeunits: 48px;
+  --dl-space-space-oneandhalfunits: 24px;
+}
+.button {
+  color: var(--dl-color-gray-black);
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.button-blue {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #1f75cb;
+}
+.button-blue:hover {
+  color: var(--dl-color-gray-white);
+  background: #084f9e;
+}
+.button-disabled {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #878787;
+}
+.button-red {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #c91313;
+}
+.button-red:hover {
+  background-color: #a20b0b;
+}
+.button-green {
+  color: var(--dl-color-gray-white);
+  font-size: 17px;
+  transition: 0.3s;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #1b831a;
+}
+.button-green:hover {
+  background-color: #0c6f0b;
+}
+.button-general {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  transition: 0.3s;
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.0rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+}
+.heading {
+  color: var(--dl-color-gray-black);
+  font-size: 2.5em;
+  align-self: center;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.drop-down-main-element {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  border-radius: var(--dl-radius-radius-radius2);
+}
+.drop-down-list {
+  left: 0%;
+  z-index: 100;
+  min-width: 100%;
+  transition: 0.3s;
+  align-items: stretch;
+  border-color: #D9D9D9;
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+  flex-direction: column;
+  list-style-type: none;
+  background-color: var(--dl-color-gray-white);
+  list-style-position: inside;
+}
+.drop-down-toggle-main {
+  width: 100%;
+  height: 70px;
+  display: inline-flex;
+  position: relative;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  transition: 0.3s;
+  align-items: center;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-unit);
+  border-radius: var(--dl-radius-radius-radius2);
+  padding-right: var(--dl-space-space-unit);
+  padding-bottom: var(--dl-space-space-halfunit);
+  background-color: #f2f2f2;
+}
+.drop-down-toggle-main:hover {
+  background-color: #dedede;
+}
+.drop-down-list-drop-down {
+  position: relative;
+  border-color: var(--dl-color-gray-900);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius2);
+  background-color: #ecebeb;
+}
+.drop-down-toggle {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-unit);
+  padding-right: var(--dl-space-space-unit);
+  padding-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.drop-down-arrow {
+  top: auto;
+  right: 0px;
+  position: absolute;
+  transition: 0.3s;
+}
+.arrow-style {
+  width: 40px;
+  height: 35px;
+  transition: 0.3s;
+}
+.review-star {
+  width: 28px;
+  height: 28px;
+}
+.link-text-font {
+  color: #3582d0;
+  font-weight: 500;
+}
+.link-text-font:hover {
+  color: #1e76d2;
+}
+.bike-info-texts {
+  font-size: 17px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+.bike-showcase-image {
+  width: 100%;
+  height: 80%;
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.bike-showcase-image-container {
+  flex: 0 0 auto;
+  width: 25%;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  align-items: center;
+  padding-left: var(--dl-space-space-unit);
+  padding-right: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.drop-down-container-style {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.drop-down-component {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: column;
+  justify-content: center;
+}
+.account-settings-input {
+  width: 35%;
+}
+.input-label-text {
+  font-size: 18px;
+  align-self: flex-start;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+}
+.selector-style {
+  border-color: var(--dl-color-gray-500);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+}
+.booking-navbar-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-left: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
+}
+.model-bike-category-main-component {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-halfunit);
+  box-shadow: 3px 3px 10px 0px #d4d4d4;
+  align-items: flex-start;
+  border-radius: var(--dl-radius-radius-radius4);
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+.model-bike-category-general-text {
+  width: 100%;
+  font-size: 17px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.model-bike-category-title {
+  width: 100%;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.button-book {
+  width: 200px;
+}
+.button-container {
+  padding: var(--dl-space-space-halfunit);
+}
+.list-button-container {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: center;
+  justify-content: flex-end;
+}
+.subheading {
+  font-size: 30px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.checkbox-style {
+  width: 30px;
+  border: 2px solid #555;
+  cursor: pointer;
+  height: 30px;
+  padding: 2px;
+}
+.booking-information-component {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: var(--dl-space-space-halfunit);
+  position: relative;
+  align-items: flex-start;
+  border-color: var(--dl-color-gray-500);
+  border-width: 2px;
+  border-radius: var(--dl-radius-radius-radius4);
+  margin-bottom: var(--dl-space-space-twounits);
+  justify-content: center;
+}
+.bike-showcase-heading {
+  font-size: 30px;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+@media(max-width: 1200px) {
+  .drop-down-component {
+    width: 70%;
+  }
+}
+@media(max-width: 991px) {
+  .drop-down-component {
+    width: 75%;
+  }
+  .bike-showcase-heading {
+    font-size: 23px;
+  }
+}
+@media(max-width: 767px) {
+  .bike-showcase-image {
+    width: 50%;
+    height: 50%;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .bike-showcase-image-container {
+    width: 100%;
+    height: 20%;
+    margin-bottom: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-halfunit);
+  }
+  .drop-down-component {
+    width: 80%;
+  }
+  .account-settings-input {
+    width: auto;
+  }
+  .booking-information-component {
+    flex-direction: column;
+  }
+  .bike-showcase-heading {
+    font-size: 28px;
+  }
+}
+@media(max-width: 479px) {
+  .heading {
+    font-size: 2.3em;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .drop-down-container-style {
+    align-items: center;
+  }
+  .drop-down-component {
+    width: 90%;
+  }
+  .account-settings-input {
+    width: 100%;
+  }
+  .booking-navbar-title {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .model-bike-category-main-component {
+    padding: 0px;
+  }
+  .button-book {
+    align-self: center;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .list-button-container {
+    margin-bottom: 0px;
+    justify-content: center;
+  }
+}

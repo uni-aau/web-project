@@ -1,0 +1,27 @@
+<div class="bike-component-container" [ngClass]="rootClassName">
+  <div class="model-bike-category-main-component bike-component-container1">
+    <div class="bike-component-container2">
+      <div class="bike-component-container3 list-button-container">
+        <span class="model-bike-category-title">{{ bikesBikeName }}</span>
+        <span class="model-bike-category-general-text">{{ bikesSize }}</span>
+        <span class="model-bike-category-general-text">{{ bikesModel }}</span>
+        <span class="model-bike-category-general-text">{{ bikesType }}</span>
+        <span class="model-bike-category-general-text">{{ bikesStatus }}</span>
+        <span class="model-bike-category-general-text">{{ bikePrice }}</span>
+      </div>
+      <div class="bike-component-container4 list-button-container">
+        <img
+          [attr.alt]="imageAlt"
+          [attr.src]="bikesImageSrc"
+          class="bike-component-image"
+        />
+        <button-book-component
+          rootClassName="button-book-component-root-class-name2"
+        ></button-book-component>
+        <button-update-delete-component
+          rootClassName="button-update-delete-component-root-class-name2"
+        ></button-update-delete-component>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,63 @@
 # Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Build Command ng build --configuration development --base-href=/tests/webproject/
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Muss in Index rein
+```html
+    <style>
+      [data-thq="thq-dropdown"] [data-thq="thq-dropdown-list"] {
+        display: none;
+      }
 
-## Code scaffolding
+      [data-thq="thq-dropdown"] [data-thq="thq-dropdown-list"].show {
+        display: flex;
+      }
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+      [data-thq="thq-dropdown"] [data-thq="thq-dropdown-arrow"] {
+        transition: transform 0.3s ease;
+      }
 
-## Build
+      [data-thq="thq-dropdown"].open [data-thq="thq-dropdown-arrow"] {
+        transform: rotate(90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <app-root></app-root>
+    <script
+      defer
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdowns = document.querySelectorAll('[data-thq="thq-dropdown"]');
 
-## Running unit tests
+        dropdowns.forEach(function (dropdown) {
+          var dropdownList = dropdown.querySelector('[data-thq="thq-dropdown-list"]');
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+          dropdown.addEventListener("click", function () {
+            console.log("Test");
 
-## Running end-to-end tests
+            // Close all other open dropdowns
+            dropdowns.forEach(function (otherDropdown) {
+              if (otherDropdown !== dropdown) {
+                otherDropdown.classList.remove("open");
+                var otherDropDownList = otherDropdown.querySelector('[data-thq="thq-dropdown-list"]')
+                if (otherDropDownList) {
+                  otherDropDownList.classList.remove("show");
+                }
+                console.log(otherDropDownList)
+              }
+            });
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+            // Toggle the current dropdown
+            dropdown.classList.toggle("open");
+            dropdownList.classList.toggle("show");
+          });
+        });
+      });
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    </script>
+```

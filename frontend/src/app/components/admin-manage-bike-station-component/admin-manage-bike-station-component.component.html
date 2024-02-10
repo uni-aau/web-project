@@ -1,0 +1,56 @@
+<div
+  class="admin-manage-bike-station-component-container"
+  [ngClass]="rootClassName"
+>
+  <map-component rootClassName="map-component-root-class-name2"></map-component>
+  <form class="admin-manage-bike-station-component-form">
+    <div class="admin-manage-bike-station-component-container1">
+      <div class="admin-manage-bike-station-component-container2">
+        <div class="admin-manage-bike-station-component-container3">
+          <span class="input-label-text">
+            {{ adminManageBikeStationLongitudeLabel }}
+          </span>
+          <input
+            type="text"
+            id="manage-bike-station-longitude-input"
+            [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
+            class="admin-manage-bike-station-component-textinput input"
+          />
+        </div>
+        <div class="admin-manage-bike-station-component-container4">
+          <span class="input-label-text">
+            {{ adminManageBikeStationLatitudeLabel }}
+          </span>
+          <input
+            type="text"
+            id="manage-bike-station-latitude-input"
+            [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
+            class="admin-manage-bike-station-component-textinput1 input"
+          />
+        </div>
+      </div>
+      <span class="input-label-text">
+        {{ adminManageBikeStationAddressLabel }}
+      </span>
+      <input
+        type="text"
+        id="manage-bike-station-address-input"
+        [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
+        class="admin-manage-bike-station-component-textinput2 input"
+      />
+      <span class="input-label-text">
+        {{ adminManageBikeStationStationNameLabel }}
+      </span>
+      <input
+        type="text"
+        id="manage-bike-station-station-name-input"
+        [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
+        class="admin-manage-bike-station-component-textinput3 input"
+      />
+    </div>
+  </form>
+  <span class="admin-manage-bike-station-component-text4">
+    {{ adminManageBikeStationImageTitle }}
+  </span>
+  <image-upload-preview-component></image-upload-preview-component>
+</div>

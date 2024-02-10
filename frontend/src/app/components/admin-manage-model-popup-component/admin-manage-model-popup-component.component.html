@@ -1,0 +1,28 @@
+<div class="admin-manage-model-popup-component-container">
+  <span class="heading">{{ adminManageModelTitle }}</span>
+  <form class="admin-manage-model-popup-component-form">
+    <div class="admin-manage-model-popup-component-container1">
+      <div class="admin-manage-model-popup-component-container2">
+        <span class="input-label-text">{{ adminManageModelNameLabel }}</span>
+        <input
+          type="text"
+          id="manage-model-name-input"
+          [attr.placeholder]="adminManageModelInputPlaceholderName"
+          class="admin-manage-model-popup-component-textinput input"
+        />
+      </div>
+      <div class="admin-manage-model-popup-component-container3">
+        <span class="input-label-text">{{ adminManageModelPriceLabel }}</span>
+        <input
+          type="number"
+          id="manage-model-price-input"
+          [attr.placeholder]="adminManageModelInputPlaceholderPrice"
+          class="admin-manage-model-popup-component-textinput1 input"
+        />
+      </div>
+    </div>
+  </form>
+  <button-save-discard-component
+    rootClassName="button-save-discard-component-root-class-name1"
+  ></button-save-discard-component>
+</div>

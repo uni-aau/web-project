@@ -1,0 +1,53 @@
+:host { 
+  display: contents; 
+}
+.home-bikes-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: center;
+}
+.home-bikes-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.home-bikes-text1 {
+  height: 10%;
+  align-self: stretch;
+  text-align: center;
+}
+.home-bikes-text3 {
+  height: 10%;
+  align-self: stretch;
+  text-align: center;
+}
+.home-bikes-text5 {
+  height: 10%;
+  align-self: stretch;
+  text-align: center;
+}
+.home-bikes-text7 {
+  height: 10%;
+  align-self: stretch;
+  text-align: center;
+}
+
+@media(max-width: 767px) {
+  .home-bikes-container {
+    height: auto;
+  }
+  .home-bikes-container1 {
+    height: auto;
+    padding: var(--dl-space-space-unit);
+    margin-bottom: var(--dl-space-space-unit);
+    flex-direction: column;
+  }
+}

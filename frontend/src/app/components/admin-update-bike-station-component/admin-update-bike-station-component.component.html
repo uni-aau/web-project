@@ -1,0 +1,30 @@
+<div
+  class="admin-update-bike-station-component-container"
+  [ngClass]="rootClassName"
+>
+  <span class="heading">{{ adminManageBikestationTitle }}</span>
+  <div class="admin-update-bike-station-component-container1">
+    <admin-manage-bike-station-component
+      rootClassName="admin-manage-bike-station-component-root-class-name"
+    ></admin-manage-bike-station-component>
+    <admin-parking-places-component
+      rootClassName="admin-parking-places-component-root-class-name"
+    ></admin-parking-places-component>
+  </div>
+  <div class="admin-update-bike-station-component-container2">
+    <button
+      id="manage-bike-station-save-button"
+      type="button"
+      class="admin-update-bike-station-component-button button-general button-green"
+    >
+      {{ adminManageBikestationButtonSaveBikeStation }}
+    </button>
+    <button
+      id="manage-bike-station-discard-button"
+      type="button"
+      class="admin-update-bike-station-component-button1 button-general button-red"
+    >
+      {{ adminManageBikestationDiscardBikeStation }}
+    </button>
+  </div>
+</div>

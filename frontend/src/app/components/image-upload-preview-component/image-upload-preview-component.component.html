@@ -1,0 +1,26 @@
+<div class="image-upload-preview-component-container">
+  <div class="image-upload-preview-component-container1">
+    <button
+      type="button"
+      id="upload-image-button"
+      class="button-blue button-general image-upload-preview-component-button"
+    >
+      {{ adminManageBikeStationButtonUpload }}
+    </button>
+    <button
+      type="button"
+      id="delete-image-button"
+      class="image-upload-preview-component-button1 button-general button-red"
+    >
+      {{ adminManageBikeStationButtonDelete }}
+    </button>
+  </div>
+  <div class="image-upload-preview-component-container2">
+    <img
+      [attr.alt]="imageAlt3"
+      [attr.src]="adminManageBikeStationImageSrc"
+      id="upload-image-preview"
+      class="image-upload-preview-component-image"
+    />
+  </div>
+</div>

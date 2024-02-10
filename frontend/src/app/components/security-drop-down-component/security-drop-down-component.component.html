@@ -1,0 +1,53 @@
+<div class="drop-down-component" [ngClass]="rootClassName">
+  <div class="drop-down-main-element">
+    <div class="drop-down-toggle-main">
+      <svg viewBox="0 0 1024 1024" class="security-drop-down-component-icon">
+        <path
+          d="M585.143 785.714v-108.571c0-10.286-8-18.857-18.286-18.857h-109.714c-10.286 0-18.286 8.571-18.286 18.857v108.571c0 10.286 8 18.857 18.286 18.857h109.714c10.286 0 18.286-8.571 18.286-18.857zM584 572l10.286-262.286c0-3.429-1.714-8-5.714-10.857-3.429-2.857-8.571-6.286-13.714-6.286h-125.714c-5.143 0-10.286 3.429-13.714 6.286-4 2.857-5.714 8.571-5.714 12l9.714 261.143c0 7.429 8.571 13.143 19.429 13.143h105.714c10.286 0 18.857-5.714 19.429-13.143zM576 38.286l438.857 804.571c12.571 22.286 12 49.714-1.143 72s-37.143 36-62.857 36h-877.714c-25.714 0-49.714-13.714-62.857-36s-13.714-49.714-1.143-72l438.857-804.571c12.571-23.429 37.143-38.286 64-38.286s51.429 14.857 64 38.286z"
+        ></path>
+      </svg>
+      <span class="security-drop-down-component-text">
+        <span>Security</span>
+        <br />
+      </span>
+      <div class="drop-down-arrow">
+        <svg viewBox="0 0 1024 1024" class="arrow-style">
+          <path d="M298 426h428l-214 214z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="drop-down-list">
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div class="drop-down-container-style">
+          <span class="security-drop-down-component-text3">
+            {{ userSettingsChangePasswordTitle }}
+          </span>
+          <span class="security-drop-down-component-text4">
+            {{ userSettingsChangePasswordSubtitle }}
+          </span>
+          <input
+            type="password"
+            id="security-new-password-input"
+            [attr.placeholder]="userSettingsChangePasswordPlaceholder"
+            class="security-drop-down-component-textinput input account-settings-input"
+          />
+          <input
+            type="password"
+            id="security-new-password-confirmation"
+            [attr.placeholder]="userSettingsChangePasswordConfirmPlaceholder"
+            class="input account-settings-input"
+          />
+          <button
+            id="security-change-button"
+            type="button"
+            class="security-drop-down-component-button button-general button-red"
+          >
+            {{ buttonSavePassword }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

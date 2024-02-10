@@ -1,0 +1,16 @@
+<div class="searching-component-container" [ngClass]="rootClassName">
+  <input
+    type="text"
+    [attr.placeholder]="searchInputPlaceholder"
+    id="searching-input"
+    class="searching-component-textinput input"
+  />
+  <div class="searching-component-container1">
+    <button-search-component
+      rootClassName="button-search-component-root-class-name"
+    ></button-search-component>
+    <button-create-component
+      rootClassName="button-create-component-root-class-name"
+    ></button-create-component>
+  </div>
+</div>

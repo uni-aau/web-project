@@ -1,0 +1,96 @@
+<div
+  class="admin-bike-station-entry-component-container"
+  [ngClass]="rootClassName"
+>
+  <div class="admin-bike-station-entry-component-container01">
+    <div class="admin-bike-station-entry-component-container02">
+      <div class="admin-bike-station-entry-component-container03">
+        <div class="admin-bike-station-entry-component-container04">
+          <span
+            class="admin-bike-station-entry-component-text model-bike-category-title"
+          >
+            {{ adminBikeStationStationName }}
+          </span>
+          <span class="admin-bike-station-entry-component-text1">
+            {{ adminBikeStationLocation }}
+          </span>
+          <span class="admin-bike-station-entry-component-text2">
+            {{ adminBikeStationDescription }}
+          </span>
+        </div>
+        <div class="admin-bike-station-entry-component-container05">
+          <svg id="rating-star1" viewBox="0 0 1024 1024" class="review-star">
+            <path
+              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+            ></path></svg
+          ><svg id="rating-star2" viewBox="0 0 1024 1024" class="review-star">
+            <path
+              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+            ></path></svg
+          ><svg id="rating-star3" viewBox="0 0 1024 1024" class="review-star">
+            <path
+              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+            ></path></svg
+          ><svg id="rating-star4" viewBox="0 0 1024 1024" class="review-star">
+            <path
+              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+            ></path></svg
+          ><svg
+            id="rating-star5"
+            viewBox="0 0 1024 1024"
+            class="admin-bike-station-entry-component-icon08 review-star"
+          >
+            <path
+              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+            ></path>
+          </svg>
+          <span class="admin-bike-station-entry-component-text3">
+            {{ adminBikeStationStarRatingNumber }}
+          </span>
+        </div>
+      </div>
+      <div class="admin-bike-station-entry-component-container06">
+        <img
+          id="bike-station-image"
+          [attr.alt]="imageAlt"
+          [attr.src]="adminbikeStationImageSrc"
+          class="admin-bike-station-entry-component-image"
+        />
+      </div>
+    </div>
+    <div class="admin-bike-station-entry-component-container07">
+      <div class="admin-bike-station-entry-component-container08">
+        <button
+          id="button-manage-ratings"
+          type="button"
+          class="admin-bike-station-entry-component-button button-blue button-general"
+        >
+          {{ adminBikeStationButtonManageRatings }}
+        </button>
+        <button
+          id="button-delete-ratings"
+          type="button"
+          class="admin-bike-station-entry-component-button1 button-general button-red"
+        >
+          {{ adminBikeStationButtonDeleteRatings }}
+        </button>
+      </div>
+      <div class="admin-bike-station-entry-component-container09">
+        <button
+          id="button-update-bike-station"
+          type="button"
+          class="admin-bike-station-entry-component-button2 button-blue button-general"
+        >
+          {{ adminBikeStationButtonUpdate }}
+        </button>
+        <button
+          id="button-delete-bike-station"
+          type="button"
+          class="button-general button-red"
+        >
+          {{ adminbikeStationButtonDelete }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

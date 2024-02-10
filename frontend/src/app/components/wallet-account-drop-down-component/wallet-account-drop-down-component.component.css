@@ -1,0 +1,91 @@
+:host { 
+  display: contents; 
+}
+.wallet-account-drop-down-component-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.wallet-account-drop-down-component-text {
+  color: var(--dl-color-gray-black);
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.wallet-account-drop-down-component-text3 {
+  font-style: normal;
+  font-weight: 500;
+}
+.wallet-account-drop-down-component-text4 {
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.wallet-account-drop-down-component-text5 {
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.wallet-account-drop-down-component-button {
+  align-self: flex-end;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.wallet-account-drop-down-component-text6 {
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.wallet-account-drop-down-component-text7 {
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.wallet-account-drop-down-component-container11 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  justify-content: center;
+}
+.wallet-account-drop-down-component-button1 {
+  align-self: center;
+  transition: 0.3s;
+  margin-right: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: #036f03;
+}
+.wallet-account-drop-down-component-button1:hover {
+  background-color: #024c02;
+}
+.wallet-account-drop-down-component-button2 {
+  align-self: center;
+  transition: 0.3s;
+  margin-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  background-color: var(--dl-color-danger-500);
+}
+.wallet-account-drop-down-component-button2:hover {
+  background-color: var(--dl-color-danger-300);
+}
+
+@media(max-width: 479px) {
+  .wallet-account-drop-down-component-text4 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-text6 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-button1 {
+    text-align: center;
+  }
+  .wallet-account-drop-down-component-button2 {
+    text-align: center;
+  }
+}

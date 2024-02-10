@@ -1,0 +1,53 @@
+:host { 
+  display: contents; 
+}
+.admin-manage-model-popup-component-container {
+  width: 450px;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-left: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.admin-manage-model-popup-component-form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-manage-model-popup-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.admin-manage-model-popup-component-container2 {
+  flex: 0 0 auto;
+  width: 65%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.admin-manage-model-popup-component-textinput {
+  width: 100%;
+}
+.admin-manage-model-popup-component-container3 {
+  flex: 0 0 auto;
+  width: 35%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.admin-manage-model-popup-component-textinput1 {
+  width: 100%;
+}

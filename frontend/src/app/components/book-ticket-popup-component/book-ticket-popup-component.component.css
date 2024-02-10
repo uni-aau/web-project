@@ -1,0 +1,71 @@
+:host { 
+  display: contents; 
+}
+.book-ticket-popup-component-container {
+  width: 50%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.book-ticket-popup-component-text1 {
+  font-size: 24px;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.book-ticket-popup-component-text2 {
+  font-size: 24px;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.book-ticket-popup-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.book-ticket-popup-component-text5 {
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.book-ticket-popup-component-text6 {
+  color: var(--dl-color-gray-500);
+  width: 100%;
+  text-align: center;
+}
+.book-ticket-popup-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-top: var(--dl-space-space-unit);
+  align-items: center;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
+}
+.book-ticket-popup-component-button1 {
+  right: var(--dl-space-space-unit);
+  position: absolute;
+}
+@media(max-width: 991px) {
+  .book-ticket-popup-component-container {
+    width: 60%;
+  }
+}
+@media(max-width: 767px) {
+  .book-ticket-popup-component-container {
+    width: 75%;
+  }
+}
+@media(max-width: 479px) {
+  .book-ticket-popup-component-container {
+    width: 95%;
+  }
+}

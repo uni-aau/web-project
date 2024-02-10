@@ -1,0 +1,28 @@
+<div class="booking-information-component" [ngClass]="rootClassName">
+  <div class="book-ticket-renting-information-component-container1">
+    <span
+      class="book-ticket-renting-information-component-text input-label-text"
+    >
+      {{ text1 }}
+    </span>
+    <input
+      type="datetime-local"
+      [attr.placeholder]="textinputPlaceholder2"
+      id="book-ticket-rent-date-picker"
+      class="input"
+    />
+  </div>
+  <div class="book-ticket-renting-information-component-container2">
+    <span
+      class="book-ticket-renting-information-component-text1 input-label-text"
+    >
+      {{ text11 }}
+    </span>
+    <input
+      type="time"
+      [attr.placeholder]="textinputPlaceholder21"
+      id="book-ticket-rent-duration-time-picker"
+      class="input"
+    />
+  </div>
+</div>

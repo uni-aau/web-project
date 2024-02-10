@@ -1,0 +1,30 @@
+:host { 
+  display: contents; 
+}
+.booking-active-tickets-component-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.booking-active-tickets-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.booking-active-tickets-component-root-class-name {
+  width: 50%;
+  height: auto;
+}
+@media(max-width: 767px) {
+  .booking-active-tickets-component-root-class-name {
+    width: 95%;
+    align-self: center;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+}

@@ -1,0 +1,19 @@
+:host { 
+  display: contents; 
+}
+.admin-categories-management-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.admin-categories-management-container1 {
+  flex: 0 0 auto;
+  width: 95%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+

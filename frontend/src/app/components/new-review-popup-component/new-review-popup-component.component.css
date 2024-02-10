@@ -1,0 +1,95 @@
+:host { 
+  display: contents; 
+}
+.new-review-popup-component-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.new-review-popup-component-container1 {
+  flex: 0 0 auto;
+  width: 400px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.new-review-popup-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: center;
+}
+.new-review-popup-component-text1 {
+  font-size: 1.4em;
+  font-style: normal;
+  font-weight: 600;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.new-review-popup-component-text2 {
+  width: auto;
+  height: 100%;
+  font-size: 1.4em;
+  align-self: center;
+  margin-left: var(--dl-space-space-halfunit);
+}
+.new-review-popup-component-container3 {
+  flex: 0 0 auto;
+  width: auto;
+  height: 24px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  justify-content: center;
+}
+.new-review-popup-component-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  padding-right: var(--dl-space-space-unit);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-unit);
+  justify-content: flex-start;
+}
+.new-review-popup-component-textinput {
+  width: 100%;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.new-review-popup-component-select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.new-review-popup-component-textarea {
+  width: 100%;
+  height: var(--dl-size-size-medium);
+  max-width: 100%;
+  min-width: 50%;
+  max-height: var(--dl-size-size-medium);
+  min-height: var(--dl-size-size-small);
+}
+.new-review-popup-component-button {
+  align-self: flex-end;
+  border-width: 1px;
+  margin-right: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+@media(max-width: 479px) {
+  .new-review-popup-component-container1 {
+    width: 100%;
+  }
+}

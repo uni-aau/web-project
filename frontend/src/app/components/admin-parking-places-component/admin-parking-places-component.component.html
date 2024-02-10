@@ -1,0 +1,32 @@
+<div class="admin-parking-places-component-container" [ngClass]="rootClassName">
+  <div class="admin-parking-places-component-container1">
+    <div class="admin-parking-places-component-container2">
+      <span class="admin-parking-places-component-text subheading">
+        {{ adminParkingPlacesTitle }}
+      </span>
+    </div>
+    <div class="admin-parking-places-component-container3">
+      <button
+        id="parking-places-add-place-button"
+        type="button"
+        class="admin-parking-places-component-button button-blue button-general"
+      >
+        {{ adminParkingPlacesButtonAddPlace }}
+      </button>
+    </div>
+  </div>
+  <div class="admin-parking-places-component-container4">
+    <admin-parking-place-selection-component
+      rootClassName="admin-parking-place-selection-component-root-class-name"
+    ></admin-parking-place-selection-component>
+    <admin-parking-place-selection-component
+      rootClassName="admin-parking-place-selection-component-root-class-name1"
+    ></admin-parking-place-selection-component>
+    <admin-parking-place-selection-component
+      rootClassName="admin-parking-place-selection-component-root-class-name2"
+    ></admin-parking-place-selection-component>
+    <admin-parking-place-selection-component
+      rootClassName="admin-parking-place-selection-component-root-class-name3"
+    ></admin-parking-place-selection-component>
+  </div>
+</div>
