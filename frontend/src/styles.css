@@ -398,6 +398,29 @@
   justify-content: space-between;
   background-color: #fff;
 }
+.button-account-settings {
+  align-self: flex-end;
+  margin-top: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.model-bike-category-subtitle {
+  color: var(--dl-color-gray-500);
+  font-size: 16px;
+  font-style: normal;
+  margin-top: -16px;
+  text-align: left;
+  font-weight: 400;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.drop-down-title {
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+  margin-right: 4px;
+  vertical-align: middle;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -476,6 +499,9 @@
   .model-bike-category-main-component {
     padding: 0px;
   }
+  .model-bike-category-title {
+    text-align: center;
+  }
   .button-book {
     align-self: center;
     margin-bottom: var(--dl-space-space-halfunit);
@@ -489,5 +515,8 @@
   }
   .navbar-general-mobile {
     padding: 16px;
+  }
+  .button-account-settings {
+    align-self: center;
   }
 }
