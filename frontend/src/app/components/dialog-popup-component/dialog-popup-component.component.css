@@ -16,27 +16,6 @@
   text-align: justify;
   margin-bottom: var(--dl-space-space-twounits);
 }
-.dialog-popup-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-}
-.dialog-popup-component-container2 {
-  flex: 0 0 auto;
-  width: 50%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-}
-.dialog-popup-component-container3 {
-  flex: 0 0 auto;
-  width: 50%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
 @media(max-width: 479px) {
   .dialog-popup-component-container {
     width: 95%;

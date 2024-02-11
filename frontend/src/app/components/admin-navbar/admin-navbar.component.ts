@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminNavbar {
   @Input()
+  adminNavbarLogoAlt: string = 'image'
+  @Input()
   adminNavbarSettingsImage: string = '/assets/no-image.svg'
   @Input()
   adminNavbarLinkBikeStations: string = 'Bike Stations'
@@ -26,7 +28,5 @@ export class AdminNavbar {
   adminNavbarSettingsImageAlt: string = 'image'
   @Input()
   rootClassName: string = ''
-  @Input()
-  adminNavbarLogoAlt: string = 'image'
   constructor() {}
 }

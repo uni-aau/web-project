@@ -7,11 +7,11 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageCategoryPopupComponent {
   @Input()
-  adminManageCategoryAssignModels: string = 'Assign Models'
+  adminManageCategoryLabelAssignModels: string = 'Assign Models'
   @Input()
-  adminManageCategoryPriceLabel: string = 'Price'
+  adminManageCategoryLabelPrice: string = 'Price'
   @Input()
-  adminManageCategoryNameLabel: string = 'Category Name'
+  adminManageCategoryLabelName: string = 'Category Name'
   @Input()
   adminManageCategoryInputPlaceholderPrice: string = 'Price'
   @Input()

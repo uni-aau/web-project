@@ -7,13 +7,8 @@ import { Component, Input } from '@angular/core'
 })
 export class DialogPopupComponent {
   @Input()
+  dialogPopupDescription: string = '{0}'
+  @Input()
   dialogPopupTitle: string = 'Are you sure?'
-  @Input()
-  dialogPopupDescription: string =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis tempor, maximus elit sit amet, sodales dui.'
-  @Input()
-  dialogPopupButtonYes: string = 'Yes'
-  @Input()
-  dialogPopupButtonAbort: string = 'Abort'
   constructor() {}
 }

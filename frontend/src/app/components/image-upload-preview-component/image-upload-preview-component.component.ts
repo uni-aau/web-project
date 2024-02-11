@@ -7,12 +7,12 @@ import { Component, Input } from '@angular/core'
 })
 export class ImageUploadPreviewComponent {
   @Input()
-  adminManageBikeStationImageSrc: string = '/assets/no-image.svg'
+  uploadImagePreviewImageSrc: string = '/assets/no-image.svg'
   @Input()
-  adminManageBikeStationButtonUpload: string = 'Upload'
+  uploadImagePreviewButtonUpload: string = 'Upload'
   @Input()
-  imageAlt3: string = 'image'
+  uploadImagePreviewImageAlt: string = 'image'
   @Input()
-  adminManageBikeStationButtonDelete: string = 'Delete'
+  uploadImagePreviewButtonDelete: string = 'Delete'
   constructor() {}
 }

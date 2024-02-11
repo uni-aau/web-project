@@ -7,6 +7,9 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminParkingPlacesComponent {
   @Input()
+  adminParkingPlacesHint: string =
+    'Select one or multiple categories per place. One bike per place can then be assigned'
+  @Input()
   adminParkingPlacesTitle: string = 'Parking Places'
   @Input()
   rootClassName: string = ''

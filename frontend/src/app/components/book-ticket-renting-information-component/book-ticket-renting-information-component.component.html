@@ -3,12 +3,12 @@
     <span
       class="book-ticket-renting-information-component-text input-label-text"
     >
-      {{ text1 }}
+      {{ bookTicketLabelRentingInformation }}
     </span>
     <input
       type="datetime-local"
-      [attr.placeholder]="textinputPlaceholder2"
       id="book-ticket-rent-date-picker"
+      [attr.placeholder]="bookTicketRentingInformationInputPlaceholderRentDate"
       class="input"
     />
   </div>
@@ -16,12 +16,12 @@
     <span
       class="book-ticket-renting-information-component-text1 input-label-text"
     >
-      {{ text11 }}
+      {{ bookTicketRentingInformationLabelRentDuration }}
     </span>
     <input
       type="time"
-      [attr.placeholder]="textinputPlaceholder21"
       id="book-ticket-rent-duration-time-picker"
+      [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
       class="input"
     />
   </div>

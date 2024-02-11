@@ -7,25 +7,25 @@ import { Component, Input } from '@angular/core'
 })
 export class NewReviewPopupComponent {
   @Input()
-  reviewInputTitle: string = 'Enter Title'
+  newReviewLabelTitle: string = 'Enter Title'
   @Input()
-  reviewInputTitlePlaceholder: string = 'What is important?'
+  newReviewInputPlaceholderTitle: string = 'What is important?'
   @Input()
-  reviewDeleteReview: string = '(Delete)'
+  newReviewLinkDelete: string = '(Delete)'
   @Input()
   rootClassName: string = ''
   @Input()
-  reviewSelectModelText: string = 'Select Model'
+  newReviewLabelSelectModel: string = 'Select Model'
   @Input()
-  reviewHeading: string = 'Create Review'
+  newReviewTitle: string = 'Create Review'
   @Input()
-  reviewInputDescription: string = 'Enter a description for your rating'
+  newReviewLabelDescription: string = 'Enter a description for your rating'
   @Input()
-  reviewInputDescriptionPlaceholder: string =
+  newReviewInputPlaceholderDescription: string =
     'What did you like? What did you dislike?'
   @Input()
-  buttonSend: string = 'Send'
+  newReviewButtonSend: string = 'Send'
   @Input()
-  reviewRatingTitle: string = 'Rating'
+  newReviewSubtitleRating: string = 'Rating'
   constructor() {}
 }

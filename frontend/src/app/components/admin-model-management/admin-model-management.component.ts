@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminModelManagement {
   @Input()
-  adminModelManagement: string = 'Models Mangement'
+  adminModelsManagement: string = 'Models Mangement'
   @Input()
   rootClassName: string = ''
   constructor() {}

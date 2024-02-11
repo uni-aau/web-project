@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class ButtonManualBikeReturn {
   @Input()
-  adminBikeRentalsButtonReturnBikeManually: string = 'Return Bike Manually'
+  adminBikeRentalsButtonReturnBikeManually: string = 'Return Bike'
   @Input()
   rootClassName: string = ''
   constructor() {}

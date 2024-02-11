@@ -4,7 +4,7 @@
       <span
         class="book-ticket-booking-information-component-text input-label-text"
       >
-        {{ text2 }}
+        {{ bookTicketBookingInformationImmediateBooking }}
       </span>
       <svg
         viewBox="0 0 1024 1024"
@@ -17,8 +17,8 @@
     </div>
     <input
       type="checkbox"
-      checked="true"
       id="book-ticket-immediate-checkbox"
+      checked="true"
       class="checkbox-style"
     />
   </div>
@@ -26,12 +26,12 @@
     <span
       class="book-ticket-booking-information-component-text1 input-label-text"
     >
-      {{ text12 }}
+      {{ bookTicketBookingInformationLabelBookingTime }}
     </span>
     <input
       type="datetime-local"
-      [attr.placeholder]="textinputPlaceholder22"
       id="book-ticket-booking-date-picker"
+      [attr.placeholder]="bookTicketBookingInformationInputPlaceholderBookingTime"
       class="input"
     />
   </div>

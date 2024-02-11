@@ -9,6 +9,6 @@ export class AdminManageBikeRentalsComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  text: string = 'Active Tickets'
+  adminManageBikeRentalsTitle: string = 'Manage Active Tickets'
   constructor() {}
 }

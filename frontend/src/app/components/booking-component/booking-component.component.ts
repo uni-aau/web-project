@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class BookingComponent {
   @Input()
-  bookingSearchLabel: string = 'Location: %s | Station: %s'
+  bookingLabelSearch: string = 'Location: %s | Station: %s'
   @Input()
   bookingCategoriesTitle: string = 'Categories'
   @Input()

@@ -9,26 +9,22 @@ export class AdminManageBikeStationComponent {
   @Input()
   adminManageBikeStationInputPlaceholderAddress: string = 'Station address'
   @Input()
-  adminManageBikeStationAddressLabel: string = 'Address'
+  adminManageBikeStationLabelAddress: string = 'Address'
   @Input()
-  adminManageBikeStationLongitudeLabel: string = 'Longitude'
+  adminManageBikeStationLabelLongitude: string = 'Longitude'
   @Input()
   adminManageBikeStationInputPlaceholderLatitude: string = 'Latitude'
   @Input()
-  imageAlt1: string = 'image'
-  @Input()
-  adminManageBikeStationInputPlaceholderName: string = 'Station name'
+  adminManageBikeStationInputPlaceholderName: string = 'Station Name'
   @Input()
   adminManageBikeStationImageTitle: string = 'Station Image'
   @Input()
   adminManageBikeStationInputPlaceholderLongitude: string = 'Longitude'
   @Input()
-  adminManageBikeStationLatitudeLabel: string = 'Latitude'
+  adminManageBikeStationLabelLatitude: string = 'Latitude'
   @Input()
   rootClassName: string = ''
   @Input()
-  imageSrc1: string = 'https://play.teleporthq.io/static/svg/default-img.svg'
-  @Input()
-  adminManageBikeStationStationNameLabel: string = 'Station Name'
+  adminManageBikeStationStationLabelName: string = 'Station Name'
   constructor() {}
 }

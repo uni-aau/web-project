@@ -11,9 +11,9 @@ export class AdminManageModelPopupComponent {
   @Input()
   adminManageModelInputPlaceholderPrice: string = 'Price'
   @Input()
-  adminManageModelPriceLabel: string = 'Price'
+  adminManageModelLabelPrice: string = 'Price'
   @Input()
-  adminManageModelNameLabel: string = 'Model Name'
+  adminManageModelLabelName: string = 'Model Name'
   @Input()
   adminManageModelTitle: string = 'Manage Model'
   constructor() {}

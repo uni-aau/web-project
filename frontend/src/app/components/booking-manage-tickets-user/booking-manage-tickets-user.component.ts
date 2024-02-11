@@ -9,6 +9,6 @@ export class BookingManageTicketsUser {
   @Input()
   rootClassName: string = ''
   @Input()
-  bookingManageTicketsTitle: string = 'Manage Tickets'
+  bookingManageTicketsTitle: string = 'Your Tickets'
   constructor() {}
 }

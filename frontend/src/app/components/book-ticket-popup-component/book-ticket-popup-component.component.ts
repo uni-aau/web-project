@@ -7,25 +7,22 @@ import { Component, Input } from '@angular/core'
 })
 export class BookTicketPopupComponent {
   @Input()
-  text8: string = 'New Wallet Amount: %s'
+  bookTicketPopupNewWalletAmount: string = 'New Wallet Amount: {0}'
   @Input()
-  text1: string =
-    'Warning: Using the bike longer than rented results in a penalty!'
+  bookTicketPopupTitle: string = 'Book Ticket'
   @Input()
-  text: string = 'Book Ticket'
+  bookTicketPopupSubtitleBookingInfo: string = 'Booking Information'
   @Input()
-  text5: string = 'Booking Information'
+  bookTicketPopupTotalPrice: string = 'Total Price: {0}'
   @Input()
-  text6: string = 'Total Price: %s'
+  bookTicketPopupName: string = 'Name: {0}'
   @Input()
-  text4: string = 'Name: %s'
+  bookTicketPopupButtonDiscard: string = 'Discard'
   @Input()
-  button1: string = 'Discard'
+  bookTicketPopupButtonBook: string = 'Book Ticket'
   @Input()
-  button: string = 'Book Ticket'
+  bookTicketPopupCategory: string = 'Category: {0}'
   @Input()
-  text3: string = 'Category: %s'
-  @Input()
-  text7: string = 'Renting Information'
+  bookTicketPopupSubtitleRentingInfo: string = 'Renting Information'
   constructor() {}
 }

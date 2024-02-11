@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class NavbarUser {
   @Input()
+  userNavbarLogoImageAlt: string = 'logo'
+  @Input()
+  userNavbarLinkRentedBikes: string = 'Rented Bikes'
+  @Input()
   userNavbarSettingsImageSrc: string = '/assets/no-image.svg'
   @Input()
   rootClassName: string = ''
@@ -22,9 +26,5 @@ export class NavbarUser {
   userNavbarSettingsImageAlt: string = 'image'
   @Input()
   userNavbarLinkAbout: string = 'About'
-  @Input()
-  userNavbarLinkRentedBikes: string = 'Rented Bikes'
-  @Input()
-  userNavbarLogoImageAlt: string = 'logo'
   constructor() {}
 }

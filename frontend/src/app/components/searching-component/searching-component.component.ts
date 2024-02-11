@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class SearchingComponent {
   @Input()
-  searchInputPlaceholder: string = 'Search for %s'
+  searchInputPlaceholder: string = 'Search for {0}'
   @Input()
   searchButtonSearch: string = 'Search'
   @Input()

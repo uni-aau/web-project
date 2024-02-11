@@ -3,7 +3,7 @@
 }
 .admin-parking-places-component-container {
   flex: 0 0 auto;
-  width: 50%;
+  width: 100%;
   display: flex;
   position: relative;
   align-self: flex-start;
@@ -28,7 +28,10 @@
   align-items: center;
 }
 .admin-parking-places-component-text {
+  width: 100%;
   margin: 0px;
+  align-self: flex-start;
+  text-align: left;
 }
 .admin-parking-places-component-container3 {
   flex: 0 0 auto;
@@ -41,6 +44,10 @@
 .admin-parking-places-component-button {
   margin-right: var(--dl-space-space-halfunit);
 }
+.admin-parking-places-component-text1 {
+  align-self: flex-start;
+  text-align: justify;
+}
 .admin-parking-places-component-container4 {
   flex: 0 0 auto;
   width: 100%;
@@ -50,17 +57,14 @@
   align-items: flex-start;
   flex-direction: column;
 }
-
+.admin-parking-places-component-root-class-name {
+  width: 50%;
+}
 @media(max-width: 767px) {
   .admin-parking-places-component-button {
     text-align: center;
   }
   .admin-parking-places-component-root-class-name {
-    width: 100%;
-  }
-}
-@media(max-width: 479px) {
-  .admin-parking-places-component-container {
     width: 100%;
   }
 }

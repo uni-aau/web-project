@@ -1,26 +1,29 @@
 <div class="bike-component-container" [ngClass]="rootClassName">
-  <div class="model-bike-category-main-component bike-component-container1">
+  <div class="model-bike-category-main-component">
     <div class="bike-component-container2">
       <div class="bike-component-container3 list-button-container">
-        <span class="model-bike-category-title">{{ bikesBikeName }}</span>
-        <span class="model-bike-category-general-text">{{ bikesSize }}</span>
-        <span class="model-bike-category-general-text">{{ bikesModel }}</span>
-        <span class="model-bike-category-general-text">{{ bikesType }}</span>
-        <span class="model-bike-category-general-text">{{ bikesStatus }}</span>
+        <span class="model-bike-category-title">{{ bikeBikeName }}</span>
+        <span class="model-bike-category-general-text">{{ bikeSize }}</span>
+        <span class="model-bike-category-general-text">
+          {{ bikeAssignedStation }}
+        </span>
+        <span class="model-bike-category-general-text">{{ bikeModel }}</span>
+        <span class="model-bike-category-general-text">{{ bikeCategory }}</span>
+        <span class="model-bike-category-general-text">{{ bikeStatus }}</span>
         <span class="model-bike-category-general-text">{{ bikePrice }}</span>
       </div>
-      <div class="bike-component-container4 list-button-container">
+      <div class="bike-component-container4">
         <img
-          [attr.alt]="imageAlt"
-          [attr.src]="bikesImageSrc"
+          [attr.alt]="bikeImageAlt"
+          [attr.src]="bikeImageSrc"
           class="bike-component-image"
         />
         <button-book-component
           rootClassName="button-book-component-root-class-name2"
         ></button-book-component>
-        <button-update-delete-component
-          rootClassName="button-update-delete-component-root-class-name2"
-        ></button-update-delete-component>
+        <button-assign-update-delete-component
+          rootClassName="button-assign-update-delete-component-root-class-name"
+        ></button-assign-update-delete-component>
       </div>
     </div>
   </div>

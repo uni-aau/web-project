@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageBikePopupComponent {
   @Input()
-  adminManageBikeAssignModelsLabel: string = 'Assign Models'
+  adminManageBikeLabelAssignModels: string = 'Assign Model'
   @Input()
   rootClassName: string = ''
   @Input()
@@ -19,9 +19,9 @@ export class AdminManageBikePopupComponent {
   @Input()
   adminManageBikeStatus: string = 'Operational'
   @Input()
-  adminManageBikeNameLabel: string = 'Bike Name'
+  adminManageBikeLabelName: string = 'Bike Name'
   @Input()
-  adminManageBikePriceLabel: string = 'Price'
+  adminManageBikeLabelPrice: string = 'Price'
   @Input()
   adminManageBikeImageTitle: string = 'Bike Image'
   constructor() {}

@@ -2,7 +2,7 @@
   display: contents; 
 }
 .account-component-container {
-  width: 80%;
+  width: 60%;
   height: auto;
   display: flex;
   position: relative;
@@ -21,7 +21,7 @@
 }
 .account-component-profile-pic-image-container {
   width: var(--dl-size-size-medium);
-  height: 96px;
+  height: var(--dl-size-size-medium);
   display: flex;
   align-items: center;
   border-color: var(--dl-color-gray-black);
@@ -69,6 +69,12 @@
     padding: var(--dl-space-space-halfunit);
   }
   .account-component-profile-pic-image-container {
+    width: 70px;
+    height: 70px;
     margin-right: var(--dl-space-space-unit);
+  }
+  .account-component-icon {
+    width: 45px;
+    height: 45px;
   }
 }

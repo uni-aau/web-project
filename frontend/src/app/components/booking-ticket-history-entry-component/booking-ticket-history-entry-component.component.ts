@@ -7,14 +7,14 @@ import { Component, Input } from '@angular/core'
 })
 export class BookingTicketHistoryEntryComponent {
   @Input()
-  bookingHistoryEntryRentedBike: string = 'Rented Bike: %s'
+  bookingHistoryEntryRentedBike: string = 'Rented Bike: {0}'
   @Input()
-  bookingHistoryEntryStatus: string = 'Status: %s'
+  bookingHistoryEntryStatus: string = 'Status: {0}'
   @Input()
   bookingHistoryEntryRentingInformation: string =
-    'Booked at: %s | Rented  at: %s | Renting Time: %s'
+    'Booked at: {0} | Rented  at: %s | Renting Time: {1}'
   @Input()
-  bookingHistoryEntryTitle: string = '%s (Price: %s)'
+  bookingHistoryEntryTitle: string = '{0} (Price: {1})'
   @Input()
   rootClassName: string = ''
   constructor() {}

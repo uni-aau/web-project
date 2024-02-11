@@ -5,12 +5,10 @@
   width: 500px;
   height: auto;
   display: flex;
+  padding: var(--dl-space-space-halfunit);
   position: relative;
   align-items: center;
-  padding-left: var(--dl-space-space-halfunit);
-  padding-right: var(--dl-space-space-halfunit);
   flex-direction: column;
-  padding-bottom: var(--dl-space-space-halfunit);
   justify-content: flex-start;
 }
 .admin-manage-category-popup-component-form {

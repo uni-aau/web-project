@@ -6,14 +6,16 @@
   height: 24px;
   margin-right: var(--dl-space-space-halfunit);
 }
-.user-account-drop-down-component-text {
+.user-account-drop-down-component-text1 {
   color: var(--dl-color-gray-black);
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
-  text-align: center;
   font-weight: 500;
-  margin-right: 4px;
-  vertical-align: middle;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.user-account-drop-down-component-text2 {
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
 }
 .user-account-drop-down-component-text3 {
   color: var(--dl-color-gray-black);
@@ -26,11 +28,6 @@
   color: var(--dl-color-gray-black);
   margin-bottom: var(--dl-space-space-unit);
 }
-.user-account-drop-down-component-button {
-  align-self: flex-end;
-  margin-top: var(--dl-space-space-halfunit);
-  margin-bottom: var(--dl-space-space-halfunit);
-}
 .user-account-drop-down-component-text5 {
   color: var(--dl-color-gray-black);
   font-size: 20px;
@@ -42,36 +39,15 @@
   color: var(--dl-color-gray-black);
   margin-bottom: var(--dl-space-space-unit);
 }
-.user-account-drop-down-component-button1 {
-  align-self: flex-end;
-  margin-top: var(--dl-space-space-halfunit);
-  margin-bottom: var(--dl-space-space-halfunit);
-}
-.user-account-drop-down-component-text7 {
-  color: var(--dl-color-gray-black);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  margin-bottom: var(--dl-space-space-unit);
-}
-.user-account-drop-down-component-text8 {
-  color: var(--dl-color-gray-black);
-  margin-bottom: var(--dl-space-space-unit);
-}
-.user-account-drop-down-component-button2 {
-  align-self: flex-end;
-  margin-top: var(--dl-space-space-halfunit);
-  margin-bottom: var(--dl-space-space-halfunit);
-}
 
 @media(max-width: 479px) {
+  .user-account-drop-down-component-text1 {
+    text-align: center;
+  }
   .user-account-drop-down-component-text3 {
     text-align: center;
   }
   .user-account-drop-down-component-text5 {
-    text-align: center;
-  }
-  .user-account-drop-down-component-text7 {
     text-align: center;
   }
 }

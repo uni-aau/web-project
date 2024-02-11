@@ -4,13 +4,13 @@
       <div class="bike-station-component-container3">
         <div class="bike-station-component-container4">
           <span class="bike-station-component-text model-bike-category-title">
-            {{ bikeStationLocationTitle }}
+            {{ bikeStationTitle }}
           </span>
           <span class="bike-station-component-text1">
-            {{ bikeStationDescriptionTitle }}
+            {{ bikeStationLocation }}
           </span>
           <span class="bike-station-component-text2">
-            {{ bikeStationDescription }}
+            {{ bikeStationDescription1 }}
           </span>
         </div>
         <div class="bike-station-component-container5">
@@ -39,15 +39,15 @@
             ></path>
           </svg>
           <span class="bike-station-component-text3">
-            {{ bikeStationStarRatingNumber }}
+            {{ bikeStationRatingAmount }}
           </span>
         </div>
       </div>
       <div class="bike-station-component-container6">
         <img
           id="bike-station-image"
-          [attr.alt]="imageAlt"
-          [attr.src]="bikeStationImageSrc"
+          [attr.alt]="bikeStationImageAlt"
+          [attr.src]="bikeStationImageSrc1"
           class="bike-station-component-image"
         />
       </div>
@@ -59,7 +59,7 @@
           type="button"
           class="bike-station-component-button button-blue button-general"
         >
-          {{ bikeStationButtonRate }}
+          {{ bikeStationButtonRate1 }}
         </button>
         <button
           id="bike-station-view-ratings-button"
@@ -74,7 +74,7 @@
         type="button"
         class="bike-station-component-button2 button-blue button-general"
       >
-        {{ bikeStationButtonMoreInfos }}
+        {{ bikeStationButtonMoreInfos1 }}
       </button>
     </div>
   </div>

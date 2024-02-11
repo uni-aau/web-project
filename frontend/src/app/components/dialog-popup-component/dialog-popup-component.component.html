@@ -1,24 +1,5 @@
 <div class="dialog-popup-component-container">
   <span class="heading">{{ dialogPopupTitle }}</span>
   <span class="dialog-popup-component-text1">{{ dialogPopupDescription }}</span>
-  <div class="dialog-popup-component-container1">
-    <div class="dialog-popup-component-container2">
-      <button
-        type="button"
-        id="dialog-popup-yes-button"
-        class="button-general button-green"
-      >
-        {{ dialogPopupButtonYes }}
-      </button>
-    </div>
-    <div class="dialog-popup-component-container3">
-      <button
-        type="button"
-        id="dialog-popup-abort-button"
-        class="button button-red"
-      >
-        {{ dialogPopupButtonAbort }}
-      </button>
-    </div>
-  </div>
+  <button-yes-cancel></button-yes-cancel>
 </div>

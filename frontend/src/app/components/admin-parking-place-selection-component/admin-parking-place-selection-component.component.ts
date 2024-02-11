@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminParkingPlaceSelectionComponent {
   @Input()
-  adminParkingPlacesPlaceNumber: string = '%s.'
+  adminParkingPlacesPlaceNumber: string = '{0}.'
   @Input()
   rootClassName: string = ''
   constructor() {}

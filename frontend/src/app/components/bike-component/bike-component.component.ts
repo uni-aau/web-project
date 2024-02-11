@@ -7,22 +7,24 @@ import { Component, Input } from '@angular/core'
 })
 export class BikeComponent {
   @Input()
+  bikeAssignedStation: string = 'Assigned Bike Station: %s'
+  @Input()
   rootClassName: string = ''
   @Input()
-  bikesBikeName: string = '%s'
+  bikeBikeName: string = '{0}'
   @Input()
-  bikesStatus: string = 'Status: %s'
+  bikeStatus: string = 'Status: {0}'
   @Input()
-  bikesModel: string = 'Model: %s'
+  bikeModel: string = 'Model: {0}'
   @Input()
-  bikePrice: string = 'Price: %s'
+  bikePrice: string = 'Price: {0}'
   @Input()
-  bikesImageSrc: string = '/assets/no-image.svg'
+  bikeImageSrc: string = '/assets/no-image.svg'
   @Input()
-  bikesSize: string = 'Size: %s'
+  bikeSize: string = 'Size: {0}'
   @Input()
-  bikesType: string = 'Category: %s'
+  bikeCategory: string = 'Category: {0}'
   @Input()
-  imageAlt: string = 'More Infos'
+  bikeImageAlt: string = 'More Infos'
   constructor() {}
 }

@@ -2,9 +2,16 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 
+import { AdminBikeAssignmentComponent } from './admin-bike-assignment-component/admin-bike-assignment-component.component'
 import { AdminManageBikeRentalsComponent } from './admin-manage-bike-rentals-component/admin-manage-bike-rentals-component.component'
 import { BookTicketBookingInformationComponent } from './book-ticket-booking-information-component/book-ticket-booking-information-component.component'
+import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-component.component'
+import { BookingActiveRentalsListEntryComponent } from './booking-active-rentals-list-entry-component/booking-active-rentals-list-entry-component.component'
+import { ReturnBikePopupComponent } from './return-bike-popup-component/return-bike-popup-component.component'
+import { ButtonAssignUpdateDeleteComponent } from './button-assign-update-delete-component/button-assign-update-delete-component.component'
+import { NoEntriesComponent } from './no-entries-component/no-entries-component.component'
 import { AdminManageBikeRentalsListEntry } from './admin-manage-bike-rentals-list-entry/admin-manage-bike-rentals-list-entry.component'
+import { BookingActiveRentalsUserComponent } from './booking-active-rentals-user-component/booking-active-rentals-user-component.component'
 import { ButtonManualBikeReturn } from './button-manual-bike-return/button-manual-bike-return.component'
 import { AdminModelManagement } from './admin-model-management/admin-model-management.component'
 import { AdminBikesManagementComponent } from './admin-bikes-management-component/admin-bikes-management-component.component'
@@ -13,6 +20,7 @@ import { BikeStationsComponent } from './bike-stations-component/bike-stations-c
 import { ButtonSearchComponent } from './button-search-component/button-search-component.component'
 import { AdminBikeStationsComponent } from './admin-bike-stations-component/admin-bike-stations-component.component'
 import { AdminCategoriesManagement } from './admin-categories-management/admin-categories-management.component'
+import { ButtonReturnBike } from './button-return-bike/button-return-bike.component'
 import { BookTicketRentingInformationComponent } from './book-ticket-renting-information-component/book-ticket-renting-information-component.component'
 import { SearchingComponent } from './searching-component/searching-component.component'
 import { BookTicketPopupComponent } from './book-ticket-popup-component/book-ticket-popup-component.component'
@@ -62,13 +70,22 @@ import { UserAccountDropDownComponent } from './user-account-drop-down-component
 import { ResetPasswordComponent } from './reset-password-component/reset-password-component.component'
 import { AdminParkingPlaceSelectionComponent } from './admin-parking-place-selection-component/admin-parking-place-selection-component.component'
 import { Footer } from './footer/footer.component'
-import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-component.component'
+import { ButtonRentBikeComponent } from './button-rent-bike-component/button-rent-bike-component.component'
+import { BookingRentBikeStartConfirmationPopupComponent } from './booking-rent-bike-start-confirmation-popup-component/booking-rent-bike-start-confirmation-popup-component.component'
+import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component'
 
 @NgModule({
   declarations: [
+    AdminBikeAssignmentComponent,
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,
+    DialogPopupComponent,
+    BookingActiveRentalsListEntryComponent,
+    ReturnBikePopupComponent,
+    ButtonAssignUpdateDeleteComponent,
+    NoEntriesComponent,
     AdminManageBikeRentalsListEntry,
+    BookingActiveRentalsUserComponent,
     ButtonManualBikeReturn,
     AdminModelManagement,
     AdminBikesManagementComponent,
@@ -77,6 +94,7 @@ import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-comp
     ButtonSearchComponent,
     AdminBikeStationsComponent,
     AdminCategoriesManagement,
+    ButtonReturnBike,
     BookTicketRentingInformationComponent,
     SearchingComponent,
     BookTicketPopupComponent,
@@ -126,13 +144,22 @@ import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-comp
     ResetPasswordComponent,
     AdminParkingPlaceSelectionComponent,
     Footer,
-    DialogPopupComponent,
+    ButtonRentBikeComponent,
+    BookingRentBikeStartConfirmationPopupComponent,
+    ButtonYesCancel,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
+    AdminBikeAssignmentComponent,
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,
+    DialogPopupComponent,
+    BookingActiveRentalsListEntryComponent,
+    ReturnBikePopupComponent,
+    ButtonAssignUpdateDeleteComponent,
+    NoEntriesComponent,
     AdminManageBikeRentalsListEntry,
+    BookingActiveRentalsUserComponent,
     ButtonManualBikeReturn,
     AdminModelManagement,
     AdminBikesManagementComponent,
@@ -141,6 +168,7 @@ import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-comp
     ButtonSearchComponent,
     AdminBikeStationsComponent,
     AdminCategoriesManagement,
+    ButtonReturnBike,
     BookTicketRentingInformationComponent,
     SearchingComponent,
     BookTicketPopupComponent,
@@ -190,7 +218,9 @@ import { DialogPopupComponent } from './dialog-popup-component/dialog-popup-comp
     ResetPasswordComponent,
     AdminParkingPlaceSelectionComponent,
     Footer,
-    DialogPopupComponent,
+    ButtonRentBikeComponent,
+    BookingRentBikeStartConfirmationPopupComponent,
+    ButtonYesCancel,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
