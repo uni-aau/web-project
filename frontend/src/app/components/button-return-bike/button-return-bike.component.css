@@ -1,0 +1,14 @@
+:host { 
+  display: contents; 
+}
+.button-return-bike-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.button-return-bike-button {
+  width: 200px;
+}
+

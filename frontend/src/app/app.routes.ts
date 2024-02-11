@@ -18,10 +18,12 @@ import {Booking} from "./pages/booking/booking.component";
 import {ManageTicketsUser} from "./pages/manage-tickets-user/manage-tickets-user.component";
 import {ReviewsList} from "./pages/reviews-list/reviews-list.component";
 import {AdminManageBikes} from "./pages/admin-manage-bikes/admin-manage-bikes.component";
+import {ActiveRentals} from "./pages/active-rentals/active-rentals.component";
 
 export const routes: Routes = [
   {path: '', component: Home},
   {path: 'account', component: Account},
+  {path: 'active-rentals', component: ActiveRentals},
   {path: 'admin-bike-stations', component: AdminBikeStations},
   {path: 'admin-manage-bike-rentals', component: AdminManageBikeRentals},
   {path: 'admin-manage-bike-station', component: AdminManageBikeStation},
@@ -39,6 +41,7 @@ export const routes: Routes = [
   {path: 'reset-password', component: ResetPassword},
   {path: 'reviews-list', component: ReviewsList},
   {path: 'testpage', component: Testpage},
+
 
   {path: '**', component: NotFound},
 ];

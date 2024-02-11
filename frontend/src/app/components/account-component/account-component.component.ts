@@ -11,8 +11,8 @@ export class AccountComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  accountName: string = '%s'
+  accountName: string = '{0}'
   @Input()
-  accountEmail: string = '%s'
+  accountEmail: string = '{0}'
   constructor() {}
 }

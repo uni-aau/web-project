@@ -36,7 +36,7 @@
 }
 .bike-component-image {
   width: 200px;
-  height: 120px;
+  height: 135px;
   align-self: flex-end;
   object-fit: cover;
   margin-right: var(--dl-space-space-halfunit);
@@ -60,17 +60,7 @@
 
 
 
-
-
-@media(max-width: 767px) {
-  .bike-component-image {
-    min-width: 100px;
-  }
-}
 @media(max-width: 479px) {
-  .bike-component-container1 {
-    width: 100%;
-  }
   .bike-component-container2 {
     height: 100%;
     flex-direction: column;
@@ -83,8 +73,8 @@
     align-items: center;
   }
   .bike-component-image {
-    width: 40%;
-    min-width: 30%;
+    height: 120px;
     align-self: center;
+    margin-right: 0px;
   }
 }

@@ -7,14 +7,17 @@ import { Component, Input } from '@angular/core'
 })
 export class ModelComponent {
   @Input()
-  modelPrice: string = 'Price: %s'
+  modelPrice: string = 'Price: {0}'
   @Input()
-  modelStatusAvailbility: string = 'Status: %s'
+  modelStatusAvailbility: string = 'Status: {0}'
   @Input()
-  modelName: string = '%s'
+  modelName: string = '{0}'
   @Input()
   rootClassName: string = ''
   @Input()
-  modelAssignedToCategory: string = 'Assigned to: %s'
+  modelAssignedToCategory: string = 'Assigned to: {0}'
+  @Input()
+  modelHintSubtitle: string =
+    'Receive a randomly selected bike of the booked model'
   constructor() {}
 }

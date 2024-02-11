@@ -7,19 +7,19 @@ import { Component, Input } from '@angular/core'
 })
 export class HomeShowcase {
   @Input()
-  textHomeShowcase: string =
+  homeShowcaseText: string =
     'Explore our wide range of bikes, from sleek road models to rugged mountain options, innovative e-bikes, and many more! All designed to offer an unmatched cycling experience for every adventurer.'
   @Input()
-  imageAltHomeShowcase: string = 'image'
+  homeShowcaseImageAlt: string = 'image'
   @Input()
-  titleHomeShowcase: string = 'Pedal Paradise'
+  homeShowcaseTitle: string = 'Pedal Paradise'
   @Input()
   rootClassName: string = ''
   @Input()
-  imageSrcHomeShowcase: string = '/assets/bikestation-1500w.png'
+  homeShowcaseImageSrc: string = '/assets/bikestation-1500w.png'
   @Input()
-  headingHomeShowcase: string = 'Your gateway to adventure on two wheels'
+  homeShowcaseHeading: string = 'Your gateway to adventure on two wheels'
   @Input()
-  buttonTextHomeShowcase: string = '>> Rent Now'
+  homeShowcaseButtonRentNow: string = '>> Rent Now'
   constructor() {}
 }

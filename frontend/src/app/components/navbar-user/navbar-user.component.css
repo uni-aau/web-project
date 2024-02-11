@@ -27,6 +27,9 @@
   flex-direction: row;
   justify-content: flex-start;
 }
+.navbar-user-navlink04 {
+  text-decoration: none;
+}
 .navbar-user-buttons {
   display: flex;
   align-items: center;
@@ -91,6 +94,9 @@
   align-items: flex-start;
   flex-direction: column;
 }
+.navbar-user-navlink09 {
+  text-decoration: none;
+}
 .navbar-user-buttons1 {
   display: flex;
   margin-top: var(--dl-space-space-unit);
@@ -109,6 +115,7 @@
   border-radius: var(--dl-radius-radius-round);
   text-decoration: none;
 }
+
 
 
 @media(max-width: 767px) {

@@ -7,25 +7,25 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminBikeStationEntryComponent {
   @Input()
-  adminBikeStationButtonUpdate: string = 'Update'
+  adminBikeStationEntryButtonUpdate: string = 'Update'
   @Input()
-  adminbikeStationImageSrc: string = '/assets/no-image.svg'
+  adminBikeStationEntryImageSrc: string = '/assets/no-image.svg'
   @Input()
-  adminBikeStationButtonDeleteRatings: string = 'Delete Ratings'
+  adminBikeStationEntryButtonDeleteRatings: string = 'Delete Ratings'
   @Input()
-  adminBikeStationDescription: string = '%s'
+  adminBikeStationEntryDescription: string = '{0}'
   @Input()
-  adminbikeStationButtonDelete: string = 'Delete'
+  adminBikeStationEntryButtonDelete: string = 'Delete'
   @Input()
-  imageAlt: string = 'More Infos'
+  adminBikeStationEntryImageAlt: string = 'image'
   @Input()
-  adminBikeStationStationName: string = '<Stationname>'
+  adminBikeStationEntryStationName: string = '{0}'
   @Input()
-  adminBikeStationStarRatingNumber: string = '(%s)'
+  adminBikeStationEntryStarRatingNumber: string = '({0})'
   @Input()
-  adminBikeStationButtonManageRatings: string = 'Manage Ratings'
+  adminBikeStationEntryButtonManageRatings: string = 'Manage Ratings'
   @Input()
-  adminBikeStationLocation: string = '<Location>'
+  adminBikeStationEntryLocation: string = '{0}'
   @Input()
   rootClassName: string = ''
   constructor() {}

@@ -1,0 +1,14 @@
+<div
+  class="booking-active-rentals-user-component-container"
+  [ngClass]="rootClassName"
+>
+  <span class="heading">{{ bookingActiveRentalsTitle }}</span>
+  <div class="booking-active-rentals-user-component-container1">
+    <booking-active-rentals-list-entry-component
+      rootClassName="booking-active-rentals-list-entry-component-root-class-name"
+    ></booking-active-rentals-list-entry-component>
+  </div>
+  <no-entries-component
+    rootClassName="no-entries-component-root-class-name"
+  ></no-entries-component>
+</div>

@@ -7,10 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class DataPrivacyComponent {
   @Input()
-  headlineDataprivacy: string = 'Data Privacy'
+  dataPrivacyTitle: string = 'Data Privacy'
   @Input()
   rootClassName: string = ''
   @Input()
-  textDataprivacy: string = 'Hier steht mal was zum Datenschutz'
+  dataPrivacyText: string = 'Currently not available'
   constructor() {}
 }

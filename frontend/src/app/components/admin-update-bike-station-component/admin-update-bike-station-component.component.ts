@@ -11,8 +11,8 @@ export class AdminUpdateBikeStationComponent {
   @Input()
   adminManageBikestationButtonSaveBikeStation: string = 'Save'
   @Input()
-  adminManageBikestationTitle: string = 'Manage Bikestation'
+  adminManageBikeStationTitle: string = 'Manage Bikestation'
   @Input()
-  adminManageBikestationDiscardBikeStation: string = 'Discard'
+  adminManageBikeStationButtonDiscard: string = 'Discard'
   constructor() {}
 }

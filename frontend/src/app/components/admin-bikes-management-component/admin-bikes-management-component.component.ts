@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminBikesManagementComponent {
   @Input()
-  text: string = 'Manage Bikes'
+  adminBikesManagementTitlte: string = 'Manage Bikes'
   @Input()
   rootClassName: string = ''
   constructor() {}

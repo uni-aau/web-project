@@ -7,24 +7,25 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageBikeRentalsListEntry {
   @Input()
-  bookedTypeEntryRentingInformation: string =
-    'Rent Start: %s | Renting Time: %s'
+  adminManageBikeRentalsRentingInformation: string =
+    'Rent Start: {0} | Renting Time: {1}'
   @Input()
   rootClassName: string = ''
   @Input()
-  bookedTypeEntryBookingDate: string = 'Booked at: %s'
+  adminManageBikeRentalsBookDate: string = 'Booked at: {0}'
   @Input()
-  bookedTypeEntryStatus: string =
-    'Status: %s (Booked|Rented|Overdue since: %s|Canceled|Not Taken (-10% Fee))'
+  adminManageBikeRentalsStatus: string =
+    'Status: {0} (Booked|Rented|Overdue since: %s|Canceled|Not Taken (-10% Fee))'
   @Input()
-  bookedTypeEntryBookedType: string = 'Booked Type: %s (Category|Bike|Model)'
+  adminManageBikeRentalsBookedType: string =
+    'Booked Type: {0} (Category|Bike|Model)'
   @Input()
-  bookedTypeEntryDueDate: string = 'Due Date: %s'
+  adminManageBikeRentalsDueDate: string = 'Due Date: {0}'
   @Input()
-  bookedTypeEntryTitle: string = '%s (Price: %s)'
+  adminManageBikeRentalsTitle: string = '{0} (Price: {1})'
   @Input()
-  manageBikeRentalsRentedBy: string = 'Rented by: %s'
+  adminManageBikeRentalsRentedBy: string = 'Rented by: {0}'
   @Input()
-  text1: string = 'TicketID: %s'
+  adminManageBikeRentalsTicketId: string = 'TicketID: {0}'
   constructor() {}
 }

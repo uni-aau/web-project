@@ -9,6 +9,6 @@ export class ViewRatingsComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  text: string = 'Reviews'
+  viewRatingsTitle: string = 'Reviews'
   constructor() {}
 }

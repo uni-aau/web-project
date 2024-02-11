@@ -9,10 +9,11 @@ export class BookTicketBookingInformationComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  text2: string = 'Immediate Booking?'
+  bookTicketBookingInformationImmediateBooking: string = 'Immediate Booking?'
   @Input()
-  textinputPlaceholder22: string = 'placeholder'
+  bookTicketBookingInformationInputPlaceholderBookingTime: string =
+    'placeholder'
   @Input()
-  text12: string = 'Select Booking Time'
+  bookTicketBookingInformationLabelBookingTime: string = 'Select Booking Time'
   constructor() {}
 }

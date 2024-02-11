@@ -2,7 +2,7 @@
   display: contents; 
 }
 .bike-station-component-container {
-  width: 95%;
+  width: 100%;
   height: auto;
   display: flex;
   position: relative;
@@ -123,12 +123,15 @@
 .bike-station-component-button2 {
   top: 6px;
   right: var(--dl-space-space-halfunit);
+  width: 200px;
   position: absolute;
 }
 .bike-station-component-root-class-name {
   margin-left: var(--dl-space-space-twounits);
   margin-right: var(--dl-space-space-sixunits);
 }
+
+
 
 
 

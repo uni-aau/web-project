@@ -9,12 +9,12 @@ export class BookTicketRentingInformationComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  textinputPlaceholder2: string = 'placeholder'
+  bookTicketRentingInformationInputPlaceholderRentDate: string = 'placeholder'
   @Input()
-  text11: string = 'Select Rent Duration'
+  bookTicketRentingInformationLabelRentDuration: string = 'Select Rent Duration'
   @Input()
-  text1: string = 'Select Rent Date'
+  bookTicketLabelRentingInformation: string = 'Select Rent Date'
   @Input()
-  textinputPlaceholder21: string = 'placeholder'
+  bookTicketInputPlaceholderRentingInformation: string = 'placeholder'
   constructor() {}
 }

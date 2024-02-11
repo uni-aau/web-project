@@ -7,22 +7,22 @@ import { Component, Input } from '@angular/core'
 })
 export class BookedTypeEntryComponent {
   @Input()
-  bookedTypeEntryTicketId: string = 'TicketID: %s'
+  bookedTypeEntryTicketId: string = 'TicketID: {0}'
   @Input()
   bookedTypeEntryRentingInformation: string =
-    'Rent Start: %s | Renting Time: %s'
+    'Rent Start: {0} | Renting Time: {0}'
   @Input()
-  bookedTypeEntryBookingDate: string = 'Booked at: %s'
+  bookedTypeEntryBookingDate: string = 'Booked at: {0}'
   @Input()
-  bookedTypeEntryBookedType: string = 'Booked Type: %s (Category|Bike|Model)'
+  bookedTypeEntryBookedType: string = 'Booked Type: {0} (Category|Bike|Model)'
   @Input()
   rootClassName: string = ''
   @Input()
-  bookedTypeEntryTitle: string = '%s (Price: %s)'
+  bookedTypeEntryTitle: string = '{0} (Price: {1})'
   @Input()
   bookedTypeEntryStatus: string =
-    'Status: %s (Booked|Rented|Overdue since: %s|Canceled|Not Taken (-10% Fee))'
+    'Status: {0} (Booked|Rented|Overdue since: %s|Canceled|Not Taken (-10% Fee))'
   @Input()
-  bookedTypeEntryDueDate: string = 'Due Date: %s'
+  bookedTypeEntryDueDate: string = 'Due Date: {0}'
   constructor() {}
 }

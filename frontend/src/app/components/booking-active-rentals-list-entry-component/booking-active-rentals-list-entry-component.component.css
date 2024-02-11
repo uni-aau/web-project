@@ -1,0 +1,60 @@
+:host { 
+  display: contents; 
+}
+.booking-active-rentals-list-entry-component-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex-direction: column;
+}
+.booking-active-rentals-list-entry-component-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.booking-active-rentals-list-entry-component-container3 {
+  width: 50%;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+}
+.booking-active-rentals-list-entry-component-container4 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.booking-active-rentals-list-entry-component-image {
+  width: 200px;
+  height: 145px;
+  align-self: flex-end;
+  object-fit: cover;
+  margin-right: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+
+@media(max-width: 479px) {
+  .booking-active-rentals-list-entry-component-container2 {
+    flex-direction: column;
+  }
+  .booking-active-rentals-list-entry-component-container3 {
+    width: 100%;
+  }
+  .booking-active-rentals-list-entry-component-container4 {
+    width: 100%;
+    margin-top: var(--dl-space-space-halfunit);
+    align-items: center;
+  }
+  .booking-active-rentals-list-entry-component-image {
+    height: 120px;
+    align-self: center;
+    margin-right: 0px;
+  }
+}

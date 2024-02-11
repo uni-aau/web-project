@@ -1,50 +1,50 @@
 <div class="new-review-popup-component-container" [ngClass]="rootClassName">
   <div class="new-review-popup-component-container1">
-    <h1 class="subheading">{{ reviewHeading }}</h1>
+    <h1 class="subheading">{{ newReviewTitle }}</h1>
     <div class="new-review-popup-component-container2">
       <span class="new-review-popup-component-text1">
-        {{ reviewRatingTitle }}
+        {{ newReviewSubtitleRating }}
       </span>
       <span
         id="review-rating-delete-button"
         class="new-review-popup-component-text2 link-text-font"
       >
-        {{ reviewDeleteReview }}
+        {{ newReviewLinkDelete }}
       </span>
     </div>
     <div class="new-review-popup-component-container3">
-      <svg viewBox="0 0 1024 1024" id="rating-star1" class="review-star">
+      <svg id="rating-star1" viewBox="0 0 1024 1024" class="review-star">
         <path
           d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
         ></path></svg
-      ><svg viewBox="0 0 1024 1024" id="rating-star2" class="review-star">
+      ><svg id="rating-star2" viewBox="0 0 1024 1024" class="review-star">
         <path
           d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
         ></path></svg
-      ><svg viewBox="0 0 1024 1024" id="rating-star3" class="review-star">
+      ><svg id="rating-star3" viewBox="0 0 1024 1024" class="review-star">
         <path
           d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
         ></path></svg
-      ><svg viewBox="0 0 1024 1024" id="rating-star4" class="review-star">
+      ><svg id="rating-star4" viewBox="0 0 1024 1024" class="review-star">
         <path
           d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
         ></path></svg
-      ><svg viewBox="0 0 1024 1024" id="rating-star5" class="review-star">
+      ><svg id="rating-star5" viewBox="0 0 1024 1024" class="review-star">
         <path
           d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
         ></path>
       </svg>
     </div>
     <form class="new-review-popup-component-form">
-      <span class="input-label-text">{{ reviewInputTitle }}</span>
+      <span class="input-label-text">{{ newReviewLabelTitle }}</span>
       <input
         type="text"
-        required
-        [attr.placeholder]="reviewInputTitlePlaceholder"
         id="rating-title-input"
+        required
+        [attr.placeholder]="newReviewInputPlaceholderTitle"
         class="new-review-popup-component-textinput input"
       />
-      <span class="input-label-text">{{ reviewSelectModelText }}</span>
+      <span class="input-label-text">{{ newReviewLabelSelectModel }}</span>
       <select
         id="rating-model-selector"
         class="new-review-popup-component-select selector-style"
@@ -53,19 +53,19 @@
         <option value="Option 2">Option 2</option>
         <option value="Option 3">Option 3</option>
       </select>
-      <span class="input-label-text">{{ reviewInputDescription }}</span>
+      <span class="input-label-text">{{ newReviewLabelDescription }}</span>
       <textarea
-        [attr.placeholder]="reviewInputDescriptionPlaceholder"
         id="rating-description-input"
+        [attr.placeholder]="newReviewInputPlaceholderDescription"
         class="new-review-popup-component-textarea textarea"
       ></textarea>
     </form>
   </div>
   <button
-    type="button"
     id="rating-send-button"
+    type="button"
     class="new-review-popup-component-button button-blue button-general"
   >
-    {{ buttonSend }}
+    {{ newReviewButtonSend }}
   </button>
 </div>

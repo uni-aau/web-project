@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminCategoriesManagement {
   @Input()
-  adminCateogriesManagementTitle: string = 'Categories Management'
+  adminManageCategoriesTitle: string = 'Categories Management'
   @Input()
   rootClassName: string = ''
   constructor() {}

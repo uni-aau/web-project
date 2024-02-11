@@ -9,13 +9,13 @@
           <span
             class="admin-bike-station-entry-component-text model-bike-category-title"
           >
-            {{ adminBikeStationStationName }}
+            {{ adminBikeStationEntryStationName }}
           </span>
           <span class="admin-bike-station-entry-component-text1">
-            {{ adminBikeStationLocation }}
+            {{ adminBikeStationEntryLocation }}
           </span>
           <span class="admin-bike-station-entry-component-text2">
-            {{ adminBikeStationDescription }}
+            {{ adminBikeStationEntryDescription }}
           </span>
         </div>
         <div class="admin-bike-station-entry-component-container05">
@@ -45,15 +45,15 @@
             ></path>
           </svg>
           <span class="admin-bike-station-entry-component-text3">
-            {{ adminBikeStationStarRatingNumber }}
+            {{ adminBikeStationEntryStarRatingNumber }}
           </span>
         </div>
       </div>
       <div class="admin-bike-station-entry-component-container06">
         <img
           id="bike-station-image"
-          [attr.alt]="imageAlt"
-          [attr.src]="adminbikeStationImageSrc"
+          [attr.alt]="adminBikeStationEntryImageAlt"
+          [attr.src]="adminBikeStationEntryImageSrc"
           class="admin-bike-station-entry-component-image"
         />
       </div>
@@ -65,14 +65,14 @@
           type="button"
           class="admin-bike-station-entry-component-button button-blue button-general"
         >
-          {{ adminBikeStationButtonManageRatings }}
+          {{ adminBikeStationEntryButtonManageRatings }}
         </button>
         <button
           id="button-delete-ratings"
           type="button"
           class="admin-bike-station-entry-component-button1 button-general button-red"
         >
-          {{ adminBikeStationButtonDeleteRatings }}
+          {{ adminBikeStationEntryButtonDeleteRatings }}
         </button>
       </div>
       <div class="admin-bike-station-entry-component-container09">
@@ -81,14 +81,14 @@
           type="button"
           class="admin-bike-station-entry-component-button2 button-blue button-general"
         >
-          {{ adminBikeStationButtonUpdate }}
+          {{ adminBikeStationEntryButtonUpdate }}
         </button>
         <button
           id="button-delete-bike-station"
           type="button"
           class="button-general button-red"
         >
-          {{ adminbikeStationButtonDelete }}
+          {{ adminBikeStationEntryButtonDelete }}
         </button>
       </div>
     </div>

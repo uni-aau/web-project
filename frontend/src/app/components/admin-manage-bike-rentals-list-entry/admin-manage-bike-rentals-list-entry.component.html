@@ -4,27 +4,31 @@
 >
   <div class="model-bike-category-main-component">
     <div class="admin-manage-bike-rentals-list-entry-container2">
-      <span class="model-bike-category-title">{{ bookedTypeEntryTitle }}</span>
-      <span class="model-bike-category-general-text">
-        {{ bookedTypeEntryBookedType }}
+      <span class="model-bike-category-title">
+        {{ adminManageBikeRentalsTitle }}
       </span>
       <span class="model-bike-category-general-text">
-        {{ manageBikeRentalsRentedBy }}
+        {{ adminManageBikeRentalsBookedType }}
       </span>
       <span class="model-bike-category-general-text">
-        {{ bookedTypeEntryBookingDate }}
+        {{ adminManageBikeRentalsRentedBy }}
       </span>
       <span class="model-bike-category-general-text">
-        {{ bookedTypeEntryRentingInformation }}
+        {{ adminManageBikeRentalsBookDate }}
       </span>
       <span class="model-bike-category-general-text">
-        {{ bookedTypeEntryDueDate }}
+        {{ adminManageBikeRentalsRentingInformation }}
       </span>
       <span class="model-bike-category-general-text">
-        {{ bookedTypeEntryStatus }}
+        {{ adminManageBikeRentalsDueDate }}
+      </span>
+      <span class="model-bike-category-general-text">
+        {{ adminManageBikeRentalsStatus }}
       </span>
     </div>
-    <span class="model-bike-category-general-text">{{ text1 }}</span>
+    <span class="model-bike-category-general-text">
+      {{ adminManageBikeRentalsTicketId }}
+    </span>
     <div class="admin-manage-bike-rentals-list-entry-container3">
       <button-show-qr-code
         rootClassName="button-show-qr-code-root-class-name1"
@@ -32,6 +36,9 @@
       <button-manual-bike-return
         rootClassName="button-manual-bike-return-root-class-name"
       ></button-manual-bike-return>
+      <button-rent-bike-component
+        rootClassName="button-rent-bike-component-root-class-name"
+      ></button-rent-bike-component>
       <button-cancel-booking-component
         rootClassName="button-cancel-booking-component-root-class-name1"
       ></button-cancel-booking-component>

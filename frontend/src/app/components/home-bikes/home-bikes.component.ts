@@ -7,38 +7,38 @@ import { Component, Input } from '@angular/core'
 })
 export class HomeBikes {
   @Input()
-  imageSrcHomeBikes1: string = '/assets/roadbike-200h.png'
+  homeBikesImageSrc1: string = '/assets/roadbike-200h.png'
   @Input()
-  imageAltHomeBikes4: string = 'image'
+  homeBikesImageAlt4: string = 'image'
   @Input()
-  imageAltHomeBikes1: string = 'image'
+  homeBikesImageAlt1: string = 'image'
   @Input()
-  imageSrcHomeBikes3: string = '/assets/tourbike-200h.png'
+  homeBikesImageSrc3: string = '/assets/tourbike-200h.png'
   @Input()
-  headingHomeBikes4: string = 'E-Bikes'
+  homeBikesTitle4: string = 'E-Bikes'
   @Input()
-  textHomeBikes2: string = 'Rugged and versatile, designed for off-road trails.'
+  homeBikesText2: string = 'Rugged and versatile, designed for off-road trails.'
   @Input()
-  textHomeBikes3: string = 'Durable and comfortable, ideal for long journeys.'
+  homeBikesText3: string = 'Durable and comfortable, ideal for long journeys.'
   @Input()
-  imageSrcHomeBikes4: string = '/assets/ebike-200h.png'
+  homeBikesImageSrc4: string = '/assets/ebike-200h.png'
   @Input()
-  headingHomeBikes3: string = 'Tour Bikes'
+  homeBikesTitle3: string = 'Tour Bikes'
   @Input()
-  imageAltHomeBikes2: string = 'image'
+  homeBikesImageAlt2: string = 'image'
   @Input()
-  textHomeBikes4: string = 'Effortless riding with electric power assistance.'
+  homeBikesText4: string = 'Effortless riding with electric power assistance.'
   @Input()
-  imageAltHomeBikes3: string = 'image'
+  homeBikesImageAlt3: string = 'image'
   @Input()
   rootClassName: string = ''
   @Input()
-  textHomeBikes1: string = 'Sleek and fast, perfect for pavement riding.'
+  homeBikesText1: string = 'Sleek and fast, perfect for pavement riding.'
   @Input()
-  headingHomeBikes2: string = 'Offroad Bikes'
+  homeBikesTitle2: string = 'Offroad Bikes'
   @Input()
-  imageSrcHomeBikes2: string = '/assets/offroadbike-200h.png'
+  homeBikesImageSrc2: string = '/assets/offroadbike-200h.png'
   @Input()
-  headingHomeBikes1: string = 'Road Bikes'
+  homeBikesTitle1: string = 'Road Bikes'
   constructor() {}
 }
