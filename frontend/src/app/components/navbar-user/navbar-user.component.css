@@ -91,18 +91,6 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.navbar-user-navlink06 {
-  text-decoration: none;
-}
-.navbar-user-navlink07 {
-  text-decoration: none;
-}
-.navbar-user-navlink08 {
-  text-decoration: none;
-}
-.navbar-user-navlink09 {
-  text-decoration: none;
-}
 .navbar-user-buttons1 {
   display: flex;
   margin-top: var(--dl-space-space-unit);

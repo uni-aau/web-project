@@ -94,21 +94,6 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.admin-navbar-navlink07 {
-  text-decoration: none;
-}
-.admin-navbar-navlink08 {
-  text-decoration: none;
-}
-.admin-navbar-navlink09 {
-  text-decoration: none;
-}
-.admin-navbar-navlink10 {
-  text-decoration: none;
-}
-.admin-navbar-navlink11 {
-  text-decoration: none;
-}
 .admin-navbar-buttons1 {
   display: flex;
   margin-top: var(--dl-space-space-unit);
