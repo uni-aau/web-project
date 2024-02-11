@@ -1,0 +1,43 @@
+<div class="return-bike-popup-component-container">
+  <span class="heading">{{ returnBikeTitle }}</span>
+  <div class="return-bike-popup-component-container1">
+    <div class="return-bike-popup-component-container2">
+      <div class="return-bike-popup-component-container3">
+        <span class="return-bike-popup-component-text1 input-label-text">
+          {{ returnBikeTicketId }}
+        </span>
+      </div>
+      <div class="return-bike-popup-component-container4">
+        <span class="return-bike-popup-component-text2 input-label-text">
+          {{ returnBikeBikeCategories }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="return-bike-popup-component-container5">
+    <div class="return-bike-popup-component-container6">
+      <span class="input-label-text">{{ returnBikeLabelBikeStation }}</span>
+      <select
+        id="manage-bike-models-selector"
+        class="return-bike-popup-component-select selector-style"
+      >
+        <option value="Option 1">Option 1</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+        <option value="Option 3">Option 3</option>
+        <option value="Option 3">Option 3</option>
+      </select>
+    </div>
+    <div class="return-bike-popup-component-container7">
+      <span class="return-bike-popup-component-text4 input-label-text">
+        {{ returnBikeParkingPlace }}
+      </span>
+    </div>
+  </div>
+  <button-save-discard-component
+    rootClassName="button-save-discard-component-root-class-name2"
+  ></button-save-discard-component>
+</div>
