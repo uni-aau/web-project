@@ -16,9 +16,11 @@ router.post('/login', async (req, res, next) => {
             const isValid = await bcrypt.compare(password, user.password_hash);
 
             if (isValid) {
+                const secret = user.is_admin ? "meinSuperGeheimesAdminJWTSecret" : "meinSuperGeheimesUserJWTSecret";
+
                 const token = jwt.sign(
-                    { userId: user.user_id, email: user.email },
-                    "meinSuperGeheimesJWTSecret",
+                    { userId: user.user_id, email: user.email, isAdmin: user.is_admin },
+                    secret,
                     { expiresIn: '1h' }
                 );
 

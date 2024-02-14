@@ -11,6 +11,7 @@ CREATE TABLE "User"
     user_id       SERIAL PRIMARY KEY,
     username      VARCHAR        NOT NULL,
     email         VARCHAR UNIQUE NOT NULL,
+    is_admin       BOOLEAN        NOT NULL,
     password_hash VARCHAR        NOT NULL,
     wallet_id     INT UNIQUE REFERENCES Wallet (wallet_id)
 );
