@@ -9,7 +9,7 @@ export class NavbarUser {
   @Input()
   userNavbarLogoImageAlt: string = 'logo'
   @Input()
-  userNavbarLinkRentedBikes: string = 'Rented Bikes'
+  userNavbarLinkRentedBikes: string = 'Active Rentals'
   @Input()
   userNavbarSettingsImageSrc: string = '/assets/no-image.svg'
   @Input()

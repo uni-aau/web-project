@@ -10,92 +10,31 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+.booking-rent-bike-start-confirmation-popup-component-text {
+  margin-bottom: 0px;
+}
+.booking-rent-bike-start-confirmation-popup-component-text1 {
+  color: var(--dl-color-gray-500);
+  text-align: center;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
 .booking-rent-bike-start-confirmation-popup-component-container1 {
   flex: 0 0 auto;
   width: 100%;
-  height: auto;
-  display: flex;
-  margin-top: var(--dl-space-space-halfunit);
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-unit);
-  justify-content: center;
-}
-.booking-rent-bike-start-confirmation-popup-component-container2 {
-  flex: 0 0 auto;
-  width: 50%;
   display: flex;
   align-items: flex-start;
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
-}
-.booking-rent-bike-start-confirmation-popup-component-text1 {
-  width: 100%;
-}
-.booking-rent-bike-start-confirmation-popup-component-container3 {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
   flex-direction: column;
 }
 .booking-rent-bike-start-confirmation-popup-component-text2 {
-  width: 100%;
-}
-.booking-rent-bike-start-confirmation-popup-component-text3 {
-  width: 100%;
-  font-size: 25px;
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
   margin-bottom: var(--dl-space-space-unit);
 }
-.booking-rent-bike-start-confirmation-popup-component-container4 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  margin-top: var(--dl-space-space-halfunit);
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
-  justify-content: center;
-}
-.booking-rent-bike-start-confirmation-popup-component-container5 {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
-}
-.booking-rent-bike-start-confirmation-popup-component-text4 {
-  width: 100%;
-}
-.booking-rent-bike-start-confirmation-popup-component-container6 {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
-  flex-direction: column;
-}
-.booking-rent-bike-start-confirmation-popup-component-text5 {
-  width: 100%;
-}
 @media(max-width: 479px) {
-  .booking-rent-bike-start-confirmation-popup-component-container1 {
-    flex-direction: column;
-  }
-  .booking-rent-bike-start-confirmation-popup-component-container2 {
-    width: 100%;
-  }
-  .booking-rent-bike-start-confirmation-popup-component-container3 {
-    width: 100%;
-  }
-  .booking-rent-bike-start-confirmation-popup-component-container4 {
-    flex-direction: column;
-  }
-  .booking-rent-bike-start-confirmation-popup-component-container5 {
-    width: 100%;
-  }
-  .booking-rent-bike-start-confirmation-popup-component-container6 {
-    width: 100%;
+  .booking-rent-bike-start-confirmation-popup-component-container {
+    width: 95%;
   }
 }

@@ -10,16 +10,20 @@ import { Component, Input } from '@angular/core'
 })
 export class BookingRentBikeStartConfirmationPopupComponent {
   @Input()
-  text: string = 'Are you sure? TODO'
+  bookingRentBikeStartConfirmationTitle: string = 'Start renting?'
   @Input()
-  adminAssignBikeBikeModel: string = 'Ticket ID: %s'
+  bookingRentBikeStartConfirmationBookedType: string = 'Booked Type: {0}'
   @Input()
-  adminAssignBikeBikeCategories: string = 'Booked Type: %s'
+  bookingRentBikeStartConfirmationSelectedBike: string = 'Selected Bike: {0}'
   @Input()
-  adminAssignBikeBikeModel1: string = 'Bike Station: %s'
+  bookingRentBikeStartConfirmationTicketID: string = 'Ticket ID: {0}'
   @Input()
-  adminAssignBikeBikeCategories1: string = 'Parking Place: %s'
+  bookingRentBikeStartConfirmationParkingPlace: string = 'Parking Place: {0}'
   @Input()
-  text1: string = 'Selected Bike: %s'
+  bookingRentBikeStartConfirmationRentingTime: string =
+    'Renting Time: {0} ({1})'
+  @Input()
+  bookingRentBikeStartConfirmationHint: string =
+    'After starting the bike rental, you will find further information in the Active Rentals menu'
   constructor() {}
 }

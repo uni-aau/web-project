@@ -1,49 +1,30 @@
 <div class="booking-rent-bike-start-confirmation-popup-component-container">
-  <span class="heading">{{ text }}</span>
-  <div class="booking-rent-bike-start-confirmation-popup-component-container1">
-    <div
-      class="booking-rent-bike-start-confirmation-popup-component-container2"
-    >
-      <span
-        class="booking-rent-bike-start-confirmation-popup-component-text1 input-label-text"
-      >
-        {{ adminAssignBikeBikeModel }}
-      </span>
-    </div>
-    <div
-      class="booking-rent-bike-start-confirmation-popup-component-container3"
-    >
-      <span
-        class="booking-rent-bike-start-confirmation-popup-component-text2 input-label-text"
-      >
-        {{ adminAssignBikeBikeCategories }}
-      </span>
-    </div>
-  </div>
   <span
-    class="booking-rent-bike-start-confirmation-popup-component-text3 input-label-text"
+    class="booking-rent-bike-start-confirmation-popup-component-text heading"
   >
-    {{ text1 }}
+    {{ bookingRentBikeStartConfirmationTitle }}
   </span>
-  <div class="booking-rent-bike-start-confirmation-popup-component-container4">
-    <div
-      class="booking-rent-bike-start-confirmation-popup-component-container5"
+  <span class="booking-rent-bike-start-confirmation-popup-component-text1">
+    {{ bookingRentBikeStartConfirmationHint }}
+  </span>
+  <div class="booking-rent-bike-start-confirmation-popup-component-container1">
+    <span
+      class="booking-rent-bike-start-confirmation-popup-component-text2 model-bike-category-general-text"
     >
-      <span
-        class="booking-rent-bike-start-confirmation-popup-component-text4 input-label-text"
-      >
-        {{ adminAssignBikeBikeModel1 }}
-      </span>
-    </div>
-    <div
-      class="booking-rent-bike-start-confirmation-popup-component-container6"
-    >
-      <span
-        class="booking-rent-bike-start-confirmation-popup-component-text5 input-label-text"
-      >
-        {{ adminAssignBikeBikeCategories1 }}
-      </span>
-    </div>
+      {{ bookingRentBikeStartConfirmationSelectedBike }}
+    </span>
+    <span class="model-bike-category-general-text">
+      {{ bookingRentBikeStartConfirmationParkingPlace }}
+    </span>
+    <span class="model-bike-category-general-text">
+      {{ bookingRentBikeStartConfirmationBookedType }}
+    </span>
+    <span class="model-bike-category-general-text">
+      {{ bookingRentBikeStartConfirmationRentingTime }}
+    </span>
+    <span class="model-bike-category-general-text">
+      {{ bookingRentBikeStartConfirmationTicketID }}
+    </span>
   </div>
   <button-yes-cancel
     rootClassName="button-yes-cancel-root-class-name"
