@@ -18,14 +18,15 @@ CREATE TABLE "User"
     wallet_id     INT UNIQUE REFERENCES Wallet (wallet_id)
 );
 
--- TODO
+-- TODO Description fehlt bruh
 CREATE TABLE Station
 (
-    station_id SERIAL PRIMARY KEY,
-    name       VARCHAR NOT NULL,
-    location   VARCHAR NOT NULL,
-    longitude  DECIMAL,
-    latitude   DECIMAL
+    station_id             SERIAL PRIMARY KEY,
+    station_name           VARCHAR NOT NULL,
+    station_address        VARCHAR NOT NULL,
+    longitude              DECIMAL,
+    latitude               DECIMAL,
+    station_image_location VARCHAR
 );
 
 -- TODO
