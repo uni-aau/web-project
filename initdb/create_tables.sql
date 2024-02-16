@@ -15,7 +15,8 @@ CREATE TABLE "User"
     email         VARCHAR UNIQUE NOT NULL,
     is_admin      BOOLEAN        NOT NULL,
     password_hash VARCHAR        NOT NULL,
-    wallet_id     INT UNIQUE REFERENCES Wallet (wallet_id)
+    wallet_id     INT UNIQUE REFERENCES Wallet (wallet_id),
+    profile_picture_location VARCHAR
 );
 
 CREATE TABLE Station
@@ -38,24 +39,27 @@ CREATE TABLE BikeCategory
     status      VARCHAR
 );
 
--- TODO
+-- TODO enum
 CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
     name        VARCHAR NOT NULL,
-    price       INT,
+    price       FLOAT,
     status      VARCHAR,
     category_id INT REFERENCES BikeCategory (category_id),
-    station_id  INT REFERENCES Station (station_id),
 );
 
--- TODO
+-- TODO enum + mehrere kategorien, also extra table
 CREATE TABLE Bike
 (
     bike_id      SERIAL PRIMARY KEY,
     station_id   INT REFERENCES Station (station_id),
     model_id     INT REFERENCES BikeModel (model_id),
-    is_available BOOLEAN DEFAULT TRUE
+    is_available BOOLEAN DEFAULT TRUE,
+    status VARCHAR,
+    size INT NOT NULL,
+    price FLOAT,
+    bike_image_location VARCHAR
 );
 
 -- TODO
@@ -79,7 +83,7 @@ CREATE TABLE Transaction
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- // TODO
+-- // TODO one or mult categories -> extra relation
 CREATE TABLE ParkingSpot
 (
     spot_id     SERIAL PRIMARY KEY,

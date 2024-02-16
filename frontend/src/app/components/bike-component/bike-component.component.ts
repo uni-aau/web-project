@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class BikeComponent {
   @Input()
-  bikeAssignedStation: string = 'Assigned Bike Station: %s'
+  bikeAssignedStation: string = 'Assigned Bike Station: {0}'
   @Input()
   rootClassName: string = ''
   @Input()
