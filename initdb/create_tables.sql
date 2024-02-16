@@ -9,13 +9,16 @@ CREATE TABLE Wallet
 CREATE TABLE "User"
 (
     user_id       SERIAL PRIMARY KEY,
-    username      VARCHAR        NOT NULL,
+    username      VARCHAR UNIQUE NOT NULL,
+    firstname     VARCHAR        NOT NULL,
+    lastname      VARCHAR        NOT NULL,
     email         VARCHAR UNIQUE NOT NULL,
-    is_admin       BOOLEAN        NOT NULL,
+    is_admin      BOOLEAN        NOT NULL,
     password_hash VARCHAR        NOT NULL,
     wallet_id     INT UNIQUE REFERENCES Wallet (wallet_id)
 );
 
+-- TODO
 CREATE TABLE Station
 (
     station_id SERIAL PRIMARY KEY,
@@ -25,12 +28,14 @@ CREATE TABLE Station
     latitude   DECIMAL
 );
 
+-- TODO
 CREATE TABLE BikeCategory
 (
     category_id SERIAL PRIMARY KEY,
     name        VARCHAR NOT NULL
 );
 
+-- TODO
 CREATE TABLE BikeModel
 (
     model_id       SERIAL PRIMARY KEY,
@@ -41,6 +46,7 @@ CREATE TABLE BikeModel
     extra_features TEXT
 );
 
+-- TODO
 CREATE TABLE Bike
 (
     bike_id      SERIAL PRIMARY KEY,
@@ -49,6 +55,7 @@ CREATE TABLE Bike
     is_available BOOLEAN DEFAULT TRUE
 );
 
+-- TODO
 CREATE TABLE Ticket
 (
     ticket_id   SERIAL PRIMARY KEY,
@@ -59,6 +66,7 @@ CREATE TABLE Ticket
     status      VARCHAR NOT NULL
 );
 
+-- // TODO
 CREATE TABLE Transaction
 (
     transaction_id   SERIAL PRIMARY KEY,
@@ -68,6 +76,7 @@ CREATE TABLE Transaction
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- // TODO
 CREATE TABLE ParkingSpot
 (
     spot_id     SERIAL PRIMARY KEY,
@@ -82,17 +91,9 @@ CREATE TABLE StationReview
     review_id  SERIAL PRIMARY KEY,
     station_id INT REFERENCES Station (station_id),
     user_id    INT REFERENCES "User" (user_id),
+    title      VARCHAR NOT NULL,
+    model      INT REFERENCES BikeModel (model_id),
     rating     INT,
     comment    TEXT,
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE BikeModelReview
-(
-    review_id SERIAL PRIMARY KEY,
-    model_id  INT REFERENCES BikeModel (model_id),
-    user_id   INT REFERENCES "User" (user_id),
-    rating    INT,
-    comment   TEXT,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
