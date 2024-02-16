@@ -29,22 +29,24 @@ CREATE TABLE Station
     station_image_location VARCHAR
 );
 
--- TODO
+-- TODO enum for status
 CREATE TABLE BikeCategory
 (
     category_id SERIAL PRIMARY KEY,
-    name        VARCHAR NOT NULL
+    name        VARCHAR NOT NULL,
+    price       FLOAT,
+    status      VARCHAR
 );
 
 -- TODO
 CREATE TABLE BikeModel
 (
-    model_id       SERIAL PRIMARY KEY,
-    category_id    INT REFERENCES BikeCategory (category_id),
-    name           VARCHAR NOT NULL,
-    description    TEXT,
-    wheel_size     INT,
-    extra_features TEXT
+    model_id    SERIAL PRIMARY KEY,
+    name        VARCHAR NOT NULL,
+    price       INT,
+    status      VARCHAR,
+    category_id INT REFERENCES BikeCategory (category_id),
+    station_id  INT REFERENCES Station (station_id),
 );
 
 -- TODO
