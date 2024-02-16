@@ -47,9 +47,16 @@
         [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
         class="admin-manage-bike-station-component-textinput3 input"
       />
+      <span class="input-label-text">
+        {{ adminManageBikeStationStationLabelDescription }}
+      </span>
+      <textarea
+        [attr.placeholder]="adminManageBikeStationStationInputPlaceholder"
+        class="admin-manage-bike-station-component-textarea textarea"
+      ></textarea>
     </div>
   </form>
-  <span class="admin-manage-bike-station-component-text4">
+  <span class="admin-manage-bike-station-component-text5">
     {{ adminManageBikeStationImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>
