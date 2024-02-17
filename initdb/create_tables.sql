@@ -32,14 +32,14 @@ CREATE TABLE Station
     station_address        VARCHAR NOT NULL,
     longitude              DECIMAL,
     latitude               DECIMAL,
-    station_image_location VARCHAR
+    station_image_location VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
 -- TODO enum for status?
 CREATE TABLE BikeCategory
 (
     category_id SERIAL PRIMARY KEY,
-    name        VARCHAR NOT NULL,
+    category_name        VARCHAR NOT NULL,
     price       FLOAT,
     status      VARCHAR
 );
@@ -60,6 +60,15 @@ CREATE TABLE ParkingSpot
     station_id  INT REFERENCES Station (station_id),
     spot_number INT,
     CONSTRAINT unique_spot UNIQUE (station_id, spot_number)
+);
+
+CREATE TABLE ParkingSpotCategory
+(
+    spot_id     INT,
+    category_id INT,
+    PRIMARY KEY (spot_id, category_id),
+    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id),
+    FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id)
 );
 
 CREATE TABLE Bike
@@ -106,15 +115,6 @@ CREATE TABLE Transaction
     amount           DECIMAL NOT NULL,
     transaction_type VARCHAR NOT NULL,
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE ParkingSpotCategory
-(
-    spot_id     INT,
-    category_id INT,
-    PRIMARY KEY (spot_id, category_id),
-    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id),
-    FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id)
 );
 
 CREATE TABLE StationReview
