@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, ParkingSpotCategory, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
-DROP TYPE IF EXISTS bike_status, category_status, model_status;
+DROP TYPE IF EXISTS bike_status, booked_type, booking_status;
 
 CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance');
+CREATE TYPE booked_type AS ENUM ('Bike', 'Model', 'Category');
+CREATE TYPE booking_status AS ENUM ('Booked', 'Rented', 'Overdue', 'Canceled', 'NotTaken');
 
 CREATE TABLE Wallet
 (
@@ -33,7 +35,7 @@ CREATE TABLE Station
     station_image_location VARCHAR
 );
 
--- TODO enum for status
+-- TODO enum for status?
 CREATE TABLE BikeCategory
 (
     category_id SERIAL PRIMARY KEY,
@@ -42,7 +44,7 @@ CREATE TABLE BikeCategory
     status      VARCHAR
 );
 
--- TODO enum
+-- TODO enum?
 CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
@@ -57,6 +59,7 @@ CREATE TABLE Bike
     bike_id             SERIAL PRIMARY KEY,
     station_id          INT REFERENCES Station (station_id),
     model_id            INT REFERENCES BikeModel (model_id),
+    assigned_to         INT REFERENCES ParkingSpot (spot_id),
     is_available        BOOLEAN DEFAULT TRUE,
     status              bike_status NOT NULL,
     size                INT         NOT NULL,
@@ -67,18 +70,30 @@ CREATE TABLE Bike
 -- TODO
 CREATE TABLE Ticket
 (
-    ticket_id   SERIAL PRIMARY KEY,
-    user_id     INT REFERENCES "User" (user_id),
-    category_id INT REFERENCES BikeCategory (category_id),
-    start_time  TIMESTAMP,
-    end_time    TIMESTAMP,
-    status      VARCHAR NOT NULL
+    ticket_id     SERIAL PRIMARY KEY,
+    user_id       INT REFERENCES "User" (user_id),
+    booked_type   booked_type    NOT NULL,
+    bike_id       INT REFERENCES Bike (bike_id),
+    model_id      INT REFERENCES BikeModel (model_id),
+    category_id   INT REFERENCES BikeCategory (category_id),
+    status        booking_status NOT NULL,
+    booking_time  TIMESTAMP      NOT NULL,
+    renting_start TIMESTAMP      NOT NULL,
+    renting_end   TIMESTAMP      NOT NULL
 );
 
--- // TODO
+CREATE TABLE Rentals
+(
+    rentals_id SERIAL PRIMARY KEY,
+    user_id    INT REFERENCES "User" (user_id),
+    bike_id    INT REFERENCES Bike (bike_id),
+    ticket_id  INT REFERENCES Ticket (ticket_id)
+);
+
 CREATE TABLE Transaction
 (
     transaction_id   SERIAL PRIMARY KEY,
+    ticket_id        INT REFERENCES Ticket (ticket_id),
     user_id          INT REFERENCES "User" (user_id),
     amount           DECIMAL NOT NULL,
     transaction_type VARCHAR NOT NULL,
