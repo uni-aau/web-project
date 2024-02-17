@@ -63,8 +63,14 @@
 }
 .admin-manage-bike-station-component-textinput3 {
   width: 100%;
+  margin-bottom: var(--dl-space-space-unit);
 }
-.admin-manage-bike-station-component-text4 {
+.admin-manage-bike-station-component-textarea {
+  width: 100%;
+  height: var(--dl-size-size-small);
+  max-height: var(--dl-size-size-medium);
+}
+.admin-manage-bike-station-component-text5 {
   font-size: 22px;
   align-self: center;
   font-style: normal;

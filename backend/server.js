@@ -20,23 +20,21 @@ const bikeModelReviewRoutes = require('./routes/bikeModelReview');
 const walletRoutes = require('./routes/wallet');
 const parkingSpotRoutes = require('./routes/parkingSpot');
 const authRoutes = require('./routes/login')
-const checkToken = require('./auth')
+const { verifyUserToken, verifyAdminToken } = require('./auth');
 
 
 app.use('/api/auth', authRoutes);
 
-app.use(checkToken);
-
-app.use('/api/users', userRoutes);
-app.use('/api/tickets', ticketRoutes);
-app.use('/api/stations', stationRoutes);
-app.use('/api/bikes', bikeRoutes);
-app.use('/api/bikeModels', bikeModelRoutes);
-app.use('/api/stationReviews', stationReviewRoutes);
-app.use('/api/transactions', transactionRoutes);
-app.use('/api/bikeModelReviews', bikeModelReviewRoutes);
-app.use('/api/wallets', walletRoutes);
-app.use('/api/parkingSpots', parkingSpotRoutes);
+app.use('/api/users', verifyUserToken, userRoutes);
+app.use('/api/tickets', verifyUserToken,ticketRoutes);
+app.use('/api/stations', verifyUserToken,stationRoutes);
+app.use('/api/bikes', verifyUserToken,bikeRoutes);
+app.use('/api/bikeModels', verifyUserToken,bikeModelRoutes);
+app.use('/api/stationReviews',verifyUserToken, stationReviewRoutes);
+app.use('/api/transactions', verifyUserToken,transactionRoutes);
+app.use('/api/bikeModelReviews',verifyUserToken, bikeModelReviewRoutes);
+app.use('/api/wallets',verifyUserToken, walletRoutes);
+app.use('/api/parkingSpots',verifyUserToken, parkingSpotRoutes);
 
 app.get("/", (req, res) => {
     res.setHeader('Content-Type', 'text/html');

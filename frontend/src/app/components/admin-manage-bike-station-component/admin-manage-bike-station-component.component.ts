@@ -26,5 +26,10 @@ export class AdminManageBikeStationComponent {
   rootClassName: string = ''
   @Input()
   adminManageBikeStationStationLabelName: string = 'Station Name'
+  @Input()
+  adminManageBikeStationStationLabelDescription: string = 'Description'
+  @Input()
+  adminManageBikeStationStationInputPlaceholder: string =
+    'Describe your station with a few words'
   constructor() {}
 }
