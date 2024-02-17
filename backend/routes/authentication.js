@@ -10,8 +10,11 @@ router.post('/login', async (req, res, next) => {
 
     if (!password || (!username && !email)) return res.status(500).json({error: "Body does not contain all values"});
 
+    const emailLower = email ? email.toLowerCase() : undefined;
+    const usernameLower = username ? username.toLowerCase() : undefined;
+
     try {
-        const userResult = await pool.query('SELECT * FROM "User" WHERE email = $1 OR username = $2', [email.toLowerCase(), username.toLowerCase()]);
+        const userResult = await pool.query('SELECT * FROM "User" WHERE email = $1 OR username = $2', [emailLower, usernameLower]);
 
         if (userResult.rows.length > 0) {
             const user = userResult.rows[0];
@@ -44,9 +47,7 @@ router.post('/register', async (req, res) => {
 
     if (!firstname || !lastname || !username || !email || !password) return res.status(500).json({error: "Body does not contain all values"});
 
-    console.log(req.body);
-
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     try {
         const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1 OR email = $2', [username.toLowerCase(), email.toLowerCase()]);
@@ -58,7 +59,7 @@ router.post('/register', async (req, res) => {
 
         const userResult = await pool.query(
             'INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-            [username, firstname, lastname, email, false, hashedPassword, walletResult.rows[0].wallet_id]
+            [username.toLowerCase(), firstname, lastname, email.toLowerCase(), false, hashedPassword, walletResult.rows[0].wallet_id]
         );
 
         res.status(201).json(userResult.rows[0]);
