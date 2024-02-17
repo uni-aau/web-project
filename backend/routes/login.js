@@ -26,14 +26,14 @@ router.post('/login', async (req, res, next) => {
 
                 res.status(200).json({ token: token });
             } else {
-                res.status(401).json({ message: "Ungültiges Passwort" });
+                res.status(401).json({ message: "Invalid Password" });
             }
         } else {
-            res.status(404).json({ message: "Benutzer nicht gefunden" });
+            res.status(404).json({ message: "User not found" });
         }
     } catch (err) {
-        console.error('Fehler beim Login:', err.stack);
-        res.status(500).send('Serverfehler beim Versuch des Logins');
+        console.error('Error while logging in:', err.stack);
+        res.status(500).send('Server error while logging in');
     }
 });
 
