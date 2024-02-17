@@ -6,10 +6,12 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 router.post('/login', async (req, res, next) => {
-    const {email, password} = req.body;
+    const {email, username, password} = req.body;
+
+    if (!password || (!username && !email)) return res.status(500).json({error: "Body does not contain all values"});
 
     try {
-        const userResult = await pool.query('SELECT * FROM "User" WHERE email = $1', [email]);
+        const userResult = await pool.query('SELECT * FROM "User" WHERE email = $1 OR username = $2', [email.toLowerCase(), username.toLowerCase()]);
 
         if (userResult.rows.length > 0) {
             const user = userResult.rows[0];
@@ -47,7 +49,7 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
-        const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1 OR email = $2', [username, email]);
+        const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1 OR email = $2', [username.toLowerCase(), email.toLowerCase()]);
         if (existingUser.rows.length) {
             return res.status(400).json({exists: true, message: "User with this username or email already exists!"})
         }
