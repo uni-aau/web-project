@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, ParkingSpotCategory, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
+DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, ParkingSpotCategory, Rentals, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
 DROP TYPE IF EXISTS bike_status, booked_type, booking_status;
 
 CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance');
@@ -54,6 +54,14 @@ CREATE TABLE BikeModel
     category_id INT REFERENCES BikeCategory (category_id)
 );
 
+CREATE TABLE ParkingSpot
+(
+    spot_id     SERIAL PRIMARY KEY,
+    station_id  INT REFERENCES Station (station_id),
+    spot_number INT,
+    CONSTRAINT unique_spot UNIQUE (station_id, spot_number)
+);
+
 CREATE TABLE Bike
 (
     bike_id             SERIAL PRIMARY KEY,
@@ -98,14 +106,6 @@ CREATE TABLE Transaction
     amount           DECIMAL NOT NULL,
     transaction_type VARCHAR NOT NULL,
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE ParkingSpot
-(
-    spot_id     SERIAL PRIMARY KEY,
-    station_id  INT REFERENCES Station (station_id),
-    spot_number INT,
-    CONSTRAINT unique_spot UNIQUE (station_id, spot_number)
 );
 
 CREATE TABLE ParkingSpotCategory
