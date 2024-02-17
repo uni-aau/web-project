@@ -19,7 +19,7 @@ const transactionRoutes = require('./routes/transaction');
 const bikeModelReviewRoutes = require('./routes/bikeModelReview');
 const walletRoutes = require('./routes/wallet');
 const parkingSpotRoutes = require('./routes/parkingSpot');
-const authRoutes = require('./routes/login')
+const authRoutes = require('./routes/authentication')
 const { verifyUserToken, verifyAdminToken } = require('./auth');
 
 

@@ -3,29 +3,6 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
 
-router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    try {
-        const existingUser = await pool.query('SELECT * FROM "User" WHERE email = $1', [email]);
-        if (existingUser.rows.length) {
-            return res.status(400).send('Benutzer mit dieser E-Mail existiert bereits');
-        }
-
-        const walletResult = await pool.query('INSERT INTO Wallet (balance) VALUES (0) RETURNING *');
-
-        const userResult = await pool.query(
-            'INSERT INTO "User" (username, email, password_hash, wallet_id) VALUES ($1, $2, $3, $4) RETURNING *',
-            [username, email, hashedPassword, walletResult.rows[0].wallet_id]
-        );
-        res.status(201).json(userResult.rows[0]);
-    } catch (err) {
-        console.error('Fehler bei der Benutzerregistrierung:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
-});
-
 router.get('/:userId', async (req, res) => {
     const { userId } = req.params;
 
