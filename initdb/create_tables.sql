@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
+DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, ParkingSpotCategory, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
 DROP TYPE IF EXISTS bike_status, category_status, model_status;
 
 CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance');
@@ -100,7 +100,7 @@ CREATE TABLE ParkingSpotCategory
     PRIMARY KEY (spot_id, category_id),
     FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id),
     FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id)
-)
+);
 
 CREATE TABLE StationReview
 (
