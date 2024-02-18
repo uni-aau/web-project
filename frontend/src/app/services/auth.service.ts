@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private router: Router) { }
 
   login(usernameOrEmail: string, password: string): Observable<any> {
     return this.http.post('http://localhost:3000/api/auth/login', { username: usernameOrEmail, email: usernameOrEmail, password });
@@ -21,8 +22,18 @@ export class AuthService {
     return this.http.post('http://localhost:3000/api/auth/password', {email: email, oldPassword:oldPassword, newPassword: newPassword})
   }
 
-  getIsAdmin() {
-    return localStorage.getItem('isAdmin');
+  logout() {
+    console.log("logout auth");
+    localStorage.clear();
+    try {
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Fehler beim Navigieren:', error);
+    }
+  }
+
+  getIsAdmin():boolean {
+    return localStorage.getItem("isAdmin") === "true";
   }
 
   isGuest():boolean{

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'admin-navbar',
@@ -28,5 +29,10 @@ export class AdminNavbar {
   adminNavbarSettingsImageAlt: string = 'image'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+  constructor(public authService: AuthService) {}
+
+  logout(){
+    console.log("logout admin com")
+    this.authService.logout();
+  }
 }
