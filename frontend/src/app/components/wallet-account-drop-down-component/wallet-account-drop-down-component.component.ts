@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import {WalletService} from "../../services/wallet.service";
 
 @Component({
   selector: 'wallet-account-drop-down-component',
@@ -17,7 +18,7 @@ export class WalletAccountDropDownComponent {
   walletSettingsDepositMoneySubtitle: string =
     'Deposit money into your account wallet to be able to buy tickets'
   @Input()
-  welletSettingsButtonRemoveWallet: string = 'Remove Wallet'
+  walletSettingsButtonRemoveWallet: string = 'Remove Wallet'
   @Input()
   walletSettingsTitleDepositMoney: string = 'Deposit Money'
   @Input()
@@ -28,5 +29,16 @@ export class WalletAccountDropDownComponent {
   rootClassName: string = ''
   @Input()
   walletSettingsTitleConnectWallet: string = 'Connect/Remove Wallet ({0})'
-  constructor() {}
+  constructor(private walletService : WalletService) {
+    this.fetchWalletAmount();
+  }
+
+  fetchWalletAmount() {
+      // this.walletService.
+  }
+
+
+  depositMoney() {
+    console.log("Works")
+  }
 }
