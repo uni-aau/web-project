@@ -34,20 +34,24 @@
             id="wallet-deposit-money-button"
             type="button"
             class="button-account-settings button-blue button-general"
-            (click)="depositMoney()"
           >
             {{ walletSettingsButtonDepositMoney }}
           </button>
+          <span
+            class="wallet-account-drop-down-component-text4 input-error-hint"
+          >
+            {{ walletSettingsDepositMoneyError }}
+          </span>
         </div>
       </div>
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
         <div id="toggle-wallet-container" class="drop-down-container-style">
-          <span class="wallet-account-drop-down-component-text4">
+          <span class="wallet-account-drop-down-component-text5">
             {{ walletSettingsTitleConnectWallet }}
           </span>
-          <span class="wallet-account-drop-down-component-text5">
+          <span class="wallet-account-drop-down-component-text6">
             {{ walletSettingsConnectWalletSubtitle }}
           </span>
           <div class="wallet-account-drop-down-component-container09">
@@ -59,7 +63,7 @@
               {{ walletSettingsButtonConnectWallet }}
             </button>
             <button
-              id="wallet-remove-wallt-button"
+              id="wallet-remove-wallet-button"
               type="button"
               class="wallet-account-drop-down-component-button2 button-general button-red"
             >

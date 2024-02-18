@@ -30,6 +30,8 @@ export class WalletAccountDropDownComponent {
   rootClassName: string = ''
   @Input()
   walletSettingsTitleConnectWallet: string = 'Connect/Remove Wallet ({0})'
+  @Input()
+  walletSettingsDepositMoneyError: string = ''
 
   constructor(private walletService: WalletService) {
     this.fetchWalletAmount();
