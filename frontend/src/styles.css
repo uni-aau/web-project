@@ -423,7 +423,7 @@
 }
 .input-error-hint {
   color: #ec0c0c;
-  display: none;
+  /*display: none;*/
   font-weight: 500;
 }
 .Heading {

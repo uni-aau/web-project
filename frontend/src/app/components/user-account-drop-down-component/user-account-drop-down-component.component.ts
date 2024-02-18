@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
+import {UpdateUserService} from "../../services/update-user.service";
 
 @Component({
   selector: 'user-account-drop-down-component',
@@ -40,22 +41,53 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeLastNamePlaceholder: string = 'Insert your last name'
   @Input()
-  userSettingsChangeEmailError: string = '{0}'
+  userSettingsChangeEmailError: string = ''
   @Input()
-  userSettingsChangeUsernameError: string = '{0}'
+  userSettingsChangeUsernameError: string = ''
   @Input()
-  userSettingsChangeNameError: string = '{0}'
-  constructor() {}
+  userSettingsChangeNameError: string = ''
+
+  constructor(private updateUserService: UpdateUserService) {
+  }
 
   updateName(firstname: string, lastname: string) {
-    console.log(firstname + " " + lastname)
+    if (!firstname || !lastname) {
+      this.userSettingsChangeNameError = 'Firstname and Lastname needs to be inserted!'
+      return;
+    }
+
+    this.updateUserService.updateFirstName(firstname).subscribe({
+      next: (response) => {
+        console.log("rep: " + response )
+      },
+      error: (err) => {
+        this.userSettingsChangeNameError = 'Could not update username'
+        console.log("Error: " + err.message)
+      }
+    })
+
+    // Implementation
+    this.userSettingsChangeNameError = ''
   }
 
   updateEmail(email: string) {
+    if(!email) {
+      this.userSettingsChangeEmailError = 'Email needs to be inserted!'
+      return;
+    }
+
     console.log("!")
+
+    this.userSettingsChangeEmailError = '';
   }
 
   updateUsername(username: string) {
-    console.log("!")
+    if(!username) {
+      this.userSettingsChangeUsernameError = 'Username needs to be inserted!';
+      return;
+    }
+
+
+    this.userSettingsChangeUsernameError = '';
   }
 }

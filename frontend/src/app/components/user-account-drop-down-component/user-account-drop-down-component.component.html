@@ -47,7 +47,7 @@
             name="lastname"
             ngModel
           />
-          <span class="input-error-hint">
+          <span *ngIf="userSettingsChangeNameError !== ''" class="input-error-hint">
             {{ userSettingsChangeNameError }}
           </span>
           <button
@@ -79,7 +79,7 @@
             name="email"
             ngModel
           />
-          <span class="input-error-hint">
+          <span *ngIf="userSettingsChangeEmailError !== ''" class="input-error-hint">
             {{ userSettingsChangeEmailError }}
           </span>
           <button
@@ -111,7 +111,7 @@
             name="username"
             ngModel
           />
-          <span class="input-error-hint">
+          <span *ngIf="userSettingsChangeUsernameError !== ''" class="input-error-hint">
             {{ userSettingsChangeUsernameError }}
           </span>
           <button
