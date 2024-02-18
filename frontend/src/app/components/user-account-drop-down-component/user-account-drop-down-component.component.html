@@ -29,8 +29,15 @@
           </span>
           <input
             type="text"
-            id="user-settings-name-input"
-            [attr.placeholder]="userSettingsInputNamePlaceholder"
+            id="user-settings-first-name-input"
+            required="true"
+            [attr.placeholder]="userSettingsInputFirstNamePlaceholder"
+            class="user-account-drop-down-component-textinput input account-settings-input"
+          />
+          <input
+            type="text"
+            [attr.placeholder]="userSettingsChangeLastNamePlaceholder"
+            id="user-settings-first-last-name-input"
             required="true"
             class="input account-settings-input"
           />
@@ -56,8 +63,8 @@
           <input
             type="text"
             id="user-settings-email-input"
-            [attr.placeholder]="userSettingsChangeEmailPlaceholder"
             required="true"
+            [attr.placeholder]="userSettingsChangeEmailPlaceholder"
             class="input account-settings-input"
           />
           <button
@@ -82,8 +89,8 @@
           <input
             type="text"
             id="user-settings-username-input"
-            [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
             required="true"
+            [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
             class="input account-settings-input"
           />
           <button

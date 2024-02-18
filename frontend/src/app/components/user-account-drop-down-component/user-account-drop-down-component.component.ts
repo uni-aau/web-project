@@ -9,7 +9,7 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsTitle: string = 'User Settings'
   @Input()
-  userSettingsInputNamePlaceholder: string = 'Insert your full name'
+  userSettingsInputFirstNamePlaceholder: string = 'Insert your first name'
   @Input()
   userSettingsChangeUsernameTitle1: string = 'Update Username'
   @Input()
@@ -37,5 +37,7 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeEmailSubtitle: string =
     'Change your email by inserting a new one in the input field below'
+  @Input()
+  userSettingsChangeLastNamePlaceholder: string = 'Insert your last name'
   constructor() {}
 }

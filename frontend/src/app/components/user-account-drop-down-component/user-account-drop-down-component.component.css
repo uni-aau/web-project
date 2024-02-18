@@ -17,6 +17,9 @@
   color: var(--dl-color-gray-black);
   margin-bottom: var(--dl-space-space-unit);
 }
+.user-account-drop-down-component-textinput {
+  margin-bottom: var(--dl-space-space-halfunit);
+}
 .user-account-drop-down-component-text3 {
   color: var(--dl-color-gray-black);
   font-size: 20px;
