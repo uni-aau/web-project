@@ -39,19 +39,6 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  login(usernameOrEmail: string, password: string) {
-    this.authService.login(usernameOrEmail, password).subscribe({
-      next: (response) => {
-        console.log("Login successful", response)
-        localStorage.setItem('authToken', response.token);
-        this.router.navigate(['/']);
-      },
-      error: (err) => {
-        console.log("Login failed", err)
-      }
-    })
-  }
-
   register(firstname: string, lastname: string, username: string, email: string, password: string) {
     this.authService.register(firstname, lastname, username, email, password).subscribe({
         next: (response) => {

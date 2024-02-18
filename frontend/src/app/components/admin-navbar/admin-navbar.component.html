@@ -47,6 +47,7 @@
           id="navbar-button-logout"
           type="button"
           class="button admin-navbar-button"
+          (click)="authService.logout()"
         >
           {{ adminNavbarButtonLogout }}
         </button>
@@ -115,7 +116,7 @@
               class="admin-navbar-image2"
             />
           </a>
-          <button id="navbar-button-logout-mobile" class="button">
+          <button id="navbar-button-logout-mobile" class="button" (click)="authService.logout()">
             {{ adminNavbarButtonLogout }}
           </button>
         </div>

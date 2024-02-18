@@ -18,6 +18,7 @@ router.post('/login', async (req, res, next) => {
 
         if (userResult.rows.length > 0) {
             const user = userResult.rows[0];
+            console.log(user)
             const isValid = await bcrypt.compare(password, user.password_hash);
 
             if (isValid) {
@@ -29,7 +30,8 @@ router.post('/login', async (req, res, next) => {
                     {expiresIn: '1h'}
                 );
 
-                res.status(200).json({token: token});
+                console.log(user.is_admin)
+                res.status(200).json({token: token, is_admin: user.is_admin});
             } else {
                 res.status(401).json({message: "Invalid Password"});
             }
@@ -69,5 +71,39 @@ router.post('/register', async (req, res) => {
         res.status(500).json({error: "Server error: " + err});
     }
 });
+
+router.post("/password", async (req, res) => {
+    const {email, oldPassword, newPassword} = req.body;
+
+    if (!email || !oldPassword || !newPassword) {
+        return res.status(400).json({error: "Body does not contain all required values"});
+    }
+
+    try {
+        const existingUserResult = await pool.query('SELECT * FROM "User" WHERE email = $1', [email.toLowerCase()]);
+
+        if (existingUserResult.rows.length === 0) {
+            return res.status(404).json({error: "Email not found"});
+        }
+
+        const existingUser = existingUserResult.rows[0];
+
+        const isOldPasswordCorrect = await bcrypt.compare(oldPassword, existingUser.password_hash);
+
+        if (!isOldPasswordCorrect) {
+            return res.status(403).json({error: "Old password is incorrect"});
+        }
+
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+        await pool.query('UPDATE "User" SET password_hash = $1 WHERE email = $2', [hashedNewPassword, email.toLowerCase()]);
+
+        res.status(200).json({message: "Password successfully updated"});
+
+    } catch (err) {
+        console.error('Error while changing password:', err.stack);
+        res.status(500).json({error: "Server error: " + err});
+    }
+});
+
 
 module.exports = router;

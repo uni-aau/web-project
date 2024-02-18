@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'button-assign-update-delete-component',
@@ -10,5 +11,5 @@ export class ButtonAssignUpdateDeleteComponent {
   buttonAssign: string = 'Assign Bike'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+  constructor(public AuthService:AuthService) {}
 }

@@ -19,28 +19,31 @@ import {ManageTicketsUser} from "./pages/manage-tickets-user/manage-tickets-user
 import {ReviewsList} from "./pages/reviews-list/reviews-list.component";
 import {AdminManageBikes} from "./pages/admin-manage-bikes/admin-manage-bikes.component";
 import {ActiveRentals} from "./pages/active-rentals/active-rentals.component";
+import {Unauthorized} from "./pages/unauthorized/unauthorized.component";
+import { RoleGuard } from './role.guard';
 
 export const routes: Routes = [
   {path: '', component: Home},
-  {path: 'account', component: Account},
-  {path: 'active-rentals', component: ActiveRentals},
-  {path: 'admin-bike-stations', component: AdminBikeStations},
-  {path: 'admin-manage-bike-rentals', component: AdminManageBikeRentals},
-  {path: 'admin-manage-bike-station', component: AdminManageBikeStation},
-  {path: 'admin-manage-categories', component: AdminManageCategories},
-  {path: 'admin-manage-bikes', component: AdminManageBikes},
-  {path: 'admin-manage-models', component: AdminManageModels},
-  {path: 'bike-stations', component: BikeStations},
-  {path: 'booking', component: Booking},
+  {path: 'account', component: Account, canActivate: [RoleGuard], data: { requiredRole: ['admin', 'user'] }},
+  {path: 'active-rentals', component: ActiveRentals, canActivate: [RoleGuard], data: { requiredRole: ['user'] }},
+  {path: 'admin-bike-stations', component: AdminBikeStations, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'admin-manage-bike-rentals', component: AdminManageBikeRentals, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'admin-manage-bike-station', component: AdminManageBikeStation, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'admin-manage-categories', component: AdminManageCategories, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'admin-manage-bikes', component: AdminManageBikes, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'admin-manage-models', component: AdminManageModels, canActivate: [RoleGuard], data: { requiredRole: ['admin'] }},
+  {path: 'bike-stations', component: BikeStations, canActivate: [RoleGuard], data: { requiredRole: ['user', 'guest'] }},
+  {path: 'booking', component: Booking, canActivate: [RoleGuard], data: { requiredRole: ['user', 'guest'] }},
   {path: 'data-privacy', component: DataPrivacy},
   {path: 'home', component: Home},
   {path: 'imprint', component: Imprint},
   {path: 'login', component: Login},
-  {path: 'manage-tickets-user', component: ManageTicketsUser},
+  {path: 'manage-tickets-user', component: ManageTicketsUser, canActivate: [RoleGuard], data: { requiredRole: ['user'] }},
   {path: 'register', component: Register},
   {path: 'reset-password', component: ResetPassword},
   {path: 'reviews-list', component: ReviewsList},
   {path: 'testpage', component: Testpage},
+  {path: 'unauthorized', component: Unauthorized},
 
 
   {path: '**', component: NotFound},
