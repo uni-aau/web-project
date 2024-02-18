@@ -14,6 +14,18 @@ export class UpdateUserService {
 
 
   updateFirstName(firstname: string): Observable<any> {
-    return this.http.put(`${baseURL}/firstname`, firstname);
+    return this.http.put(`${baseURL}/firstname`, {firstname: firstname});
+  }
+
+  updateLastName(lastname: string): Observable<any> {
+    return this.http.put(`${baseURL}/lastname`, {lastname: lastname});
+  }
+
+  updateEmail(email: string): Observable<any> {
+    return this.http.put(`${baseURL}/email`, {email: email});
+  }
+
+  updateUsername(username: string): Observable<any> {
+    return this.http.put(`${baseURL}/username`, {username: username});
   }
 }
