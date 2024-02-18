@@ -4,20 +4,16 @@ const router = express.Router();
 const pool = require('../pool');
 const {reject} = require("bcrypt/promises");
 
-// TODO checken
 router.get('/:userId', async (req, res) => {
     const {userId} = req.params;
 
     try {
         const result = await pool.query('SELECT "User".user_id, "User".username, "User".email, Wallet.balance AS wallet_balance FROM "User" INNER JOIN Wallet ON "User".wallet_id = Wallet.wallet_id WHERE "User".user_id = $1', [userId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Benutzer nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Abrufen des Benutzers:', err.stack);
-        res.status(500).send('Serverfehler');
+        if (result.rows.length > 0) return res.status(200).json({exists: true, user: result.rows[0]});
+        else res.status(404).json({exists: false, error: "User not found"})
+    } catch (e) {
+        console.error('Error while fetching user', e.stack);
+        res.status(500).json({error: e.message})
     }
 });
 
