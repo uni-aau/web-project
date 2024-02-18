@@ -19,6 +19,7 @@ import {ManageTicketsUser} from "./pages/manage-tickets-user/manage-tickets-user
 import {ReviewsList} from "./pages/reviews-list/reviews-list.component";
 import {AdminManageBikes} from "./pages/admin-manage-bikes/admin-manage-bikes.component";
 import {ActiveRentals} from "./pages/active-rentals/active-rentals.component";
+import {Unauthorized} from "./pages/unauthorized/unauthorized.component";
 import { RoleGuard } from './role.guard';
 
 export const routes: Routes = [
@@ -42,6 +43,7 @@ export const routes: Routes = [
   {path: 'reset-password', component: ResetPassword},
   {path: 'reviews-list', component: ReviewsList},
   {path: 'testpage', component: Testpage},
+  {path: 'unauthorized', component: Unauthorized},
 
 
   {path: '**', component: NotFound},

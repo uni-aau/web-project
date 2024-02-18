@@ -1,7 +1,7 @@
 <div class="unauthorized-container">
-  <app-navbar rootClassName="navbar-root-class-name8"></app-navbar>
-  <unauthorized-component
-    rootClassName="unauthorized-component-root-class-name"
-  ></unauthorized-component>
+  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+  <admin-navbar *ngIf="AuthService.getRole() === 'admin'" rootClassName="admin-navbar-root-class-name1"></admin-navbar>
+  <unauthorized-component rootClassName="unauthorized-component-root-class-name"  ></unauthorized-component>
   <app-footer rootClassName="footer-root-class-name19"></app-footer>
 </div>

@@ -149,7 +149,7 @@ import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-compo
     ButtonRentBikeComponent,
     BookingRentBikeStartConfirmationPopupComponent,
     ButtonYesCancel,
-    UnauthorizedComponent,
+    UnauthorizedComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
