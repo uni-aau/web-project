@@ -1,4 +1,4 @@
-<div class="register-component-container" [ngClass]="rootClassName">
+<form class="register-component-container" [ngClass]="rootClassName" (ngSubmit)="register(firstname.value, lastname.value, username.value, email.value, password.value)">
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name1"
   ></login-register-image-component>
@@ -18,12 +18,18 @@
           id="register-first-name-input"
           [attr.placeholder]="registerInputPlaceholderFirstName"
           class="register-component-textinput input"
+          #firstname="ngModel"
+          name="firstname"
+          ngModel
         />
         <input
           type="text"
           id="register-last-name-input"
           [attr.placeholder]="registerInputPlaceholderLastName"
           class="register-component-textinput1 input"
+          #lastname="ngModel"
+          name="lastname"
+          ngModel
         />
       </div>
     </div>
@@ -33,6 +39,9 @@
       id="register-user-name-input"
       [attr.placeholder]="registerInputPlaceholderUsername"
       class="register-component-textinput2 input"
+      #username="ngModel"
+      name="username"
+      ngModel
     />
     <span class="input-label-text">{{ registerInputLabelEmail }}</span>
     <input
@@ -40,6 +49,9 @@
       id="register-email-input"
       [attr.placeholder]="registerInputPlaceholderEmail"
       class="register-component-textinput3 input"
+      #email="ngModel"
+      name="email"
+      ngModel
     />
     <div class="register-component-container4">
       <span class="input-label-text">{{ registerInputLabelPassword }}</span>
@@ -49,14 +61,17 @@
       id="register-password-input"
       [attr.placeholder]="registerInputPlaceholderPassword"
       class="register-component-textinput4 input"
+      #password="ngModel"
+      name="password"
+      ngModel
     />
   </form>
   <button
     id="register-button"
-    type="button"
+    type="submit"
     class="register-component-button button-blue button-general"
   >
     {{ registerButton }}
   </button>
   <span class="register-component-text5">{{ registerAccountHint }}</span>
-</div>
+</form>

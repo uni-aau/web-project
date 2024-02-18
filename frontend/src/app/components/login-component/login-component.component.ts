@@ -31,12 +31,12 @@ export class LoginComponent {
   login(usernameOrEmail: string, password: string){
     this.authService.login(usernameOrEmail, password).subscribe({
       next: (response) => {
-        console.log("Login Erfolgreich", response)
+        console.log("Login successful", response)
         localStorage.setItem('authToken', response.token);
         this.router.navigate(['/']);
       },
       error: (err) => {
-        console.log("Login fehlgeschlagen", err)
+        console.log("Login failed", err)
       }
     })
   }
