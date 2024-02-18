@@ -74,6 +74,7 @@ import { ButtonRentBikeComponent } from './button-rent-bike-component/button-ren
 import { BookingRentBikeStartConfirmationPopupComponent } from './booking-rent-bike-start-confirmation-popup-component/booking-rent-bike-start-confirmation-popup-component.component'
 import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component'
 import {FormsModule} from "@angular/forms";
+import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-component.component";
 
 @NgModule({
   declarations: [
@@ -148,6 +149,7 @@ import {FormsModule} from "@angular/forms";
     ButtonRentBikeComponent,
     BookingRentBikeStartConfirmationPopupComponent,
     ButtonYesCancel,
+    UnauthorizedComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
@@ -222,6 +224,7 @@ import {FormsModule} from "@angular/forms";
     ButtonRentBikeComponent,
     BookingRentBikeStartConfirmationPopupComponent,
     ButtonYesCancel,
+    UnauthorizedComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
