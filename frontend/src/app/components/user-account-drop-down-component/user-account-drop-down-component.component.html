@@ -21,10 +21,10 @@
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
         <div id="update-name-container" class="drop-down-container-style">
-          <span class="user-account-drop-down-component-text1">
+          <span class="user-account-drop-down-component-text01">
             {{ userSettingsChangeNameTitle }}
           </span>
-          <span class="user-account-drop-down-component-text2">
+          <span class="user-account-drop-down-component-text02">
             {{ userSettingsChangeNameSubtitle }}
           </span>
           <input
@@ -41,6 +41,9 @@
             required="true"
             class="input account-settings-input"
           />
+          <span class="input-error-hint">
+            {{ userSettingsChangeNameError }}
+          </span>
           <button
             id="user-settings-name-save-button"
             type="button"
@@ -54,10 +57,10 @@
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
         <div id="update-email-container" class="drop-down-container-style">
-          <span class="user-account-drop-down-component-text3">
+          <span class="user-account-drop-down-component-text04">
             {{ userSettingsChangeMailTitle }}
           </span>
-          <span class="user-account-drop-down-component-text4">
+          <span class="user-account-drop-down-component-text05">
             {{ userSettingsChangeEmailSubtitle }}
           </span>
           <input
@@ -67,6 +70,9 @@
             [attr.placeholder]="userSettingsChangeEmailPlaceholder"
             class="input account-settings-input"
           />
+          <span class="input-error-hint">
+            {{ userSettingsChangeEmailError }}
+          </span>
           <button
             id="user-settings-email-save-button"
             type="button"
@@ -80,10 +86,10 @@
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
         <div id="update-username-container" class="drop-down-container-style">
-          <span class="user-account-drop-down-component-text5">
+          <span class="user-account-drop-down-component-text07">
             {{ userSettingsChangeUsernameTitle1 }}
           </span>
-          <span class="user-account-drop-down-component-text6">
+          <span class="user-account-drop-down-component-text08">
             {{ userSettingsChangeUsernameSubtitle }}
           </span>
           <input
@@ -93,6 +99,9 @@
             [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
             class="input account-settings-input"
           />
+          <span class="input-error-hint">
+            {{ userSettingsChangeUsernameError }}
+          </span>
           <button
             id="user-settings-username-save-button"
             type="button"

@@ -39,5 +39,11 @@ export class UserAccountDropDownComponent {
     'Change your email by inserting a new one in the input field below'
   @Input()
   userSettingsChangeLastNamePlaceholder: string = 'Insert your last name'
+  @Input()
+  userSettingsChangeEmailError: string = '{0}'
+  @Input()
+  userSettingsChangeUsernameError: string = '{0}'
+  @Input()
+  userSettingsChangeNameError: string = '{0}'
   constructor() {}
 }
