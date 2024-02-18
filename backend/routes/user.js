@@ -17,30 +17,6 @@ router.get('/:userId', async (req, res) => {
     }
 });
 
-router.put('/wallet', function (req, res) {
-    const {userId} = req.user;
-    const {balance} = req.body;
-
-    if (!userId || !balance) return res.status(500).json({error: "Balance or userId is undefined"});
-
-    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
-        .then(result => {
-            if (result.rowCount > 0) {
-                let query = {
-                    text: 'UPDATE Wallet SET balance = $1 WHERE wallet_id = $2',
-                    values: [balance, result.rows[0].wallet_id]
-                }
-
-                executeUpdateQuery(query)
-                    .then(result => res.status(200).json({message: "success", rowsChanged: result}))
-                    .catch(e => res.status(500).json({error: e.message}))
-            } else {
-                return res.status(500).json({error: "User has no wallet", user: userId});
-            }
-        })
-        .catch(e => res.status(500).json({error: e}));
-});
-
 router.put('/firstname', function (req, res) {
     const {userId} = req.user;
     const {firstname} = req.body;
