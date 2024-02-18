@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {UpdateUserService} from "../../services/update-user.service";
 import {last} from "rxjs";
+import {SharedService} from "../../services/shared.service";
 
 @Component({
   selector: 'user-account-drop-down-component',
@@ -48,7 +49,9 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeNameError: string = ''
 
-  constructor(private updateUserService: UpdateUserService) {
+  @Output() onDataUpdate: EventEmitter<any> = new EventEmitter<any>()
+
+  constructor(private updateUserService: UpdateUserService, private sharedService: SharedService) {
   }
 
   updateName(firstname: string, lastname: string) {
@@ -59,6 +62,7 @@ export class UserAccountDropDownComponent {
 
     this.updateUserService.updateFirstName(firstname).subscribe({
       next: (response) => {
+        this.sharedService.emitDataChange(); // Notify Account Component
         console.log("Successfully changed firstname: ", response)
       },
       error: (err) => {
@@ -88,6 +92,7 @@ export class UserAccountDropDownComponent {
 
     this.updateUserService.updateEmail(email).subscribe({
       next: (response) => {
+        this.sharedService.emitDataChange();
         console.log("Successfully changed email: ", response)
       },
       error: (err) => {
@@ -111,6 +116,7 @@ export class UserAccountDropDownComponent {
 
     this.updateUserService.updateUsername(username).subscribe({
       next: (response) => {
+        this.sharedService.emitDataChange();
         console.log("Successfully changed username: ", response)
       },
       error: (err) => {
@@ -122,8 +128,6 @@ export class UserAccountDropDownComponent {
         console.log("Error:", err.error);
       }
     })
-
-
 
     this.userSettingsChangeUsernameError = '';
   }
