@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import {AuthService} from "../../services/auth.service"
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'reset-password-component',
@@ -18,8 +20,30 @@ export class ResetPasswordComponent {
   @Input()
   resetPassworInputLabelEmail: string = 'Email'
   @Input()
+  resetPassworInputLabelOldPassword: string = 'Old Password'
+  @Input()
+  resetPassworInputLabelNewPassword: string = 'New Password'
+  @Input()
+  resetPasswordInputPlaceholderOldPassword: string = 'Enter old password'
+  @Input()
+  resetPasswordInputPlaceholderNewPassword: string = 'Enter new password'
+  @Input()
   resetPasswordInputPlaceholderEmail: string = 'Enter email'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
+
+  changePassword( email: string, oldPassword: string, newPassword:string) {
+    this.authService.changePassword( email, oldPassword, newPassword).subscribe({
+        next: (response) => {
+          console.log("Change successful", response);
+          this.router.navigate(["/login"]);
+        },
+        error: (err) => {
+          console.log("Change failed", err);
+        }
+      }
+    )
+  }
 }

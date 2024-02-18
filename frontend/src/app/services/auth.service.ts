@@ -16,4 +16,8 @@ export class AuthService {
   register(firstname:string, lastname:string, username:string, email:string, password:string){
     return this.http.post('http://localhost:3000/api/auth/register', { firstname:firstname, lastname:lastname, username:username, email:email, password:password });
   }
+
+  changePassword(email:string, oldPassword: string, newPassword: string){
+    return this.http.post('http://localhost:3000/api/auth/password', {email: email, oldPassword:oldPassword, newPassword: newPassword})
+  }
 }
