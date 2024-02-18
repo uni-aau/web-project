@@ -20,7 +20,7 @@
   <div class="drop-down-list">
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div class="drop-down-container-style">
+        <div id="update-name-container" class="drop-down-container-style">
           <span class="user-account-drop-down-component-text1">
             {{ userSettingsChangeNameTitle }}
           </span>
@@ -31,6 +31,7 @@
             type="text"
             id="user-settings-name-input"
             [attr.placeholder]="userSettingsInputNamePlaceholder"
+            required="true"
             class="input account-settings-input"
           />
           <button
@@ -45,7 +46,7 @@
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div class="drop-down-container-style">
+        <div id="update-email-container" class="drop-down-container-style">
           <span class="user-account-drop-down-component-text3">
             {{ userSettingsChangeMailTitle }}
           </span>
@@ -56,6 +57,7 @@
             type="text"
             id="user-settings-email-input"
             [attr.placeholder]="userSettingsChangeEmailPlaceholder"
+            required="true"
             class="input account-settings-input"
           />
           <button
@@ -70,7 +72,7 @@
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div class="drop-down-container-style">
+        <div id="update-username-container" class="drop-down-container-style">
           <span class="user-account-drop-down-component-text5">
             {{ userSettingsChangeUsernameTitle1 }}
           </span>
@@ -81,6 +83,7 @@
             type="text"
             id="user-settings-username-input"
             [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
+            required="true"
             class="input account-settings-input"
           />
           <button

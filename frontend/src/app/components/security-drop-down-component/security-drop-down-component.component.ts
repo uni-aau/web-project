@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core'
 })
 export class SecurityDropDownComponent {
   @Input()
+  securitySettingsTitle: string = 'Security'
+  @Input()
   securitySettingsPasswordDescription: string =
     'Update your password to ensure account security. Use a strong password!'
   @Input()
@@ -20,7 +22,5 @@ export class SecurityDropDownComponent {
     'Confirm new password'
   @Input()
   securitySettingsButtonChange: string = 'Change'
-  @Input()
-  securitySettingsTitle: string = 'Security'
   constructor() {}
 }

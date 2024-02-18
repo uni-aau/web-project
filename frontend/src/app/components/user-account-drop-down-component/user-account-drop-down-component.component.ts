@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core'
 })
 export class UserAccountDropDownComponent {
   @Input()
+  userSettingsTitle: string = 'User Settings'
+  @Input()
   userSettingsInputNamePlaceholder: string = 'Insert your full name'
   @Input()
   userSettingsChangeUsernameTitle1: string = 'Update Username'
@@ -35,7 +37,5 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeEmailSubtitle: string =
     'Change your email by inserting a new one in the input field below'
-  @Input()
-  userSettingsTitle: string = 'User Settings'
   constructor() {}
 }
