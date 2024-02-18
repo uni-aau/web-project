@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
 const {reject} = require("bcrypt/promises");
+const DatabaseService = require('../database-service')
 
 /*router.get('/:userId', async (req, res) => {
     const {userId} = req.params;
@@ -17,7 +18,7 @@ const {reject} = require("bcrypt/promises");
     }
 });*/
 
-router.get('/userdata', function (req, res)  {
+router.get('/userdata', function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -27,7 +28,7 @@ router.get('/userdata', function (req, res)  {
         values: [userId]
     }
 
-    executeSelectionQuery(query)
+    DatabaseService.executeSelectionQuery(query)
         .then(results => res.status(200).json(results))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -42,12 +43,10 @@ router.put('/firstname', function (req, res) {
         userId: userId
     });
 
-    let query = {
+    DatabaseService.executeUpdateQuery({
         text: 'UPDATE "User" SET firstname = $1 WHERE user_id = $2',
         values: [firstname, userId]
-    }
-
-    executeUpdateQuery(query)
+    })
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -58,12 +57,10 @@ router.put('/lastname', function (req, res) {
 
     if (!lastname || !userId) return res.status(500).json({error: "Lastname or userId is undefined"});
 
-    let query = {
+    DatabaseService.executeUpdateQuery({
         text: 'UPDATE "User" SET lastname = $1 WHERE user_id = $2',
         values: [lastname, userId]
-    }
-
-    executeUpdateQuery(query)
+    })
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -86,16 +83,14 @@ router.put('/email', function (req, res) {
             userId: result.userId
         });
         else {
-            query = {
+            DatabaseService.executeUpdateQuery({
                 text: 'UPDATE "User" SET email = $1 WHERE user_id = $2',
                 values: [email.toLowerCase(), userId]
-            }
-
-            executeUpdateQuery(query)
+            })
                 .then(result => res.status(200).json({message: "success", rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         }
-    }).catch(e => res.status(500).json({error: e}));
+    }).catch(e => res.status(500).json({error: e.message}));
 });
 
 router.put('/username', function (req, res) {
@@ -116,16 +111,14 @@ router.put('/username', function (req, res) {
             userId: result.userId
         });
         else {
-            query = {
+            DatabaseService.executeUpdateQuery({
                 text: 'UPDATE "User" SET username = $1 WHERE user_id = $2',
                 values: [username.toLowerCase(), userId]
-            }
-
-            executeUpdateQuery(query)
+            })
                 .then(result => res.status(200).json({message: "success", rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         }
-    }).catch(e => res.status(500).json({error: e}));
+    }).catch(e => res.status(500).json({error: e.message}));
 });
 
 router.put('/profile-picture', function (req, res) {
@@ -134,12 +127,10 @@ router.put('/profile-picture', function (req, res) {
 
     if (!profilePictureLocation || !userId) return res.status(500).json({error: "Image location or userId is undefined"});
 
-    let query = {
+    DatabaseService.executeUpdateQuery({
         text: 'UPDATE "User" SET profile_picture_location = $1 WHERE user_id = $2',
         values: [profilePictureLocation, userId]
-    }
-
-    executeUpdateQuery(query)
+    })
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -149,12 +140,10 @@ router.get('/profile-picture', function (req, res) {
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
 
-    let query = {
+    DatabaseService.executeSelectionQuery({
         text: 'SELECT profile_picture_location FROM "User" WHERE user_id = $1',
         values: [userId]
-    }
-
-    executeSelectionQuery(query)
+    })
         .then(results => res.status(200).json(results))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -167,11 +156,10 @@ router.put('/password', function (req, res) {
 
     bcrypt.hash(password, 10)
         .then(hashedPassword => {
-            let query = {
+            DatabaseService.executeUpdateQuery({
                 text: 'UPDATE "User" SET password_hash = $1 WHERE user_id = $2',
                 values: [hashedPassword, userId]
-            }
-            executeUpdateQuery(query)
+            })
                 .then(result => res.status(200).json({message: "success", rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
 
@@ -194,20 +182,5 @@ function executeUpdateQuery(query) {
             })
     })
 }
-function executeSelectionQuery(query) {
-    console.log("Executing: " + query.text + " with values: " + query.values);
-
-    return new Promise((resolve, reject) => {
-        pool.query(query)
-            .then(results => {
-                if (results.rows.length <= 0) reject(new Error("Now rows found to select"));
-                else resolve(results.rows);
-            })
-            .catch(error => {
-                reject(new Error("Error fetching product: " + error.message));
-            });
-    });
-}
-
 
 module.exports = router;
