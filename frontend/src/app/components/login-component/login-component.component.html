@@ -1,4 +1,4 @@
-<div class="login-component-container" [ngClass]="rootClassName">
+<form class="login-component-container" [ngClass]="rootClassName" (ngSubmit)="login(username.value, password.value)">
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name"
   ></login-register-image-component>
@@ -8,6 +8,9 @@
     id="login-username-input"
     [attr.placeholder]="loginInputPlaceholderUsername"
     class="login-component-textinput input"
+    #username="ngModel"
+    name="username"
+    ngModel
   />
   <span class="input-label-text">{{ loginInputLabelPassword }}</span>
   <input
@@ -15,6 +18,9 @@
     id="login-password-input"
     [attr.placeholder]="loginInputPlaceholderPassword"
     class="login-component-textinput1 input"
+    #password="ngModel"
+    name="password"
+    ngModel
   />
   <a
     routerLink="/reset-password"
@@ -24,7 +30,7 @@
   </a>
   <button
     id="login-button"
-    type="button"
+    type="submit"
     class="login-component-button button button-blue"
   >
     {{ loginButtonLogin }}
@@ -33,4 +39,4 @@
   <a routerLink="/register" class="login-component-navlink1 link-text-font">
     {{ loginNoAccountSubText }}
   </a>
-</div>
+</form>

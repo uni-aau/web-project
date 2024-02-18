@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import {AuthService} from  "../../services/auth.service"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-component',
@@ -24,5 +26,18 @@ export class LoginComponent {
   loginNoAccount: string = "Don't have an account yet?"
   @Input()
   loginInputPlaceholderPassword: string = 'Enter your password'
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  login(usernameOrEmail: string, password: string){
+    this.authService.login(usernameOrEmail, password).subscribe({
+      next: (response) => {
+        console.log("Login Erfolgreich", response)
+        localStorage.setItem('authToken', response.token);
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.log("Login fehlgeschlagen", err)
+      }
+    })
+  }
 }

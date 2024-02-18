@@ -73,6 +73,7 @@ import { Footer } from './footer/footer.component'
 import { ButtonRentBikeComponent } from './button-rent-bike-component/button-rent-bike-component.component'
 import { BookingRentBikeStartConfirmationPopupComponent } from './booking-rent-bike-start-confirmation-popup-component/booking-rent-bike-start-confirmation-popup-component.component'
 import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component'
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -148,7 +149,7 @@ import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component
     BookingRentBikeStartConfirmationPopupComponent,
     ButtonYesCancel,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [
     AdminBikeAssignmentComponent,
     AdminManageBikeRentalsComponent,
