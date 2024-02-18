@@ -1,72 +1,111 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
+const {reject} = require("bcrypt/promises");
 
-router.get('/', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM BikeCategory');
-        res.json(result.rows);
-    } catch (err) {
-        console.error('Fehler beim Abrufen der Fahrradkategorien:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.put('/balance', function (req, res) {
+    const {userId} = req.user;
+    const {balance} = req.body;
+
+    if (!userId || !balance) return res.status(500).json({error: "Balance or userId is undefined"});
+
+    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
+        .then(result => {
+            if (result.rowCount > 0) {
+                let query = {
+                    text: 'UPDATE Wallet SET balance = $1 WHERE wallet_id = $2',
+                    values: [balance, result.rows[0].wallet_id]
+                }
+
+                executeUpdateQuery(query)
+                    .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                    .catch(e => res.status(500).json({error: e.message}))
+            } else {
+                return res.status(500).json({error: "User has no wallet", user: userId});
+            }
+        })
+        .catch(e => res.status(500).json({error: e}));
 });
 
-router.get('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    try {
-        const result = await pool.query('SELECT * FROM BikeCategory WHERE category_id = $1', [categoryId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Abrufen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.get('/balance', function (req, res) {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
+        .then(result => {
+            if (result.rowCount > 0) {
+                let query = {
+                    text: 'SELECT * FROM wallet WHERE wallet_id = $1',
+                    values: [ result.rows[0].wallet_id]
+                }
+
+                executeSelectionQuery(query)
+                    .then(results=> res.status(200).json(results))
+                    .catch(e => res.status(500).json({error: e.message}))
+
+            } else {
+                return res.status(500).json({error: "User has no wallet", user: userId});
+            }
+        })
+        .catch(e => res.status(500).json({error: e}));
 });
 
-router.post('/', async (req, res) => {
-    const { name } = req.body;
-    try {
-        const result = await pool.query('INSERT INTO BikeCategory (name) VALUES ($1) RETURNING *', [name]);
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Fehler beim Erstellen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+// TODO
+router.put('/available-balance', function (req, res) {
+    const {userId} = req.user;
+    const {availableBalance} = req.body;
+
+    if (!userId || !availableBalance) return res.status(500).json({error: "Available balance or userId is undefined"});
+
+    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
+        .then(result => {
+            if (result.rowCount > 0) {
+                let query = {
+                    text: 'UPDATE Wallet SET available_balance = $1 WHERE wallet_id = $2',
+                    values: [availableBalance, result.rows[0].wallet_id]
+                }
+
+                executeUpdateQuery(query)
+                    .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                    .catch(e => res.status(500).json({error: e.message}))
+            } else {
+                return res.status(500).json({error: "User has no wallet", user: userId});
+            }
+        })
+        .catch(e => res.status(500).json({error: e}));
 });
 
-router.put('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    const { name } = req.body;
-    try {
-        const result = await pool.query('UPDATE BikeCategory SET name = $1 WHERE category_id = $2 RETURNING *', [name, categoryId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Aktualisieren der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
-});
 
-router.delete('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    try {
-        const result = await pool.query('DELETE FROM BikeCategory WHERE category_id = $1 RETURNING *', [categoryId]);
-        if (result.rows.length > 0) {
-            res.send('Fahrradkategorie gelöscht');
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Löschen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
-});
+function executeUpdateQuery(query) {
+    console.log("Executing: " + query.text + " with values: " + query.values);
+
+    return new Promise((resolve, reject) => {
+        pool.query(query)
+            .then(results => {
+                if (results.rowCount <= 0) reject(new Error("No data changed"));
+                else resolve(results.rowCount);
+            })
+            .catch(error => {
+                reject(error.message)
+            })
+    })
+}
+
+function executeSelectionQuery(query) {
+    console.log("Executing: " + query.text + " with values: " + query.values);
+
+    return new Promise((resolve, reject) => {
+        pool.query(query)
+            .then(results => {
+                if (results.rows.length <= 0) reject(new Error("Now rows found to select"));
+                else resolve(results.rows);
+            })
+            .catch(error => {
+                reject(new Error("Error fetching product: " + error.message));
+            });
+    });
+}
 
 module.exports = router;
