@@ -3,8 +3,8 @@ VALUES (100.00),
        (150.00);
 
 INSERT INTO "User" (username, firstname, lastname, email, is_admin,  password_hash, wallet_id)
-VALUES ('JohnDoe', 'John', 'Doe', 'john@example.com', true, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
-       ('JaneDoe', 'Jane', 'Doe', 'jane@example.com', false, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2);
+VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
+       ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2);
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude)
 VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 10.123, 20.456),
@@ -31,12 +31,12 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
        ((SELECT station_id FROM Station WHERE station_name = 'North Station'), (SELECT model_id FROM BikeModel WHERE name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end)
-VALUES ((SELECT user_id FROM "User" WHERE username = 'JohnDoe'), 'Bike', (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(), NOW() + INTERVAL  '1 hour', NOW() + INTERVAL '4 hours');
+VALUES ((SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Bike', (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(), NOW() + INTERVAL  '1 hour', NOW() + INTERVAL '4 hours');
 
 INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
-VALUES (1, (SELECT user_id FROM "User" WHERE username = 'JohnDoe'), 20.00, 'Rental'),
-       (1, (SELECT user_id FROM "User" WHERE username = 'JaneDoe'), 30.00, 'Rental');
+VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),
+       (1, (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 30.00, 'Rental');
 
 INSERT INTO StationReview (station_id, user_id, title, model, rating, comment)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), (SELECT user_id FROM "User" WHERE username = 'JohnDoe'), 'Cool Bikestation', NULL, 5, 'Great location and plenty of bikes.'),
-       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), (SELECT user_id FROM "User" WHERE username = 'JaneDoe'), 'Semi Cool', NULL, 4, 'Nice station but could use more electric bikes.');
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Cool Bikestation', NULL, 5, 'Great location and plenty of bikes.'),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 'Semi Cool', NULL, 4, 'Nice station but could use more electric bikes.');
