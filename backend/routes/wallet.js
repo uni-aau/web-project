@@ -42,7 +42,7 @@ router.get('/balance', function (req, res) {
                 }
 
                 executeSelectionQuery(query)
-                    .then(results=> res.status(200).json(results))
+                    .then(results => res.status(200).json(results))
                     .catch(e => res.status(500).json({error: e.message}))
 
             } else {
@@ -52,7 +52,6 @@ router.get('/balance', function (req, res) {
         .catch(e => res.status(500).json({error: e}));
 });
 
-// TODO
 router.put('/available-balance', function (req, res) {
     const {userId} = req.user;
     const {availableBalance} = req.body;
@@ -75,6 +74,21 @@ router.put('/available-balance', function (req, res) {
             }
         })
         .catch(e => res.status(500).json({error: e}));
+});
+
+router.get('/bank-connection', function (req, res) {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    let query = {
+        text: 'SELECT has_connected_bank_account FROM "User" where user_id = $1',
+        values: [userId]
+    }
+
+    executeSelectionQuery(query)
+        .then(results => res.status(200).json(results))
+        .catch(e => res.status(500).json({error: e.message}))
 });
 
 

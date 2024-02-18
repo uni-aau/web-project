@@ -14,15 +14,16 @@ CREATE TABLE Wallet
 
 CREATE TABLE "User"
 (
-    user_id                  SERIAL PRIMARY KEY,
-    username                 VARCHAR UNIQUE NOT NULL,
-    firstname                VARCHAR        NOT NULL,
-    lastname                 VARCHAR        NOT NULL,
-    email                    VARCHAR UNIQUE NOT NULL,
-    is_admin                 BOOLEAN        NOT NULL,
-    password_hash            VARCHAR        NOT NULL,
-    wallet_id                INT UNIQUE REFERENCES Wallet (wallet_id),
-    profile_picture_location VARCHAR DEFAULT '/assets/no-image.svg'
+    user_id                    SERIAL PRIMARY KEY,
+    username                   VARCHAR UNIQUE        NOT NULL,
+    firstname                  VARCHAR               NOT NULL,
+    lastname                   VARCHAR               NOT NULL,
+    email                      VARCHAR UNIQUE        NOT NULL,
+    is_admin                   BOOLEAN               NOT NULL,
+    password_hash              VARCHAR               NOT NULL,
+    has_connected_bank_account BOOLEAN DEFAULT FALSE NOT NULL,
+    wallet_id                  INT UNIQUE REFERENCES Wallet (wallet_id),
+    profile_picture_location   VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
 CREATE TABLE Station

@@ -16,7 +16,11 @@ export class WalletService {
   }
 
   fetchWalletBalance(): Observable<any> {
-      return this.http.get(`${baseURL}/balance`)
+      return this.http.get(`${baseURL}/balance`);
+  }
+
+  hasBankAccountConnected(): Observable<any> {
+    return this.http.get(`${baseURL}/bank-connection`);
   }
 
 }

@@ -35,6 +35,7 @@ export class WalletAccountDropDownComponent {
 
   constructor(private walletService: WalletService) {
     this.fetchWalletAmount();
+    this.checkBankConnection()
   }
 
   fetchWalletAmount() {
@@ -55,7 +56,27 @@ export class WalletAccountDropDownComponent {
         console.log("Error: ", err.error);
       }
     });
+  }
 
+  checkBankConnection() {
+    let connectedBankAccount = false;
+    this.walletService.hasBankAccountConnected().subscribe({
+      next: (response) => {
+        if (response[0].has_connected_bank_account) {
+          connectedBankAccount = true;
+          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["✔"]);
+        } else {
+          connectedBankAccount = false;
+          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["❌"]);
+        }
+      },
+      error: (err) => {
+        this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["Error Occurred"]);
+        console.log("Error: ", err.error)
+      }
+    })
+
+    return connectedBankAccount;
   }
 
 
