@@ -77,7 +77,6 @@ export class UserAccountDropDownComponent {
       }
     })
 
-    // Implementation
     this.userSettingsChangeNameError = ''
   }
 

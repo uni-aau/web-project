@@ -17,7 +17,7 @@
   <div class="drop-down-list">
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div id="change-password-container" class="drop-down-container-style">
+        <form id="change-password-container" class="drop-down-container-style" (ngSubmit)="changePassword(newPassword.value, newPasswordConfirmation.value)">
           <span class="security-drop-down-component-text1">
             {{ securitySettingsTitlePassword }}
           </span>
@@ -29,21 +29,28 @@
             id="security-new-password-input"
             [attr.placeholder]="securitySettingsInputPlaceholderNewPassword"
             class="security-drop-down-component-textinput input account-settings-input"
+            #newPassword="ngModel"
+            name="newPassword"
+            ngModel
           />
           <input
             type="password"
             id="security-new-password-confirmation"
             [attr.placeholder]="securitySettingsInputPlaceholderConfirmNewPassword"
             class="input account-settings-input"
+            #newPasswordConfirmation="ngModel"
+            name="newPasswordConfirmation"
+            ngModel
           />
+          <span *ngIf="securitySettingsError !== ''" class="input-error-hint">{{ securitySettingsError }}</span>
           <button
             id="security-change-button"
-            type="button"
+            type="submit"
             class="button-account-settings button-general button-red"
           >
             {{ securitySettingsButtonChange }}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </div>

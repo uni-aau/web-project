@@ -28,4 +28,8 @@ export class UpdateUserService {
   updateUsername(username: string): Observable<any> {
     return this.http.put(`${baseURL}/username`, {username: username});
   }
+
+  changePassword(newPassword: string): Observable<any> {
+    return this.http.put(`${baseURL}/password`, {password: newPassword});
+  }
 }
