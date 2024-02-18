@@ -104,7 +104,6 @@ router.put('/email', function (req, res) {
     }).catch(e => res.status(500).json({error: e}));
 });
 
-// TODO maybe select in methode auslagern
 router.put('/username', function (req, res) {
     const {userId} = req.user;
     const {username} = req.body;
@@ -150,6 +149,26 @@ router.put('/profile-picture', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
+router.put('/password', function (req, res) {
+    const {userId} = req.user;
+    const {password} = req.body;
+
+    if (!password || !userId) return res.status(500).json({error: "Password or userId is undefined"});
+
+    bcrypt.hash(password, 10)
+        .then(hashedPassword => {
+            let query = {
+                text: 'UPDATE "User" SET password_hash = $1 WHERE user_id = $2',
+                values: [hashedPassword, userId]
+            }
+            executeUpdateQuery(query)
+                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .catch(e => res.status(500).json({error: e.message}))
+
+        })
+        .catch(e => res.status(500).json({error: e.message}));
+});
+
 
 function executeUpdateQuery(query) {
     console.log("Executing: " + query.text + " with values: " + query.values);
@@ -157,7 +176,7 @@ function executeUpdateQuery(query) {
     return new Promise((resolve, reject) => {
         pool.query(query)
             .then(results => {
-                if (results.rowCount <= 0) reject(new Error("No data changed")); // TODO
+                if (results.rowCount <= 0) reject(new Error("No data changed"));
                 else resolve(results.rowCount);
             })
             .catch(error => {
