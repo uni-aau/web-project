@@ -46,4 +46,16 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeNameError: string = '{0}'
   constructor() {}
+
+  updateName(firstname: string, lastname: string) {
+    console.log(firstname + " " + lastname)
+  }
+
+  updateEmail(email: string) {
+    console.log("!")
+  }
+
+  updateUsername(username: string) {
+    console.log("!")
+  }
 }

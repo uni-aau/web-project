@@ -20,7 +20,7 @@
   <div class="drop-down-list">
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div id="update-name-container" class="drop-down-container-style">
+        <form id="update-name-container" class="drop-down-container-style" (ngSubmit)="updateName(firstname.value, lastname.value)">
           <span class="user-account-drop-down-component-text01">
             {{ userSettingsChangeNameTitle }}
           </span>
@@ -33,6 +33,9 @@
             required="true"
             [attr.placeholder]="userSettingsInputFirstNamePlaceholder"
             class="user-account-drop-down-component-textinput input account-settings-input"
+            #firstname="ngModel"
+            name="firstname"
+            ngModel
           />
           <input
             type="text"
@@ -40,23 +43,26 @@
             id="user-settings-first-last-name-input"
             required="true"
             class="input account-settings-input"
+            #lastname="ngModel"
+            name="lastname"
+            ngModel
           />
           <span class="input-error-hint">
             {{ userSettingsChangeNameError }}
           </span>
           <button
             id="user-settings-name-save-button"
-            type="button"
+            type="submit"
             class="button-account-settings button-blue button-general"
           >
             {{ userSettingsButtonSaveName }}
           </button>
-        </div>
+        </form>
       </div>
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div id="update-email-container" class="drop-down-container-style">
+        <form id="update-email-container" class="drop-down-container-style" (ngSubmit)="updateEmail(email.value)">
           <span class="user-account-drop-down-component-text04">
             {{ userSettingsChangeMailTitle }}
           </span>
@@ -69,23 +75,26 @@
             required="true"
             [attr.placeholder]="userSettingsChangeEmailPlaceholder"
             class="input account-settings-input"
+            #email="ngModel"
+            name="email"
+            ngModel
           />
           <span class="input-error-hint">
             {{ userSettingsChangeEmailError }}
           </span>
           <button
             id="user-settings-email-save-button"
-            type="button"
+            type="submit"
             class="button-account-settings button-blue button-general"
           >
             {{ userSettingsButtonSaveEmail }}
           </button>
-        </div>
+        </form>
       </div>
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div id="update-username-container" class="drop-down-container-style">
+        <form id="update-username-container" class="drop-down-container-style" (ngSubmit)="updateUsername(username.value)">
           <span class="user-account-drop-down-component-text07">
             {{ userSettingsChangeUsernameTitle1 }}
           </span>
@@ -98,18 +107,21 @@
             required="true"
             [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
             class="input account-settings-input"
+            #username="ngModel"
+            name="username"
+            ngModel
           />
           <span class="input-error-hint">
             {{ userSettingsChangeUsernameError }}
           </span>
           <button
             id="user-settings-username-save-button"
-            type="button"
+            type="submit"
             class="button-account-settings button-blue button-general"
           >
             {{ userSettingsButtonSaveUsername }}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
