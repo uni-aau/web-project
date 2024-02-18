@@ -144,6 +144,21 @@ router.put('/profile-picture', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
+router.get('/profile-picture', function (req, res) {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    let query = {
+        text: 'SELECT profile_picture_location FROM "User" WHERE user_id = $1',
+        values: [userId]
+    }
+
+    executeSelectionQuery(query)
+        .then(results => res.status(200).json(results))
+        .catch(e => res.status(500).json({error: e.message}))
+});
+
 router.put('/password', function (req, res) {
     const {userId} = req.user;
     const {password} = req.body;
