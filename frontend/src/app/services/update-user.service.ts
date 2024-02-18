@@ -32,4 +32,8 @@ export class UpdateUserService {
   changePassword(newPassword: string): Observable<any> {
     return this.http.put(`${baseURL}/password`, {password: newPassword});
   }
+
+  fetchUserData(): Observable<any> {
+    return this.http.get(`${baseURL}/userdata`);
+  }
 }

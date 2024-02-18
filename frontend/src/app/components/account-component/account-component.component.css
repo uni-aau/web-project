@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .account-component-container {
   width: 60%;
@@ -57,6 +57,7 @@
 }
 .account-component-text2 {
   color: var(--dl-color-gray-500);
+  font-size: 18px;
 }
 .account-component-root-class-name1 {
   margin-bottom: var(--dl-space-space-twounits);

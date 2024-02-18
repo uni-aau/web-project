@@ -4,7 +4,7 @@ const router = express.Router();
 const pool = require('../pool');
 const {reject} = require("bcrypt/promises");
 
-router.get('/:userId', async (req, res) => {
+/*router.get('/:userId', async (req, res) => {
     const {userId} = req.params;
 
     try {
@@ -15,13 +15,32 @@ router.get('/:userId', async (req, res) => {
         console.error('Error while fetching user', e.stack);
         res.status(500).json({error: e.message})
     }
+});*/
+
+router.get('/userdata', function (req, res)  {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    let query = {
+        text: 'SELECT "User".user_id, "User".username, "User".email, "User".firstname, "User".lastname FROM "User" WHERE "User".user_id = $1',
+        values: [userId]
+    }
+
+    executeSelectionQuery(query)
+        .then(results => res.status(200).json(results))
+        .catch(e => res.status(500).json({error: e.message}))
 });
 
 router.put('/firstname', function (req, res) {
     const {userId} = req.user;
     const {firstname} = req.body;
 
-    if (!firstname || !userId) return res.status(500).json({error: "Firstname or userId is undefined", firstname: firstname, userId: userId});
+    if (!firstname || !userId) return res.status(500).json({
+        error: "Firstname or userId is undefined",
+        firstname: firstname,
+        userId: userId
+    });
 
     let query = {
         text: 'UPDATE "User" SET firstname = $1 WHERE user_id = $2',
@@ -160,5 +179,20 @@ function executeUpdateQuery(query) {
             })
     })
 }
+function executeSelectionQuery(query) {
+    console.log("Executing: " + query.text + " with values: " + query.values);
+
+    return new Promise((resolve, reject) => {
+        pool.query(query)
+            .then(results => {
+                if (results.rows.length <= 0) reject(new Error("Now rows found to select"));
+                else resolve(results.rows);
+            })
+            .catch(error => {
+                reject(new Error("Error fetching product: " + error.message));
+            });
+    });
+}
+
 
 module.exports = router;
