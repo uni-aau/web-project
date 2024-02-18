@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .navbar-container {
   width: 100%;
@@ -98,19 +98,10 @@
   margin-right: var(--dl-space-space-twounits);
 }
 
-
-
 .navbar-root-class-name3 {
   margin-bottom: var(--dl-space-space-sixunits);
 }
-.navbar-root-class-name4 {
-  margin-bottom: 0px;
-}
 
-
-.navbar-root-class-name7 {
-  margin-bottom: 0px;
-}
 @media(max-width: 767px) {
   .navbar-desktop-menu {
     display: none;
