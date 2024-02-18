@@ -74,10 +74,12 @@ import { ButtonRentBikeComponent } from './button-rent-bike-component/button-ren
 import { BookingRentBikeStartConfirmationPopupComponent } from './booking-rent-bike-start-confirmation-popup-component/booking-rent-bike-start-confirmation-popup-component.component'
 import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component'
 import {FormsModule} from "@angular/forms";
+import {AccountSettingsComponent} from "./account-settings-component/account-settings-component.component";
 import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-component.component";
 
 @NgModule({
   declarations: [
+    AccountSettingsComponent,
     AdminBikeAssignmentComponent,
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,
@@ -153,6 +155,7 @@ import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-compo
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
+    AccountSettingsComponent,
     AdminBikeAssignmentComponent,
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,

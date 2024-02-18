@@ -20,12 +20,12 @@
   <div class="drop-down-list">
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div class="drop-down-container-style">
+        <div id="deposit-money-container" class="drop-down-container-style">
           <span class="wallet-account-drop-down-component-text1">
             {{ walletSettingsTitleDepositMoney }}
           </span>
           <span class="wallet-account-drop-down-component-text2">
-            {{ walletSettingsAccountSettingsMoneyAmount }}
+            {{ walletSettingsMoneyAmount }}
           </span>
           <span class="wallet-account-drop-down-component-text3">
             {{ walletSettingsDepositMoneySubtitle }}
@@ -37,32 +37,41 @@
           >
             {{ walletSettingsButtonDepositMoney }}
           </button>
+          <span
+            class="wallet-account-drop-down-component-text4 input-error-hint"
+          >
+            {{ walletSettingsDepositMoneyError }}
+          </span>
         </div>
       </div>
     </div>
     <div class="drop-down-list-drop-down">
       <div class="drop-down-toggle">
-        <div class="drop-down-container-style">
-          <span class="wallet-account-drop-down-component-text4">
+        <div id="toggle-wallet-container" class="drop-down-container-style">
+          <span class="wallet-account-drop-down-component-text5">
             {{ walletSettingsTitleConnectWallet }}
           </span>
-          <span class="wallet-account-drop-down-component-text5">
+          <span class="wallet-account-drop-down-component-text6">
             {{ walletSettingsConnectWalletSubtitle }}
           </span>
-          <div class="wallet-account-drop-down-component-container11">
+          <div class="wallet-account-drop-down-component-container09">
             <button
               id="wallet-connect-wallet-button"
               type="button"
+              [disabled]="connectedBankAccount"
+              (click)="connectBankAccount()"
               class="wallet-account-drop-down-component-button1 button-general button-green"
             >
               {{ walletSettingsButtonConnectWallet }}
             </button>
             <button
-              id="wallet-remove-wallt-button"
+              id="wallet-remove-wallet-button"
               type="button"
+              [disabled]="!connectedBankAccount"
+              (click)="removeBankAccount()"
               class="wallet-account-drop-down-component-button2 button-general button-red"
             >
-              {{ welletSettingsButtonRemoveWallet }}
+              {{ walletSettingsButtonRemoveWallet }}
             </button>
           </div>
         </div>

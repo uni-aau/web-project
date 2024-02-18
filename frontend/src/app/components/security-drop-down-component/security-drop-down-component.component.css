@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .security-drop-down-component-icon {
   width: 24px;
@@ -20,4 +20,3 @@
 .security-drop-down-component-textinput {
   margin-bottom: var(--dl-space-space-halfunit);
 }
-

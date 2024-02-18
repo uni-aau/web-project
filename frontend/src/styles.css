@@ -421,6 +421,11 @@
   margin-right: 4px;
   vertical-align: middle;
 }
+.input-error-hint {
+  color: #ec0c0c;
+  /*display: none;*/
+  font-weight: 500;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;

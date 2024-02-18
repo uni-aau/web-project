@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core'
+import {UpdateUserService} from "../../services/update-user.service";
+import {readSpanComment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/comments";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'security-drop-down-component',
@@ -6,6 +9,8 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['security-drop-down-component.component.css'],
 })
 export class SecurityDropDownComponent {
+  @Input()
+  securitySettingsTitle: string = 'Security'
   @Input()
   securitySettingsPasswordDescription: string =
     'Update your password to ensure account security. Use a strong password!'
@@ -20,7 +25,32 @@ export class SecurityDropDownComponent {
     'Confirm new password'
   @Input()
   securitySettingsButtonChange: string = 'Change'
+
   @Input()
-  securitySettingsTitle: string = 'Security'
-  constructor() {}
+  securitySettingsError: string = ''
+  constructor(private updateUserService: UpdateUserService) {}
+
+  changePassword(newPassword: string, newPasswordConfirmation: string) {
+    if(!newPassword || !newPasswordConfirmation) {
+      this.securitySettingsError = 'Password fields must not be empty!'
+      return;
+    }
+
+    if(newPassword !== newPasswordConfirmation) {
+      this.securitySettingsError = 'Passwords must be the same!'
+      return;
+    }
+
+    this.updateUserService.changePassword(newPassword).subscribe({
+      next: (response) => {
+        console.log("Successfully changed password:", response);
+      },
+      error: (err) => {
+        this.securitySettingsError = 'Could not change password, try again'
+        console.log("Error:", err.error)
+      }
+    });
+
+    this.securitySettingsError = '';
+  }
 }

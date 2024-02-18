@@ -7,21 +7,23 @@ CREATE TYPE booking_status AS ENUM ('Booked', 'Rented', 'Overdue', 'Canceled', '
 
 CREATE TABLE Wallet
 (
-    wallet_id SERIAL PRIMARY KEY,
-    balance   DECIMAL NOT NULL
+    wallet_id         SERIAL PRIMARY KEY,
+    balance           DECIMAL NOT NULL,
+    available_balance DECIMAL NOT NULL
 );
 
 CREATE TABLE "User"
 (
-    user_id                  SERIAL PRIMARY KEY,
-    username                 VARCHAR UNIQUE NOT NULL,
-    firstname                VARCHAR        NOT NULL,
-    lastname                 VARCHAR        NOT NULL,
-    email                    VARCHAR UNIQUE NOT NULL,
-    is_admin                 BOOLEAN        NOT NULL,
-    password_hash            VARCHAR        NOT NULL,
-    wallet_id                INT UNIQUE REFERENCES Wallet (wallet_id),
-    profile_picture_location VARCHAR DEFAULT '/assets/no-image.svg'
+    user_id                    SERIAL PRIMARY KEY,
+    username                   VARCHAR UNIQUE        NOT NULL,
+    firstname                  VARCHAR               NOT NULL,
+    lastname                   VARCHAR               NOT NULL,
+    email                      VARCHAR UNIQUE        NOT NULL,
+    is_admin                   BOOLEAN               NOT NULL,
+    password_hash              VARCHAR               NOT NULL,
+    has_connected_bank_account BOOLEAN DEFAULT FALSE NOT NULL,
+    wallet_id                  INT UNIQUE REFERENCES Wallet (wallet_id),
+    profile_picture_location   VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
 CREATE TABLE Station
@@ -38,10 +40,10 @@ CREATE TABLE Station
 -- TODO enum for status?
 CREATE TABLE BikeCategory
 (
-    category_id SERIAL PRIMARY KEY,
-    category_name        VARCHAR NOT NULL,
-    price       FLOAT,
-    status      VARCHAR
+    category_id   SERIAL PRIMARY KEY,
+    category_name VARCHAR NOT NULL,
+    price         FLOAT,
+    status        VARCHAR
 );
 
 -- TODO enum?
@@ -129,13 +131,18 @@ CREATE TABLE StationReview
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO Wallet (balance)
-VALUES (100.00),
-       (150.00);
+INSERT INTO Wallet (balance, available_balance)
+VALUES (100.00, 100.00),
+       (150.00, 100.00),
+       (100.00, 10.00);
 
-INSERT INTO "User" (username, firstname, lastname, email, is_admin,  password_hash, wallet_id)
-VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
-       ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2);
+INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id)
+VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
+        '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
+       ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false,
+        '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2),
+       ('dadi', 'Dado', 'Dodo', 'dadi1@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
+        3);
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude)
 VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 10.123, 20.456),
@@ -158,16 +165,25 @@ VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain
        (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
 INSERT INTO Bike (station_id, model_id, is_available, status, size, price)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), (SELECT model_id FROM BikeModel WHERE name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
-       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), (SELECT model_id FROM BikeModel WHERE name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
+        (SELECT model_id FROM BikeModel WHERE name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'),
+        (SELECT model_id FROM BikeModel WHERE name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end)
-VALUES ((SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Bike', (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(), NOW() + INTERVAL  '1 hour', NOW() + INTERVAL '4 hours');
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
+                    renting_end)
+VALUES ((SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Bike',
+        (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(),
+        NOW() + INTERVAL '1 hour', NOW() + INTERVAL '4 hours');
 
 INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
 VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),
        (1, (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 30.00, 'Rental');
 
 INSERT INTO StationReview (station_id, user_id, title, model, rating, comment)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Cool Bikestation', NULL, 5, 'Great location and plenty of bikes.'),
-       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 'Semi Cool', NULL, 4, 'Nice station but could use more electric bikes.');
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
+        (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Cool Bikestation', NULL, 5,
+        'Great location and plenty of bikes.'),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'),
+        (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 'Semi Cool', NULL, 4,
+        'Nice station but could use more electric bikes.');

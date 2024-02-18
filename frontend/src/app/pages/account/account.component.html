@@ -3,17 +3,9 @@
   <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
   <admin-navbar *ngIf="AuthService.getRole() === 'admin'" rootClassName="admin-navbar-root-class-name1"></admin-navbar>
 
-  <account-component
-    rootClassName="account-component-root-class-name"
-  ></account-component>
-  <user-account-drop-down-component
-    rootClassName="user-account-drop-down-component-root-class-name"
-  ></user-account-drop-down-component>
-  <wallet-account-drop-down-component
-    rootClassName="wallet-account-drop-down-component-root-class-name"
-  ></wallet-account-drop-down-component>
-  <security-drop-down-component
-    rootClassName="security-drop-down-component-root-class-name"
-  ></security-drop-down-component>
+  <account-settings-component
+    rootClassName="account-settings-root-class-name"
+  ></account-settings-component>
+
   <app-footer rootClassName="footer-root-class-name5"></app-footer>
 </div>

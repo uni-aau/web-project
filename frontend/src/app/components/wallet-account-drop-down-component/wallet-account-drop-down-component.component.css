@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .wallet-account-drop-down-component-icon {
   width: 24px;
@@ -21,17 +21,20 @@
   margin-bottom: var(--dl-space-space-unit);
 }
 .wallet-account-drop-down-component-text4 {
+  align-self: flex-end;
+}
+.wallet-account-drop-down-component-text5 {
   color: var(--dl-color-gray-black);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   margin-bottom: var(--dl-space-space-unit);
 }
-.wallet-account-drop-down-component-text5 {
+.wallet-account-drop-down-component-text6 {
   color: var(--dl-color-gray-black);
   margin-bottom: var(--dl-space-space-unit);
 }
-.wallet-account-drop-down-component-container11 {
+.wallet-account-drop-down-component-container09 {
   flex: 0 0 auto;
   width: auto;
   height: auto;
@@ -53,7 +56,7 @@
   .wallet-account-drop-down-component-text1 {
     text-align: center;
   }
-  .wallet-account-drop-down-component-text4 {
+  .wallet-account-drop-down-component-text5 {
     text-align: center;
   }
 }

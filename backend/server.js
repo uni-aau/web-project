@@ -17,6 +17,7 @@ const bikeModelRoutes = require('./routes/bikeModel');
 const stationReviewRoutes = require('./routes/stationReview');
 const transactionRoutes = require('./routes/transaction');
 const bikeModelReviewRoutes = require('./routes/bikeModelReview');
+const walletRoutesOld = require('./routes/wallet-rework');
 const walletRoutes = require('./routes/wallet');
 const parkingSpotRoutes = require('./routes/parkingSpot');
 const authRoutes = require('./routes/authentication')
@@ -33,7 +34,8 @@ app.use('/api/bikeModels', verifyUserToken,bikeModelRoutes);
 app.use('/api/stationReviews',verifyUserToken, stationReviewRoutes);
 app.use('/api/transactions', verifyUserToken,transactionRoutes);
 app.use('/api/bikeModelReviews',verifyUserToken, bikeModelReviewRoutes);
-app.use('/api/wallets',verifyUserToken, walletRoutes);
+app.use('/api/wallets', verifyUserToken, walletRoutes);
+// app.use('/api/wallets',verifyUserToken, walletRoutesOld);
 app.use('/api/parkingSpots',verifyUserToken, parkingSpotRoutes);
 
 app.get("/", (req, res) => {

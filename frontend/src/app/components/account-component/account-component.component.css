@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .account-component-container {
   width: 60%;
@@ -7,6 +7,7 @@
   display: flex;
   position: relative;
   align-items: center;
+  margin-bottom: var(--dl-space-space-twounits);
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -56,13 +57,12 @@
 }
 .account-component-text2 {
   color: var(--dl-color-gray-500);
-}
-.account-component-root-class-name {
-  margin-bottom: var(--dl-space-space-twounits);
+  font-size: 18px;
 }
 .account-component-root-class-name1 {
   margin-bottom: var(--dl-space-space-twounits);
 }
+
 @media(max-width: 479px) {
   .account-component-container {
     width: 100%;
