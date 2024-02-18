@@ -37,8 +37,8 @@ router.get('/balance', function (req, res) {
         .then(result => {
             if (result.rowCount > 0) {
                 let query = {
-                    text: 'SELECT * FROM wallet WHERE wallet_id = $1',
-                    values: [ result.rows[0].wallet_id]
+                    text: 'SELECT balance, available_balance FROM wallet WHERE wallet_id = $1',
+                    values: [result.rows[0].wallet_id]
                 }
 
                 executeSelectionQuery(query)

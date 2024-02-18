@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
 import {WalletService} from "../../services/wallet.service";
+import {LanguageHandler} from "../../handler/LanguageHandler";
 
 @Component({
   selector: 'wallet-account-drop-down-component',
@@ -10,7 +11,7 @@ export class WalletAccountDropDownComponent {
   @Input()
   walletSettingsTitle: string = 'Wallet'
   @Input()
-  walletSettingsAccountSettingsMoneyAmount: string =
+  walletSettingsMoneyAmount: string =
     'Total Amount: {0} | Available Amount: {1}'
   @Input()
   walletSettingsConnectWalletSubtitle: string = 'Connect or remove your wallet'
@@ -29,12 +30,30 @@ export class WalletAccountDropDownComponent {
   rootClassName: string = ''
   @Input()
   walletSettingsTitleConnectWallet: string = 'Connect/Remove Wallet ({0})'
-  constructor(private walletService : WalletService) {
+
+  constructor(private walletService: WalletService) {
     this.fetchWalletAmount();
   }
 
   fetchWalletAmount() {
-      // this.walletService.
+    let totalMoneyAmount = "-1";
+    let availableMoneyAmount = "-1";
+
+    this.walletService.fetchWalletBalance().subscribe({
+      next: (response) => {
+        if (response && response.length > 0) {
+          const wallet = response[0];
+          totalMoneyAmount = wallet.balance;
+          availableMoneyAmount = wallet.available_balance;
+
+          this.walletSettingsMoneyAmount = LanguageHandler.formatString(this.walletSettingsMoneyAmount, [totalMoneyAmount, availableMoneyAmount]);
+        } else console.log("No wallet information available");
+      },
+      error: (err) => {
+        console.log("Error: ", err.error);
+      }
+    });
+
   }
 
 
