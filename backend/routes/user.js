@@ -45,9 +45,7 @@ router.put('/firstname', function (req, res) {
     const {userId} = req.user;
     const {firstname} = req.body;
 
-    console.log(req.user)
-
-    if (!firstname || !userId) return res.status(500).json({error: "Firstname or userId is undefined"});
+    if (!firstname || !userId) return res.status(500).json({error: "Firstname or userId is undefined", firstname: firstname, userId: userId});
 
     let query = {
         text: 'UPDATE "User" SET firstname = $1 WHERE user_id = $2',
@@ -88,6 +86,7 @@ router.put('/email', function (req, res) {
 
     pool.query(query).then(result => {
         if (result.rowCount > 0) return res.status(500).json({
+            exists: true,
             error: "User with this mail already exist",
             userId: result.userId
         });
@@ -117,6 +116,7 @@ router.put('/username', function (req, res) {
 
     pool.query(query).then(result => {
         if (result.rowCount > 0) return res.status(500).json({
+            exists: true,
             error: "User with this username already exist",
             userId: result.userId
         });
