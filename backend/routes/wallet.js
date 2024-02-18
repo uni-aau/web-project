@@ -1,8 +1,6 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
 const router = express.Router();
-const pool = require('../pool');
-const {reject} = require("bcrypt/promises");
+const DatabaseService = require("../database-service");
 
 router.put('/balance', function (req, res) {
     const {userId} = req.user;
@@ -10,22 +8,23 @@ router.put('/balance', function (req, res) {
 
     if (!userId || !balance) return res.status(500).json({error: "Balance or userId is undefined"});
 
-    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
-        .then(result => {
-            if (result.rowCount > 0) {
-                let query = {
-                    text: 'UPDATE Wallet SET balance = $1 WHERE wallet_id = $2',
-                    values: [balance, result.rows[0].wallet_id]
-                }
+    let query = {
+        text: 'SELECT wallet_id FROM "User" WHERE user_id = $1',
+        values: [userId]
+    }
 
-                executeUpdateQuery(query)
-                    .then(result => res.status(200).json({message: "success", rowsChanged: result}))
-                    .catch(e => res.status(500).json({error: e.message}))
-            } else {
-                return res.status(500).json({error: "User has no wallet", user: userId});
+    DatabaseService.executeSelectionQuery(query)
+        .then(result => {
+            let query = {
+                text: 'UPDATE Wallet SET balance = $1 WHERE wallet_id = $2',
+                values: [balance, result[0].wallet_id]
             }
+
+            DatabaseService.executeUpdateQuery(query)
+                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .catch(e => res.status(500).json({error: e.message}))
         })
-        .catch(e => res.status(500).json({error: e}));
+        .catch(e => res.status(500).json({error: e.message}));
 });
 
 router.get('/balance', function (req, res) {
@@ -33,23 +32,16 @@ router.get('/balance', function (req, res) {
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
 
-    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
+    DatabaseService.executeSelectionQuery({text: 'SELECT wallet_id FROM "User" WHERE user_id = $1', values: [userId]})
         .then(result => {
-            if (result.rowCount > 0) {
-                let query = {
-                    text: 'SELECT balance, available_balance FROM wallet WHERE wallet_id = $1',
-                    values: [result.rows[0].wallet_id]
-                }
-
-                executeSelectionQuery(query)
-                    .then(results => res.status(200).json(results))
-                    .catch(e => res.status(500).json({error: e.message}))
-
-            } else {
-                return res.status(500).json({error: "User has no wallet", user: userId});
-            }
+            DatabaseService.executeSelectionQuery({
+                text: 'SELECT balance, available_balance FROM wallet WHERE wallet_id = $1',
+                values: [result[0].wallet_id]
+            })
+                .then(results => res.status(200).json(results))
+                .catch(e => res.status(500).json({error: e.message}))
         })
-        .catch(e => res.status(500).json({error: e}));
+        .catch(e => res.status(500).json({error: e.message}));
 });
 
 router.put('/available-balance', function (req, res) {
@@ -58,22 +50,16 @@ router.put('/available-balance', function (req, res) {
 
     if (!userId || !availableBalance) return res.status(500).json({error: "Available balance or userId is undefined"});
 
-    pool.query('SELECT wallet_id FROM "User" WHERE user_id = $1', [userId])
+    DatabaseService.executeSelectionQuery({text: 'SELECT wallet_id FROM "User" WHERE user_id = $1', values: [userId]})
         .then(result => {
-            if (result.rowCount > 0) {
-                let query = {
-                    text: 'UPDATE Wallet SET available_balance = $1 WHERE wallet_id = $2',
-                    values: [availableBalance, result.rows[0].wallet_id]
-                }
-
-                executeUpdateQuery(query)
-                    .then(result => res.status(200).json({message: "success", rowsChanged: result}))
-                    .catch(e => res.status(500).json({error: e.message}))
-            } else {
-                return res.status(500).json({error: "User has no wallet", user: userId});
-            }
+            DatabaseService.executeUpdateQuery({
+                text: 'UPDATE Wallet SET available_balance = $1 WHERE wallet_id = $2',
+                values: [availableBalance, result.rows[0].wallet_id]
+            })
+                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .catch(e => res.status(500).json({error: e.message}))
         })
-        .catch(e => res.status(500).json({error: e}));
+        .catch(e => res.status(500).json({error: e.message}));
 });
 
 router.get('/bank-connection', function (req, res) {
@@ -81,12 +67,10 @@ router.get('/bank-connection', function (req, res) {
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
 
-    let query = {
+    DatabaseService.executeSelectionQuery({
         text: 'SELECT has_connected_bank_account FROM "User" where user_id = $1',
         values: [userId]
-    }
-
-    executeSelectionQuery(query)
+    })
         .then(results => res.status(200).json(results))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -96,12 +80,10 @@ router.put('/connect', function (req, res) {
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
 
-    let query = {
+    DatabaseService.executeUpdateQuery({
         text: 'UPDATE "User" SET has_connected_bank_account = TRUE where user_id = $1',
         values: [userId]
-    }
-
-    executeUpdateQuery(query)
+    })
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
@@ -111,44 +93,12 @@ router.put('/disconnect', function (req, res) {
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
 
-    let query = {
+    DatabaseService.executeUpdateQuery({
         text: 'UPDATE "User" SET has_connected_bank_account = FALSE where user_id = $1',
         values: [userId]
-    }
-
-    executeUpdateQuery(query)
+    })
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
-
-function executeUpdateQuery(query) {
-    console.log("Executing: " + query.text + " with values: " + query.values);
-
-    return new Promise((resolve, reject) => {
-        pool.query(query)
-            .then(results => {
-                if (results.rowCount <= 0) reject(new Error("No data changed"));
-                else resolve(results.rowCount);
-            })
-            .catch(error => {
-                reject(error.message)
-            })
-    })
-}
-
-function executeSelectionQuery(query) {
-    console.log("Executing: " + query.text + " with values: " + query.values);
-
-    return new Promise((resolve, reject) => {
-        pool.query(query)
-            .then(results => {
-                if (results.rows.length <= 0) reject(new Error("Now rows found to select"));
-                else resolve(results.rows);
-            })
-            .catch(error => {
-                reject(new Error("Error fetching product: " + error.message));
-            });
-    });
-}
 
 module.exports = router;
