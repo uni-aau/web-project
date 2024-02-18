@@ -7,6 +7,7 @@
     type="text"
     id="login-username-input"
     [attr.placeholder]="loginInputPlaceholderUsername"
+    required="true"
     class="login-component-textinput input"
     #username="ngModel"
     name="username"
@@ -18,6 +19,7 @@
     id="login-password-input"
     [attr.placeholder]="loginInputPlaceholderPassword"
     class="login-component-textinput1 input"
+    required="true"
     #password="ngModel"
     name="password"
     ngModel
