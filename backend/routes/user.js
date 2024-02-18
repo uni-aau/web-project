@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
-const {reject} = require("bcrypt/promises");
 const DatabaseService = require('../database-service')
 
 /*router.get('/:userId', async (req, res) => {
