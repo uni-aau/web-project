@@ -1,5 +1,7 @@
 <div class="bike-stations-container">
-  <app-navbar rootClassName="navbar-root-class-name5"></app-navbar>
+  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+  <admin-navbar *ngIf="AuthService.getRole() === 'admin'" rootClassName="admin-navbar-root-class-name1"></admin-navbar>
   <bike-stations-component
     rootClassName="bike-stations-component-root-class-name"
   ></bike-stations-component>

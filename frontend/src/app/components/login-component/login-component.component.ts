@@ -33,6 +33,7 @@ export class LoginComponent {
       next: (response) => {
         console.log("Login successful", response)
         localStorage.setItem('authToken', response.token);
+        localStorage.setItem('isAdmin', response.isAdmin);
         this.router.navigate(['/']);
       },
       error: (err) => {

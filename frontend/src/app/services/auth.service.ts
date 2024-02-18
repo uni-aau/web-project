@@ -20,4 +20,24 @@ export class AuthService {
   changePassword(email:string, oldPassword: string, newPassword: string){
     return this.http.post('http://localhost:3000/api/auth/password', {email: email, oldPassword:oldPassword, newPassword: newPassword})
   }
+
+  getIsAdmin() {
+    return localStorage.getItem('isAdmin');
+  }
+
+  isGuest():boolean{
+    return !localStorage.getItem('authToken')
+  }
+
+  getRole():string{
+    if(!localStorage.getItem('authToken')){
+      return "guest"
+    }else{
+      if(this.getIsAdmin()){
+        return "admin"
+      }else {
+        return "user"
+      }
+    }
+  }
 }
