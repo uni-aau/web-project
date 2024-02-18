@@ -58,6 +58,8 @@
             <button
               id="wallet-connect-wallet-button"
               type="button"
+              [disabled]="connectedBankAccount"
+              (click)="connectBankAccount()"
               class="wallet-account-drop-down-component-button1 button-general button-green"
             >
               {{ walletSettingsButtonConnectWallet }}
@@ -65,6 +67,8 @@
             <button
               id="wallet-remove-wallet-button"
               type="button"
+              [disabled]="!connectedBankAccount"
+              (click)="removeBankAccount()"
               class="wallet-account-drop-down-component-button2 button-general button-red"
             >
               {{ walletSettingsButtonRemoveWallet }}

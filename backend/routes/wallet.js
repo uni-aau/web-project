@@ -91,6 +91,35 @@ router.get('/bank-connection', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
+router.put('/connect', function (req, res) {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    let query = {
+        text: 'UPDATE "User" SET has_connected_bank_account = TRUE where user_id = $1',
+        values: [userId]
+    }
+
+    executeUpdateQuery(query)
+        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .catch(e => res.status(500).json({error: e.message}))
+});
+
+router.put('/disconnect', function (req, res) {
+    const {userId} = req.user;
+
+    if (!userId) return res.status(500).json({error: "UserId is undefined"});
+
+    let query = {
+        text: 'UPDATE "User" SET has_connected_bank_account = FALSE where user_id = $1',
+        values: [userId]
+    }
+
+    executeUpdateQuery(query)
+        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .catch(e => res.status(500).json({error: e.message}))
+});
 
 function executeUpdateQuery(query) {
     console.log("Executing: " + query.text + " with values: " + query.values);

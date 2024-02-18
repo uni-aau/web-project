@@ -13,6 +13,9 @@ export class WalletAccountDropDownComponent {
   @Input()
   walletSettingsMoneyAmount: string =
     'Total Amount: {0} | Available Amount: {1}'
+  // TODO use angular translation handler
+  walletSettingsMoneyAmountOld: string =
+    'Total Amount: {0} | Available Amount: {1}'
   @Input()
   walletSettingsConnectWalletSubtitle: string = 'Connect or remove your wallet'
   @Input()
@@ -30,8 +33,11 @@ export class WalletAccountDropDownComponent {
   rootClassName: string = ''
   @Input()
   walletSettingsTitleConnectWallet: string = 'Connect/Remove Wallet ({0})'
+  walletSettingsTitleConnectWalletOld: string = 'Connect/Remove Wallet ({0})'
   @Input()
   walletSettingsDepositMoneyError: string = ''
+  @Input()
+  connectedBankAccount: boolean = false;
 
   constructor(private walletService: WalletService) {
     this.fetchWalletAmount();
@@ -49,7 +55,7 @@ export class WalletAccountDropDownComponent {
           totalMoneyAmount = wallet.balance;
           availableMoneyAmount = wallet.available_balance;
 
-          this.walletSettingsMoneyAmount = LanguageHandler.formatString(this.walletSettingsMoneyAmount, [totalMoneyAmount, availableMoneyAmount]);
+          this.walletSettingsMoneyAmount = LanguageHandler.formatString(this.walletSettingsMoneyAmountOld, [totalMoneyAmount, availableMoneyAmount]);
         } else console.log("No wallet information available");
       },
       error: (err) => {
@@ -59,24 +65,45 @@ export class WalletAccountDropDownComponent {
   }
 
   checkBankConnection() {
-    let connectedBankAccount = false;
+    console.log("Test")
     this.walletService.hasBankAccountConnected().subscribe({
       next: (response) => {
         if (response[0].has_connected_bank_account) {
-          connectedBankAccount = true;
-          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["✔"]);
+          this.connectedBankAccount = true;
+          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWalletOld, ["✔"]);
         } else {
-          connectedBankAccount = false;
-          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["❌"]);
+          this.connectedBankAccount = false;
+          this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWalletOld, ["❌"]);
         }
       },
       error: (err) => {
-        this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWallet, ["Error Occurred"]);
+        this.walletSettingsTitleConnectWallet = LanguageHandler.formatString(this.walletSettingsTitleConnectWalletOld, ["Error Occurred"]);
+        this.connectedBankAccount = false;
         console.log("Error: ", err.error)
       }
     })
+  }
 
-    return connectedBankAccount;
+  connectBankAccount() {
+    this.walletService.connectBankAccount().subscribe({
+      next: (response) => {
+        console.log("Response: ", response)
+        this.checkBankConnection();
+      },
+      error: (err) => console.log("Error: ", err.error)
+    })
+  }
+
+  removeBankAccount() {
+    this.walletService.disconnectBankAccount().subscribe({
+      next: (response) => {
+        console.log("Response: ", response)
+        this.checkBankConnection();
+      },
+      error: (err) => console.log("Error: ", err.error)
+    })
+
+    this.checkBankConnection()
   }
 
 

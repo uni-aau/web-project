@@ -23,4 +23,12 @@ export class WalletService {
     return this.http.get(`${baseURL}/bank-connection`);
   }
 
+  connectBankAccount(): Observable<any> {
+    return this.http.put(`${baseURL}/connect`, {});
+  }
+
+  disconnectBankAccount(): Observable<any> {
+    return this.http.put(`${baseURL}/disconnect`, {})
+  }
+
 }
