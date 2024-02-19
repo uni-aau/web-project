@@ -7,7 +7,7 @@ router.get('/', function (eq, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
             else res.status(500).json({error: "Error while fetching bikes: " + e.message})
         });
 });
@@ -18,7 +18,7 @@ router.get('bike/:bikeId', function (req, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike WHERE bike_id = $1', values: [bikeId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
             else res.status(500).json({error: "Error while fetching bike: " + e.message})
         });
 });
@@ -67,9 +67,26 @@ router.get('/bike/:bikeId/type', async (req, res) => {
     DatabaseService.executeSelectionQuery(query)
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
             else res.status(500).json({error: "Error while fetching bike types: " + e.message})
         });
+});
+
+router.get('/bike/:bikeId/status', function (req, res) {
+    const {bikeId} = req.params;
+    const {bikeStatus} = req.body;
+
+    if (!bikeId || !bikeStatus) return res.status(500).json({error: "Not all required data inserted"});
+
+    // Retrieves bike model and bike category of specific bike
+    let query = {
+        text: 'UPDATE bike SET status = $1 WHERE bike_id = $2',
+        values: [bikeStatus, bikeId]
+    }
+
+    DatabaseService.executeUpdateQuery(query)
+        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}));
 });
 
 router.put('/bike/:bikeId/assign', async (req, res) => {
@@ -89,7 +106,11 @@ router.put('/bike/:bikeId/assign', async (req, res) => {
 
     DatabaseService.executeSelectionQuery(query)
         .then(result => {
-
+            let query = {
+                // TODO
+                text: 'UPDATE bike SET station_id = $1, assigned_to = $2 WHERE bike_id = $3',
+                values: []
+            }
         })
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
 });
@@ -100,7 +121,7 @@ router.delete('/:bikeId', function (req, res) {
 
     if (!bikeId) return res.status(500).json({error: "BikeId is undefined"});
 
-    DatabaseService.executeDeleteQuery()
+    DatabaseService.executeDeleteQuery({text: 'DELETE FROM bike WHERE bike_id = $1', values: [bikeId]})
         .then(result => res.status(200).json({message: "success", rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while deleting bike: " + e.message}))
 });
