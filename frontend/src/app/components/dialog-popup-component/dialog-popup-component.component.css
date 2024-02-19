@@ -3,25 +3,15 @@
 }
 .dialog-popup-component-container {
   width: 500px;
-  height: auto;
-  display: flex;
-  padding: var(--dl-space-space-halfunit);
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .dialog-popup-component-text1 {
   font-size: 18px;
   text-align: justify;
   margin-bottom: var(--dl-space-space-twounits);
 }
+
 @media(max-width: 767px) {
   .dialog-popup-component-container {
     width: 100%;
-    height: auto;
-  }
-  .dialog-popup-component-text1 {
-    text-align: justify;
   }
 }
