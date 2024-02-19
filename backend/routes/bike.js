@@ -6,7 +6,10 @@ const DatabaseService = require('../database-service')
 router.get('/', function (eq, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike', values: []})
         .then(results => res.status(200).json(results))
-        .catch(e => res.status(500).json({error: "Error while fetching bikes: " + e.message}))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            else res.status(500).json({error: "Error while fetching bikes: " + e.message})
+        });
 });
 
 router.get('bike/:bikeId', function (req, res) {
@@ -14,41 +17,83 @@ router.get('bike/:bikeId', function (req, res) {
 
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike WHERE bike_id = $1', values: [bikeId]})
         .then(results => res.status(200).json(results))
-        .catch(e => res.status(500).json({error: "Error while fetching the bike: " + e.message}))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            else res.status(500).json({error: "Error while fetching bike: " + e.message})
+        });
 });
 
-router.post('/', async (req, res) => {
-    const {stationId, modelId, isAvailable} = req.body;
-    try {
-        const result = await pool.query(
-            'INSERT INTO Bike (station_id, model_id, is_available) VALUES ($1, $2, $3) RETURNING *',
-            [stationId, modelId, isAvailable]
-        );
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Fehler beim Hinzufügen des Fahrrads:', err.stack);
-        res.status(500).send('Serverfehler');
+// For creating/updating new bike with update button
+router.post('/bike', function (req, res) {
+    const {stationId, modelId, status, size, price, bike_image_location} = req.body;
+
+    if (!stationId || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
+
+    let query = {
+        text: 'INSERT INTO BIKE (station_id, model_id, status, size, price, bike_image_location) VALUES($1, $2, $3, $4, $5, $6)',
+        values: [stationId, modelId, status, size, price, bike_image_location]
     }
+
+    DatabaseService.executeInsertionQuery(query)
+        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while adding bike: " + e.message}))
 });
 
-router.put('/:bikeId', async (req, res) => {
+router.put('/bike/:bikeId', async (req, res) => {
     const {bikeId} = req.params;
-    const {stationId, modelId, isAvailable} = req.body;
-    try {
-        const result = await pool.query(
-            'UPDATE Bike SET station_id = $1, model_id = $2, is_available = $3 WHERE bike_id = $4 RETURNING *',
-            [stationId, modelId, isAvailable, bikeId]
-        );
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrrad nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Aktualisieren des Fahrrads:', err.stack);
-        res.status(500).send('Serverfehler');
+    const {stationId, modelId, status, size, price, bike_image_location} = req.body;
+
+    if (!stationId || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
+
+    let query = {
+        text: 'UPDATE BIKE SET station_id = $1, model_id = $2, status = $3, size = $4, price = $5, bike_image_location = $6 WHERE bike_id = $7',
+        values: [stationId, modelId, status, size, price, bike_image_location, bikeId]
     }
+
+    DatabaseService.executeUpdateQuery(query)
+        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
 });
+
+router.get('/bike/:bikeId/type', async (req, res) => {
+    const {bikeId} = req.params;
+
+    // Retrieves bike model and bike category of specific bike
+    let query = {
+        text: 'SELECT bm.name, bc.category_name FROM bike b, bikemodel bm, bikecategory bc WHERE b.bike_id = $1 AND b.model_id = bm.model_id AND bm.category_id = bc.category_id',
+        values: [bikeId]
+    }
+
+    DatabaseService.executeSelectionQuery(query)
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: + e.message})
+            else res.status(500).json({error: "Error while fetching bike types: " + e.message})
+        });
+});
+
+router.put('/bike/:bikeId/assign', async (req, res) => {
+    const {bikeId} = req.params;
+    const {stationId} = req.body;
+
+    if (!stationId) return res.status(500).json({error: "Not all required data inserted"});
+
+    // Check, ob bike mit BikeId hat Platz auf dieser StationId (TODO)
+    // Bike hat bestimmtes Model, das Modell ist wiederum in einer bestimmten Kategorie und die Kategorie ist wiederum möglicherweise zu
+    // einem bestimmten ParkingSpot (ParkingSpotCategory) assigned,
+    // welche wiederum einem ParkingSpot gehört und dieser ParkingSpot gehört einer Station
+    let query = {
+        text: '',
+        values: []
+    }
+
+    DatabaseService.executeSelectionQuery(query)
+        .then(result => {
+
+        })
+        .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
+});
+
 
 router.delete('/:bikeId', function (req, res) {
     const {bikeId} = req.params;
