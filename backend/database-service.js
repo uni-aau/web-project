@@ -7,7 +7,7 @@ class DatabaseService {
         return new Promise((resolve, reject) => {
             pool.query(query)
                 .then(results => {
-                    if (results.rows.length <= 0) reject(new Error("Now rows found to select"));
+                    if (results.rows.length <= 0) reject(new Error("Nothing found"));
                     else resolve(results.rows);
                 })
                 .catch(error => {
@@ -38,6 +38,21 @@ class DatabaseService {
             pool.query(query)
                 .then(results => {
                     if (results.rowCount <= 0) reject(new Error("No data changed"));
+                    else resolve(results.rowCount);
+                })
+                .catch(error => {
+                    reject(error.message)
+                })
+        })
+    }
+
+    static executeInsertionQuery(query) {
+        console.log("Executing: " + query.text + " with values: " + query.values);
+
+        return new Promise((resolve, reject) => {
+            pool.query(query)
+                .then(results => {
+                    if (results.rowCount <= 0) reject(new Error("No data inserted"));
                     else resolve(results.rowCount);
                 })
                 .catch(error => {
