@@ -16,7 +16,7 @@
   height: auto;
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
   justify-content: center;
 }
@@ -48,13 +48,4 @@
 }
 .admin-manage-category-popup-component-textinput1 {
   width: 100%;
-}
-.admin-manage-category-popup-component-text3 {
-  font-size: 22px;
-  align-self: center;
-  margin-bottom: var(--dl-space-space-halfunit);
-}
-.admin-manage-category-popup-component-select {
-  width: 65%;
-  height: 40px;
 }

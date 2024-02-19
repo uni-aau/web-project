@@ -1,78 +1,64 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../pool');
+const DatabaseService = require("../database-service");
 
-router.get('/', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM BikeModel');
-        res.json(result.rows);
-    } catch (err) {
-        console.error('Fehler beim Abrufen der Fahrradmodelle:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.get('/', function (req, res) {
+    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM bikemodel', values: []})
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike models: " + e.message})
+        });
 });
 
-router.get('/:modelId', async (req, res) => {
-    const { modelId } = req.params;
-    try {
-        const result = await pool.query('SELECT * FROM BikeModel WHERE model_id = $1', [modelId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradmodell nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Abrufen des Fahrradmodells:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.get('/model/:modelId', function (req, res) {
+    const {modelId} = req.params;
+
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT * FROM bikemodel WHERE model_id = $1',
+        values: [modelId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike model: " + e.message})
+        });
 });
 
-router.post('/', async (req, res) => {
-    const { categoryId, name, description, wheelSize, extraFeatures } = req.body;
-    try {
-        const result = await pool.query(
-            'INSERT INTO BikeModel (category_id, name, description, wheel_size, extra_features) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [categoryId, name, description, wheelSize, extraFeatures]
-        );
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Fehler beim Erstellen des Fahrradmodells:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.post('/model', function (req, res) {
+    const {modelName, price, categoryId} = req.body;
+
+    if (!modelName || !price || !categoryId) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeInsertionQuery({
+        text: 'INSERT INTO bikemodel (model_name, price, category_id) VALUES ($1, $2, $3)',
+        values: [modelName, price, categoryId]
+    })
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while adding bike model: " + e.message}))
 });
 
-router.put('/:modelId', async (req, res) => {
-    const { modelId } = req.params;
-    const { categoryId, name, description, wheelSize, extraFeatures } = req.body;
-    try {
-        const result = await pool.query(
-            'UPDATE BikeModel SET category_id = $1, name = $2, description = $3, wheel_size = $4, extra_features = $5 WHERE model_id = $6 RETURNING *',
-            [categoryId, name, description, wheelSize, extraFeatures, modelId]
-        );
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradmodell nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Aktualisieren des Fahrradmodells:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.put('/model/:modelId', function (req, res) {
+    const {modelId} = req.params;
+    const {modelName, price, categoryId} = req.body;
+
+    if (!modelName || !price || !categoryId) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeUpdateQuery({
+        text: 'UPDATE bikemodel SET model_name = $1, price = $2, category_id = $3 WHERE model_id = $4',
+        values: [modelName, price, categoryId]
+    })
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while updating bike model: " + e.message}))
 });
 
-router.delete('/:modelId', async (req, res) => {
-    const { modelId } = req.params;
-    try {
-        const result = await pool.query('DELETE FROM BikeModel WHERE model_id = $1 RETURNING *', [modelId]);
-        if (result.rows.length > 0) {
-            res.send('Fahrradmodell gelöscht');
-        } else {
-            res.status(404).send('Fahrradmodell nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Löschen des Fahrradmodells:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.delete('/model/:modelId', function (req, res) {
+    const {modelId} = req.params;
+
+    DatabaseService.executeDeleteQuery({text: 'DELETE FROM bikemodel WHERE model_id = $1', values: [modelId]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike category: " + e.message}))
 });
 
 module.exports = router;

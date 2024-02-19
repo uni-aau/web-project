@@ -37,23 +37,19 @@ CREATE TABLE Station
     station_image_location VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
--- TODO enum for status?
 CREATE TABLE BikeCategory
 (
     category_id   SERIAL PRIMARY KEY,
     category_name VARCHAR NOT NULL,
-    price         FLOAT,
-    status        VARCHAR
+    price         FLOAT   NOT NULL
 );
 
--- TODO enum?
 CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
-    name        VARCHAR NOT NULL,
-    price       FLOAT,
-    status      VARCHAR,
-    category_id INT REFERENCES BikeCategory (category_id)
+    model_name  VARCHAR NOT NULL,
+    price       FLOAT   NOT NULL,
+    category_id INT     NOT NULL REFERENCES BikeCategory (category_id)
 );
 
 CREATE TABLE ParkingSpot
@@ -77,7 +73,7 @@ CREATE TABLE Bike
 (
     bike_id             SERIAL PRIMARY KEY,
     station_id          INT REFERENCES Station (station_id),
-    model_id            INT REFERENCES BikeModel (model_id),
+    model_id            INT         NOT NULL REFERENCES BikeModel (model_id),
     assigned_to         INT REFERENCES ParkingSpot (spot_id),
     is_available        BOOLEAN DEFAULT TRUE,
     status              bike_status NOT NULL,
@@ -152,7 +148,7 @@ INSERT INTO BikeCategory (category_name, price)
 VALUES ('Mountain', 5.0),
        ('Electric', 5.0);
 
-INSERT INTO BikeModel (name, price, category_id)
+INSERT INTO BikeModel (model_name, price, category_id)
 VALUES ('Mountain Pro', 5.0, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
        ('E-Bike 3000', 4.0, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
@@ -166,9 +162,9 @@ VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain
 
 INSERT INTO Bike (station_id, model_id, is_available, status, size, price)
 VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
-        (SELECT model_id FROM BikeModel WHERE name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
+        (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
        ((SELECT station_id FROM Station WHERE station_name = 'North Station'),
-        (SELECT model_id FROM BikeModel WHERE name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
+        (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
                     renting_end)

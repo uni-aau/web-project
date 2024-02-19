@@ -10,6 +10,9 @@
           [attr.placeholder]="adminManageCategoryInputPlaceholderName"
           class="admin-manage-category-popup-component-textinput input"
         />
+        <span class="input-error-hint">
+          {{ adminManageCategoryNameErrorText }}
+        </span>
       </div>
       <div class="admin-manage-category-popup-component-container3">
         <span class="input-label-text">
@@ -21,19 +24,12 @@
           [attr.placeholder]="adminManageCategoryInputPlaceholderPrice"
           class="admin-manage-category-popup-component-textinput1 input"
         />
+        <span class="input-error-hint">
+          {{ adminManageCategoryPriceErrorText }}
+        </span>
       </div>
     </div>
   </form>
-  <span class="admin-manage-category-popup-component-text3 input-label-text">
-    {{ adminManageCategoryLabelAssignModels }}
-  </span>
-  <select
-    id="manage-category-models-selector"
-    class="admin-manage-category-popup-component-select selector-style"
-  >
-    <option value="Option 1">Option 1</option>
-    <option value="Option 3">Option 3</option>
-  </select>
   <button-save-discard-component
     rootClassName="button-save-discard-component-root-class-name"
   ></button-save-discard-component>

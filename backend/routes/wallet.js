@@ -21,7 +21,7 @@ router.put('/balance', function (req, res) {
             }
 
             DatabaseService.executeUpdateQuery(query)
-                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         })
         .catch(e => res.status(500).json({error: e.message}));
@@ -56,7 +56,7 @@ router.put('/available-balance', function (req, res) {
                 text: 'UPDATE Wallet SET available_balance = $1 WHERE wallet_id = $2',
                 values: [availableBalance, result.rows[0].wallet_id]
             })
-                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         })
         .catch(e => res.status(500).json({error: e.message}));
@@ -84,7 +84,7 @@ router.put('/connect', function (req, res) {
         text: 'UPDATE "User" SET has_connected_bank_account = TRUE where user_id = $1',
         values: [userId]
     })
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
 
@@ -97,7 +97,7 @@ router.put('/disconnect', function (req, res) {
         text: 'UPDATE "User" SET has_connected_bank_account = FALSE where user_id = $1',
         values: [userId]
     })
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
 

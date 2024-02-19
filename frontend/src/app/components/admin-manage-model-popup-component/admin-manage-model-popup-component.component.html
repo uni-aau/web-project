@@ -10,6 +10,7 @@
           [attr.placeholder]="adminManageModelInputPlaceholderName"
           class="admin-manage-model-popup-component-textinput input"
         />
+        <span class="input-error-hint">{{ manageModelNameErrorHint }}</span>
       </div>
       <div class="admin-manage-model-popup-component-container3">
         <span class="input-label-text">{{ adminManageModelLabelPrice }}</span>
@@ -19,8 +20,21 @@
           [attr.placeholder]="adminManageModelInputPlaceholderPrice"
           class="admin-manage-model-popup-component-textinput1 input"
         />
+        <span class="input-error-hint">{{ manageModelPriceErrorHint }}</span>
       </div>
     </div>
+    <span class="admin-manage-model-popup-component-text5 input-label-text">
+      {{ adminManageModelLabelAssignModels }}
+    </span>
+    <select
+      id="manage-category-models-selector"
+      class="admin-manage-model-popup-component-select selector-style"
+    >
+      <option value="Option 1">Option 1</option>
+    </select>
+    <span class="admin-manage-model-popup-component-text6 input-error-hint">
+      {{ manageModelAssignModelErrorHint }}
+    </span>
   </form>
   <button-save-discard-component
     rootClassName="button-save-discard-component-root-class-name1"

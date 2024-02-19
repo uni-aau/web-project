@@ -11,12 +11,14 @@ export class AdminBikeAssignmentComponent {
   @Input()
   rootClassName: string = ''
   @Input()
-  adminAssignBikeBikeCategories: string = 'Bike Categories: {0}'
+  adminAssignBikeBikeCategories: string = 'Bike Category: {0}'
   @Input()
   adminAssignBikeParkingPlace: string = 'Parking Place: {0} [Full | Number]'
   @Input()
   adminAssignBikeSelectorLabel: string = 'Assign Bike Station'
   @Input()
   adminAssignBikeTitle: string = 'Assign Bike'
+  @Input()
+  adminAssignBikeErrorText: string = ''
   constructor() {}
 }
