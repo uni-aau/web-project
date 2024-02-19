@@ -5,8 +5,6 @@
   width: 500px;
 }
 .dialog-popup-component-text1 {
-  font-size: 18px;
-  text-align: justify;
   margin-bottom: var(--dl-space-space-twounits);
 }
 

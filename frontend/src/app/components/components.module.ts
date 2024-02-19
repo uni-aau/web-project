@@ -76,6 +76,7 @@ import { ButtonYesCancel } from './button-yes-cancel/button-yes-cancel.component
 import {FormsModule} from "@angular/forms";
 import {AccountSettingsComponent} from "./account-settings-component/account-settings-component.component";
 import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-component.component";
+import {DepositMoneyPopup} from "./deposit-money-popup/deposit-money-popup.component";
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-compo
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,
     DialogPopupComponent,
+    DepositMoneyPopup,
     BookingActiveRentalsListEntryComponent,
     ReturnBikePopupComponent,
     ButtonAssignUpdateDeleteComponent,
@@ -160,6 +162,7 @@ import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-compo
     AdminManageBikeRentalsComponent,
     BookTicketBookingInformationComponent,
     DialogPopupComponent,
+    DepositMoneyPopup,
     BookingActiveRentalsListEntryComponent,
     ReturnBikePopupComponent,
     ButtonAssignUpdateDeleteComponent,
