@@ -57,20 +57,34 @@
 .admin-manage-bike-station-component-textinput1 {
   width: 100%;
 }
+.admin-manage-bike-station-component-container5 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+}
 .admin-manage-bike-station-component-textinput2 {
   width: 100%;
+}
+.admin-manage-bike-station-component-container6 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
   margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
 }
 .admin-manage-bike-station-component-textinput3 {
   width: 100%;
-  margin-bottom: var(--dl-space-space-unit);
 }
 .admin-manage-bike-station-component-textarea {
   width: 100%;
   height: var(--dl-size-size-small);
   max-height: var(--dl-size-size-medium);
 }
-.admin-manage-bike-station-component-text5 {
+.admin-manage-bike-station-component-text10 {
   font-size: 22px;
   align-self: center;
   font-style: normal;

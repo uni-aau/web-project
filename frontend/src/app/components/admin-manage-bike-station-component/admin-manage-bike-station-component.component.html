@@ -16,6 +16,9 @@
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
             class="admin-manage-bike-station-component-textinput input"
           />
+          <span class="input-error-hint">
+            {{ adminManageBikeStationLongitudeError }}
+          </span>
         </div>
         <div class="admin-manage-bike-station-component-container4">
           <span class="input-label-text">
@@ -27,26 +30,39 @@
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
             class="admin-manage-bike-station-component-textinput1 input"
           />
+          <span class="input-error-hint">
+            {{ adminManageBikeStationLatitudeError }}
+          </span>
         </div>
       </div>
-      <span class="input-label-text">
-        {{ adminManageBikeStationLabelAddress }}
-      </span>
-      <input
-        type="text"
-        id="manage-bike-station-address-input"
-        [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
-        class="admin-manage-bike-station-component-textinput2 input"
-      />
-      <span class="input-label-text">
-        {{ adminManageBikeStationStationLabelName }}
-      </span>
-      <input
-        type="text"
-        id="manage-bike-station-station-name-input"
-        [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
-        class="admin-manage-bike-station-component-textinput3 input"
-      />
+      <div class="admin-manage-bike-station-component-container5">
+        <span class="input-label-text">
+          {{ adminManageBikeStationStationLabelName }}
+        </span>
+        <input
+          type="text"
+          id="manage-bike-station-station-name-input"
+          [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
+          class="admin-manage-bike-station-component-textinput2 input"
+        />
+        <span class="input-error-hint">
+          {{ adminManageBikeStationStationNameError }}
+        </span>
+      </div>
+      <div class="admin-manage-bike-station-component-container6">
+        <span class="input-label-text">
+          {{ adminManageBikeStationLabelAddress }}
+        </span>
+        <input
+          type="text"
+          id="manage-bike-station-address-input"
+          [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
+          class="admin-manage-bike-station-component-textinput3 input"
+        />
+        <span class="input-error-hint">
+          {{ adminManageBikeStationAddressError }}
+        </span>
+      </div>
       <span class="input-label-text">
         {{ adminManageBikeStationStationLabelDescription }}
       </span>
@@ -56,7 +72,10 @@
       ></textarea>
     </div>
   </form>
-  <span class="admin-manage-bike-station-component-text5">
+  <span class="input-error-hint">
+    {{ adminManageBikeStationDescriptionError }}
+  </span>
+  <span class="admin-manage-bike-station-component-text10">
     {{ adminManageBikeStationImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>
