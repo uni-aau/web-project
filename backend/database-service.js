@@ -11,7 +11,7 @@ class DatabaseService {
                     else resolve(results.rows);
                 })
                 .catch(error => {
-                    reject(new Error("Error fetching product: " + error.message));
+                    reject(new Error("Error fetching: " + error.message));
                 });
         });
     }
@@ -26,7 +26,7 @@ class DatabaseService {
                     else resolve(results.rowCount);
                 })
                 .catch(error => {
-                    reject(error.message)
+                    reject(new Error("Error updating: " + error.message))
                 })
         })
     }
@@ -41,7 +41,7 @@ class DatabaseService {
                     else resolve(results.rowCount);
                 })
                 .catch(error => {
-                    reject(error.message)
+                    reject(new Error("Error deleting: " + error.message))
                 })
         })
     }
@@ -56,7 +56,7 @@ class DatabaseService {
                     else resolve(results.rowCount);
                 })
                 .catch(error => {
-                    reject(error.message)
+                    reject(new Error("Error inserting: "+ error.message))
                 })
         })
     }

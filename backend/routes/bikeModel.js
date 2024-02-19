@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM bikemodel', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
             else res.status(500).json({error: "Error while fetching bike models: " + e.message})
         });
 });
@@ -21,7 +21,7 @@ router.get('/model/:modelId', function (req, res) {
     })
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
             else res.status(500).json({error: "Error while fetching bike model: " + e.message})
         });
 });

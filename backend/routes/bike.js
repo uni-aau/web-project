@@ -7,18 +7,18 @@ router.get('/', function (eq, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
             else res.status(500).json({error: "Error while fetching bikes: " + e.message})
         });
 });
 
-router.get('bike/:bikeId', function (req, res) {
+router.get('/bike/:bikeId', function (req, res) {
     const {bikeId} = req.params;
 
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike WHERE bike_id = $1', values: [bikeId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
             else res.status(500).json({error: "Error while fetching bike: " + e.message})
         });
 });
@@ -67,7 +67,7 @@ router.get('/bike/:bikeId/type', function (req, res) {
     DatabaseService.executeSelectionQuery(query)
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
             else res.status(500).json({error: "Error while fetching bike types: " + e.message})
         });
 });

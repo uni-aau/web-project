@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Station', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: e})
-            else res.status(500).json({error: "Error while fetching stations: " + e})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching stations: " + e.message})
         });
 });
 
@@ -18,8 +18,8 @@ router.get('/station/:stationId', function (req, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Station WHERE station_id = $1', values: [stationId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
-            if (e.message === "Nothing found") res.status(404).json({error: e})
-            else res.status(500).json({error: "Error while fetching bike: " + e})
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike: " + e.message})
         });
 });
 
@@ -35,7 +35,7 @@ router.post('/station', async (req, res) => {
 
     DatabaseService.executeInsertionQuery(query)
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while adding bike station: " + e}))
+        .catch(e => res.status(500).json({error: "Error while adding bike station: " + e.message}))
 });
 
 router.put('/station/:stationId', async (req, res) => {
@@ -51,7 +51,7 @@ router.put('/station/:stationId', async (req, res) => {
 
     DatabaseService.executeUpdateQuery(query)
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while updating bike station: " + e}))
+        .catch(e => res.status(500).json({error: "Error while updating bike station: " + e.message}))
 });
 
 router.delete('/station/:stationId', async (req, res) => {
@@ -59,7 +59,7 @@ router.delete('/station/:stationId', async (req, res) => {
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM station WHERE station_id = $1', values: [stationId]})
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e.message}))
 });
 
 module.exports = router;
