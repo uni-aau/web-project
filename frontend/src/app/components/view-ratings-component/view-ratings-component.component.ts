@@ -24,7 +24,6 @@ export class ViewRatingsComponent {
         this.reviewsService.fetchStationReviews(1).subscribe({
             next: (res) => {
                 this.reviews = res;
-                console.log(this.reviews);
             },
             error: (err) => {
                 console.log(err.error);
