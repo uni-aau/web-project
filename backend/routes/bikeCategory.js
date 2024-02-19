@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../pool');
 const DatabaseService = require("../database-service");
 
-router.get('/', async (req, res) => {
+router.get('/', function (req, res) {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM bikecategory', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         });
 });
 
-router.get('category/:categoryId', async (req, res) => {
+router.get('/category/:categoryId', function (req, res) {
     const {categoryId} = req.params;
 
     DatabaseService.executeSelectionQuery({
@@ -26,7 +26,7 @@ router.get('category/:categoryId', async (req, res) => {
         });
 });
 
-router.post('/category', async (req, res) => {
+router.post('/category', function (req, res) {
     const {categoryName, price} = req.body;
 
     if (!categoryName || !price) return res.status(500).json({error: "Not all required data inserted"});
@@ -36,7 +36,7 @@ router.post('/category', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while adding bike category: " + e.message}))
 });
 
-router.put('/category/:categoryId', async (req, res) => {
+router.put('/category/:categoryId', function (req, res) {
     const {categoryId} = req.params;
     const {categoryName, price} = req.body;
 
@@ -50,7 +50,7 @@ router.put('/category/:categoryId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating bike category: " + e.message}))
 });
 
-router.delete('/category/:categoryId', async (req, res) => {
+router.delete('/category/:categoryId', function (req, res) {
     const {categoryId} = req.params;
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM bikecategory WHERE category_id = $1', values: [categoryId]})
