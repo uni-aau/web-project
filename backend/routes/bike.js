@@ -39,7 +39,7 @@ router.post('/bike', function (req, res) {
         .catch(e => res.status(500).json({error: "Error while adding bike: " + e.message}))
 });
 
-router.put('/bike/:bikeId', async (req, res) => {
+router.put('/bike/:bikeId', function (req, res) {
     const {bikeId} = req.params;
     const {stationId, modelId, status, size, price, bike_image_location} = req.body;
 
@@ -55,7 +55,7 @@ router.put('/bike/:bikeId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
 });
 
-router.get('/bike/:bikeId/type', async (req, res) => {
+router.get('/bike/:bikeId/type', function (req, res) {
     const {bikeId} = req.params;
 
     // Retrieves bike model and bike category of specific bike
@@ -89,7 +89,7 @@ router.get('/bike/:bikeId/status', function (req, res) {
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}));
 });
 
-router.put('/bike/:bikeId/assign', async (req, res) => {
+router.put('/bike/:bikeId/assign', function (req, res) {
     const {bikeId} = req.params;
     const {stationId} = req.body;
 
