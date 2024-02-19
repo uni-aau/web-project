@@ -1,13 +1,12 @@
 <div class="view-ratings-component-container" [ngClass]="rootClassName">
   <div class="view-ratings-component-container1">
     <span class="heading">{{ viewRatingsTitle }}</span>
-    <div id="reviews-list-container" class="view-ratings-component-container2">
-      <rating-component
+    <div id="reviews-list-container" class="view-ratings-component-container2" *ngIf="reviews.length > 0">
+      <rating-component *ngFor="let review of reviews"
         rootClassName="rating-component-root-class-name"
       ></rating-component>
-      <rating-component
-        rootClassName="rating-component-root-class-name1"
-      ></rating-component>
+
+      <button (click)="fetchStationReviews()">Klick mich</button>
     </div>
   </div>
 </div>
