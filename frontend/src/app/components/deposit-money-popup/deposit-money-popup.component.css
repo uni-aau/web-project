@@ -1,0 +1,19 @@
+:host {
+  display: contents;
+}
+.deposit-money-popup-container {
+  width: 450px;
+}
+.deposit-money-popup-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: column;
+}
+@media(max-width: 767px) {
+  .deposit-money-popup-container {
+    width: 100%;
+  }
+}

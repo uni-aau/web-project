@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core'
 import {WalletService} from "../../services/wallet.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'wallet-account-drop-down-component',
@@ -39,7 +40,7 @@ export class WalletAccountDropDownComponent {
   @Input()
   connectedBankAccount: boolean = false;
 
-  constructor(private walletService: WalletService) {
+  constructor(private walletService: WalletService, private popupService: PopupService) {
     this.fetchWalletAmount();
     this.checkBankConnection()
   }
@@ -108,6 +109,16 @@ export class WalletAccountDropDownComponent {
 
 
   depositMoney() {
-    console.log("Works")
+    this.popupService.openDepositMoneyPopup().subscribe(result => {
+      if (result > 0) {
+        console.log("Valid amount: " + result);
+        this.walletService.depositMoney(result).subscribe({
+          next: (res) => {
+            this.fetchWalletAmount();
+          },
+          error: (err) => console.log("Error depositing money: ", err)
+        });
+      }
+    });
   }
 }
