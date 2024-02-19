@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
+import {BikeStationService} from "../../services/bikestation.service";
 
 @Component({
   selector: 'bike-station-component',
   templateUrl: 'bike-station-component.component.html',
   styleUrls: ['bike-station-component.component.css'],
 })
-export class BikeStationComponent {
+export class BikeStationComponent implements OnInit {
   @Input()
   bikeStationLocation: string = '{0}'
   @Input()
@@ -26,5 +27,16 @@ export class BikeStationComponent {
   bikeStationTitle: string = '{0}'
   @Input()
   bikeStationImageSrc1: string = '/assets/no-image.svg'
-  constructor() {}
+  constructor(private bikeStationService: BikeStationService) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.bikeStationService.getBikeStations().subscribe(data => {
+      console.log(data);
+
+    });
+  }
 }
