@@ -4,4 +4,6 @@ export interface BikeStation {
   station_address: string;
   description: string;
   station_image_location: string;
+  latitude: number;
+  longitude: number;
 }

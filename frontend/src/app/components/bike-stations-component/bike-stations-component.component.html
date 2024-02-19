@@ -6,7 +6,10 @@
     [searchInputPlaceholder]="'Search for stations...'"
     rootClassName="searching-component-root-class-name5"
   ></searching-component>
-  <map-component rootClassName="map-component-root-class-name1"></map-component>
+  <map-component
+    [stations]="filteredBikeStations"
+    rootClassName="map-component-root-class-name1">
+  </map-component>
   <div class="bike-stations-component-container1">
     <div class="bike-stations-component-container1">
       <bike-station-component
@@ -18,6 +21,9 @@
         [bikeStationImageAlt]="station.station_name"
         rootClassName="bike-station-component-root-class-name"
       ></bike-station-component>
+      <div *ngIf="bikeStations.length == 0">
+        <no-entries-component></no-entries-component>
+      </div>
     </div>
   </div>
 </div>
