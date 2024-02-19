@@ -11,8 +11,8 @@ export class WalletService {
 
   constructor(private http: HttpClient) {}
 
-  depositMoney() {
-
+  depositMoney(value:number) {
+    return this.http.put(`${baseURL}/deposit-money`, {amount: value});
   }
 
   fetchWalletBalance(): Observable<any> {

@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core'
 })
 export class ButtonYesCancel {
   @Input()
-  dialogPopupButtonYes: string = 'Yes'
+  dialogPopupButtonYes: string = 'Confirm'
   @Input()
   dialogPopupButtonAbort: string = 'Cancel'
   @Input()
