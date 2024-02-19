@@ -1,72 +1,61 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../pool');
+const DatabaseService = require("../database-service");
 
 router.get('/', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM BikeCategory');
-        res.json(result.rows);
-    } catch (err) {
-        console.error('Fehler beim Abrufen der Fahrradkategorien:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM bikecategory', values: []})
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            else res.status(500).json({error: "Error while fetching bike categories: " + e.message})
+        });
 });
 
-router.get('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    try {
-        const result = await pool.query('SELECT * FROM BikeCategory WHERE category_id = $1', [categoryId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Abrufen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.get('category/:categoryId', async (req, res) => {
+    const {categoryId} = req.params;
+
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT * FROM bikecategory WHERE category_id = $1',
+        values: [categoryId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: +e.message})
+            else res.status(500).json({error: "Error while fetching bike category: " + e.message})
+        });
 });
 
-router.post('/', async (req, res) => {
-    const { name } = req.body;
-    try {
-        const result = await pool.query('INSERT INTO BikeCategory (name) VALUES ($1) RETURNING *', [name]);
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Fehler beim Erstellen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.post('/category', async (req, res) => {
+    const {categoryName, price} = req.body;
+
+    if (!categoryName || !price) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeInsertionQuery({text: 'INSERT INTO bikecategory (category_name, price) VALUES ($1, $2)', values: [categoryName, price]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while adding bike category: " + e.message}))
 });
 
-router.put('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    const { name } = req.body;
-    try {
-        const result = await pool.query('UPDATE BikeCategory SET name = $1 WHERE category_id = $2 RETURNING *', [name, categoryId]);
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Aktualisieren der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.put('/category/:categoryId', async (req, res) => {
+    const {categoryId} = req.params;
+    const {categoryName, price} = req.body;
+
+    if (!categoryName || !price) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeUpdateQuery({
+        text: 'UPDATE BikeCategory SET category_name = $1, price = $2 WHERE category_id = $3',
+        values: [categoryName, price, categoryId]
+    })
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while updating bike category: " + e.message}))
 });
 
-router.delete('/:categoryId', async (req, res) => {
-    const { categoryId } = req.params;
-    try {
-        const result = await pool.query('DELETE FROM BikeCategory WHERE category_id = $1 RETURNING *', [categoryId]);
-        if (result.rows.length > 0) {
-            res.send('Fahrradkategorie gelöscht');
-        } else {
-            res.status(404).send('Fahrradkategorie nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Löschen der Fahrradkategorie:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.delete('/category/:categoryId', async (req, res) => {
+    const {categoryId} = req.params;
+
+    DatabaseService.executeDeleteQuery({text: 'DELETE FROM bikecategory WHERE category_id = $1', values: [categoryId]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike category: " + e.message}))
 });
 
 module.exports = router;
