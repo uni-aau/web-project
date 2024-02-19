@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class NoEntriesComponent {
   @Input()
-  noEntriesTitle: string = '{0}'
+  noEntriesTitle: string = 'Currently no entries available'
   @Input()
   rootClassName: string = ''
   constructor() {}

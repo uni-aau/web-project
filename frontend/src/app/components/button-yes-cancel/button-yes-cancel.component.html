@@ -4,6 +4,7 @@
       id="dialog-popup-yes-button"
       type="button"
       class="button-general button-green"
+      (click)="onConfirm()"
     >
       {{ dialogPopupButtonYes }}
     </button>
@@ -13,6 +14,7 @@
       id="dialog-popup-abort-button"
       type="button"
       class="button button-red"
+      (click)="onCancel()"
     >
       {{ dialogPopupButtonAbort }}
     </button>

@@ -49,8 +49,6 @@ export class UserAccountDropDownComponent {
   @Input()
   userSettingsChangeNameError: string = ''
 
-  @Output() onDataUpdate: EventEmitter<any> = new EventEmitter<any>()
-
   constructor(private updateUserService: UpdateUserService, private sharedService: SharedService) {
   }
 
