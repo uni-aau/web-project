@@ -7,6 +7,11 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageBikeStationComponent {
   @Input()
+  adminManageBikeStationStationLabelDescription: string = 'Description'
+  @Input()
+  adminManageBikeStationStationInputPlaceholder: string =
+    'Describe your station with a few words'
+  @Input()
   adminManageBikeStationInputPlaceholderAddress: string = 'Station address'
   @Input()
   adminManageBikeStationLabelAddress: string = 'Address'
@@ -27,9 +32,14 @@ export class AdminManageBikeStationComponent {
   @Input()
   adminManageBikeStationStationLabelName: string = 'Station Name'
   @Input()
-  adminManageBikeStationStationLabelDescription: string = 'Description'
+  adminManageBikeStationLongitudeError: string = ''
   @Input()
-  adminManageBikeStationStationInputPlaceholder: string =
-    'Describe your station with a few words'
+  adminManageBikeStationLatitudeError: string = ''
+  @Input()
+  adminManageBikeStationDescriptionError: string = ''
+  @Input()
+  adminManageBikeStationAddressError: string = ''
+  @Input()
+  adminManageBikeStationStationNameError: string = ''
   constructor() {}
 }
