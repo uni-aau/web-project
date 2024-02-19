@@ -15,4 +15,8 @@ export class ReviewsService {
   fetchStationReviews(stationId: number): Observable<any> {
     return this.http.get(`${baseUrl}/station/${stationId}`);
   }
+
+  deleteStationReview(reviewId: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/review/${reviewId}`);
+  }
 }
