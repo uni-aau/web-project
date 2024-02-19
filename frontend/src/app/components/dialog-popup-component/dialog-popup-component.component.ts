@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import {Component, Inject, Input} from '@angular/core'
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'dialog-popup-component',
@@ -10,5 +11,20 @@ export class DialogPopupComponent {
   dialogPopupDescription: string = '{0}'
   @Input()
   dialogPopupTitle: string = 'Are you sure?'
-  constructor() {}
+
+  constructor(public dialogRef: MatDialogRef<DialogPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.setDescription();
+  }
+
+  handleConfirm() {
+    this.dialogRef.close(true);
+  }
+
+  handleCancel() {
+    this.dialogRef.close(false);
+  }
+
+  setDescription() {
+    this.dialogPopupDescription = this.data.description;
+  }
 }
