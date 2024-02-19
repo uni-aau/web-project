@@ -35,7 +35,7 @@ router.post('/bike', function (req, res) {
     }
 
     DatabaseService.executeInsertionQuery(query)
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while adding bike: " + e.message}))
 });
 
@@ -51,7 +51,7 @@ router.put('/bike/:bikeId', async (req, res) => {
     }
 
     DatabaseService.executeUpdateQuery(query)
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
 });
 
@@ -85,7 +85,7 @@ router.get('/bike/:bikeId/status', function (req, res) {
     }
 
     DatabaseService.executeUpdateQuery(query)
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}));
 });
 
@@ -122,7 +122,7 @@ router.delete('/:bikeId', function (req, res) {
     if (!bikeId) return res.status(500).json({error: "BikeId is undefined"});
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM bike WHERE bike_id = $1', values: [bikeId]})
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while deleting bike: " + e.message}))
 });
 

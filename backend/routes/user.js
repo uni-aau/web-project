@@ -46,7 +46,7 @@ router.put('/firstname', function (req, res) {
         text: 'UPDATE "User" SET firstname = $1 WHERE user_id = $2',
         values: [firstname, userId]
     })
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
 
@@ -60,7 +60,7 @@ router.put('/lastname', function (req, res) {
         text: 'UPDATE "User" SET lastname = $1 WHERE user_id = $2',
         values: [lastname, userId]
     })
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
 
@@ -86,7 +86,7 @@ router.put('/email', function (req, res) {
                 text: 'UPDATE "User" SET email = $1 WHERE user_id = $2',
                 values: [email.toLowerCase(), userId]
             })
-                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         }
     }).catch(e => res.status(500).json({error: e.message}));
@@ -114,7 +114,7 @@ router.put('/username', function (req, res) {
                 text: 'UPDATE "User" SET username = $1 WHERE user_id = $2',
                 values: [username.toLowerCase(), userId]
             })
-                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
         }
     }).catch(e => res.status(500).json({error: e.message}));
@@ -130,7 +130,7 @@ router.put('/profile-picture', function (req, res) {
         text: 'UPDATE "User" SET profile_picture_location = $1 WHERE user_id = $2',
         values: [profilePictureLocation, userId]
     })
-        .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: e.message}))
 });
 
@@ -159,7 +159,7 @@ router.put('/password', function (req, res) {
                 text: 'UPDATE "User" SET password_hash = $1 WHERE user_id = $2',
                 values: [hashedPassword, userId]
             })
-                .then(result => res.status(200).json({message: "success", rowsChanged: result}))
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
                 .catch(e => res.status(500).json({error: e.message}))
 
         })
