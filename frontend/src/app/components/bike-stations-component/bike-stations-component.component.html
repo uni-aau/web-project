@@ -1,20 +1,20 @@
 <div class="bike-stations-component-container" [ngClass]="rootClassName">
   <span class="heading">{{ bikeStationsTitle }}</span>
   <searching-component
+    [visibleCreateButton]="false"
+    (search)="performSearch($event)"
+    [searchInputPlaceholder]="'Search for stations...'"
     rootClassName="searching-component-root-class-name5"
   ></searching-component>
   <map-component rootClassName="map-component-root-class-name1"></map-component>
   <div class="bike-stations-component-container1">
     <div class="bike-stations-component-container1">
       <bike-station-component
-        *ngFor="let station of bikeStations"
+        *ngFor="let station of filteredBikeStations"
         [bikeStationLocation]="station.station_address"
         [bikeStationTitle]="station.station_name"
         [bikeStationDescription1]="station.description"
         [bikeStationImageSrc1]="station.station_image_location"
-        [bikeStationButtonRate1]="'Rate'"
-        [bikeStationButtonViewRatings]="'View Ratings'"
-        [bikeStationButtonMoreInfos1]="'More Infos'"
         [bikeStationImageAlt]="station.station_name"
         rootClassName="bike-station-component-root-class-name"
       ></bike-station-component>
