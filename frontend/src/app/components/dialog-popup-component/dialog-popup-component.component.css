@@ -1,9 +1,9 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .dialog-popup-component-container {
   width: 500px;
-  height: 500pxrge;
+  height: auto;
   display: flex;
   padding: var(--dl-space-space-halfunit);
   position: relative;
@@ -16,9 +16,9 @@
   text-align: justify;
   margin-bottom: var(--dl-space-space-twounits);
 }
-@media(max-width: 479px) {
+@media(max-width: 767px) {
   .dialog-popup-component-container {
-    width: 95%;
+    width: 100%;
     height: auto;
   }
   .dialog-popup-component-text1 {
