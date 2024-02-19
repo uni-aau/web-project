@@ -16,5 +16,13 @@ export class AdminManageModelPopupComponent {
   adminManageModelLabelName: string = 'Model Name'
   @Input()
   adminManageModelTitle: string = 'Manage Model'
+  @Input()
+  adminManageModelLabelAssignModels: string = 'Assign Category'
+  @Input()
+  manageModelNameErrorHint: string = ''
+  @Input()
+  manageModelPriceErrorHint: string = ''
+  @Input()
+  manageModelAssignModelErrorHint: string = ''
   constructor() {}
 }

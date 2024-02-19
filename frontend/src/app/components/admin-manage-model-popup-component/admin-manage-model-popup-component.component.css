@@ -16,7 +16,7 @@
   height: auto;
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-unit);
   flex-direction: column;
   justify-content: center;
 }
@@ -25,6 +25,7 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 .admin-manage-model-popup-component-container2 {
   flex: 0 0 auto;
@@ -48,4 +49,17 @@
 }
 .admin-manage-model-popup-component-textinput1 {
   width: 100%;
+}
+.admin-manage-model-popup-component-text5 {
+  font-size: 22px;
+  align-self: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.admin-manage-model-popup-component-select {
+  width: 65%;
+  height: 40px;
+  align-self: center;
+}
+.admin-manage-model-popup-component-text6 {
+  align-self: center;
 }
