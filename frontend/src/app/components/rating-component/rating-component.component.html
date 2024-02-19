@@ -7,7 +7,7 @@
                     class="rating-component-image"
             />
             <span class="rating-component-text">{{ ratingUsername }}</span>
-            <div *ngIf="AuthService.getRole() === 'admin'">
+            <div *ngIf="AuthService.getRole() === 'user'" (click)="deleteRating()">
                 <svg
                         id="rating-delete-icon"
                         viewBox="0 0 804.5714285714286 1024"
