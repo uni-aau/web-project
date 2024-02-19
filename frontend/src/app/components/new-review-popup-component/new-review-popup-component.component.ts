@@ -27,5 +27,11 @@ export class NewReviewPopupComponent {
   newReviewButtonSend: string = 'Send'
   @Input()
   newReviewSubtitleRating: string = 'Rating'
+  @Input()
+  newReviewDescriptionError: string = ''
+  @Input()
+  newReviewModelError: string = ''
+  @Input()
+  newReviewTitleError: string = ''
   constructor() {}
 }

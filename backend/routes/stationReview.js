@@ -1,65 +1,54 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../pool');
+const DatabaseService = require('../database-service');
 
 router.get('/station/:stationId', async (req, res) => {
-    const { stationId } = req.params;
-    try {
-        const result = await pool.query('SELECT * FROM StationReview WHERE station_id = $1', [stationId]);
-        res.json(result.rows);
-    } catch (err) {
-        console.error('Fehler beim Abrufen von Station-Bewertungen:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+    const {stationId} = req.params;
+
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT u.username, u.profile_picture_location, b.model_name, s.* FROM stationreview s JOIN "User" u ON s.user_id = u.user_id LEFT JOIN bikemodel b ON s.model_id = b.model_id WHERE s.station_id = $1',
+        values: [stationId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: `Error while fetching reviews from station ${stationId}: ` + e.message})
+        });
 });
 
-router.post('/', async (req, res) => {
-    const { stationId, userId, rating, comment } = req.body;
-    try {
-        const result = await pool.query(
-            'INSERT INTO StationReview (station_id, user_id, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *',
-            [stationId, userId, rating, comment]
-        );
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Fehler beim Erstellen einer Station-Bewertung:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.post('/review', async (req, res) => {
+    const {stationId, userId, rating, title, comment, modelId} = req.body;
+
+    if (!stationId || !userId || !rating || !title || !comment) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeInsertionQuery({
+        text: 'INSERT INTO stationreview (station_id, user_id, title, model_id, rating, comment) VALUES($1, $2, $3, $4, $5, $6)',
+        values: [stationId, userId, title, modelId, rating, comment]
+    })
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: `Error while adding new review to station ${stationId}: ` + e.message}))
 });
 
-router.put('/:reviewId', async (req, res) => {
-    const { reviewId } = req.params;
-    const { rating, comment } = req.body;
-    try {
-        const result = await pool.query(
-            'UPDATE StationReview SET rating = $1, comment = $2 WHERE review_id = $3 RETURNING *',
-            [rating, comment, reviewId]
-        );
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
-        } else {
-            res.status(404).send('Station-Bewertung nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Aktualisieren der Station-Bewertung:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
+router.put('/review/:reviewId', async (req, res) => {
+    const {reviewId} = req.params;
+    const {rating, title, comment, modelId} = req.body;
+
+    if (!rating || !title || !comment) return res.status(500).json({error: "Not all required data inserted"});
+
+    DatabaseService.executeUpdateQuery({
+        text: 'UPDATE stationreview SET rating = $1, title = $2, comment = $3, model_id = $4 WHERE review_id = $5',
+        values: [rating, title, comment, modelId, reviewId]
+    })
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while updating review: " + e.message}))
 });
 
-router.delete('/:reviewId', async (req, res) => {
-    const { reviewId } = req.params;
-    try {
-        const result = await pool.query('DELETE FROM StationReview WHERE review_id = $1 RETURNING *', [reviewId]);
-        if (result.rows.length > 0) {
-            res.send('Station-Bewertung gelöscht');
-        } else {
-            res.status(404).send('Station-Bewertung nicht gefunden');
-        }
-    } catch (err) {
-        console.error('Fehler beim Löschen der Station-Bewertung:', err.stack);
-        res.status(500).send('Serverfehler');
-    }
-});
+router.delete('/review/:reviewId', async (req, res) => {
+    const {reviewId} = req.params;
 
+    DatabaseService.executeDeleteQuery({text: 'DELETE FROM stationreview WHERE review_id = $1', values: [reviewId]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while deleting review: " + e.message}))
+});
 
 module.exports = router;

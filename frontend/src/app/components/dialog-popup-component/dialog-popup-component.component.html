@@ -1,5 +1,5 @@
-<div class="dialog-popup-component-container">
-  <span class="heading">{{ dialogPopupTitle }}</span>
+<div class="dialog-popup-component-container popup-container">
+  <span class="popup-heading">{{ dialogPopupTitle }}</span>
   <span class="dialog-popup-component-text1">{{ dialogPopupDescription }}</span>
-  <button-yes-cancel></button-yes-cancel>
+  <button-yes-cancel (confirm)="handleConfirm()" (cancel)="handleCancel()"></button-yes-cancel>
 </div>

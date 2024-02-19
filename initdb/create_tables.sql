@@ -118,12 +118,12 @@ CREATE TABLE Transaction
 CREATE TABLE StationReview
 (
     review_id  SERIAL PRIMARY KEY,
-    station_id INT REFERENCES Station (station_id),
-    user_id    INT REFERENCES "User" (user_id),
+    station_id INT     NOT NULL REFERENCES Station (station_id),
+    user_id    INT     NOT NULL REFERENCES "User" (user_id),
     title      VARCHAR NOT NULL,
-    model      INT REFERENCES BikeModel (model_id),
-    rating     INT,
-    comment    TEXT,
+    model_id      INT REFERENCES BikeModel (model_id),
+    rating     INT     NOT NULL,
+    comment    TEXT    NOT NULL,
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -176,7 +176,7 @@ INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
 VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),
        (1, (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 30.00, 'Rental');
 
-INSERT INTO StationReview (station_id, user_id, title, model, rating, comment)
+INSERT INTO StationReview (station_id, user_id, title, model_id, rating, comment)
 VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
         (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Cool Bikestation', NULL, 5,
         'Great location and plenty of bikes.'),

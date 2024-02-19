@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 
 @Component({
   selector: 'button-yes-cancel',
@@ -12,5 +12,16 @@ export class ButtonYesCancel {
   dialogPopupButtonAbort: string = 'Cancel'
   @Input()
   rootClassName: string = ''
+
+  @Output() confirm = new EventEmitter<void>();
+  @Output() cancel = new EventEmitter<void>();
   constructor() {}
+
+  onConfirm() {
+    this.confirm.emit();
+  }
+
+  onCancel() {
+    this.cancel.emit();
+  }
 }
