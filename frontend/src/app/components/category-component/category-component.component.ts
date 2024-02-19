@@ -7,17 +7,15 @@ import { Component, Input } from '@angular/core'
 })
 export class CategoryComponent {
   @Input()
+  categoryHintSubtitle: string =
+    'Receive a randomly selected bike of this category'
+  @Input()
   categoryAssignedModels: string = 'Assigned Models: {0}'
   @Input()
   rootClassName: string = ''
   @Input()
-  categoryStatusAvaiability: string = 'Status: {0}'
-  @Input()
   categoryPrice: string = 'Price: {0}'
   @Input()
   categoryName: string = '{0}'
-  @Input()
-  categoryHintSubtitle: string =
-    'Receive a randomly selected bike of this category'
   constructor() {}
 }

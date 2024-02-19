@@ -37,22 +37,18 @@ CREATE TABLE Station
     station_image_location VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
--- TODO enum for status?
 CREATE TABLE BikeCategory
 (
     category_id   SERIAL PRIMARY KEY,
     category_name VARCHAR NOT NULL,
-    price         FLOAT   NOT NULL,
-    status        VARCHAR
+    price         FLOAT   NOT NULL
 );
 
--- TODO enum?
 CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
     model_name  VARCHAR NOT NULL,
     price       FLOAT   NOT NULL,
-    status      VARCHAR,
     category_id INT     NOT NULL REFERENCES BikeCategory (category_id)
 );
 
