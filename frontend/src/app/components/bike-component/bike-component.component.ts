@@ -3,6 +3,7 @@ import {BikeService} from "../../services/bike.service";
 import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {DomSanitizer} from "@angular/platform-browser";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'bike-component',
@@ -34,6 +35,8 @@ export class BikeComponent implements OnInit {
   bikeImageAlt: string = 'More Infos'
   @Input()
   bikeStatusColor: string = ''
+  @Input()
+  bikeAssignedParkingSpot: string = 'Assigned Parking Spot: {0}'
 
   @Input()
   visibleBookButton: boolean = true;
@@ -48,6 +51,7 @@ export class BikeComponent implements OnInit {
   bikeData: any | undefined;
 
   @Output() onBikeDelete: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onBikeUpdate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private bikeService: BikeService, private popupService: PopupService, private sanitizer: DomSanitizer) {
   }
@@ -62,13 +66,16 @@ export class BikeComponent implements OnInit {
       this.bikeBikeName = this.bikeData.bike_name;
       this.bikeId = this.bikeData.bike_id;
       this.bikeImageSrc = this.bikeData.bike_image_location;
+      // TODO rework locales
       this.bikeSize = LanguageHandler.formatString("Size: {0}", [this.bikeData.size]);
       this.bikePrice = LanguageHandler.formatString("Price: {0}$", [this.bikeData.price])
       this.bikeModel = LanguageHandler.formatString("Model: {0}", [this.bikeData.model_name]);
       this.bikeCategory = LanguageHandler.formatString("Category: {0}", [this.bikeData.category_name]);
 
-      if (this.bikeData.assigned_to) this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.bikeData.station_name])
+      if (this.bikeData.station_name) this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.bikeData.station_name]);
       else this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.unassignedBikeText])
+      if (this.bikeData.assigned_to) this.bikeAssignedParkingSpot = LanguageHandler.formatString("Assigned Parking Spot: {0}", [this.bikeData.assigned_to]);
+      else this.bikeAssignedParkingSpot = LanguageHandler.formatString("Assigned Parking Spot: {0}", ["-"])
 
       this.formatStatus();
 
@@ -96,8 +103,23 @@ export class BikeComponent implements OnInit {
   }
 
   assignBike() {
-    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe(
-    )
+    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe({
+      next: (val) => {
+        if(val && val.spotNumber && val.stationId) {
+          this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
+            next: (val) => {
+              if (val.success) {
+                this.onBikeUpdate.emit(this.bikeId);
+              } else {
+                console.log("Error, deletion was not successful: ", val);
+              }
+            },
+            error: (err) => console.log(err)
+          })
+        }
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   deleteBike() {

@@ -35,4 +35,8 @@ export class AdminBikesManagementComponent {
     console.log("Bike deletion successfully announced in main component!")
     this.fetchBikes()
   }
+
+  handleUpdatedBike() {
+    this.fetchBikes();
+  }
 }
