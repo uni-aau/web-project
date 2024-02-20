@@ -92,32 +92,6 @@ router.get('/bike/:bikeId/status', function (req, res) {
         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}));
 });
 
-// router.put('/bike/:bikeId/assign', function (req, res) {
-//     const {bikeId} = req.params;
-//     const {stationId} = req.body;
-
-//     if (!stationId) return res.status(500).json({error: "Not all required data inserted"});
-
-//     // Check, ob bike mit BikeId hat Platz auf dieser StationId (TODO)
-//     // Bike hat bestimmtes Model, das Modell ist wiederum in einer bestimmten Kategorie und die Kategorie ist wiederum möglicherweise zu
-//     // einem bestimmten ParkingSpot (ParkingSpotCategory) assigned,
-//     // welche wiederum einem ParkingSpot gehört und dieser ParkingSpot gehört einer Station
-//     let query = {
-//         text: '',
-//         values: []
-//     }
-
-//     DatabaseService.executeSelectionQuery(query)
-//         .then(result => {
-//             let query = {
-//                 // TODO
-//                 text: 'UPDATE bike SET station_id = $1, assigned_to = $2 WHERE bike_id = $3',
-//                 values: []
-//             }
-//         })
-//         .catch(e => res.status(500).json({error: "Error while updating bike: " + e.message}))
-// });
-
 router.put('/bike/:bikeId/assign-spot', function (req, res) {
     const {bikeId} = req.params;
     const {stationId, spotNumber} = req.body;
