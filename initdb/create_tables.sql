@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS BikeModelReview, StationReview, ParkingSpot, ParkingSpotCategory, Rentals, Transaction, Ticket, Bike, BikeModel, BikeCategory, Station, Wallet, "User" CASCADE;
 DROP TYPE IF EXISTS bike_status, booked_type, booking_status;
 
-CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance');
+
+CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance'); -- ENUM will be checked in bike component
 CREATE TYPE booked_type AS ENUM ('Bike', 'Model', 'Category');
 CREATE TYPE booking_status AS ENUM ('Booked', 'Rented', 'Overdue', 'Canceled', 'NotTaken');
 

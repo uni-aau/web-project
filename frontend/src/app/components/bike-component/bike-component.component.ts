@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {BikeService} from "../../services/bike.service";
 import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'bike-component',
@@ -44,7 +45,7 @@ export class BikeComponent implements OnInit {
 
   @Output() onBikeDelete: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private bikeService: BikeService, private popupService: PopupService) {
+  constructor(private bikeService: BikeService, private popupService: PopupService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -58,29 +59,28 @@ export class BikeComponent implements OnInit {
       this.bikeId = this.bikeData.bike_id;
       this.bikeImageSrc = this.bikeData.bike_image_location;
       this.bikeSize = LanguageHandler.formatString("Size: {0}", [this.bikeData.size]);
-      this.bikeStatus = LanguageHandler.formatString("Status: {0}", [this.bikeData.status]); // TODO format color
       this.bikePrice = LanguageHandler.formatString("Price: {0}$", [this.bikeData.price])
+      this.bikeModel = LanguageHandler.formatString("Model: {0}", [this.bikeData.model_name]);
+      this.bikeCategory = LanguageHandler.formatString("Category: {0}", [this.bikeData.category_name]);
 
-      if (this.bikeData.assigned_to) {
-        // TODO
-      } else {
-        this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.unassignedBikeText])
-      }
+      this.bikeStatus = LanguageHandler.formatString("Status: {0}", [this.bikeData.status]);
 
-      this.bikeService.getBikeTypes(this.bikeId).subscribe({
-        next: (res) => {
-          this.bikeModel = LanguageHandler.formatString("Model: {0}", [res[0].model_name]);
-          this.bikeCategory = LanguageHandler.formatString("Category: {0}", [res[0].category_name]);
-          console.log(res);
-        },
-        error: (err) => {
-          console.log("Error fetching bike types: ", err);
-          this.bikeModel = LanguageHandler.formatString("Model: {0}", ["-"]);
-          this.bikeCategory = LanguageHandler.formatString("Category: {0}", ["-"]);
-        }
-      })
+      if (this.bikeData.assigned_to) this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.bikeData.station_name])
+      else this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.unassignedBikeText])
+
+      // this.formatStatus();
+
 
     }
+  }
+
+  // TODO
+  formatStatus() {
+    if(this.bikeData.status === "Available") {
+      let formattedString = this.sanitizer.bypassSecurityTrustHtml('<span style="font-weight: bold; color: green;">Available</span>');
+      // this.bikeStatus = formattedString;
+      // this.bikeStatus = LanguageHandler.formatString("Status: {0}", [formattedString]);
+    } // TODO format color
   }
 
   deleteBike() {

@@ -4,7 +4,10 @@ const pool = require('../pool');
 const DatabaseService = require('../database-service')
 
 router.get('/', function (eq, res) {
-    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike', values: []})
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT b.*, m.model_name, c.category_name, s.station_name FROM Bike b, station s, BikeModel m, BikeCategory c WHERE b.station_id = s.station_id AND b.model_id = m.model_id AND m.category_id = c.category_id',
+        values: []
+    })
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
