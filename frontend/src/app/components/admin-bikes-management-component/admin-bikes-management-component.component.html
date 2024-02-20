@@ -2,19 +2,23 @@
   class="admin-bikes-management-component-container"
   [ngClass]="rootClassName"
 >
-  <span class="heading">{{ adminBikesManagementTitlte }}</span>
+  <span class="heading">{{ adminBikesManagementTitle }}</span>
   <searching-component
     rootClassName="searching-component-root-class-name2"
   ></searching-component>
+
+  <div *ngIf="bikes.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
+
   <div
     id="manage-bikes-entry-list-container"
     class="admin-bikes-management-component-container1"
+    *ngIf="bikes.length > 0"
   >
-    <bike-component
-      rootClassName="bike-component-root-class-name8"
-    ></bike-component>
-    <bike-component
-      rootClassName="bike-component-root-class-name9"
+    <bike-component [visibleBookButton]="false" *ngFor="let bike of bikes" [bikeData]="bike" (onBikeDelete)="handleBikeDelete($event)"
+                    rootClassName="bike-component-root-class-name8"
+
     ></bike-component>
   </div>
 </div>

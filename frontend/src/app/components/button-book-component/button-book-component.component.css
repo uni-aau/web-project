@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .button-book-component-container {
   width: auto;
@@ -8,9 +8,4 @@
   position: relative;
   align-items: flex-start;
   flex-direction: column;
-}
-
-
-.button-book-component-root-class-name2 {
-  display: none;
 }
