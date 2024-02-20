@@ -55,15 +55,15 @@ CREATE TABLE BikeModel
 CREATE TABLE ParkingSpot
 (
     spot_id     SERIAL PRIMARY KEY,
-    station_id  INT REFERENCES Station (station_id),
-    spot_number INT,
+    station_id  INT NOT NULL REFERENCES Station (station_id),
+    spot_number INT NOT NULL,
     CONSTRAINT unique_spot UNIQUE (station_id, spot_number)
 );
 
 CREATE TABLE ParkingSpotCategory
 (
-    spot_id     INT,
-    category_id INT,
+    spot_id     INT NOT NULL,
+    category_id INT NOT NULL,
     PRIMARY KEY (spot_id, category_id),
     FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id),
     FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id)
