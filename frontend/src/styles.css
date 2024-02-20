@@ -443,6 +443,10 @@
   justify-content: flex-start;
 }
 
+.popup-text {
+  font-size: 18px;
+  text-align: center;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -499,9 +503,6 @@
   .navbar-general {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
-  }
-  .popup-container {
-    width: 30%;
   }
 }
 @media(max-width: 479px) {
