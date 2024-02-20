@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {BikeService} from "../../services/bike.service";
 import {BikeStationService} from "../../services/bikestation.service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'admin-bike-assignment-component',
@@ -19,7 +20,8 @@ export class AdminBikeAssignmentComponent {
   @Input()
   adminAssignBikeBikeCategories: string = 'Bike Category: {0}'
   @Input()
-  adminAssignBikeParkingPlace: string = 'Parking Place: {0} [Full | Number]'
+  adminAssignBikeParkingPlace: string = 'Parking Place: -'
+  adminAssignBikeParkingPlaceOld: string = 'Parking Place: {0}'
   @Input()
   adminAssignBikeSelectorLabel: string = 'Assign Bike Station'
   @Input()
@@ -30,6 +32,7 @@ export class AdminBikeAssignmentComponent {
   adminAssignBikeSelectorGeneralSelection: string = 'Select station'
 
   bikeStations: any[] = []
+  adminParkingPlaceFull = 'Full';
 
   constructor(public dialogRef: MatDialogRef<AdminBikeAssignmentComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private stationService: BikeStationService) {
     this.setDescription();
@@ -62,6 +65,17 @@ export class AdminBikeAssignmentComponent {
 
   handleSelect(event: any) {
     const stationId = event.target.value;
+    // console.log(this.data.categoryId);
+
+    this.stationService.getFreeParkingPlace(stationId, "2").subscribe({
+      next: (val) => this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [val[0].spot_number]),
+      error: (err) => {
+        if (err.status === 404) {
+          this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [this.adminParkingPlaceFull])
+        }
+        console.log(err.error);
+      }
+    })
 
 
 
