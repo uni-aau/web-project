@@ -13,6 +13,7 @@ export class AdminBikesManagementComponent {
   rootClassName: string = ''
 
   bikes: any[] = [];
+  filteredBikes: any[] = [];
 
   constructor(private bikesService: BikeService) {
     this.bikes = [];
@@ -23,12 +24,25 @@ export class AdminBikesManagementComponent {
     this.bikesService.fetchBikes().subscribe({
       next: (res) => {
         this.bikes = res;
+        this.performSearch("");
       },
       error: (err) => {
         if (err.status === 404) this.bikes = [];
         console.log(err.error);
       }
     })
+  }
+
+  performSearch(searchTerm: string) {
+    if (!searchTerm) {
+      this.filteredBikes = this.bikes;
+    } else {
+      this.filteredBikes = this.bikes.filter(bike => {
+        bike.bike_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        bike.category_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        bike.model_name.toLowerCase().includes(searchTerm.toLowerCase())
+      });
+    }
   }
 
   handleBikeDelete(bikeId: number) {
