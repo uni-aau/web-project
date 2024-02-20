@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 router.post('/login', async (req, res, next) => {
-    const {email, username, password} = req.body;
+    const { email, username, password } = req.body;
 
-    if (!password || (!username && !email)) return res.status(500).json({error: "Body does not contain all values"});
+    if (!password || (!username && !email)) return res.status(500).json({ error: "Body does not contain all values" });
 
     const emailLower = email ? email.toLowerCase() : undefined;
     const usernameLower = username ? username.toLowerCase() : undefined;
@@ -18,31 +18,34 @@ router.post('/login', async (req, res, next) => {
 
         if (userResult.rows.length > 0) {
             const user = userResult.rows[0];
-            console.log(user)
             const isValid = await bcrypt.compare(password, user.password_hash);
 
             if (isValid) {
-                const secret = user.is_admin ? "meinSuperGeheimesAdminJWTSecret" : "meinSuperGeheimesUserJWTSecret";
+                const tokenData = {
+                    userId: user.user_id,
+                    email: user.email,
+                    isAdmin: user.is_admin
+                };
 
                 const token = jwt.sign(
-                    {userId: user.user_id, email: user.email, isAdmin: user.is_admin},
-                    secret,
-                    {expiresIn: '1h'}
+                    tokenData,
+                    "meinSuperGeheimesJWTSecret",
+                    { expiresIn: '1h' }
                 );
 
-                console.log(user.is_admin)
-                res.status(200).json({token: token, is_admin: user.is_admin});
+                res.status(200).json({ token: token, is_admin: user.is_admin });
             } else {
-                res.status(401).json({message: "Invalid Password"});
+                res.status(401).json({ message: "Invalid Password" });
             }
         } else {
-            res.status(404).json({message: "User not found"});
+            res.status(404).json({ message: "User not found" });
         }
     } catch (err) {
         console.error('Error while logging in:', err.stack);
         res.status(500).send('Server error while logging in');
     }
 });
+
 
 router.post('/register', async (req, res) => {
     const {firstname, lastname, username, email, password} = req.body;

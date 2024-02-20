@@ -8,9 +8,8 @@ const verifyUserToken = (req, res, next) => {
 
     if (token == null) return res.sendStatus(401);
 
-    jwt.verify(token, "meinSuperGeheimesUserJWTSecret", (err, user) => {
+    jwt.verify(token, "meinSuperGeheimesJWTSecret", (err, user) => {
         if (err) return res.sendStatus(403);
-        if (user.isAdmin === true) return res.sendStatus(403);
         req.user = user;
         next();
     });
@@ -22,7 +21,7 @@ const verifyAdminToken = (req, res, next) => {
 
     if (token == null) return res.sendStatus(401);
 
-    jwt.verify(token, "meinSuperGeheimesAdminJWTSecret", (err, admin) => {
+    jwt.verify(token, "meinSuperGeheimesJWTSecret", (err, admin) => {
         if (err) return res.sendStatus(403);
         if (!admin.isAdmin) return res.sendStatus(403);
         req.user = admin;

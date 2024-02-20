@@ -1,17 +1,22 @@
 <div class="admin-bike-stations-component-container" [ngClass]="rootClassName">
   <span class="heading">{{ adminManageBikeStationsTitle }}</span>
   <searching-component
-    rootClassName="searching-component-root-class-name1"
+    [visibleCreateButton]="true"
+    (search)="performSearch($event)"
+    [searchInputPlaceholder]="'Search for stations...'"
+    rootClassName="searching-component-root-class-name5"
   ></searching-component>
   <div
     id="manage-bike-stations-entry-list-container"
     class="admin-bike-stations-component-container1"
   >
     <admin-bike-station-entry-component
+      *ngFor="let station of filteredBikeStations"
+      [adminBikeStationEntryStationName]="station.station_name"
+      [adminBikeStationEntryDescription]="station.description"
+      [adminBikeStationEntryLocation]="station.station_address"
+      [adminBikeStationEntryImageAlt]="station.station_name"
       rootClassName="admin-bike-station-entry-component-root-class-name2"
-    ></admin-bike-station-entry-component>
-    <admin-bike-station-entry-component
-      rootClassName="admin-bike-station-entry-component-root-class-name3"
     ></admin-bike-station-entry-component>
   </div>
 </div>
