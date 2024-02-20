@@ -11,9 +11,10 @@
             {{ adminManageBikeStationLabelLongitude }}
           </span>
           <input
-            type="text"
+            type="number"
             id="manage-bike-station-longitude-input"
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
+            value="{{ adminManageBikeStationInputPlaceholderLongitude }}"
             class="admin-manage-bike-station-component-textinput input"
           />
           <span class="input-error-hint">
@@ -25,9 +26,10 @@
             {{ adminManageBikeStationLabelLatitude }}
           </span>
           <input
-            type="text"
+            type="number"
             id="manage-bike-station-latitude-input"
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
+            value="{{ adminManageBikeStationInputPlaceholderLatitude }}"
             class="admin-manage-bike-station-component-textinput1 input"
           />
           <span class="input-error-hint">
@@ -43,6 +45,7 @@
           type="text"
           id="manage-bike-station-station-name-input"
           [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
+          value="{{ adminManageBikeStationInputPlaceholderName }}"
           class="admin-manage-bike-station-component-textinput2 input"
         />
         <span class="input-error-hint">
@@ -57,6 +60,7 @@
           type="text"
           id="manage-bike-station-address-input"
           [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
+          value="{{ adminManageBikeStationInputPlaceholderAddress }}"
           class="admin-manage-bike-station-component-textinput3 input"
         />
         <span class="input-error-hint">
@@ -69,7 +73,7 @@
       <textarea
         [attr.placeholder]="adminManageBikeStationStationInputPlaceholder"
         class="admin-manage-bike-station-component-textarea textarea"
-      ></textarea>
+      >{{ adminManageBikeStationStationInputPlaceholder }}</textarea>
     </div>
   </form>
   <span class="input-error-hint">

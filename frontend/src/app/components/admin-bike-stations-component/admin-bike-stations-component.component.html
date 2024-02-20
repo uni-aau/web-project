@@ -3,6 +3,7 @@
   <searching-component
     [visibleCreateButton]="true"
     (search)="performSearch($event)"
+    (create)="createStation($event)"
     [searchInputPlaceholder]="'Search for stations...'"
     rootClassName="searching-component-root-class-name5"
   ></searching-component>
@@ -12,6 +13,7 @@
   >
     <admin-bike-station-entry-component
       *ngFor="let station of filteredBikeStations"
+      [bikeStation]=station
       [adminBikeStationEntryStationName]="station.station_name"
       [adminBikeStationEntryDescription]="station.description"
       [adminBikeStationEntryLocation]="station.station_address"

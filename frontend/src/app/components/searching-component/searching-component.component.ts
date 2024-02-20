@@ -8,6 +8,7 @@ import {AuthService} from "../../services/auth.service";
 })
 export class SearchingComponent {
   @Output() search = new EventEmitter<string>();
+  @Output() create = new EventEmitter<string>();
   @Input()
   searchInputPlaceholder: string = 'Search for {0}'
   @Input()
@@ -24,5 +25,9 @@ export class SearchingComponent {
 
   onSearch() {
     this.search.emit(this.searchTerm);
+  }
+
+  onCreate(){
+    this.create.emit();
   }
 }

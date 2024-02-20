@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core'
 import {BikeStationService} from "../../services/bikestation.service";
 import {BikeStation} from "../../types/bikeStation.type";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'admin-bike-stations-component',
@@ -15,7 +16,7 @@ export class AdminBikeStationsComponent {
   bikeStations: BikeStation[] = [];
   filteredBikeStations: BikeStation[] = [];
 
-  constructor(private bikeStationService: BikeStationService) {
+  constructor(private bikeStationService: BikeStationService, private router : Router) {
   }
 
   ngOnInit() {
@@ -42,5 +43,9 @@ export class AdminBikeStationsComponent {
         station.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
+  }
+
+  createStation($event: any) {
+    this.router.navigate(["/admin-manage-bike-station"])
   }
 }

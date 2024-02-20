@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
+import {Router} from "@angular/router";
+import {BikeStation} from "../../types/bikeStation.type";
 
 @Component({
   selector: 'admin-bike-station-entry-component',
@@ -6,6 +8,16 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['admin-bike-station-entry-component.component.css'],
 })
 export class AdminBikeStationEntryComponent {
+  @Output() update = new EventEmitter<string>();
+  @Input()
+  bikeStation: BikeStation =  {
+    description: "string",
+    latitude: 0,
+    longitude: 0,
+    station_address: "string",
+    station_image_location: "string",
+    station_name: "string"
+  };
   @Input()
   adminBikeStationEntryButtonUpdate: string = 'Update'
   @Input()
@@ -28,5 +40,13 @@ export class AdminBikeStationEntryComponent {
   adminBikeStationEntryLocation: string = '{0}'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+  constructor(private router : Router) {}
+
+  onUpdate(){
+    this.router.navigate(["/admin-manage-bike-station"], {
+      state: {
+        bikeStation: this.bikeStation
+      }
+    })
+  }
 }

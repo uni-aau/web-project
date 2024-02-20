@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core'
+import {BikeStation} from "../../types/bikeStation.type";
+import {
+  AdminManageBikeStationComponent
+} from "../admin-manage-bike-station-component/admin-manage-bike-station-component.component";
 
 @Component({
   selector: 'admin-update-bike-station-component',
@@ -6,6 +10,7 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['admin-update-bike-station-component.component.css'],
 })
 export class AdminUpdateBikeStationComponent {
+  @Output() save = new EventEmitter<string>();
   @Input()
   rootClassName: string = ''
   @Input()
@@ -14,5 +19,12 @@ export class AdminUpdateBikeStationComponent {
   adminManageBikeStationTitle: string = 'Manage Bikestation'
   @Input()
   adminManageBikeStationButtonDiscard: string = 'Discard'
+
+  @ViewChild(AdminManageBikeStationComponent) manageBikeStationComponent: AdminManageBikeStationComponent | undefined;
+
   constructor() {}
+
+  onSave(): void {
+    console.log(this.manageBikeStationComponent!.sendDataToParent());
+  }
 }

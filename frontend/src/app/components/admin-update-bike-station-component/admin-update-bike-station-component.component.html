@@ -3,18 +3,22 @@
   [ngClass]="rootClassName"
 >
   <span class="heading">{{ adminManageBikeStationTitle }}</span>
-  <div class="admin-update-bike-station-component-container1">
+  <div
+    class="admin-update-bike-station-component-container1">
     <admin-manage-bike-station-component
       rootClassName="admin-manage-bike-station-component-root-class-name"
     ></admin-manage-bike-station-component>
     <admin-parking-places-component
       rootClassName="admin-parking-places-component-root-class-name"
     ></admin-parking-places-component>
+
   </div>
-  <div class="admin-update-bike-station-component-container2">
+  <div
+    class="admin-update-bike-station-component-container2">
     <button
       id="manage-bike-station-save-button"
       type="button"
+      (click)="onSave()"
       class="admin-update-bike-station-component-button button-general button-green"
     >
       {{ adminManageBikestationButtonSaveBikeStation }}

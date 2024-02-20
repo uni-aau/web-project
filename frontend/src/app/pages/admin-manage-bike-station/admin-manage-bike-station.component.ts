@@ -19,4 +19,8 @@ export class AdminManageBikeStation {
       },
     ])
   }
+
+  onSave($event: any) {
+
+  }
 }
