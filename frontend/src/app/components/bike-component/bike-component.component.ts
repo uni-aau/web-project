@@ -96,7 +96,9 @@ export class BikeComponent implements OnInit {
   }
 
   assignBike() {
-
+    console.log("Test")
+    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name).subscribe(
+    )
   }
 
   deleteBike() {

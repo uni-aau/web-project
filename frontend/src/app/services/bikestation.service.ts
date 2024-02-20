@@ -14,4 +14,8 @@ export class BikeStationService {
     return this.http.get('http://localhost:3000/api/stations', {});
   }
 
+/*  getParkingPlace(): Observable<any> {
+
+  }*/
+
 }

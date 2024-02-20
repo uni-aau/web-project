@@ -27,7 +27,7 @@ app.use('/api/auth', authRoutes);
 // TODO
 app.use('/api/users', verifyUserToken, userRoutes);
 app.use('/api/tickets', verifyUserToken,ticketRoutes);
-app.use('/api/stations', verifyUserToken,stationRoutes);
+app.use('/api/stations', verifyAdminToken,stationRoutes);
 app.use('/api/bikes', verifyAdminToken, bikeRoutes);
 app.use('/api/bikeModels', verifyUserToken,bikeModelRoutes);
 app.use('/api/stationReviews',verifyUserToken, stationReviewRoutes);

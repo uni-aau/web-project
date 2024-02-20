@@ -1,5 +1,5 @@
-<div class="admin-bike-assignment-component-container">
-  <span class="heading">{{ adminAssignBikeTitle }}</span>
+<div class="admin-bike-assignment-component-container popup-container">
+  <span class="popup-heading">{{ adminAssignBikeTitle }}</span>
   <form class="admin-bike-assignment-component-form">
     <div class="admin-bike-assignment-component-container1">
       <div class="admin-bike-assignment-component-container2">
@@ -22,12 +22,10 @@
           <select
             id="manage-bike-models-selector"
             class="admin-bike-assignment-component-select selector-style"
+            (change)="handleSelect($event)"
           >
-            <option value="Option 1">Option 1</option>
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
-            <option value="Option 3">Option 3</option>
-            <option value="Option 3">Option 3</option>
+            <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
+            <option *ngFor="let station of bikeStations" [value]="station.station_id">{{station.station_name}}</option>
           </select>
           <span class="input-error-hint">{{ adminAssignBikeErrorText }}</span>
         </div>
@@ -38,6 +36,9 @@
         </div>
       </div>
     </div>
+    <span class="admin-bike-assignment-component-text6 input-error-hint">
+      {{ adminAssignBikeError }}
+    </span>
   </form>
   <button-save-discard-component
     rootClassName="button-save-discard-component-root-class-name3"
