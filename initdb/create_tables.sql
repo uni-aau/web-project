@@ -72,6 +72,7 @@ CREATE TABLE ParkingSpotCategory
 CREATE TABLE Bike
 (
     bike_id             SERIAL PRIMARY KEY,
+    bike_name           VARCHAR     NOT NULL,
     station_id          INT REFERENCES Station (station_id),
     model_id            INT         NOT NULL REFERENCES BikeModel (model_id),
     assigned_to         INT REFERENCES ParkingSpot (spot_id),
@@ -121,7 +122,7 @@ CREATE TABLE StationReview
     station_id INT     NOT NULL REFERENCES Station (station_id),
     user_id    INT     NOT NULL REFERENCES "User" (user_id),
     title      VARCHAR NOT NULL,
-    model_id      INT REFERENCES BikeModel (model_id),
+    model_id   INT REFERENCES BikeModel (model_id),
     rating     INT     NOT NULL,
     comment    TEXT    NOT NULL,
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -160,10 +161,10 @@ INSERT INTO ParkingSpotCategory(spot_id, category_id)
 VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
        (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
-INSERT INTO Bike (station_id, model_id, is_available, status, size, price)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
+INSERT INTO Bike (station_id, bike_name, model_id, is_available, status, size, price)
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike1',
         (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
-       ((SELECT station_id FROM Station WHERE station_name = 'North Station'),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), 'Bike2',
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
