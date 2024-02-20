@@ -67,8 +67,6 @@ export class BikeComponent implements OnInit {
       this.bikeModel = LanguageHandler.formatString("Model: {0}", [this.bikeData.model_name]);
       this.bikeCategory = LanguageHandler.formatString("Category: {0}", [this.bikeData.category_name]);
 
-      // this.bikeStatus = LanguageHandler.formatString("{0}", [this.bikeData.status]);
-
       if (this.bikeData.assigned_to) this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.bikeData.station_name])
       else this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.unassignedBikeText])
 
@@ -78,7 +76,6 @@ export class BikeComponent implements OnInit {
     }
   }
 
-  // TODO
   formatStatus() {
     this.bikeStatus = this.bikeData.status;
     this.bikeStatusColor = this.bikeData.status === 'Available' ? 'green' : 'red';

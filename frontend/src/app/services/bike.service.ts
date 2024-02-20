@@ -18,8 +18,4 @@ export class BikeService {
   fetchBikes(): Observable<any> {
     return this.http.get(`${baseURL}/`)
   }
-
-  getBikeTypes(bikeId: number): Observable<any> {
-    return this.http.get(`${baseURL}/bike/${bikeId}/type`)
-  }
 }
