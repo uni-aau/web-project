@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core'
 import {BikeService} from "../../services/bike.service";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'admin-bikes-management-component',
@@ -15,7 +16,7 @@ export class AdminBikesManagementComponent {
   bikes: any[] = [];
   filteredBikes: any[] = [];
 
-  constructor(private bikesService: BikeService) {
+  constructor(private bikesService: BikeService, private popupService: PopupService) {
     this.bikes = [];
     this.fetchBikes();
   }
@@ -46,7 +47,13 @@ export class AdminBikesManagementComponent {
   }
 
   performCreate() {
+    // TODO
+      this.popupService.openCreateBikePopup().subscribe({
+        next: (val) => {
 
+        },
+        error: (err) => console.log(err)
+      })
   }
 
   handleBikeDelete(bikeId: number) {

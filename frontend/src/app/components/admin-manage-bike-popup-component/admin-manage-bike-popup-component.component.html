@@ -9,17 +9,21 @@
           id="manage-bike-name-input"
           [attr.placeholder]="adminManageBikeInputPlaceholderName"
           class="admin-manage-bike-popup-component-textinput input"
+          [(ngModel)]="bikeName"
+          name="bikeName"
         />
         <span class="input-error-hint">{{ adminManageBikeNameError }}</span>
       </div>
       <div class="admin-manage-bike-popup-component-container3">
         <div class="admin-manage-bike-popup-component-container4">
-          <span class="input-label-text">{{ adminManageBikeLabeSize }}</span>
+          <span class="input-label-text">{{ adminManageBikeLabelSize }}</span>
           <input
-            type="text"
+            type="number"
             id="manage-bike-size-input"
             [attr.placeholder]="adminManageBikeInputPlaceholderSize"
             class="admin-manage-bike-popup-component-textinput1 input"
+            [(ngModel)]="bikeSize"
+            name="bikeSize"
           />
           <span class="input-error-hint">{{ adminManageBikeSizeError }}</span>
         </div>
@@ -30,6 +34,8 @@
             id="manage-bike-price-input"
             [attr.placeholder]="adminManageBikeInputPlaceholderPrice"
             class="admin-manage-bike-popup-component-textinput2 input"
+            [(ngModel)]="bikePrice"
+            name="bikePrice"
           />
           <span class="input-error-hint">{{ adminManageBikePriceError }}</span>
         </div>
@@ -42,9 +48,10 @@
           <select
             id="manage-bike-models-selector"
             class="admin-manage-bike-popup-component-select selector-style"
+            (change)="handleSelect($event)"
           >
-            <option value="Option 1">Option 1</option>
-            <option value="Option 3">Option 3</option>
+            <option [value]="-1">{{adminManageBikeSelectorGeneralSelection}}</option>
+            <option *ngFor="let model of bikeModels" [value]="model.model_id">{{model.model_name}}</option>
           </select>
           <span class="input-error-hint">{{ adminManageBikeModelError }}</span>
         </div>
@@ -59,6 +66,8 @@
             id="manage-bike-operational-checkbox"
             checked="true"
             class="checkbox-style"
+            [(ngModel)]="isOperational"
+            name="isOperational"
           />
         </div>
       </div>
@@ -68,5 +77,5 @@
     {{ adminManageBikeImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>
-  <button-save-discard-component></button-save-discard-component>
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"></button-save-discard-component>
 </div>

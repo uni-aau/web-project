@@ -3,7 +3,6 @@ import {BikeService} from "../../services/bike.service";
 import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {DomSanitizer} from "@angular/platform-browser";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'bike-component',
@@ -97,13 +96,14 @@ export class BikeComponent implements OnInit {
   }
 
   updateBike() {
-
+    this.popupService.openUpdateBikePopup(this.bikeData.bike_name, this.bikeData.size, this.bikeData.price, this.bikeData.status, this.bikeData.bike_image_location)
+    // TODO DB HANDLER
   }
 
   assignBike() {
     this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe({
       next: (val) => {
-        if(val && val.spotNumber && val.stationId) {
+        if (val && val.spotNumber && val.stationId) {
           this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
             next: (val) => {
               if (val.success) {
