@@ -1,29 +1,41 @@
-<div class="admin-manage-bike-popup-component-container">
-  <span class="heading">{{ adminManageBikeTitle }}</span>
+<div class="admin-manage-bike-popup-component-container popup-container">
+  <span class="popup-heading">{{ adminManageBikeTitle }}</span>
   <form class="admin-manage-bike-popup-component-form">
     <div class="admin-manage-bike-popup-component-container1">
       <div class="admin-manage-bike-popup-component-container2">
-        <div class="admin-manage-bike-popup-component-container3">
-          <span class="input-label-text">{{ adminManageBikeLabelName }}</span>
+        <span class="input-label-text">{{ adminManageBikeLabelName1 }}</span>
+        <input
+          type="text"
+          id="manage-bike-name-input"
+          [attr.placeholder]="adminManageBikeInputPlaceholderName"
+          class="admin-manage-bike-popup-component-textinput input"
+        />
+        <span class="input-error-hint">{{ adminManageBikeNameError }}</span>
+      </div>
+      <div class="admin-manage-bike-popup-component-container3">
+        <div class="admin-manage-bike-popup-component-container4">
+          <span class="input-label-text">{{ adminManageBikeLabeSize }}</span>
           <input
             type="text"
-            id="manage-bike-name-input"
-            [attr.placeholder]="adminManageBikeInputPlaceholderLongitude"
-            class="admin-manage-bike-popup-component-textinput input"
+            id="manage-bike-size-input"
+            [attr.placeholder]="adminManageBikeInputPlaceholderSize"
+            class="admin-manage-bike-popup-component-textinput1 input"
           />
+          <span class="input-error-hint">{{ adminManageBikeSizeError }}</span>
         </div>
-        <div class="admin-manage-bike-popup-component-container4">
+        <div class="admin-manage-bike-popup-component-container5">
           <span class="input-label-text">{{ adminManageBikeLabelPrice }}</span>
           <input
             type="number"
             id="manage-bike-price-input"
             [attr.placeholder]="adminManageBikeInputPlaceholderPrice"
-            class="admin-manage-bike-popup-component-textinput1 input"
+            class="admin-manage-bike-popup-component-textinput2 input"
           />
+          <span class="input-error-hint">{{ adminManageBikePriceError }}</span>
         </div>
       </div>
-      <div class="admin-manage-bike-popup-component-container5">
-        <div class="admin-manage-bike-popup-component-container6">
+      <div class="admin-manage-bike-popup-component-container6">
+        <div class="admin-manage-bike-popup-component-container7">
           <span class="input-label-text">
             {{ adminManageBikeLabelAssignModels }}
           </span>
@@ -34,10 +46,11 @@
             <option value="Option 1">Option 1</option>
             <option value="Option 3">Option 3</option>
           </select>
+          <span class="input-error-hint">{{ adminManageBikeModelError }}</span>
         </div>
-        <div class="admin-manage-bike-popup-component-container7">
+        <div class="admin-manage-bike-popup-component-container8">
           <span
-            class="admin-manage-bike-popup-component-text4 input-label-text"
+            class="admin-manage-bike-popup-component-text09 input-label-text"
           >
             {{ adminManageBikeStatus }}
           </span>
@@ -51,7 +64,7 @@
       </div>
     </div>
   </form>
-  <span class="admin-manage-bike-popup-component-text5">
+  <span class="admin-manage-bike-popup-component-text10">
     {{ adminManageBikeImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>

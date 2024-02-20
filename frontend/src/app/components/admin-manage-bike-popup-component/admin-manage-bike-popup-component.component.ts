@@ -13,16 +13,28 @@ export class AdminManageBikePopupComponent {
   @Input()
   adminManageBikeTitle: string = 'Manage Bike'
   @Input()
-  adminManageBikeInputPlaceholderLongitude: string = 'Bike Name'
+  adminManageBikeInputPlaceholderSize: string = 'Bike Size'
   @Input()
   adminManageBikeInputPlaceholderPrice: string = 'Enter Price'
   @Input()
   adminManageBikeStatus: string = 'Operational'
   @Input()
-  adminManageBikeLabelName: string = 'Bike Name'
+  adminManageBikeLabeSize: string = 'Bike Size'
   @Input()
   adminManageBikeLabelPrice: string = 'Price'
   @Input()
   adminManageBikeImageTitle: string = 'Bike Image'
+  @Input()
+  adminManageBikeLabelName1: string = 'Bike Name'
+  @Input()
+  adminManageBikeInputPlaceholderName: string = 'Bike Name'
+  @Input()
+  adminManageBikeNameError: string = ''
+  @Input()
+  adminManageBikeSizeError: string = ''
+  @Input()
+  adminManageBikePriceError: string = ''
+  @Input()
+  adminManageBikeModelError: string = ''
   constructor() {}
 }
