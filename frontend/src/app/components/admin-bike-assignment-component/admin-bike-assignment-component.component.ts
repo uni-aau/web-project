@@ -71,9 +71,6 @@ export class AdminBikeAssignmentComponent {
 
   handleSelect(event: any) {
     const stationId = event.target.value;
-    // console.log(this.data.categoryId); // TODO
-
-    this.data.categoryId = "2";
 
     if (stationId != -1) {
       this.stationService.getFreeParkingPlace(stationId, this.data.categoryId).subscribe({
