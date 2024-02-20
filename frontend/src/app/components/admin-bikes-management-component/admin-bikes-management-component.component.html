@@ -3,7 +3,7 @@
   [ngClass]="rootClassName"
 >
   <span class="heading">{{ adminBikesManagementTitle }}</span>
-  <searching-component [searchInputPlaceholder]="'Search for bikes...'" (search)="performSearch($event)"
+  <searching-component [searchInputPlaceholder]="'Search for bikes...'" (search)="performSearch($event)" (create)="performCreate()"
     rootClassName="searching-component-root-class-name2"
   ></searching-component>
 

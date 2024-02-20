@@ -11,7 +11,7 @@
       (click)="onSearch()"
       rootClassName="button-search-component-root-class-name"
     ></button-search-component>
-    <button-create-component
+    <button-create-component (click)="onCreate()"
       *ngIf="visibleCreateButton"
       rootClassName="button-create-component-root-class-name"
     ></button-create-component>

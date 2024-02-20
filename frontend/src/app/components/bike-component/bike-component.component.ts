@@ -78,8 +78,6 @@ export class BikeComponent implements OnInit {
       else this.bikeAssignedParkingSpot = LanguageHandler.formatString("Assigned Parking Spot: {0}", ["-"])
 
       this.formatStatus();
-
-
     }
   }
 

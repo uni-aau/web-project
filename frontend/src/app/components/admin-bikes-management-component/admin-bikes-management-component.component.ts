@@ -45,6 +45,10 @@ export class AdminBikesManagementComponent {
     }
   }
 
+  performCreate() {
+
+  }
+
   handleBikeDelete(bikeId: number) {
     console.log("Bike deletion successfully announced in main component!")
     this.fetchBikes()
