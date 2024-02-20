@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
+import {BikeService} from "../../services/bike.service";
 
 @Component({
   selector: 'admin-bikes-management-component',
@@ -7,8 +8,31 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminBikesManagementComponent {
   @Input()
-  adminBikesManagementTitlte: string = 'Manage Bikes'
+  adminBikesManagementTitle: string = 'Manage Bikes'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+
+  bikes: any[] = [];
+
+  constructor(private bikesService: BikeService) {
+    this.bikes = [];
+    this.fetchBikes();
+  }
+
+  fetchBikes() {
+    this.bikesService.fetchBikes().subscribe({
+      next: (res) => {
+        this.bikes = res;
+      },
+      error: (err) => {
+        if (err.status === 404) this.bikes = [];
+        console.log(err.error);
+      }
+    })
+  }
+
+  handleBikeDelete(bikeId: number) {
+    console.log("Bike deletion successfully announced in main component!")
+    this.fetchBikes()
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 
 @Component({
   selector: 'button-save-discard-component',
@@ -12,5 +12,17 @@ export class ButtonSaveDiscardComponent {
   rootClassName: string = ''
   @Input()
   adminManageModelButtonSave: string = 'Save'
+
+  @Output() confirm = new EventEmitter<void>();
+  @Output() cancel = new EventEmitter<void>();
+
   constructor() {}
+
+  onConfirm() {
+    this.confirm.emit();
+  }
+
+  onCancel() {
+    this.cancel.emit();
+  }
 }

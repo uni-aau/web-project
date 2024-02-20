@@ -4,7 +4,6 @@ import {formatDate} from "@angular/common";
 import {AuthService} from "../../services/auth.service";
 import {PopupService} from "../../services/popup.service";
 import {ReviewsService} from "../../services/reviews.service";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'rating-component',
@@ -95,8 +94,7 @@ export class RatingComponent implements OnInit {
             error: (err) => console.log(`Error while deleting review ${this.reviewId}:`, err)
           })
 
-        }
-        else console.log("User canceled action")
+        } else console.log("User canceled action")
       })
   }
 }

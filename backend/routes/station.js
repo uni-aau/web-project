@@ -62,4 +62,21 @@ router.delete('/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e.message}))
 });
 
+router.get('/free-spot/', function (req, res) {
+    const {categoryId, stationId} = req.query;
+
+    if (!stationId || !categoryId) return res.status(500).json({error: "Not all required data inserted"});
+
+
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT ps.spot_number FROM ParkingSpot ps JOIN ParkingSpotCategory psc ON ps.spot_id = psc.spot_id LEFT JOIN Bike b ON ps.spot_id = b.assigned_to WHERE ps.station_id = $1 AND psc.category_id = $2 AND b.bike_id IS NULL GROUP BY ps.spot_number HAVING COUNT(b.bike_id) = 0',
+        values: [stationId, categoryId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike: " + e.message})
+        });
+})
+
 module.exports = router;
