@@ -40,7 +40,7 @@
       {{ adminAssignBikeError }}
     </span>
   </form>
-  <button-save-discard-component
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
     rootClassName="button-save-discard-component-root-class-name3"
   ></button-save-discard-component>
 </div>

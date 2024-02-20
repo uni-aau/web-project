@@ -1,9 +1,7 @@
 import {Component, Inject, Input} from '@angular/core'
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {LanguageHandler} from "../../handler/LanguageHandler";
-import {BikeService} from "../../services/bike.service";
 import {BikeStationService} from "../../services/bikestation.service";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'admin-bike-assignment-component',
@@ -33,6 +31,7 @@ export class AdminBikeAssignmentComponent {
 
   bikeStations: any[] = []
   adminParkingPlaceFull = 'Full';
+  spotNumber = "-1";
 
   constructor(public dialogRef: MatDialogRef<AdminBikeAssignmentComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private stationService: BikeStationService) {
     this.setDescription();
@@ -46,39 +45,49 @@ export class AdminBikeAssignmentComponent {
   }
 
   handleConfirm() {
-    this.dialogRef.close(true);
+    if (this.spotNumber === "-1") {
+      this.adminAssignBikeErrorText = 'Select a valid bike station';
+      return;
+    }
+
+    this.adminAssignBikeErrorText = '';
+    this.dialogRef.close({spotNumber: this.spotNumber});
   }
 
   handleCancel() {
-    this.dialogRef.close(false);
+    this.dialogRef.close();
   }
 
   fetchBikeStations() {
-      this.stationService.getBikeStations().subscribe({
-        next: (val) => this.bikeStations = val,
-        error: (err) => {
-          if (err.status === 404) this.bikeStations = [];
-          console.log(err.error);
-        }
-      })
+    this.stationService.getBikeStations().subscribe({
+      next: (val) => this.bikeStations = val,
+      error: (err) => {
+        if (err.status === 404) this.bikeStations = [];
+        console.log(err.error);
+      }
+    })
   }
 
   handleSelect(event: any) {
     const stationId = event.target.value;
     // console.log(this.data.categoryId);
-
-    this.stationService.getFreeParkingPlace(stationId, "2").subscribe({
-      next: (val) => this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [val[0].spot_number]),
-      error: (err) => {
-        if (err.status === 404) {
-          this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [this.adminParkingPlaceFull])
+    if (stationId != -1) {
+      this.stationService.getFreeParkingPlace(stationId, this.data.categoryId).subscribe({
+        next: (val) => {
+          this.spotNumber = val[0].spot_number
+          this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [this.spotNumber])
+        },
+        error: (err) => {
+          if (err.status === 404) {
+            this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [this.adminParkingPlaceFull])
+          }
+          this.spotNumber = "-1";
+          console.log(err.error);
         }
-        console.log(err.error);
-      }
-    })
-
-
-
+      })
+    } else {
+      this.spotNumber = "-1";
+      this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, ["-"])
+    }
   }
-
 }

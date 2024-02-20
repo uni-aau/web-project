@@ -1,11 +1,12 @@
 <div class="button-save-discard-component-container" [ngClass]="rootClassName">
-  <button id="save-button" type="button" class="button-general button-green">
+  <button id="save-button" type="button" class="button-general button-green" (click)="onConfirm()">
     {{ adminManageModelButtonSave }}
   </button>
   <button
     id="discard-button"
     type="button"
     class="button-save-discard-component-button1 button-general button-red"
+    (click)="onCancel()"
   >
     {{ adminManageModelButtonDiscard }}
   </button>
