@@ -3,6 +3,7 @@ import {BikeService} from "../../services/bike.service";
 import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {DomSanitizer} from "@angular/platform-browser";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'bike-component',
@@ -96,8 +97,17 @@ export class BikeComponent implements OnInit {
   }
 
   assignBike() {
-    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe(
-    )
+    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe({
+      next: (val) => {
+        if(val && val.spotNumber && val.stationId) {
+          this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
+            next: (val) => console.log(val),
+            error: (err) => console.log(err)
+          })
+        }
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   deleteBike() {

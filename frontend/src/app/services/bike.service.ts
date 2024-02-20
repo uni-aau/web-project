@@ -18,4 +18,8 @@ export class BikeService {
   fetchBikes(): Observable<any> {
     return this.http.get(`${baseURL}/`)
   }
+
+  assignParkingSpot(stationId: number, spotNumber: number, bikeId: number): Observable<any> {
+      return this.http.put(`${baseURL}/bike/${bikeId}/assign-spot`, {stationId: stationId, spotNumber: spotNumber});
+  }
 }

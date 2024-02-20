@@ -27,7 +27,7 @@ export class PopupService {
     return dialogRef.afterClosed();
   }
 
-  openAssignBikePopup(modelName: string, categoryName: string, categoryId: string): Observable<any[]> {
+  openAssignBikePopup(modelName: string, categoryName: string, categoryId: string) {
     const dialogRef = this.dialog.open(AdminBikeAssignmentComponent, {data: {model: modelName, category: categoryName, categoryId: categoryId}})
 
     return dialogRef.afterClosed();

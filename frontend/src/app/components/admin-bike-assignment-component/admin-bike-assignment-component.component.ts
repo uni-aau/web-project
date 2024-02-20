@@ -32,6 +32,7 @@ export class AdminBikeAssignmentComponent {
   bikeStations: any[] = []
   adminParkingPlaceFull = 'Full';
   spotNumber = "-1";
+  stationId = "-1";
 
   constructor(public dialogRef: MatDialogRef<AdminBikeAssignmentComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private stationService: BikeStationService) {
     this.setDescription();
@@ -45,13 +46,13 @@ export class AdminBikeAssignmentComponent {
   }
 
   handleConfirm() {
-    if (this.spotNumber === "-1") {
+    if (this.spotNumber === "-1" || this.stationId === "-1") {
       this.adminAssignBikeErrorText = 'Select a valid bike station';
       return;
     }
 
     this.adminAssignBikeErrorText = '';
-    this.dialogRef.close({spotNumber: this.spotNumber});
+    this.dialogRef.close({spotNumber: this.spotNumber, stationId: parseInt(this.stationId)});
   }
 
   handleCancel() {
@@ -70,11 +71,15 @@ export class AdminBikeAssignmentComponent {
 
   handleSelect(event: any) {
     const stationId = event.target.value;
-    // console.log(this.data.categoryId);
+    // console.log(this.data.categoryId); // TODO
+
+    this.data.categoryId = "2";
+
     if (stationId != -1) {
       this.stationService.getFreeParkingPlace(stationId, this.data.categoryId).subscribe({
         next: (val) => {
           this.spotNumber = val[0].spot_number
+          this.stationId = stationId;
           this.adminAssignBikeParkingPlace = LanguageHandler.formatString(this.adminAssignBikeParkingPlaceOld, [this.spotNumber])
         },
         error: (err) => {
