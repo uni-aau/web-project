@@ -17,7 +17,9 @@ export class BikeComponent implements OnInit {
   @Input()
   bikeBikeName: string = '{0}'
   @Input()
-  bikeStatus: string = 'Status: {0}'
+  bikeStatusText: string = 'Status: '
+  @Input()
+  bikeStatus: string = '{0}'
   @Input()
   bikeModel: string = 'Model: {0}'
   @Input()
@@ -30,6 +32,8 @@ export class BikeComponent implements OnInit {
   bikeCategory: string = 'Category: {0}'
   @Input()
   bikeImageAlt: string = 'More Infos'
+  @Input()
+  bikeStatusColor: string = ''
 
   @Input()
   visibleBookButton: boolean = true;
@@ -63,12 +67,12 @@ export class BikeComponent implements OnInit {
       this.bikeModel = LanguageHandler.formatString("Model: {0}", [this.bikeData.model_name]);
       this.bikeCategory = LanguageHandler.formatString("Category: {0}", [this.bikeData.category_name]);
 
-      this.bikeStatus = LanguageHandler.formatString("Status: {0}", [this.bikeData.status]);
+      // this.bikeStatus = LanguageHandler.formatString("{0}", [this.bikeData.status]);
 
       if (this.bikeData.assigned_to) this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.bikeData.station_name])
       else this.bikeAssignedStation = LanguageHandler.formatString("Assigned Bike Station: {0}", [this.unassignedBikeText])
 
-      // this.formatStatus();
+      this.formatStatus();
 
 
     }
@@ -76,11 +80,8 @@ export class BikeComponent implements OnInit {
 
   // TODO
   formatStatus() {
-    if(this.bikeData.status === "Available") {
-      let formattedString = this.sanitizer.bypassSecurityTrustHtml('<span style="font-weight: bold; color: green;">Available</span>');
-      // this.bikeStatus = formattedString;
-      // this.bikeStatus = LanguageHandler.formatString("Status: {0}", [formattedString]);
-    } // TODO format color
+    this.bikeStatus = this.bikeData.status;
+    this.bikeStatusColor = this.bikeData.status === 'Available' ? 'green' : 'red';
   }
 
   deleteBike() {
