@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .bike-component-container {
   width: 100%;
@@ -26,6 +26,22 @@
   flex-direction: column;
 }
 .bike-component-container4 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+}
+.bike-component-text5 {
+  width: auto;
+  align-self: flex-start;
+}
+.bike-component-text6 {
+  padding-left: 0px;
+}
+.bike-component-container5 {
   flex: 0 0 auto;
   width: 50%;
   height: 100%;
@@ -68,7 +84,7 @@
   .bike-component-container3 {
     width: 100%;
   }
-  .bike-component-container4 {
+  .bike-component-container5 {
     width: 100%;
     align-items: center;
   }

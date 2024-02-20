@@ -3,14 +3,14 @@
   [ngClass]="rootClassName"
 >
   <div class="button-assign-update-delete-component-container1">
-    <button
+    <button (click)="handleButtonClicked('assign')"
       type="button"
       class="button-assign-update-delete-component-button button-blue button-general"
     >
       {{ buttonAssign }}
     </button>
   </div>
-  <button-update-delete-component
+  <button-update-delete-component (buttonClicked)="handleButtonClicked($event)"
     rootClassName="button-update-delete-component-root-class-name3"
   ></button-update-delete-component>
 </div>

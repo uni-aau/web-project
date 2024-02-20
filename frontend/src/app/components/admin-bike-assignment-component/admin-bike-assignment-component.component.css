@@ -1,30 +1,22 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .admin-bike-assignment-component-container {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  position: relative;
-  align-self: center;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
-  padding-bottom: var(--dl-space-space-halfunit);
-  justify-content: center;
+  width: 650px;
 }
 .admin-bike-assignment-component-form {
   width: 100%;
   height: auto;
   display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
 }
 .admin-bike-assignment-component-container1 {
   flex: 0 0 auto;
   width: 100%;
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--dl-space-space-twounits);
   flex-direction: column;
 }
 .admin-bike-assignment-component-container2 {
@@ -92,18 +84,19 @@
   font-size: 20px;
   align-self: center;
 }
+.admin-bike-assignment-component-text6 {
+  width: 100%;
+  text-align: center;
+}
 @media(max-width: 767px) {
   .admin-bike-assignment-component-container {
-    width: 75%;
+    width: 100%;
   }
   .admin-bike-assignment-component-text5 {
     font-size: 18px;
   }
 }
 @media(max-width: 479px) {
-  .admin-bike-assignment-component-container {
-    width: 95%;
-  }
   .admin-bike-assignment-component-container2 {
     flex-direction: column;
   }

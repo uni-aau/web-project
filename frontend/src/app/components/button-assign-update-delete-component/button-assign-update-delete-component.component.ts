@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -11,5 +11,14 @@ export class ButtonAssignUpdateDeleteComponent {
   buttonAssign: string = 'Assign Bike'
   @Input()
   rootClassName: string = ''
-  constructor(public AuthService:AuthService) {}
+
+  @Output() buttonClicked: EventEmitter<string> = new EventEmitter();
+
+  constructor(public AuthService: AuthService) {
+  }
+
+  handleButtonClicked(event: string) {
+    this.buttonClicked.emit(event);
+  }
+
 }
