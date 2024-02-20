@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 
 @Component({
   selector: 'button-update-delete-component',
@@ -12,5 +12,15 @@ export class ButtonUpdateDeleteComponent {
   rootClassName: string = ''
   @Input()
   adminCategoryButtonUpdate: string = 'Update'
+
+  @Output() buttonClicked:EventEmitter<string> = new EventEmitter();
   constructor() {}
+
+  updateButtonClicked() {
+    this.buttonClicked.emit('update');
+  }
+
+  deleteButtonClicked() {
+    this.buttonClicked.emit('delete');
+  }
 }

@@ -81,6 +81,24 @@ export class BikeComponent implements OnInit {
     this.bikeStatusColor = this.bikeData.status === 'Available' ? 'green' : 'red';
   }
 
+  handleButtonClicked(event: string) {
+    if (event === 'delete') {
+      this.deleteBike();
+    } else if (event === 'update') {
+      this.updateBike();
+    } else if (event === 'assign') {
+      this.assignBike();
+    }
+  }
+
+  updateBike() {
+
+  }
+
+  assignBike() {
+
+  }
+
   deleteBike() {
     this.popupService.openPopup(this.deleteBikePopupDescription)
       .subscribe(result => {
