@@ -1,6 +1,6 @@
 <div class="admin-categories-management-container" [ngClass]="rootClassName">
   <span class="heading">{{ adminManageCategoriesTitle }}</span>
-  <searching-component [searchInputPlaceholder]="'Search for categories...'" (search)="performSearch()" (create)="performCreate()"
+  <searching-component [searchInputPlaceholder]="'Search for categories...'" (search)="performSearch($event)" (create)="performCreate()"
     rootClassName="searching-component-root-class-name3"
   ></searching-component>
 
