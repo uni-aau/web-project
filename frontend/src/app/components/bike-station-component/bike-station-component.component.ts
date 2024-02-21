@@ -1,7 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core'
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {ReviewsService} from "../../services/reviews.service";
 import {Router} from "@angular/router";
 import {BikeStation} from "../../types/bikeStation.type";
+import {PopupService} from "../../services/popup.service";
+import {BikeStationService} from "../../services/bikestation.service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'bike-station-component',
@@ -32,6 +35,8 @@ export class BikeStationComponent implements OnInit {
   @Input()
   bikeStationImageSrc1: string = '/assets/no-image.svg'
 
+  @Output() onStationUpdate: EventEmitter<any> = new EventEmitter<any>();
+
   noRatingsText = "(No Ratings)";
   ratingsErrorText = "(Error)";
 
@@ -50,7 +55,7 @@ export class BikeStationComponent implements OnInit {
   ratingNumberReversed = Array(5).fill(0).map((x, i) => i);
   maxRating = 5;
 
-  constructor(private reviewService: ReviewsService, private router: Router) {
+  constructor(private reviewService: ReviewsService, private router: Router, private popupService: PopupService, private stationService: BikeStationService ) {
   }
 
   ngOnInit() {
@@ -65,10 +70,11 @@ export class BikeStationComponent implements OnInit {
           data.forEach((rate: any) => {
             sum += rate.rating
           })
-          sum = sum / data.length;
-          this.bikeStationRatingAmount = "(" + String(sum) + ")";
-          const rating = data[0].rating;
-          this.ratingNumber = Array(rating).fill(0).map((x, i) => i);
+
+          let mean = sum / data.length;
+          this.bikeStationRatingAmount = "(" + String(mean.toFixed(2)) + ")";
+          let rating = Math.floor(mean);
+          this.ratingNumber = Array(Math.round(rating)).fill(0).map((x, i) => i);
           this.ratingNumberReversed = Array(this.maxRating - rating).fill(0).map((x, i) => i);
         },
         error: (err) => {
@@ -92,4 +98,22 @@ export class BikeStationComponent implements OnInit {
       state: {station: this.bikeStation}
     });
   }
+
+  rateStation() {
+    this.popupService.openNewReviewPopup().subscribe(result => {
+      if(result) this.executeCreateReviewQuery(result);
+    })
+  }
+
+  executeCreateReviewQuery(result: any) {
+    this.reviewService.addReview(this.bikeStationId, result.rating, result.ratingTitle, result.ratingModel, result.ratingDescription).subscribe({
+      next:(val) => {
+        if(val.success)  this.onStationUpdate.emit();
+        else console.log("Error, inserting review was not successful ", val)
+    },
+      error: (err) => console.log(`Error while inserting review in station ${this.bikeStationId} `, err)
+    })
+  }
+
+
 }

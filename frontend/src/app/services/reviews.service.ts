@@ -21,6 +21,10 @@ export class ReviewsService {
   }
 
   deleteAllStationReviews(stationId: number): Observable<any> {
-    return this.http.delete(`${baseUrl}/station/${stationId}`);
+    return this.http.delete(`${baseUrl}/review/station/${stationId}`);
+  }
+
+  addReview(stationId: number, rating: number, ratingTitle: string, ratingModel: number, ratingDescription : string): Observable<any> {
+    return this.http.post(`${baseUrl}/review/station/${stationId}`, {rating: rating, title: ratingTitle, modelId: ratingModel, comment: ratingDescription});
   }
 }

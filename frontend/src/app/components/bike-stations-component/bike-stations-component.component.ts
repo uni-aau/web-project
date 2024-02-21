@@ -38,4 +38,8 @@ export class BikeStationsComponent implements OnInit{
       );
     }
   }
+
+  handleStationUpdate() {
+    this.fetchData();
+  }
 }

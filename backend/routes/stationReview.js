@@ -16,10 +16,13 @@ router.get('/station/:stationId', async (req, res) => {
         });
 });
 
-router.post('/review', async (req, res) => {
-    const {stationId, userId, rating, title, comment, modelId} = req.body;
+router.post('/review/station/:stationId', async (req, res) => {
+    const {stationId} = req.params;
+    const {userId} = req.user;
+    const {rating, title, comment, modelId} = req.body;
 
-    if (!stationId || !userId || !rating || !title || !comment) return res.status(500).json({error: "Not all required data inserted"});
+    console.log(stationId + " " + userId + " " + rating + " " + title + " " + comment);
+    if (!stationId || !userId || !rating || !title) return res.status(500).json({error: "Not all required data inserted"});
 
     DatabaseService.executeInsertionQuery({
         text: 'INSERT INTO stationreview (station_id, user_id, title, model_id, rating, comment) VALUES($1, $2, $3, $4, $5, $6)',
@@ -29,15 +32,15 @@ router.post('/review', async (req, res) => {
         .catch(e => res.status(500).json({error: `Error while adding new review to station ${stationId}: ` + e.message}))
 });
 
-router.put('/review/:reviewId', async (req, res) => {
-    const {reviewId} = req.params;
+router.put('/review/:reviewId/station/:stationId', async (req, res) => {
+    const {reviewId, stationId} = req.params;
     const {rating, title, comment, modelId} = req.body;
 
     if (!rating || !title || !comment) return res.status(500).json({error: "Not all required data inserted"});
 
     DatabaseService.executeUpdateQuery({
-        text: 'UPDATE stationreview SET rating = $1, title = $2, comment = $3, model_id = $4 WHERE review_id = $5',
-        values: [rating, title, comment, modelId, reviewId]
+        text: 'UPDATE stationreview SET rating = $1, title = $2, comment = $3, model_id = $4 station_id = $5 WHERE review_id = $6',
+        values: [rating, title, comment, modelId, stationId, reviewId]
     })
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while updating review: " + e.message}))
@@ -51,7 +54,7 @@ router.delete('/review/:reviewId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while deleting review: " + e.message}))
 });
 
-router.delete('/station/:stationId', async (req, res) => {
+router.delete('/review/station/:stationId', async (req, res) => {
     const {stationId} = req.params;
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM stationreview WHERE station_id = $1', values: [stationId]})
