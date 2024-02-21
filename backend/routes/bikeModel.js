@@ -47,7 +47,7 @@ router.put('/model/:modelId', function (req, res) {
 
     DatabaseService.executeUpdateQuery({
         text: 'UPDATE bikemodel SET model_name = $1, price = $2, category_id = $3 WHERE model_id = $4',
-        values: [modelName, price, categoryId]
+        values: [modelName, price, categoryId, modelId]
     })
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while updating bike model: " + e.message}))
