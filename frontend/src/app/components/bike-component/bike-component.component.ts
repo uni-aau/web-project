@@ -138,11 +138,8 @@ export class BikeComponent implements OnInit {
   executeBikeAssignmentQuery(val: any) {
     this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
       next: (val) => {
-        if (val.success) {
-          this.onBikeUpdate.emit(this.bikeId);
-        } else {
-          console.log("Error, deletion was not successful: ", val);
-        }
+        if (val.success) this.onBikeUpdate.emit(this.bikeId);
+        else console.log("Error, bike assignment was not successful: ", val);
       },
       error: (err) => console.log(err)
     })

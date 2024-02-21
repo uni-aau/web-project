@@ -75,7 +75,7 @@ export class NewReviewPopupComponent {
       let modelId = this.modelId === -1 ? undefined : this.modelId;
       console.log(modelId)
 
-      this.dialogRef.close({ratingTitle: this.ratingTitle, ratingModel: modelId, ratingDescription: this.ratingDescription})
+      this.dialogRef.close({ratingTitle: this.ratingTitle, rating: this.rating, ratingModel: modelId, ratingDescription: this.ratingDescription})
 
 
   }

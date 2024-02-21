@@ -3,6 +3,8 @@ import {ReviewsService} from "../../services/reviews.service";
 import {Router} from "@angular/router";
 import {BikeStation} from "../../types/bikeStation.type";
 import {PopupService} from "../../services/popup.service";
+import {BikeStationService} from "../../services/bikestation.service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'bike-station-component',
@@ -53,7 +55,7 @@ export class BikeStationComponent implements OnInit {
   ratingNumberReversed = Array(5).fill(0).map((x, i) => i);
   maxRating = 5;
 
-  constructor(private reviewService: ReviewsService, private router: Router, private popupService: PopupService) {
+  constructor(private reviewService: ReviewsService, private router: Router, private popupService: PopupService, private stationService: BikeStationService ) {
   }
 
   ngOnInit() {
@@ -98,7 +100,17 @@ export class BikeStationComponent implements OnInit {
 
   rateStation() {
     this.popupService.openNewReviewPopup().subscribe(result => {
-      if(result) console.log("Blub ", result);
+      if(result) this.executeCreateReviewQuery(result);
+    })
+  }
+
+  executeCreateReviewQuery(result: any) {
+    this.reviewService.addReview(this.bikeStationId, result.rating, result.ratingTitle, result.ratingModel, result.ratingDescription).subscribe({
+      next:(val) => {
+        if(val.success)  this.onStationUpdate.emit();
+        else console.log("Error, inserting review was not successful ", val)
+    },
+      error: (err) => console.log(`Error while inserting review in station ${this.bikeStationId} `, err)
     })
   }
 
