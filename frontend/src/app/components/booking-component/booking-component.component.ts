@@ -21,6 +21,7 @@ export class BookingComponent {
   bookingTitle: string = 'Booking'
   @Input()
   rootClassName: string = ''
+
   bikes: any;
   models: any;
   categories: any;

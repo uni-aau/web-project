@@ -20,6 +20,8 @@ export class CategoryComponent {
   categoryName: string = '{0}'
   @Input()
   categoryData: any | undefined;
+  @Input()
+  showAdminButtons: boolean = true;
   constructor() {}
 
   ngOnInit() {

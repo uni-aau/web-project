@@ -20,6 +20,8 @@ export class ModelComponent {
   modelAssignedToCategory: string = 'Assigned to: {0}'
   @Input()
   modelData: any | undefined;
+  @Input()
+  showAdminButtons: boolean = true;
   constructor() {}
 
   ngOnInit() {

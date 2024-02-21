@@ -35,6 +35,7 @@
       <bike-component
         *ngFor="let bike of bikes"
         [bikeData]="bike"
+        [visibleAdminButtons]="false"}
         rootClassName="bike-component-root-class-name4"
       ></bike-component>
 
@@ -44,6 +45,7 @@
       class="booking-component-model-container">
       <model-component
         *ngFor="let model of models"
+        [showAdminButtons]="false"
         [modelData]="model"
         rootClassName="model-component-root-class-name"
       ></model-component>
@@ -53,6 +55,7 @@
       class="booking-component-categories-container">
       <category-component
         *ngFor="let category of categories"
+        [showAdminButtons]="false"
         [categoryData]="category"
         rootClassName="category-component-root-class-name"
       ></category-component>
