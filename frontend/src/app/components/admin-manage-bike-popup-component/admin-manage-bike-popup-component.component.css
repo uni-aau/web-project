@@ -2,15 +2,7 @@
   display: contents; 
 }
 .admin-manage-bike-popup-component-container {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  padding: var(--dl-space-space-halfunit);
-  position: relative;
-  align-self: center;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
+  width: 600px;
 }
 .admin-manage-bike-popup-component-form {
   width: 100%;
@@ -27,6 +19,17 @@
 .admin-manage-bike-popup-component-container2 {
   flex: 0 0 auto;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+}
+.admin-manage-bike-popup-component-textinput {
+  width: 100%;
+}
+.admin-manage-bike-popup-component-container3 {
+  flex: 0 0 auto;
+  width: 100%;
   height: auto;
   display: flex;
   margin-top: var(--dl-space-space-halfunit);
@@ -34,7 +37,7 @@
   margin-bottom: var(--dl-space-space-unit);
   justify-content: center;
 }
-.admin-manage-bike-popup-component-container3 {
+.admin-manage-bike-popup-component-container4 {
   flex: 0 0 auto;
   width: 50%;
   display: flex;
@@ -42,10 +45,10 @@
   padding-right: var(--dl-space-space-halfunit);
   flex-direction: column;
 }
-.admin-manage-bike-popup-component-textinput {
+.admin-manage-bike-popup-component-textinput1 {
   width: 100%;
 }
-.admin-manage-bike-popup-component-container4 {
+.admin-manage-bike-popup-component-container5 {
   flex: 0 0 auto;
   width: 50%;
   display: flex;
@@ -53,10 +56,10 @@
   padding-left: var(--dl-space-space-halfunit);
   flex-direction: column;
 }
-.admin-manage-bike-popup-component-textinput1 {
+.admin-manage-bike-popup-component-textinput2 {
   width: 100%;
 }
-.admin-manage-bike-popup-component-container5 {
+.admin-manage-bike-popup-component-container6 {
   flex: 0 0 auto;
   width: 100%;
   height: auto;
@@ -66,7 +69,7 @@
   margin-bottom: var(--dl-space-space-unit);
   justify-content: center;
 }
-.admin-manage-bike-popup-component-container6 {
+.admin-manage-bike-popup-component-container7 {
   flex: 0 0 auto;
   width: 50%;
   display: flex;
@@ -78,7 +81,7 @@
   width: 100%;
   height: 40px;
 }
-.admin-manage-bike-popup-component-container7 {
+.admin-manage-bike-popup-component-container8 {
   flex: 0 0 auto;
   width: 50%;
   height: 100%;
@@ -88,10 +91,10 @@
   flex-direction: column;
   justify-content: center;
 }
-.admin-manage-bike-popup-component-text4 {
+.admin-manage-bike-popup-component-text09 {
   align-self: center;
 }
-.admin-manage-bike-popup-component-text5 {
+.admin-manage-bike-popup-component-text10 {
   font-size: 22px;
   align-self: center;
   font-style: normal;
@@ -101,11 +104,6 @@
 }
 @media(max-width: 767px) {
   .admin-manage-bike-popup-component-container {
-    width: 75%;
-  }
-}
-@media(max-width: 479px) {
-  .admin-manage-bike-popup-component-container {
-    width: 95%;
+    width: 100%;
   }
 }

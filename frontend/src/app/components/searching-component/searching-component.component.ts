@@ -21,13 +21,15 @@ export class SearchingComponent {
   visibleCreateButton: boolean = true;
 
   searchTerm: string = '';
-  constructor(public AuthService:AuthService) {}
+
+  constructor(public AuthService: AuthService) {
+  }
 
   onSearch() {
     this.search.emit(this.searchTerm);
   }
 
-  onCreate(){
+  onCreate() {
     this.create.emit();
   }
 }
