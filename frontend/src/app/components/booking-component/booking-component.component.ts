@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core'
 import {BikeService} from "../../services/bike.service";
 import {ModelService} from "../../services/model.service";
 import {CategoryService} from "../../services/category.service";
+import {PopupService} from "../../services/popup.service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'booking-component',
@@ -26,7 +28,10 @@ export class BookingComponent {
   models: any;
   categories: any;
   currentSelection: string | null = null;
-  constructor(private bikeService:BikeService, private modelService:ModelService, private categoryService:CategoryService) {}
+  constructor(private bikeService:BikeService,
+              private modelService:ModelService,
+              private categoryService:CategoryService,
+              private popupService:PopupService) {}
 
   ngOnInit() {
     this.fetchData();
@@ -74,5 +79,15 @@ export class BookingComponent {
     } else {
       this.currentSelection = componentName;
     }
+  }
+
+  performBook($event: any) {
+    this.popupService.openBookTicketPopup("category", "bikeName", 123).subscribe({
+      next: (val) => {
+
+      },
+      error: (err) => console.log(err)
+      }
+    )
   }
 }

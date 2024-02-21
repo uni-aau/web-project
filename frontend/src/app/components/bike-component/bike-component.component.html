@@ -26,8 +26,10 @@
           [attr.src]="bikeImageSrc"
           class="bike-component-image"
         />
-        <button-book-component *ngIf="visibleBookButton"
-                               rootClassName="button-book-component-root-class-name2"
+        <button-book-component
+          (click)="performBook($event)"
+          *ngIf="visibleBookButton"
+          rootClassName="button-book-component-root-class-name2"
         ></button-book-component>
 
         <button-assign-update-delete-component *ngIf="visibleAdminButtons" (buttonClicked)="handleButtonClicked($event)"

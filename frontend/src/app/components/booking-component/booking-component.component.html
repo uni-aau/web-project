@@ -35,7 +35,8 @@
       <bike-component
         *ngFor="let bike of bikes"
         [bikeData]="bike"
-        [visibleAdminButtons]="false"}
+        [visibleAdminButtons]="false"
+        (book) ="performBook($event)"
         rootClassName="bike-component-root-class-name4"
       ></bike-component>
 

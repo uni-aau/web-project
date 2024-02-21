@@ -10,6 +10,9 @@ import {DomSanitizer} from "@angular/platform-browser";
   styleUrls: ['bike-component.component.css'],
 })
 export class BikeComponent implements OnInit {
+  @Output()
+  book = new EventEmitter();
+
   @Input()
   bikeAssignedStation: string = 'Assigned Bike Station: {0}'
   @Input()
@@ -158,4 +161,7 @@ export class BikeComponent implements OnInit {
   }
 
 
+  performBook($event: MouseEvent) {
+    this.book.emit()
+  }
 }
