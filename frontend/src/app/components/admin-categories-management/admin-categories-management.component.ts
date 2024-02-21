@@ -38,8 +38,8 @@ export class AdminCategoriesManagement {
         if (!searchTerm) {
             this.filteredCategories = this.categories;
         } else {
-            this.categories = this.categories.filter(category => {
-                category.category_name.toLowerCase().includes(searchTerm.toLowerCase())
+            this.filteredCategories = this.categories.filter(category => {
+                return category.category_name.toLowerCase().includes(searchTerm.toLowerCase())
             });
         }
     }
