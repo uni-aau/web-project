@@ -60,7 +60,7 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({exists: true, message: "User with this username or email already exists!"})
         }
 
-        const walletResult = await pool.query('INSERT INTO Wallet (balance) VALUES (0) RETURNING *');
+        const walletResult = await pool.query('INSERT INTO Wallet (balance, available_balance) VALUES (0, 0) RETURNING *');
 
         const userResult = await pool.query(
             'INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',

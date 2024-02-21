@@ -13,28 +13,28 @@ export class WalletAccountDropDownComponent {
   walletSettingsTitle: string = 'Wallet'
   @Input()
   walletSettingsMoneyAmount: string =
-    'Total Amount: {0} | Available Amount: {1}'
+    'Total Amount: {0}$ | Available Amount: {1}$'
   // TODO use angular translation handler
   walletSettingsMoneyAmountOld: string =
-    'Total Amount: {0} | Available Amount: {1}'
+    'Total Amount: {0}$ | Available Amount: {1}$'
   @Input()
-  walletSettingsConnectWalletSubtitle: string = 'Connect or remove your wallet'
+  walletSettingsConnectWalletSubtitle: string = 'Connect or remove your bank account'
   @Input()
   walletSettingsDepositMoneySubtitle: string =
     'Deposit money into your account wallet to be able to buy tickets'
   @Input()
-  walletSettingsButtonRemoveWallet: string = 'Remove Wallet'
+  walletSettingsButtonRemoveWallet: string = 'Remove Account'
   @Input()
   walletSettingsTitleDepositMoney: string = 'Deposit Money'
   @Input()
   walletSettingsButtonDepositMoney: string = 'Deposit Money'
   @Input()
-  walletSettingsButtonConnectWallet: string = 'Connect Wallet'
+  walletSettingsButtonConnectWallet: string = 'Connect Account'
   @Input()
   rootClassName: string = ''
   @Input()
-  walletSettingsTitleConnectWallet: string = 'Connect/Remove Wallet ({0})'
-  walletSettingsTitleConnectWalletOld: string = 'Connect/Remove Wallet ({0})'
+  walletSettingsTitleConnectWallet: string = 'Connect/Remove Bank Account ({0})'
+  walletSettingsTitleConnectWalletOld: string = 'Connect/Remove Bank Account ({0})'
   @Input()
   walletSettingsDepositMoneyError: string = ''
   @Input()
@@ -109,16 +109,18 @@ export class WalletAccountDropDownComponent {
 
 
   depositMoney() {
-    this.popupService.openDepositMoneyPopup().subscribe(result => {
-      if (result > 0) {
-        console.log("Valid amount: " + result);
-        this.walletService.depositMoney(result).subscribe({
-          next: (res) => {
-            this.fetchWalletAmount();
-          },
-          error: (err) => console.log("Error depositing money: ", err)
-        });
-      }
-    });
+    if(this.connectedBankAccount) {
+      this.popupService.openDepositMoneyPopup().subscribe(result => {
+        if (result > 0) {
+          console.log("Valid amount: " + result);
+          this.walletService.depositMoney(result).subscribe({
+            next: (res) => {
+              this.fetchWalletAmount();
+            },
+            error: (err) => console.log("Error depositing money: ", err)
+          });
+        }
+      });
+    } else alert("Please connect bank account first")
   }
 }
