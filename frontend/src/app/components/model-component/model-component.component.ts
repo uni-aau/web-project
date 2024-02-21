@@ -65,35 +65,39 @@ export class ModelComponent implements OnInit {
         if (this.modelData.bike_count == 0) {
             this.popupService.openPopup(this.deleteModelPopupDescription)
                 .subscribe(result => {
-                    if (result) {
-                        this.modelService.deleteModel(this.modelId).subscribe({
-                            next: (res) => {
-                                if (res.success) {
-                                    this.onModelDelete.emit(this.modelId);
-                                } else {
-                                    console.log("Error, deletion was not successful: ", res);
-                                }
-                            },
-                            error: (err) => console.log(`Error while deleting model ${this.modelId}:`, err)
-                        })
-                    }
+                    if (result) this.executeDeletionQuery();
                 })
         } else alert("There are currently bikes assigned") // TODO reset with actual snackbar
+    }
+
+    executeDeletionQuery() {
+        this.modelService.deleteModel(this.modelId).subscribe({
+            next: (res) => {
+                if (res.success) {
+                    this.onModelDelete.emit(this.modelId);
+                } else {
+                    console.log("Error, deletion was not successful: ", res);
+                }
+            },
+            error: (err) => console.log(`Error while deleting model ${this.modelId}:`, err)
+        })
     }
 
     updateModel() {
         this.popupService.openUpdateModelPopup(this.modelData.model_name, this.modelData.price).subscribe({
             next: (val) => {
-                if (val) {
-                    this.modelService.updateModel(this.modelId, val.modelName, val.modelPrice, val.categoryId).subscribe({
-                        next: (val) => {
-                            if (val.success) {
-                                console.log(val);
-                                this.onModelUpdate.emit(this.modelId);
-                            }
-                        },
-                        error: (err) => console.log(err)
-                    })
+                if (val) this.executeUpdateQuery(val);
+            },
+            error: (err) => console.log(err)
+        })
+    }
+
+    executeUpdateQuery(val: any) {
+        this.modelService.updateModel(this.modelId, val.modelName, val.modelPrice, val.categoryId).subscribe({
+            next: (val) => {
+                if (val.success) {
+                    console.log(val);
+                    this.onModelUpdate.emit(this.modelId);
                 }
             },
             error: (err) => console.log(err)
