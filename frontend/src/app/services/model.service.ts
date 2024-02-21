@@ -17,7 +17,15 @@ export class ModelService {
     }
 
     addModel(modelName: string, modelPrice: number, categoryId: number): Observable<any> {
-        return this.http.put(`${baseUrl}/model`, {modelName: modelName, price: modelPrice, categoryId: categoryId});
+        return this.http.post(`${baseUrl}/model`, {modelName: modelName, price: modelPrice, categoryId: categoryId});
+    }
+
+    deleteModel(modelId: number): Observable<any> {
+        return this.http.delete(`${baseUrl}/model/${modelId}`);
+    }
+
+    updateModel(modelId: number, modelName: string, modelPrice: number, categoryId: number): Observable<any> {
+        return this.http.put(`${baseUrl}/model/${modelId}`, {modelName: modelName, price: modelPrice, categoryId: categoryId});
     }
 
 }

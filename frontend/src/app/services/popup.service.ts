@@ -87,4 +87,10 @@ export class PopupService {
         return dialogRef.afterClosed();
     }
 
+    openUpdateModelPopup(modelName: string, modelPrice: number) {
+        const dialogRef = this.dialog.open(AdminManageModelPopupComponent, {data: {modelName: modelName, modelPrice: modelPrice}})
+
+        return dialogRef.afterClosed();
+    }
+
 }
