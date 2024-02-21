@@ -7,6 +7,14 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageModelPopupComponent {
   @Input()
+  adminManageModelLabelAssignModels: string = 'Assign Category'
+  @Input()
+  manageModelAssignModelErrorHint: string = ''
+  @Input()
+  manageModelNameErrorHint: string = ''
+  @Input()
+  manageModelPriceErrorHint: string = ''
+  @Input()
   adminManageModelInputPlaceholderName: string = 'Enter name'
   @Input()
   adminManageModelInputPlaceholderPrice: string = 'Price'
@@ -16,13 +24,5 @@ export class AdminManageModelPopupComponent {
   adminManageModelLabelName: string = 'Model Name'
   @Input()
   adminManageModelTitle: string = 'Manage Model'
-  @Input()
-  adminManageModelLabelAssignModels: string = 'Assign Category'
-  @Input()
-  manageModelNameErrorHint: string = ''
-  @Input()
-  manageModelPriceErrorHint: string = ''
-  @Input()
-  manageModelAssignModelErrorHint: string = ''
   constructor() {}
 }

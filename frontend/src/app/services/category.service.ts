@@ -15,4 +15,16 @@ export class CategoryService {
     return this.http.get(`${baseUrl}/`);
   }
 
+  deleteCategory(categoryId: number) : Observable<any> {
+    return this.http.delete(`${baseUrl}/category/${categoryId}`);
+  }
+
+  updateCategory(categoryId: number, categoryName: string, categoryPrice: number) : Observable<any> {
+    return this.http.put(`${baseUrl}/category/${categoryId}`, {categoryName: categoryName, price: categoryPrice});
+  }
+
+  addCategory(categoryName: string, categoryPrice: number) : Observable<any> {
+    return this.http.post(`${baseUrl}/category`, {categoryName: categoryName, price: categoryPrice});
+  }
+
 }

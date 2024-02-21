@@ -39,7 +39,7 @@ export class AdminBikesManagementComponent {
       this.filteredBikes = this.bikes;
     } else {
       this.filteredBikes = this.bikes.filter(bike => {
-        bike.bike_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        return bike.bike_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         bike.category_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         bike.model_name.toLowerCase().includes(searchTerm.toLowerCase())
       });
