@@ -48,7 +48,7 @@ export class AdminManageBikePopupComponent {
   bikeSize: number | undefined;
   bikePrice: number | undefined;
   isOperational: boolean = true; // Default value
-  imageLink = ''; // TODO
+  imageLink: string | undefined; // TODO
 
   bikeModels: any[] = [];
   modelId: number = -1;
@@ -96,14 +96,14 @@ export class AdminManageBikePopupComponent {
 
     // Only check checkbox if data exists (update button was pressed)
     if (this.data) {
-      if(this.isOperational && (this.data.isOperational != 'Available' || this.data.isOperational != 'Maintenance')) {
+      if(this.isOperational && (this.data.bikeStatus != 'Available' && this.data.bikeStatus != 'Maintenance')) {
         this.adminManageBikeCheckboxError = 'Bike is currently used';
         return;
       }
       this.adminManageBikeCheckboxError = '';
     }
 
-    this.dialogRef.close( {bikeName: this.bikeName, bikePrice: this.bikePrice, isOperational: this.isOperational, imageLink: this.imageLink, modelId: this.modelId})
+    this.dialogRef.close( {bikeName: this.bikeName, bikePrice: this.bikePrice, bikeSize: this.bikeSize, isOperational: this.isOperational, imageLink: this.imageLink, modelId: this.modelId})
   }
 
 
@@ -111,9 +111,8 @@ export class AdminManageBikePopupComponent {
     this.bikeName = this.data.bikeName;
     this.bikePrice = this.data.bikePrice;
     this.bikeSize = this.data.bikeSize;
-    this.isOperational = this.data.isOperational;
     this.imageLink = this.data.imageLink;
-    this.isOperational = this.data.isOperational === 'Available'
+    this.isOperational = this.data.bikeStatus === 'Available'
   }
 
   fetchModels() {

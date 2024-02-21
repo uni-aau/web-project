@@ -28,13 +28,13 @@ router.get('/bike/:bikeId', function (req, res) {
 
 // For creating/updating new bike with update button
 router.post('/bike', function (req, res) {
-    const {stationId, bikeName, modelId, status, size, price, bike_image_location} = req.body;
+    const {bikeName, modelId, status, size, price, bike_image_location} = req.body;
 
-    if (!stationId || !bikeName || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
+    if (!bikeName || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
 
     let query = {
-        text: 'INSERT INTO BIKE (station_id, bike_name, model_id, status, size, price, bike_image_location) VALUES($1, $2, $3, $4, $5, $6, $7)',
-        values: [stationId, bikeName, modelId, status, size, price, bike_image_location]
+        text: 'INSERT INTO BIKE (bike_name, model_id, status, size, price, bike_image_location) VALUES($1, $2, $3, $4, $5, $6)',
+        values: [bikeName, modelId, status, size, price, bike_image_location]
     }
 
     DatabaseService.executeInsertionQuery(query)
@@ -44,13 +44,13 @@ router.post('/bike', function (req, res) {
 
 router.put('/bike/:bikeId', function (req, res) {
     const {bikeId} = req.params;
-    const {stationId, bikeName, modelId, status, size, price, bike_image_location} = req.body;
+    const {bikeName, modelId, status, size, price, bikeImage} = req.body;
 
-    if (!stationId || !bikeName || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
+    if (!bikeName || !modelId || !status || !size || !price) return res.status(500).json({error: "Not all required data inserted"});
 
     let query = {
-        text: 'UPDATE BIKE SET station_id = $1, bike_name = $2, model_id = $3, status = $4, size = $5, price = $6, bike_image_location = $7 WHERE bike_id = $8',
-        values: [stationId, bikeName, modelId, status, size, price, bike_image_location, bikeId]
+        text: 'UPDATE BIKE SET bike_name = $1, model_id = $2, status = $3, size = $4, price = $5, bike_image_location = $6 WHERE bike_id = $7',
+        values: [bikeName, modelId, status, size, price, bikeImage, bikeId]
     }
 
     DatabaseService.executeUpdateQuery(query)

@@ -98,22 +98,16 @@ export class BikeComponent implements OnInit {
   updateBike() {
     this.popupService.openUpdateBikePopup(this.bikeData.bike_name, this.bikeData.size, this.bikeData.price, this.bikeData.status, this.bikeData.bike_image_location).subscribe({
       next: (val) => {
-        if(val) {
-          // BS
-        }
-      },
-      error: (err) => console.log(err)
-    })
+        if (val) {
+          let bikeStatus = ''
+          if (this.bikeStatus === 'Available' && !val.isOperational) bikeStatus = 'Maintenance';
+          else if (this.bikeStatus === 'Maintenance' && val.isOperational) bikeStatus = 'Available';
+          else bikeStatus = this.bikeStatus;
 
-    this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe({
-      next: (val) => {
-        if (val && val.spotNumber && val.stationId) {
-          this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
+          this.bikeService.updateBike(this.bikeId, val.bikeName, val.bikeSize, val.bikePrice, bikeStatus, val.imageLink, val.modelId).subscribe({
             next: (val) => {
-              if (val.success) {
+              if(val.success) {
                 this.onBikeUpdate.emit(this.bikeId);
-              } else {
-                console.log("Error, deletion was not successful: ", val);
               }
             },
             error: (err) => console.log(err)
@@ -122,8 +116,6 @@ export class BikeComponent implements OnInit {
       },
       error: (err) => console.log(err)
     })
-
-    // TODO DB HANDLER
   }
 
   assignBike() {

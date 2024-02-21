@@ -23,7 +23,7 @@ export class BikeService {
       return this.http.put(`${baseURL}/bike/${bikeId}/assign-spot`, {stationId: stationId, spotNumber: spotNumber});
   }
 
-  updateBike() {
-    // TODO
+  updateBike(bikeId:number, bikeName: string, bikeSize: number, bikePrice: number, bikeStatus: string, bikeImage: string, modelId: number ): Observable<any> {
+    return this.http.put(`${baseURL}/bike/${bikeId}`, {bikeName: bikeName, modelId: modelId, status: bikeStatus, bikeImage: bikeImage, size: bikeSize, price: bikePrice});
   }
 }

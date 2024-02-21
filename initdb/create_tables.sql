@@ -80,7 +80,7 @@ CREATE TABLE Bike
     is_available        BOOLEAN DEFAULT TRUE,
     status              bike_status NOT NULL,
     size                INT         NOT NULL,
-    price               FLOAT,
+    price               FLOAT NOT NULL,
     bike_image_location VARCHAR DEFAULT '/assets/no-image.svg'
 );
 

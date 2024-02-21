@@ -42,8 +42,8 @@ export class PopupService {
     return dialogRef.afterClosed();
   }
 
-  openUpdateBikePopup(bikeName: string, bikeSize: number, bikePrice: number, isOperational : string, imageLink: string) {
-    const dialogRef = this.dialog.open(AdminManageBikePopupComponent, {data: {bikeName: bikeName, bikePrice: bikePrice, bikeSize: bikeSize, isOperational: isOperational, imageLink: imageLink}})
+  openUpdateBikePopup(bikeName: string, bikeSize: number, bikePrice: number, bikeStatus : string, imageLink: string) {
+    const dialogRef = this.dialog.open(AdminManageBikePopupComponent, {data: {bikeName: bikeName, bikePrice: bikePrice, bikeSize: bikeSize, bikeStatus: bikeStatus, imageLink: imageLink}})
 
     return dialogRef.afterClosed();
   }
