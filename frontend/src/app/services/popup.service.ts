@@ -18,6 +18,7 @@ import {
 import {
     AdminManageModelPopupComponent
 } from "../components/admin-manage-model-popup-component/admin-manage-model-popup-component.component";
+import {NewReviewPopupComponent} from "../components/new-review-popup-component/new-review-popup-component.component";
 
 @Injectable({
     providedIn: 'root'
@@ -91,6 +92,12 @@ export class PopupService {
         const dialogRef = this.dialog.open(AdminManageModelPopupComponent, {data: {modelName: modelName, modelPrice: modelPrice}})
 
     return dialogRef.afterClosed();
+  }
+
+  openNewReviewPopup() {
+      const dialogRef = this.dialog.open(NewReviewPopupComponent)
+
+      return dialogRef.afterClosed();
   }
 
 }

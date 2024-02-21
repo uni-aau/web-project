@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .new-review-popup-component-container {
   width: 400px;
@@ -78,7 +78,7 @@
   width: 100%;
   height: var(--dl-size-size-medium);
   max-width: 100%;
-  min-width: 50%;
+  min-width: 100%;
   max-height: var(--dl-size-size-medium);
   min-height: var(--dl-size-size-small);
 }
@@ -88,6 +88,15 @@
   margin-right: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
+
+.review-star {
+  /*fill: ; !* Default color for unselected stars *!*/
+}
+
+.review-star-filled {
+  fill: black; /* Color for selected stars */
+}
+
 @media(max-width: 767px) {
   .new-review-popup-component-container {
     width: 100%;

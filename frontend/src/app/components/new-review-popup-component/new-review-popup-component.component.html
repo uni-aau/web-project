@@ -8,37 +8,14 @@
       <span class="new-review-popup-component-text1">
         {{ newReviewSubtitleRating }}
       </span>
-      <span
-        id="review-rating-delete-button"
-        class="new-review-popup-component-text2 link-text-font"
-      >
-        {{ newReviewLinkDelete }}
-      </span>
     </div>
     <div class="new-review-popup-component-container3">
-      <svg id="rating-star1" viewBox="0 0 1024 1024" class="review-star">
-        <path
-          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-        ></path></svg
-      ><svg id="rating-star2" viewBox="0 0 1024 1024" class="review-star">
-        <path
-          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-        ></path></svg
-      ><svg id="rating-star3" viewBox="0 0 1024 1024" class="review-star">
-        <path
-          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-        ></path></svg
-      ><svg id="rating-star4" viewBox="0 0 1024 1024" class="review-star">
-        <path
-          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-        ></path></svg
-      ><svg id="rating-star5" viewBox="0 0 1024 1024" class="review-star">
-        <path
-          d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-        ></path>
+      <svg *ngFor="let star of stars; let i = index" (click)="setRating(i + 1)" viewBox="0 0 1024 1024" class="review-star">
+        <path [attr.d]="getPath(i)" ></path>
       </svg>
     </div>
-    <form class="new-review-popup-component-form">
+
+    <div class="new-review-popup-component-form">
       <div class="new-review-popup-component-container4">
         <span class="input-label-text">{{ newReviewLabelTitle }}</span>
         <input
@@ -47,6 +24,8 @@
           required
           [attr.placeholder]="newReviewInputPlaceholderTitle"
           class="new-review-popup-component-textinput input"
+          [(ngModel)]="ratingTitle"
+          name="title"
         />
         <span class="input-error-hint">{{ newReviewTitleError }}</span>
       </div>
@@ -55,10 +34,10 @@
         <select
           id="rating-model-selector"
           class="new-review-popup-component-select selector-style"
+          (change)="handleSelect($event)"
         >
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-          <option value="Option 3">Option 3</option>
+          <option [value]="-1">{{newRatingGeneralSelection}}</option>
+          <option *ngFor="let model of bikeModels" [value]="model.model_id">{{model.model_name}}</option>
         </select>
         <span class="input-error-hint">{{ newReviewModelError }}</span>
       </div>
@@ -67,14 +46,16 @@
         id="rating-description-input"
         [attr.placeholder]="newReviewInputPlaceholderDescription"
         class="new-review-popup-component-textarea textarea"
+        [(ngModel)]="ratingDescription"
       ></textarea>
       <span class="input-error-hint">{{ newReviewDescriptionError }}</span>
-    </form>
+    </div>
   </div>
   <button
     id="rating-send-button"
     type="button"
     class="new-review-popup-component-button button-blue button-general"
+    (click)="handleConfirm()"
   >
     {{ newReviewButtonSend }}
   </button>

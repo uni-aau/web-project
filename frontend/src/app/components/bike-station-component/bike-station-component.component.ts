@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core'
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {ReviewsService} from "../../services/reviews.service";
 import {Router} from "@angular/router";
 import {BikeStation} from "../../types/bikeStation.type";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'bike-station-component',
@@ -32,6 +33,8 @@ export class BikeStationComponent implements OnInit {
   @Input()
   bikeStationImageSrc1: string = '/assets/no-image.svg'
 
+  @Output() onStationUpdate: EventEmitter<any> = new EventEmitter<any>();
+
   noRatingsText = "(No Ratings)";
   ratingsErrorText = "(Error)";
 
@@ -50,7 +53,7 @@ export class BikeStationComponent implements OnInit {
   ratingNumberReversed = Array(5).fill(0).map((x, i) => i);
   maxRating = 5;
 
-  constructor(private reviewService: ReviewsService, private router: Router) {
+  constructor(private reviewService: ReviewsService, private router: Router, private popupService: PopupService) {
   }
 
   ngOnInit() {
@@ -92,4 +95,12 @@ export class BikeStationComponent implements OnInit {
       state: {station: this.bikeStation}
     });
   }
+
+  rateStation() {
+    this.popupService.openNewReviewPopup().subscribe(result => {
+      if(result) console.log("Blub ", result);
+    })
+  }
+
+
 }
