@@ -1,17 +1,20 @@
 <div class="admin-model-management-container" [ngClass]="rootClassName">
   <span class="heading">{{ adminModelsManagement }}</span>
-  <searching-component
+  <searching-component [searchInputPlaceholder]="'Search for models...'" (search)="performSearch($event)" (create)="performCreate()"
     rootClassName="searching-component-root-class-name4"
   ></searching-component>
+
+  <div *ngIf="models.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
+
   <div
     id="manage-models-entry-list-container"
     class="admin-model-management-container1"
+    *ngIf="models.length > 0"
   >
-    <model-component
+    <model-component [visibleBookButton]="false" *ngFor="let model of filteredModels" [modelData]="model" (onModelUpdate)="handleModelUpdate()" (onModelDelete)="handleModelDelete()"
       rootClassName="model-component-root-class-name3"
-    ></model-component>
-    <model-component
-      rootClassName="model-component-root-class-name4"
     ></model-component>
   </div>
 </div>

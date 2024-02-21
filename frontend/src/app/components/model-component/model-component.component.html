@@ -9,11 +9,11 @@
       <span class="model-bike-category-general-text">{{ modelPrice }}</span>
     </div>
     <div class="list-button-container">
-      <button-update-delete-component
+      <button-update-delete-component (buttonClicked)="handleButtonClicked($event)"
         *ngIf="showAdminButtons"
         rootClassName="button-update-delete-component-root-class-name"
       ></button-update-delete-component>
-      <button-book-component
+      <button-book-component *ngIf="visibleBookButton"
         rootClassName="button-book-component-root-class-name"
       ></button-book-component>
     </div>

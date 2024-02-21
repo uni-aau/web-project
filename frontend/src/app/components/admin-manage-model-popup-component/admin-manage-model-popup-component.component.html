@@ -9,6 +9,8 @@
           id="manage-model-name-input"
           [attr.placeholder]="adminManageModelInputPlaceholderName"
           class="admin-manage-model-popup-component-textinput input"
+          [(ngModel)]="modelName"
+          name="modelName"
         />
         <span class="input-error-hint">{{ manageModelNameErrorHint }}</span>
       </div>
@@ -19,6 +21,8 @@
           id="manage-model-price-input"
           [attr.placeholder]="adminManageModelInputPlaceholderPrice"
           class="admin-manage-model-popup-component-textinput1 input"
+          [(ngModel)]="modelPrice"
+          name="modelPrice"
         />
         <span class="input-error-hint">{{ manageModelPriceErrorHint }}</span>
       </div>
@@ -29,14 +33,16 @@
     <select
       id="manage-category-models-selector"
       class="admin-manage-model-popup-component-select selector-style"
+      (change)="handleSelect($event)"
     >
-      <option value="Option 1">Option 1</option>
+      <option [value]="-1">{{adminManageModelSelectorGeneralSelection}}</option>
+      <option *ngFor="let category of bikeCategories" [value]="category.category_id">{{category.category_name}}</option>
     </select>
     <span class="admin-manage-model-popup-component-text6 input-error-hint">
       {{ manageModelAssignModelErrorHint }}
     </span>
   </form>
-  <button-save-discard-component
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
     rootClassName="button-save-discard-component-root-class-name1"
   ></button-save-discard-component>
 </div>
