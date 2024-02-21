@@ -47,6 +47,7 @@
       <model-component
         *ngFor="let model of models"
         [showAdminButtons]="false"
+        [visibleBookButton]="true"
         [modelData]="model"
         rootClassName="model-component-root-class-name"
       ></model-component>
@@ -57,6 +58,7 @@
       <category-component
         *ngFor="let category of categories"
         [showAdminButtons]="false"
+        [visibleBookButton]="true"
         [categoryData]="category"
         rootClassName="category-component-root-class-name"
       ></category-component>

@@ -173,10 +173,12 @@ export class BikeComponent implements OnInit {
     })
   }
 
-  performBook(bikeData: any) {
-    const dialogRef = this.popupService.openBookTicketPopup(bikeData.category, bikeData.name, bikeData.price);
+  performBook($event: MouseEvent) {
+    console.log(this.bikeData)
+    const dialogRef = this.popupService.openBookTicketPopup(this.bikeCategory, this.bikeBikeName, this.bikeData.price)
 
-    dialogRef.subscribe(result => {
+
+      dialogRef.subscribe(result => {
       if (result) {
         const { price, status, bookingDate, endDate } = result;
 

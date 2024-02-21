@@ -66,7 +66,10 @@ export class BookTicketPopupComponent {
   }
 
   performBook() {
-    if (!this.immediateBooking) {
+    if (this.immediateBooking) {
+      this.bookingDate = new Date();
+      this.formattedBookingDate = this.formatDateForInput(this.bookingDate);
+    } else {
       this.updateFormattedBookingDate();
     }
 
@@ -78,7 +81,7 @@ export class BookTicketPopupComponent {
       bikeId: this.data.bikeId,
       modelId: this.data.modelId,
       categoryId: this.data.categoryId,
-      status: this.immediateBooking ? 'Booked' : 'Reserved',
+      status: this.immediateBooking ? 'Rented' : 'Booked',
       bookingDate: this.formattedBookingDate,
       endDate: formattedEndDate
     });
