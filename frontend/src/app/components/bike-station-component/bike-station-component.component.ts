@@ -70,10 +70,11 @@ export class BikeStationComponent implements OnInit {
           data.forEach((rate: any) => {
             sum += rate.rating
           })
-          sum = sum / data.length;
-          this.bikeStationRatingAmount = "(" + String(sum) + ")";
-          const rating = data[0].rating;
-          this.ratingNumber = Array(rating).fill(0).map((x, i) => i);
+
+          let mean = sum / data.length;
+          this.bikeStationRatingAmount = "(" + String(mean.toFixed(2)) + ")";
+          let rating = Math.floor(mean);
+          this.ratingNumber = Array(Math.round(rating)).fill(0).map((x, i) => i);
           this.ratingNumberReversed = Array(this.maxRating - rating).fill(0).map((x, i) => i);
         },
         error: (err) => {
