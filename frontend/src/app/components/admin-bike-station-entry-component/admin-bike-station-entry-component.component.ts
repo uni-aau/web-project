@@ -77,4 +77,12 @@ export class AdminBikeStationEntryComponent {
       }
     })
   }
+
+  performManageRatingsClick() {
+      this.router.navigate(["/bike-station/reviews"], {
+       state: {stationId: this.bikeStation.station_id}
+    });
+  }
+
+
 }
