@@ -16,7 +16,8 @@ export class AdminManageBikeStationComponent {
     longitude: 0,
     station_address: "string",
     station_image_location: "string",
-    station_name: "string"
+    station_name: "string",
+    station_id: 0
   };
 
   @Output() save: EventEmitter<BikeStation> = new EventEmitter<BikeStation>();

@@ -19,32 +19,18 @@
           </span>
         </div>
         <div class="admin-bike-station-entry-component-container05">
-          <svg id="rating-star1" viewBox="0 0 1024 1024" class="review-star">
-            <path
-              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-            ></path></svg
-          ><svg id="rating-star2" viewBox="0 0 1024 1024" class="review-star">
-            <path
-              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-            ></path></svg
-          ><svg id="rating-star3" viewBox="0 0 1024 1024" class="review-star">
-            <path
-              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-            ></path></svg
-          ><svg id="rating-star4" viewBox="0 0 1024 1024" class="review-star">
-            <path
-              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-            ></path></svg
-          ><svg
-            id="rating-star5"
-            viewBox="0 0 1024 1024"
-            class="admin-bike-station-entry-component-icon08 review-star"
-          >
-            <path
-              d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
-            ></path>
-          </svg>
-          <span class="admin-bike-station-entry-component-text3">
+          <div *ngFor="let number of ratingNumber">
+            <svg viewBox="0 0 1024 1024" class="review-star">
+              <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+            </svg>
+          </div>
+
+          <div *ngFor="let number of ratingNumberReversed">
+            <svg viewBox="0 0 1024 1024" class="review-star">
+              <path d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
+            </svg>
+          </div>
+          <span class="bike-station-component-text3">
             {{ adminBikeStationEntryStarRatingNumber }}
           </span>
         </div>

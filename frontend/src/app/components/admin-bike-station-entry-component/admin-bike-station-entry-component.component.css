@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .admin-bike-station-entry-component-container {
   width: 100%;
@@ -82,7 +82,9 @@
   font-style: normal;
   text-align: center;
   font-weight: 500;
+  margin-left: var(--dl-space-space-halfunit);
 }
+
 .admin-bike-station-entry-component-container06 {
   flex: 0 0 auto;
   width: 40%;

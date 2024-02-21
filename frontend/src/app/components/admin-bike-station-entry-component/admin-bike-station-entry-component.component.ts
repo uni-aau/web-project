@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {Router} from "@angular/router";
 import {BikeStation} from "../../types/bikeStation.type";
+import {BikeStationService} from "../../services/bikestation.service";
+import {ReviewsService} from "../../services/reviews.service";
 
 @Component({
   selector: 'admin-bike-station-entry-component',
@@ -16,7 +18,8 @@ export class AdminBikeStationEntryComponent {
     longitude: 0,
     station_address: "string",
     station_image_location: "string",
-    station_name: "string"
+    station_name: "string",
+    station_id: 0
   };
   @Input()
   adminBikeStationEntryButtonUpdate: string = 'Update'
@@ -40,7 +43,32 @@ export class AdminBikeStationEntryComponent {
   adminBikeStationEntryLocation: string = '{0}'
   @Input()
   rootClassName: string = ''
-  constructor(private router : Router) {}
+
+  ratingNumber = Array(1).fill(0).map((x, i) => i);
+  ratingNumberReversed = Array(5).fill(0).map((x, i) => i);
+  maxRating = 5;
+
+  constructor(private router : Router, private reviewService:ReviewsService) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.reviewService.fetchStationReviews(this.bikeStation.station_id).subscribe((data)=> {
+      // this.bikeStationRatingAmount = data[0].rating;
+      console.log(data[0].rating)
+      let sum = 0;
+      data.forEach((rate:any) => {
+        sum += rate.rating
+      })
+      sum = sum / data.length;
+      this.adminBikeStationEntryStarRatingNumber = "(" + String(sum) +")";
+      const rating = data[0].rating;
+      this.ratingNumber = Array(rating).fill(0).map((x, i) => i);
+      this.ratingNumberReversed = Array(this.maxRating - rating).fill(0).map((x, i) => i);
+    })
+  }
 
   onUpdate(){
     this.router.navigate(["/admin-manage-bike-station"], {

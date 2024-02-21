@@ -1,5 +1,6 @@
 
 export interface BikeStation {
+  station_id: number;
   station_name: string;
   station_address: string;
   description: string;
