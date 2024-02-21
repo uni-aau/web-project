@@ -10,7 +10,7 @@ import {CategoryService} from "../../services/category.service";
 })
 export class BookingComponent {
   @Input()
-  bookingLabelSearch: string = 'Location: %s | Station: %s'
+  bookingLabelSearch: string = 'Location: {0} | Station: {1}'
   @Input()
   bookingCategoriesTitle: string = 'Categories'
   @Input()
