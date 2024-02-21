@@ -13,7 +13,7 @@
   <div class="bike-stations-component-container1">
     <div class="bike-stations-component-container1">
       <bike-station-component
-        *ngFor="let station of filteredBikeStations"
+        *ngFor="let station of filteredBikeStations" [bikeStation]="station"
         [bikeStationLocation]="station.station_address"
         [bikeStationTitle]="station.station_name"
         [bikeStationDescription1]="station.description"
