@@ -3,13 +3,6 @@
 }
 .admin-manage-category-popup-component-container {
   width: 500px;
-  height: auto;
-  display: flex;
-  padding: var(--dl-space-space-halfunit);
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .admin-manage-category-popup-component-form {
   width: 100%;
@@ -48,4 +41,9 @@
 }
 .admin-manage-category-popup-component-textinput1 {
   width: 100%;
+}
+@media(max-width: 767px) {
+  .admin-manage-category-popup-component-container {
+    width: 100%;
+  }
 }

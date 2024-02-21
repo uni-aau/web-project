@@ -58,6 +58,7 @@
           id="button-delete-ratings"
           type="button"
           class="admin-bike-station-entry-component-button1 button-general button-red"
+          (click)="onDeleteRatings()"
         >
           {{ adminBikeStationEntryButtonDeleteRatings }}
         </button>
@@ -75,6 +76,7 @@
           id="button-delete-bike-station"
           type="button"
           class="button-general button-red"
+          (click)="onDeleteStation()"
         >
           {{ adminBikeStationEntryButtonDelete }}
         </button>

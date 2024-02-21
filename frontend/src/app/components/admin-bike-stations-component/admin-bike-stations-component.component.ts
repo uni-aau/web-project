@@ -48,4 +48,16 @@ export class AdminBikeStationsComponent {
   createStation($event: any) {
     this.router.navigate(["/admin-manage-bike-station"])
   }
+
+  handleReviewDeletion() {
+    this.fetchData();
+  }
+
+  handleStationDelete(){
+    this.fetchData();
+  }
+
+  handleUpdatedStation() {
+    this.fetchData();
+  }
 }

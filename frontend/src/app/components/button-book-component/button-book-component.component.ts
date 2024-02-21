@@ -10,5 +10,7 @@ export class ButtonBookComponent {
   rootClassName: string = ''
   @Input()
   adminCategoryButtonUpdate: string = 'Book'
+  @Input()
+  visibleBookButton: boolean = true;
   constructor() {}
 }

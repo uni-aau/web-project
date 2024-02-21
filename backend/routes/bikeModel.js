@@ -4,7 +4,7 @@ const pool = require('../pool');
 const DatabaseService = require("../database-service");
 
 router.get('/', function (req, res) {
-    DatabaseService.executeSelectionQuery({text: 'SELECT m.*, c.category_name  FROM bikemodel m JOIN BikeCategory c ON m.category_id = c.category_id', values: []})
+    DatabaseService.executeSelectionQuery({text: 'SELECT m.*, c.category_name, COUNT(b.bike_id) AS bike_count FROM bikemodel m JOIN BikeCategory c ON m.category_id = c.category_id LEFT JOIN bike b ON b.model_id = m.model_id GROUP BY m.model_id, c.category_id', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
@@ -47,7 +47,7 @@ router.put('/model/:modelId', function (req, res) {
 
     DatabaseService.executeUpdateQuery({
         text: 'UPDATE bikemodel SET model_name = $1, price = $2, category_id = $3 WHERE model_id = $4',
-        values: [modelName, price, categoryId]
+        values: [modelName, price, categoryId, modelId]
     })
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while updating bike model: " + e.message}))
@@ -58,7 +58,7 @@ router.delete('/model/:modelId', function (req, res) {
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM bikemodel WHERE model_id = $1', values: [modelId]})
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while deleting bike category: " + e.message}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike model: " + e.message}))
 });
 
 module.exports = router;

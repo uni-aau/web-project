@@ -51,4 +51,13 @@ router.delete('/review/:reviewId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while deleting review: " + e.message}))
 });
 
+router.delete('/station/:stationId', async (req, res) => {
+    const {stationId} = req.params;
+
+    DatabaseService.executeDeleteQuery({text: 'DELETE FROM stationreview WHERE station_id = $1', values: [stationId]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while deleting review: " + e.message}))
+});
+
+
 module.exports = router;

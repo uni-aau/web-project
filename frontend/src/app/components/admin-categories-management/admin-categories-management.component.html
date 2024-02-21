@@ -1,17 +1,20 @@
 <div class="admin-categories-management-container" [ngClass]="rootClassName">
   <span class="heading">{{ adminManageCategoriesTitle }}</span>
-  <searching-component
+  <searching-component [searchInputPlaceholder]="'Search for categories...'" (search)="performSearch($event)" (create)="performCreate()"
     rootClassName="searching-component-root-class-name3"
   ></searching-component>
+
+  <div *ngIf="categories.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
+
   <div
     id="manage-categories-entry-list-container"
     class="admin-categories-management-container1"
+    *ngIf="categories.length > 0"
   >
-    <category-component
+    <category-component [visibleBookButton]="false" *ngFor="let category of filteredCategories" [categoryData]="category" (onCategoryUpdate)="handleUpdatedCategory()" (onCategoryDelete)="handleCategoryDelete()"
       rootClassName="category-component-root-class-name3"
-    ></category-component>
-    <category-component
-      rootClassName="category-component-root-class-name4"
     ></category-component>
   </div>
 </div>
