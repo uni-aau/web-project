@@ -15,6 +15,9 @@ import {
 import {
     AdminManageCategoryPopupComponent
 } from "../components/admin-manage-category-popup-component/admin-manage-category-popup-component.component";
+import {
+    AdminManageModelPopupComponent
+} from "../components/admin-manage-model-popup-component/admin-manage-model-popup-component.component";
 
 @Injectable({
     providedIn: 'root'
@@ -78,5 +81,10 @@ export class PopupService {
         return dialogRef.afterClosed();
     }
 
+    openCreateModelPopup() {
+        const dialogRef = this.dialog.open(AdminManageModelPopupComponent)
+
+        return dialogRef.afterClosed();
+    }
 
 }
