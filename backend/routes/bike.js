@@ -28,13 +28,13 @@ router.get('/bike/:bikeId', function (req, res) {
 
 // For creating/updating new bike with update button
 router.post('/bike', function (req, res) {
-    const {bikeName, modelId, status, size, price, bike_image_location} = req.body;
+    const {bikeName, modelId, status, size, price, bikeImage} = req.body;
 
     if (!bikeName || !modelId || !status || !size) return res.status(500).json({error: "Not all required data inserted"});
 
     let query = {
         text: 'INSERT INTO BIKE (bike_name, model_id, status, size, price, bike_image_location) VALUES($1, $2, $3, $4, $5, $6)',
-        values: [bikeName, modelId, status, size, price, bike_image_location]
+        values: [bikeName, modelId, status, size, price, bikeImage]
     }
 
     DatabaseService.executeInsertionQuery(query)

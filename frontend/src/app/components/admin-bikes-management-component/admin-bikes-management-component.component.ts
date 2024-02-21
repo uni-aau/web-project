@@ -16,13 +16,13 @@ export class AdminBikesManagementComponent {
   bikes: any[] = [];
   filteredBikes: any[] = [];
 
-  constructor(private bikesService: BikeService, private popupService: PopupService) {
+  constructor(private bikeService: BikeService, private popupService: PopupService) {
     this.bikes = [];
     this.fetchBikes();
   }
 
   fetchBikes() {
-    this.bikesService.fetchBikes().subscribe({
+    this.bikeService.fetchBikes().subscribe({
       next: (res) => {
         this.bikes = res;
         this.performSearch("");
@@ -47,13 +47,22 @@ export class AdminBikesManagementComponent {
   }
 
   performCreate() {
-    // TODO
-      this.popupService.openCreateBikePopup().subscribe({
-        next: (val) => {
-
-        },
-        error: (err) => console.log(err)
-      })
+    this.popupService.openCreateBikePopup().subscribe({
+      next: (val) => {
+        if (val) {
+          let bikeStatus = val.isOperational ? 'Available' : 'Maintenance';
+          this.bikeService.addBike(val.bikeName, val.bikeSize, val.bikePrice, bikeStatus, val.imageLink, val.modelId).subscribe({
+            next: (val) => {
+              if (val.success) {
+                this.fetchBikes();
+              }
+            },
+            error: (err) => console.log(err)
+          })
+        }
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   handleBikeDelete(bikeId: number) {
