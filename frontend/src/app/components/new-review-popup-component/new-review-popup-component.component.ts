@@ -7,6 +7,12 @@ import { Component, Input } from '@angular/core'
 })
 export class NewReviewPopupComponent {
   @Input()
+  newReviewModelError: string = ''
+  @Input()
+  newReviewDescriptionError: string = ''
+  @Input()
+  newReviewTitleError: string = ''
+  @Input()
   newReviewLabelTitle: string = 'Enter Title'
   @Input()
   newReviewInputPlaceholderTitle: string = 'What is important?'
@@ -27,11 +33,5 @@ export class NewReviewPopupComponent {
   newReviewButtonSend: string = 'Send'
   @Input()
   newReviewSubtitleRating: string = 'Rating'
-  @Input()
-  newReviewDescriptionError: string = ''
-  @Input()
-  newReviewModelError: string = ''
-  @Input()
-  newReviewTitleError: string = ''
   constructor() {}
 }

@@ -23,7 +23,7 @@ CREATE TABLE "User"
     is_admin                   BOOLEAN               NOT NULL,
     password_hash              VARCHAR               NOT NULL,
     has_connected_bank_account BOOLEAN DEFAULT FALSE NOT NULL,
-    wallet_id                  INT UNIQUE REFERENCES Wallet (wallet_id),
+    wallet_id                  INT UNIQUE            NOT NULL REFERENCES Wallet (wallet_id),
     profile_picture_location   VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE Bike
     is_available        BOOLEAN DEFAULT TRUE,
     status              bike_status NOT NULL,
     size                INT         NOT NULL,
-    price               FLOAT NOT NULL,
+    price               FLOAT       NOT NULL,
     bike_image_location VARCHAR DEFAULT '/assets/no-image.svg'
 );
 
