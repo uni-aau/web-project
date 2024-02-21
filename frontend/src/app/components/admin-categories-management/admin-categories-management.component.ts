@@ -46,7 +46,22 @@ export class AdminCategoriesManagement {
 
 
     performCreate() {
-            // TODO
+        this.popupService.openCreateCategoryPopup().subscribe({
+            next: (val) => {
+                if (val) {
+                    this.categoryService.addCategory(val.categoryName, val.categoryPrice).subscribe({
+                        next: (val) => {
+                            if (val.success) {
+                                console.log(val);
+                                this.fetchCategories();
+                            }
+                        },
+                        error: (err) => console.log(err)
+                    })
+                }
+            },
+            error: (err) => console.log(err)
+        })
     }
 
     handleCategoryDelete() {

@@ -66,6 +66,12 @@ export class PopupService {
         return dialogRef.afterClosed();
     }
 
+    openCreateCategoryPopup() {
+        const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent)
+
+        return dialogRef.afterClosed();
+    }
+
     openUpdateCategoryPopup(categoryName: string, categoryPrice: number) {
         const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent, {data: {categoryName: categoryName, categoryPrice: categoryPrice}})
 
