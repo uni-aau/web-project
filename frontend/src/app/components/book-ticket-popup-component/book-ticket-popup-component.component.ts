@@ -1,5 +1,5 @@
 import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { WalletService } from '../../services/wallet.service';
 import { LanguageHandler } from '../../handler/LanguageHandler';
 import { TicketService } from '../../services/ticket.service';
@@ -35,12 +35,12 @@ export class BookTicketPopupComponent {
   immediateBooking: boolean = true;
   bookingDate: any;
   bookingDuration: any;
-  formattedBookingDate: string = ""; // Fügen Sie diese Zeile hinzu
+  formattedBookingDate: string = "";
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private walletService: WalletService,
-    private ticketService: TicketService
+    private dialogRef: MatDialogRef<BookTicketPopupComponent>,
+    private walletService: WalletService
   ) {
     if (data) {
       this.fillInputs();
@@ -50,7 +50,6 @@ export class BookTicketPopupComponent {
   ngOnInit() {
     this.bookingDate = new Date();
     this.bookingDuration = "00:00";
-    this.updateFormattedBookingDate();
   }
 
   private fillInputs() {
@@ -67,8 +66,6 @@ export class BookTicketPopupComponent {
   }
 
   performBook() {
-    console.log("book")
-    let status = this.immediateBooking ? 'Booked' : 'Reservated';
     if (!this.immediateBooking) {
       this.updateFormattedBookingDate();
     }
@@ -76,28 +73,25 @@ export class BookTicketPopupComponent {
     let endDate = this.addTimeToDate(this.bookingDate, this.bookingDuration);
     const formattedEndDate = this.formatDateForInput(endDate);
 
-    this.ticketService.newTicket(
-      this.data.price,
-      'Bike',
-      this.data.bikeId,
-      this.data.modelId,
-      this.data.categoryId,
-      status,
-      this.formattedBookingDate,
-      this.formattedBookingDate,
-      formattedEndDate
-    );
-
-    console.log("book end")
+    this.dialogRef.close({
+      price: this.data.price,
+      bikeId: this.data.bikeId,
+      modelId: this.data.modelId,
+      categoryId: this.data.categoryId,
+      status: this.immediateBooking ? 'Booked' : 'Reserved',
+      bookingDate: this.formattedBookingDate,
+      endDate: formattedEndDate
+    });
   }
+
+
   addTimeToDate(startDate: any, timeString: any) {
-    const { hours, minutes } = this.extractTime(timeString);
+    const {hours, minutes} = this.extractTime(timeString);
     const result = new Date(startDate);
     result.setHours(result.getHours() + hours);
     result.setMinutes(result.getMinutes() + minutes);
     return result;
   }
-
   extractTime(timeString: string) {
     const [hours, minutes] = timeString.split(':').map(Number);
     return { hours, minutes };

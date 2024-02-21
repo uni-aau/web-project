@@ -13,6 +13,7 @@ export class TicketService {
 
   newTicket(value: number, bookType:string, bikeId:number, modelId:number, categoryId:number, statusBooking: string,
             bookingTime: any, rentingStart:any, rentingEnd:any) {
+
     return this.http.post(`${baseURL}/ticket`, {
       amount: value,
       userId: localStorage.getItem("user_id"),
