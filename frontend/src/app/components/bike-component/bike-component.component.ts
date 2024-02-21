@@ -101,19 +101,23 @@ export class BikeComponent implements OnInit {
         this.popupService.openUpdateBikePopup(this.bikeData.bike_name, this.bikeData.size, this.bikeData.price, this.bikeData.status, this.bikeData.bike_image_location).subscribe({
             next: (val) => {
                 if (val) {
-                    let bikeStatus = ''
-                    if (this.bikeStatus === 'Available' && !val.isOperational) bikeStatus = 'Maintenance';
-                    else if (this.bikeStatus === 'Maintenance' && val.isOperational) bikeStatus = 'Available';
-                    else bikeStatus = this.bikeStatus;
+                    this.executeUpdateQuery(val);
+                }
+            },
+            error: (err) => console.log(err)
+        })
+    }
 
-                    this.bikeService.updateBike(this.bikeId, val.bikeName, val.bikeSize, val.bikePrice, bikeStatus, val.imageLink, val.modelId).subscribe({
-                        next: (val) => {
-                            if (val.success) {
-                                this.onBikeUpdate.emit(this.bikeId);
-                            }
-                        },
-                        error: (err) => console.log(err)
-                    })
+    executeUpdateQuery(val: any) {
+        let bikeStatus = ''
+        if (this.bikeStatus === 'Available' && !val.isOperational) bikeStatus = 'Maintenance';
+        else if (this.bikeStatus === 'Maintenance' && val.isOperational) bikeStatus = 'Available';
+        else bikeStatus = this.bikeStatus;
+
+        this.bikeService.updateBike(this.bikeId, val.bikeName, val.bikeSize, val.bikePrice, bikeStatus, val.imageLink, val.modelId).subscribe({
+            next: (val) => {
+                if (val.success) {
+                    this.onBikeUpdate.emit(this.bikeId);
                 }
             },
             error: (err) => console.log(err)
@@ -123,17 +127,19 @@ export class BikeComponent implements OnInit {
     assignBike() {
         this.popupService.openAssignBikePopup(this.bikeData.model_name, this.bikeData.category_name, this.bikeData.category_id).subscribe({
             next: (val) => {
-                if (val && val.spotNumber && val.stationId) {
-                    this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
-                        next: (val) => {
-                            if (val.success) {
-                                this.onBikeUpdate.emit(this.bikeId);
-                            } else {
-                                console.log("Error, deletion was not successful: ", val);
-                            }
-                        },
-                        error: (err) => console.log(err)
-                    })
+                if (val && val.spotNumber && val.stationId) this.executeBikeAssignmentQuery(val);
+            },
+            error: (err) => console.log(err)
+        })
+    }
+
+    executeBikeAssignmentQuery(val: any) {
+        this.bikeService.assignParkingSpot(val.stationId, val.spotNumber, this.bikeId).subscribe({
+            next: (val) => {
+                if (val.success) {
+                    this.onBikeUpdate.emit(this.bikeId);
+                } else {
+                    console.log("Error, deletion was not successful: ", val);
                 }
             },
             error: (err) => console.log(err)
@@ -141,26 +147,29 @@ export class BikeComponent implements OnInit {
     }
 
     deleteBike() {
-        if(this.bikeData.status === 'Available' || this.bikeData.status === 'Maintenance') {
+        if (this.bikeData.status === 'Available' || this.bikeData.status === 'Maintenance') {
             this.popupService.openPopup(this.deleteBikePopupDescription)
                 .subscribe(result => {
                     if (result) {
                         console.log("User confirmed action")
-                        this.bikeService.deleteBike(this.bikeId).subscribe({
-                            next: (res) => {
-                                if (res.success) {
-                                    this.onBikeDelete.emit(this.bikeId);
-                                } else {
-                                    console.log("Error, deletion was not successful: ", res);
-                                }
-                            },
-                            error: (err) => console.log(`Error while deleting bike ${this.bikeId}:`, err)
-                        })
-                    } else console.log("User canceled action");
+                        this.executeDeletionQuery();
+                    }
                 })
         } else alert('Bike is not available for deletion!'); // TODO snackbar
     }
 
+    executeDeletionQuery() {
+        this.bikeService.deleteBike(this.bikeId).subscribe({
+            next: (res) => {
+                if (res.success) {
+                    this.onBikeDelete.emit(this.bikeId);
+                } else {
+                    console.log("Error, deletion was not successful: ", res);
+                }
+            },
+            error: (err) => console.log(`Error while deleting bike ${this.bikeId}:`, err)
+        })
+    }
 
     performBook($event: MouseEvent) {
         this.book.emit()
