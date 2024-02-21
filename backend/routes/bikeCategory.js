@@ -4,7 +4,7 @@ const pool = require('../pool');
 const DatabaseService = require("../database-service");
 
 router.get('/', function (req, res) {
-    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM bikecategory', values: []})
+    DatabaseService.executeSelectionQuery({text: 'SELECT c.* , m.model_name FROM bikecategory c JOIN bikemodel m ON m.category_id = c.category_id', values: []})
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})

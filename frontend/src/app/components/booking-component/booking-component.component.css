@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .booking-component-container {
   width: 80%;
@@ -57,6 +57,17 @@
   height: auto;
   align-items: flex-start;
   flex-direction: column;
+}
+
+.selected-category {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.hover-category:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
 }
 
 @media(max-width: 767px) {

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import {LanguageHandler} from "../../handler/LanguageHandler";
 
 @Component({
   selector: 'category-component',
@@ -17,5 +18,20 @@ export class CategoryComponent {
   categoryPrice: string = 'Price: {0}'
   @Input()
   categoryName: string = '{0}'
+  @Input()
+  categoryData: any | undefined;
   constructor() {}
+
+  ngOnInit() {
+    this.insertData();
+  }
+
+  insertData() {
+    if (this.categoryData) {
+      console.log(this.categoryData)
+      this.categoryPrice = LanguageHandler.formatString("Price: {0}$", [this.categoryData.price])
+      this.categoryName = this.categoryData.category_name;
+      this.categoryAssignedModels = "Assigned Models: ".concat(this.categoryData.model_name);
+    }
+  }
 }

@@ -1,15 +1,24 @@
 <div class="booking-component-container" [ngClass]="rootClassName">
   <span class="booking-component-text heading">{{ bookingTitle }}</span>
   <div class="booking-component-container1">
-    <span class="link-text-font booking-navbar-title">
-      {{ bookingBikesTitle }}
-    </span>
-    <span class="link-text-font booking-navbar-title">
-      {{ bookingModelsTitle }}
-    </span>
-    <span class="link-text-font booking-navbar-title">
-      {{ bookingCategoriesTitle }}
-    </span>
+  <span
+    class="link-text-font booking-navbar-title"
+    [ngClass]="{'selected-category': currentSelection === 'bikes', 'hover-category': true}"
+    (click)="selectComponent('bikes')">
+    {{ bookingBikesTitle }}
+  </span>
+    <span
+      class="link-text-font booking-navbar-title"
+      [ngClass]="{'selected-category': currentSelection === 'models', 'hover-category': true}"
+      (click)="selectComponent('models')">
+    {{ bookingModelsTitle }}
+  </span>
+    <span
+      class="link-text-font booking-navbar-title"
+      [ngClass]="{'selected-category': currentSelection === 'categories', 'hover-category': true}"
+      (click)="selectComponent('categories')">
+    {{ bookingCategoriesTitle }}
+  </span>
   </div>
   <div class="booking-component-container2">
     <span class="input-label-text">{{ bookingLabelSearch }}</span>
@@ -20,15 +29,9 @@
     ></searching-component>
   </div>
   <div class="booking-component-container3">
-    <div class="booking-component-bike-container">
-      <bike-component
-        [visibleBookButton]="false"
-        *ngFor="let bike of bikes"
-        [bikeData]="bike"
-
-        rootClassName="bike-component-root-class-name8"
-
-      ></bike-component>
+    <div
+      *ngIf="!currentSelection || currentSelection === 'bikes'"
+      class="booking-component-bike-container">
       <bike-component
         *ngFor="let bike of bikes"
         [bikeData]="bike"
@@ -36,20 +39,22 @@
       ></bike-component>
 
     </div>
-    <div class="booking-component-model-container">
+    <div
+      *ngIf="!currentSelection || currentSelection === 'models'"
+      class="booking-component-model-container">
       <model-component
+        *ngFor="let model of models"
+        [modelData]="model"
         rootClassName="model-component-root-class-name"
       ></model-component>
-      <model-component
-        rootClassName="model-component-root-class-name1"
-      ></model-component>
     </div>
-    <div class="booking-component-categories-container">
+    <div
+      *ngIf="!currentSelection || currentSelection === 'categories'"
+      class="booking-component-categories-container">
       <category-component
+        *ngFor="let category of categories"
+        [categoryData]="category"
         rootClassName="category-component-root-class-name"
-      ></category-component>
-      <category-component
-        rootClassName="category-component-root-class-name1"
       ></category-component>
     </div>
   </div>
