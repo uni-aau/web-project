@@ -24,5 +24,34 @@ export class BookTicketPopupComponent {
   bookTicketPopupCategory: string = 'Category: {0}'
   @Input()
   bookTicketPopupSubtitleRentingInfo: string = 'Renting Information'
+  @Input()
+  rootClassName: string = ''
+  @Input()
+  bookTicketBookingInformationLabelBookingTime: string = 'Select Booking Time'
+  @Input()
+  bookTicketBookingInformationInputPlaceholderBookingTime: string =
+    'placeholder'
+  @Input()
+  bookTicketBookingInformationImmediateBooking: string = 'Immediate Booking?'
+  @Input()
+  rootClassName1: string = ''
+  @Input()
+  bookTicketLabelRentingInformation: string = 'Select Rent Date'
+  @Input()
+  bookTicketRentingInformationInputPlaceholderRentDate: string = 'placeholder'
+  @Input()
+  bookTicketRentingInformationLabelRentDuration: string = 'Select Rent Duration'
+  @Input()
+  bookTicketInputPlaceholderRentingInformation: string = 'placeholder'
+  @Input()
+  bookTicketCheckboxError: string = ''
+  @Input()
+  bookTicketBookingTimeError: string = ''
+  @Input()
+  bookTicketRentDateError: string = ''
+  @Input()
+  bookTicketRentDurationError: string = ''
+  @Input()
+  bookTicketWalletError: string = ''
   constructor() {}
 }
