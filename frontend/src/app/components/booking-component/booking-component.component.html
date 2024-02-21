@@ -14,17 +14,27 @@
   <div class="booking-component-container2">
     <span class="input-label-text">{{ bookingLabelSearch }}</span>
     <searching-component
+      [visibleCreateButton]="false"
+      (search)="performSearch($event)"
       rootClassName="searching-component-root-class-name6"
     ></searching-component>
   </div>
   <div class="booking-component-container3">
     <div class="booking-component-bike-container">
       <bike-component
-        rootClassName="bike-component-root-class-name4"
+        [visibleBookButton]="false"
+        *ngFor="let bike of bikes"
+        [bikeData]="bike"
+
+        rootClassName="bike-component-root-class-name8"
+
       ></bike-component>
       <bike-component
-        rootClassName="bike-component-root-class-name5"
+        *ngFor="let bike of bikes"
+        [bikeData]="bike"
+        rootClassName="bike-component-root-class-name4"
       ></bike-component>
+
     </div>
     <div class="booking-component-model-container">
       <model-component

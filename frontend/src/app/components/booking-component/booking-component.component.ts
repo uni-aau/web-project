@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import {BikeService} from "../../services/bike.service";
 
 @Component({
   selector: 'booking-component',
@@ -18,5 +19,26 @@ export class BookingComponent {
   bookingTitle: string = 'Booking'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+  bikes: any;
+  constructor(private bikeService:BikeService) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.bikeService.fetchBikes().subscribe({
+      next: (res) => {
+        this.bikes = res;
+      },
+      error: (err) => {
+        if (err.status === 404) this.bikes = [];
+        console.log(err.error);
+      }
+    })
+  }
+
+  performSearch($event: string) {
+
+  }
 }
