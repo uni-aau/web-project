@@ -3,7 +3,7 @@
   [ngClass]="rootClassName"
 >
   <span class="heading">{{ adminBikesManagementTitle }}</span>
-  <searching-component
+  <searching-component [searchInputPlaceholder]="'Search for bikes...'" (search)="performSearch($event)" (create)="performCreate()"
     rootClassName="searching-component-root-class-name2"
   ></searching-component>
 
@@ -16,7 +16,7 @@
     class="admin-bikes-management-component-container1"
     *ngIf="bikes.length > 0"
   >
-    <bike-component [visibleBookButton]="false" *ngFor="let bike of bikes" [bikeData]="bike" (onBikeUpdate)="handleUpdatedBike()" (onBikeDelete)="handleBikeDelete($event)"
+    <bike-component [visibleBookButton]="false" *ngFor="let bike of filteredBikes" [bikeData]="bike" (onBikeUpdate)="handleUpdatedBike()" (onBikeDelete)="handleBikeDelete($event)"
                     rootClassName="bike-component-root-class-name8"
 
     ></bike-component>

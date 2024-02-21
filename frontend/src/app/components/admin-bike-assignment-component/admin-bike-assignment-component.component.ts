@@ -27,7 +27,7 @@ export class AdminBikeAssignmentComponent {
   @Input()
   adminAssignBikeError: string = '';
   @Input()
-  adminAssignBikeSelectorGeneralSelection: string = 'Select station'
+  adminAssignBikeSelectorGeneralSelection: string = 'Select Station'
 
   bikeStations: any[] = []
   adminParkingPlaceFull = 'Full';

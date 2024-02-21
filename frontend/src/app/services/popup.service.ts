@@ -6,6 +6,9 @@ import {DepositMoneyPopup} from "../components/deposit-money-popup/deposit-money
 import {
   AdminBikeAssignmentComponent
 } from "../components/admin-bike-assignment-component/admin-bike-assignment-component.component";
+import {
+  AdminManageBikePopupComponent
+} from "../components/admin-manage-bike-popup-component/admin-manage-bike-popup-component.component";
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +35,17 @@ export class PopupService {
 
     return dialogRef.afterClosed();
   }
+
+  openCreateBikePopup() {
+    const dialogRef = this.dialog.open(AdminManageBikePopupComponent)
+
+    return dialogRef.afterClosed();
+  }
+
+  openUpdateBikePopup(bikeName: string, bikeSize: number, bikePrice: number, bikeStatus : string, imageLink: string) {
+    const dialogRef = this.dialog.open(AdminManageBikePopupComponent, {data: {bikeName: bikeName, bikePrice: bikePrice, bikeSize: bikeSize, bikeStatus: bikeStatus, imageLink: imageLink}})
+
+    return dialogRef.afterClosed();
+  }
+
 }

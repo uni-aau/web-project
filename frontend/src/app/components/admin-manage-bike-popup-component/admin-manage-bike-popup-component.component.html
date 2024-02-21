@@ -1,43 +1,63 @@
-<div class="admin-manage-bike-popup-component-container">
-  <span class="heading">{{ adminManageBikeTitle }}</span>
+<div class="admin-manage-bike-popup-component-container popup-container">
+  <span class="popup-heading">{{ adminManageBikeTitle }}</span>
   <form class="admin-manage-bike-popup-component-form">
     <div class="admin-manage-bike-popup-component-container1">
       <div class="admin-manage-bike-popup-component-container2">
-        <div class="admin-manage-bike-popup-component-container3">
-          <span class="input-label-text">{{ adminManageBikeLabelName }}</span>
-          <input
-            type="text"
-            id="manage-bike-name-input"
-            [attr.placeholder]="adminManageBikeInputPlaceholderLongitude"
-            class="admin-manage-bike-popup-component-textinput input"
-          />
-        </div>
+        <span class="input-label-text">{{ adminManageBikeLabelName1 }}</span>
+        <input
+          type="text"
+          id="manage-bike-name-input"
+          [attr.placeholder]="adminManageBikeInputPlaceholderName"
+          class="admin-manage-bike-popup-component-textinput input"
+          [(ngModel)]="bikeName"
+          name="bikeName"
+        />
+        <span class="input-error-hint">{{ adminManageBikeNameError }}</span>
+      </div>
+      <div class="admin-manage-bike-popup-component-container3">
         <div class="admin-manage-bike-popup-component-container4">
+          <span class="input-label-text">{{ adminManageBikeLabelSize }}</span>
+          <input
+            type="number"
+            id="manage-bike-size-input"
+            [attr.placeholder]="adminManageBikeInputPlaceholderSize"
+            class="admin-manage-bike-popup-component-textinput1 input"
+            [(ngModel)]="bikeSize"
+            name="bikeSize"
+          />
+          <span class="input-error-hint">{{ adminManageBikeSizeError }}</span>
+        </div>
+        <div class="admin-manage-bike-popup-component-container5">
           <span class="input-label-text">{{ adminManageBikeLabelPrice }}</span>
           <input
             type="number"
             id="manage-bike-price-input"
             [attr.placeholder]="adminManageBikeInputPlaceholderPrice"
-            class="admin-manage-bike-popup-component-textinput1 input"
+            class="admin-manage-bike-popup-component-textinput2 input"
+            [(ngModel)]="bikePrice"
+            name="bikePrice"
           />
+          <span class="input-error-hint">{{ adminManageBikePriceError }}</span>
         </div>
       </div>
-      <div class="admin-manage-bike-popup-component-container5">
-        <div class="admin-manage-bike-popup-component-container6">
+      <div class="admin-manage-bike-popup-component-container6">
+        <div class="admin-manage-bike-popup-component-container7">
           <span class="input-label-text">
             {{ adminManageBikeLabelAssignModels }}
           </span>
           <select
             id="manage-bike-models-selector"
             class="admin-manage-bike-popup-component-select selector-style"
+            (change)="handleSelect($event)"
           >
-            <option value="Option 1">Option 1</option>
-            <option value="Option 3">Option 3</option>
+            <option [value]="-1">{{adminManageBikeSelectorGeneralSelection}}</option>
+            <option *ngFor="let model of bikeModels" [value]="model.model_id">{{model.model_name}}</option>
           </select>
+          <span class="input-error-hint">{{ adminManageBikeModelError }}</span>
         </div>
-        <div class="admin-manage-bike-popup-component-container7">
+        <div class="admin-manage-bike-popup-component-container8">
           <span
-            class="admin-manage-bike-popup-component-text4 input-label-text"
+            class="admin-manage-bike-popup-component-text09 input-label-text"
           >
             {{ adminManageBikeStatus }}
           </span>
@@ -46,14 +66,17 @@
             id="manage-bike-operational-checkbox"
             checked="true"
             class="checkbox-style"
+            [(ngModel)]="isOperational"
+            name="isOperational"
           />
+          <span class="input-error-hint">{{ adminManageBikeCheckboxError }}</span>
         </div>
       </div>
     </div>
   </form>
-  <span class="admin-manage-bike-popup-component-text5">
+  <span class="admin-manage-bike-popup-component-text10">
     {{ adminManageBikeImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>
-  <button-save-discard-component></button-save-discard-component>
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"></button-save-discard-component>
 </div>
