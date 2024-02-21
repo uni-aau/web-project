@@ -141,22 +141,24 @@ export class BikeComponent implements OnInit {
     }
 
     deleteBike() {
-        this.popupService.openPopup(this.deleteBikePopupDescription)
-            .subscribe(result => {
-                if (result) {
-                    console.log("User confirmed action")
-                    this.bikeService.deleteBike(this.bikeId).subscribe({
-                        next: (res) => {
-                            if (res.success) {
-                                this.onBikeDelete.emit(this.bikeId);
-                            } else {
-                                console.log("Error, deletion was not successful: ", res);
-                            }
-                        },
-                        error: (err) => console.log(`Error while deleting bike ${this.bikeId}:`, err)
-                    })
-                } else console.log("User canceled action");
-            })
+        if(this.bikeData.status === 'Available' || this.bikeData.status === 'Maintenance') {
+            this.popupService.openPopup(this.deleteBikePopupDescription)
+                .subscribe(result => {
+                    if (result) {
+                        console.log("User confirmed action")
+                        this.bikeService.deleteBike(this.bikeId).subscribe({
+                            next: (res) => {
+                                if (res.success) {
+                                    this.onBikeDelete.emit(this.bikeId);
+                                } else {
+                                    console.log("Error, deletion was not successful: ", res);
+                                }
+                            },
+                            error: (err) => console.log(`Error while deleting bike ${this.bikeId}:`, err)
+                        })
+                    } else console.log("User canceled action");
+                })
+        } else alert('Bike is not available for deletion!'); // TODO snackbar
     }
 
 
