@@ -41,7 +41,7 @@ export const routes: Routes = [
   {path: 'manage-tickets-user', component: ManageTicketsUser, canActivate: [RoleGuard], data: { requiredRole: ['user'] }},
   {path: 'register', component: Register},
   {path: 'reset-password', component: ResetPassword},
-  {path: 'bike-stations/reviews', component: ReviewsList},
+  {path: 'bike-station/reviews', component: ReviewsList},
   {path: 'testpage', component: Testpage},
   {path: 'unauthorized', component: Unauthorized},
 

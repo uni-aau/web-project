@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input, OnInit} from '@angular/core'
 import {BikeStationService} from "../../services/bikestation.service";
 import {BikeStation} from "../../types/bikeStation.type";
 
@@ -7,7 +7,7 @@ import {BikeStation} from "../../types/bikeStation.type";
   templateUrl: 'bike-stations-component.component.html',
   styleUrls: ['bike-stations-component.component.css'],
 })
-export class BikeStationsComponent {
+export class BikeStationsComponent implements OnInit{
   bikeStations: BikeStation[] = [];
   filteredBikeStations: BikeStation[] = [];
   @Input()
@@ -22,14 +22,12 @@ export class BikeStationsComponent {
 
   fetchData() {
     this.bikeStationService.getBikeStations().subscribe(data => {
-      console.log(data);
       this.bikeStations = data;
       this.performSearch("")
     });
   }
 
   performSearch(searchTerm: string) {
-    console.log(searchTerm)
     if (!searchTerm) {
       this.filteredBikeStations = this.bikeStations;
     } else {

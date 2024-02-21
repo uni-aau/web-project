@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core'
+import {Component, Input, OnInit} from '@angular/core'
 import {ReviewsService} from "../../services/reviews.service";
 
 
@@ -7,29 +7,38 @@ import {ReviewsService} from "../../services/reviews.service";
   templateUrl: 'view-ratings-component.component.html',
   styleUrls: ['view-ratings-component.component.css'],
 })
-export class ViewRatingsComponent {
+export class ViewRatingsComponent implements OnInit {
   @Input()
   rootClassName: string = ''
   @Input()
   viewRatingsTitle: string = 'Reviews'
 
   reviews: any[] = [];
+  stationId: number = -1;
 
   constructor(private reviewsService: ReviewsService) {
     this.reviews = [];
     this.fetchStationReviews();
   }
 
+  ngOnInit() {
+    const navigation = window.history.state;
+    this.stationId = navigation.stationId;
+    this.fetchStationReviews();
+  }
+
   fetchStationReviews() {
-    this.reviewsService.fetchStationReviews(1).subscribe({
-      next: (res) => {
-        this.reviews = res;
-      },
-      error: (err) => {
-        if (err.status === 404) this.reviews = [];
-        console.log(err.error);
-      }
-    })
+    if (this.stationId != -1) {
+      this.reviewsService.fetchStationReviews(this.stationId).subscribe({
+        next: (res) => {
+          this.reviews = res;
+        },
+        error: (err) => {
+          if (err.status === 404) this.reviews = [];
+          console.log(err.error);
+        }
+      })
+    }
   }
 
   handleReviewDelete(reviewId: number) {
