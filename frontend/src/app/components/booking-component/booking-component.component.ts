@@ -4,6 +4,8 @@ import {ModelService} from "../../services/model.service";
 import {CategoryService} from "../../services/category.service";
 import {PopupService} from "../../services/popup.service";
 import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {ActivatedRoute, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @Component({
   selector: 'booking-component',
@@ -25,22 +27,35 @@ export class BookingComponent {
   rootClassName: string = ''
 
   bikes: any;
+  filteredBikes: any;
   models: any;
   categories: any;
   currentSelection: string | null = null;
   constructor(private bikeService:BikeService,
               private modelService:ModelService,
               private categoryService:CategoryService,
-              private popupService:PopupService) {}
+              private popupService:PopupService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.fetchData();
+    this.fetchData()
+  }
+
+  filterInput(input:string){
+    this.filteredBikes = this.bikes.filter((bike:any) => {
+      return bike.station_name === input;
+    })
   }
 
   fetchData() {
     this.bikeService.fetchBikes().subscribe({
       next: (res) => {
         this.bikes = res;
+        const navigation = window.history.state;
+        console.log(navigation.station.station_name)
+        if (navigation.station && navigation.station.station_name) {
+          this.filterInput(navigation.station.station_name)
+        }
       },
       error: (err) => {
         if (err.status === 404) this.bikes = [];
@@ -82,12 +97,12 @@ export class BookingComponent {
   }
 
   performBook($event: any) {
-    this.popupService.openBookTicketPopup("category", "bikeName", 123).subscribe({
-      next: (val) => {
-
-      },
-      error: (err) => console.log(err)
-      }
-    )
+    // this.popupService.openBookTicketPopup("category", "bikeName", 123).subscribe({
+    //   next: (val) => {
+    //
+    //   },
+    //   error: (err) => console.log(err)
+    //   }
+    // )
   }
 }

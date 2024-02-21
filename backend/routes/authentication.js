@@ -33,7 +33,7 @@ router.post('/login', async (req, res, next) => {
                     { expiresIn: '1h' }
                 );
 
-                res.status(200).json({ token: token, is_admin: user.is_admin });
+                res.status(200).json({ token: token, is_admin: user.is_admin, user_id: user.user_id });
             } else {
                 res.status(401).json({ message: "Invalid Password" });
             }

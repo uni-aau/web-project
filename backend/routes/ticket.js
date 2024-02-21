@@ -30,7 +30,7 @@ router.get('/:userId', async (req, res) => {
 
 router.post('/ticket', async (req, res) => {
     const {userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd} = req.body;
-
+    console.log("book")
     if (!userId || !bookedType || !status || !bookingTime || !rentingStart || !rentingEnd) return res.status(500).json({error: "Not all required data inserted"});
 
     let query = {

@@ -34,6 +34,7 @@ export class LoginComponent {
         console.log("Login successful", response)
         localStorage.setItem('authToken', response.token);
         localStorage.setItem('isAdmin', response.is_admin);
+        localStorage.setItem('user_id', response.user_id);
         this.router.navigate(['/']);
       },
       error: (err) => {

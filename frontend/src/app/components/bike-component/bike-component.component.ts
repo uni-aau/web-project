@@ -161,7 +161,13 @@ export class BikeComponent implements OnInit {
   }
 
 
-  performBook($event: MouseEvent) {
-    this.book.emit()
+  performBook($event: any) {
+    this.popupService.openBookTicketPopup(this.bikeCategory, this.bikeBikeName, this.bikeData.price).subscribe({
+        next: (val) => {
+
+        },
+        error: (err) => console.log(err)
+      }
+    )
   }
 }

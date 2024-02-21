@@ -33,7 +33,7 @@
       *ngIf="!currentSelection || currentSelection === 'bikes'"
       class="booking-component-bike-container">
       <bike-component
-        *ngFor="let bike of bikes"
+        *ngFor="let bike of filteredBikes"
         [bikeData]="bike"
         [visibleAdminButtons]="false"
         (book) ="performBook($event)"

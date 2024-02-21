@@ -86,4 +86,10 @@ export class BikeStationComponent implements OnInit {
       state: {stationId: this.bikeStation.station_id}
     });
   }
+
+  performMoreInfo() {
+    this.router.navigate(["/booking"], {
+      state: {station: this.bikeStation}
+    });
+  }
 }

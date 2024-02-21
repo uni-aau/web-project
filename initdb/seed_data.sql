@@ -7,8 +7,8 @@ VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true, '$2b$10$C8/6shgBAg45
        ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false, '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2);
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude)
-VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 10.123, 20.456),
-       ('North Station', 'Nice Station Description', 'Viktring', 11.789, 22.456);
+VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 14.305278, 46.624722),
+       ('North Station', 'Nice Station Description', 'Viktring', 14.262222, 46.615556);
 
 INSERT INTO BikeCategory (category_name, price)
 VALUES ('Mountain', 5.0),

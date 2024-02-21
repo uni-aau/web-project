@@ -52,6 +52,7 @@ export class PopupService {
   }
 
   openBookTicketPopup(category: string, bikeName: string, price: number){
+    console.log(category)
     const dialogRef = this.dialog.open(BookTicketPopupComponent, {data: {
           category: category,
           bikeName: bikeName,

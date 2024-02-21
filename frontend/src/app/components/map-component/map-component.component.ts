@@ -19,9 +19,9 @@ export class MapComponent implements OnInit, OnChanges {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
-    const iconRetinaUrl = 'assets/marker-icon-2x.png';
-    const iconUrl = 'assets/marker-icon.png';
-    const shadowUrl = 'assets/marker-shadow.png';
+    const iconRetinaUrl = '/assets/marker-icon-2x.png';
+    const iconUrl = '/assets/marker-icon.png';
+    const shadowUrl = '/assets/marker-shadow.png';
     const iconDefault = icon({
       iconRetinaUrl,
       iconUrl,
@@ -33,6 +33,7 @@ export class MapComponent implements OnInit, OnChanges {
       shadowSize: [41, 41]
     });
     Marker.prototype.options.icon = iconDefault;
+    this.addStationsToMap();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
