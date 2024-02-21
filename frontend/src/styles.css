@@ -144,7 +144,7 @@
   align-self: center;
   text-align: center;
   font-weight: 700;
-  margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 .drop-down-main-element {
   width: 100%;
