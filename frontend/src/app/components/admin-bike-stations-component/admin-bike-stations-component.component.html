@@ -7,6 +7,11 @@
     [searchInputPlaceholder]="'Search for stations...'"
     rootClassName="searching-component-root-class-name5"
   ></searching-component>
+
+  <div *ngIf="bikeStations.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
+
   <div
     id="manage-bike-stations-entry-list-container"
     class="admin-bike-stations-component-container1"
