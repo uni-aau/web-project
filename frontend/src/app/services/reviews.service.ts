@@ -19,4 +19,8 @@ export class ReviewsService {
   deleteStationReview(reviewId: number): Observable<any> {
     return this.http.delete(`${baseUrl}/review/${reviewId}`);
   }
+
+  deleteAllStationReviews(stationId: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/station/${stationId}`);
+  }
 }

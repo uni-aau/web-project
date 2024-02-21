@@ -18,6 +18,9 @@
   >
     <admin-bike-station-entry-component
       *ngFor="let station of filteredBikeStations"
+      (onStationReviewDelete)="handleReviewDeletion()"
+      (onStationDelete)="handleStationDelete()"
+      (onStationUpdate)="handleUpdatedStation()"
       [bikeStation]=station
       [adminBikeStationEntryStationName]="station.station_name"
       [adminBikeStationEntryDescription]="station.description"

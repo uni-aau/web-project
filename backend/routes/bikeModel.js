@@ -58,7 +58,7 @@ router.delete('/model/:modelId', function (req, res) {
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM bikemodel WHERE model_id = $1', values: [modelId]})
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while deleting bike category: " + e.message}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike model: " + e.message}))
 });
 
 module.exports = router;

@@ -120,10 +120,10 @@ CREATE TABLE Transaction
 CREATE TABLE StationReview
 (
     review_id  SERIAL PRIMARY KEY,
-    station_id INT     NOT NULL REFERENCES Station (station_id),
-    user_id    INT     NOT NULL REFERENCES "User" (user_id),
+    station_id INT     NOT NULL REFERENCES Station (station_id) ON DELETE CASCADE,
+    user_id    INT     NOT NULL REFERENCES "User" (user_id) ON DELETE CASCADE,
     title      VARCHAR NOT NULL,
-    model_id   INT REFERENCES BikeModel (model_id),
+    model_id   INT REFERENCES BikeModel (model_id) ON DELETE CASCADE,
     rating     INT     NOT NULL,
     comment    TEXT    NOT NULL,
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
