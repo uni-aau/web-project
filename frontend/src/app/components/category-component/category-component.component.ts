@@ -22,6 +22,8 @@ export class CategoryComponent {
   categoryData: any | undefined;
   @Input()
   showAdminButtons: boolean = true;
+  @Input()
+  visibleBookButton: boolean = false;
   constructor() {}
 
   ngOnInit() {
@@ -35,5 +37,8 @@ export class CategoryComponent {
       this.categoryName = this.categoryData.category_name;
       this.categoryAssignedModels = "Assigned Models: ".concat(this.categoryData.model_name);
     }
+  }
+
+  handleButtonClicked(event: any) {
   }
 }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import {CategoryService} from "../../services/category.service";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'admin-categories-management',
@@ -10,5 +12,32 @@ export class AdminCategoriesManagement {
   adminManageCategoriesTitle: string = 'Categories Management'
   @Input()
   rootClassName: string = ''
-  constructor() {}
+
+  categories: any[] = [];
+  filteredCategories: any[] = [];
+
+  constructor(private categoryService: CategoryService, private popupService: PopupService) {
+    this.categories = [];
+    this.fetchCategories();
+  }
+
+  fetchCategories() {
+
+  }
+
+  performSearch() {
+
+  }
+
+  performCreate() {
+
+  }
+
+  handleCategoryDelete(){
+
+  }
+
+  handleUpdatedCategory() {
+    this.fetchCategories();
+  }
 }
