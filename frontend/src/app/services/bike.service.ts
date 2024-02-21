@@ -22,4 +22,8 @@ export class BikeService {
   assignParkingSpot(stationId: number, spotNumber: number, bikeId: number): Observable<any> {
       return this.http.put(`${baseURL}/bike/${bikeId}/assign-spot`, {stationId: stationId, spotNumber: spotNumber});
   }
+
+  updateBike() {
+    // TODO
+  }
 }

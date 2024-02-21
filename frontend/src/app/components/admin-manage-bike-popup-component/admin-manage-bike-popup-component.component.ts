@@ -38,6 +38,8 @@ export class AdminManageBikePopupComponent {
   adminManageBikePriceError: string = ''
   @Input()
   adminManageBikeModelError: string = ''
+  @Input()
+  adminManageBikeCheckboxError: string = ''
 
   @Input()
   adminManageBikeSelectorGeneralSelection: string = 'Select Model'
@@ -64,7 +66,6 @@ export class AdminManageBikePopupComponent {
   }
 
   handleConfirm() {
-    console.log(this.modelId)
     if (!this.bikeName.trim()) {
       this.adminManageBikeNameError = 'Enter valid name';
       return;
@@ -93,10 +94,16 @@ export class AdminManageBikePopupComponent {
 
     this.adminManageBikeModelError = '';
 
+    // Only check checkbox if data exists (update button was pressed)
+    if (this.data) {
+      if(this.isOperational && (this.data.isOperational != 'Available' || this.data.isOperational != 'Maintenance')) {
+        this.adminManageBikeCheckboxError = 'Bike is currently used';
+        return;
+      }
+      this.adminManageBikeCheckboxError = '';
+    }
 
-    // TODO datenübergabe
-
-
+    this.dialogRef.close( {bikeName: this.bikeName, bikePrice: this.bikePrice, isOperational: this.isOperational, imageLink: this.imageLink, modelId: this.modelId})
   }
 
 
@@ -106,6 +113,7 @@ export class AdminManageBikePopupComponent {
     this.bikeSize = this.data.bikeSize;
     this.isOperational = this.data.isOperational;
     this.imageLink = this.data.imageLink;
+    this.isOperational = this.data.isOperational === 'Available'
   }
 
   fetchModels() {
