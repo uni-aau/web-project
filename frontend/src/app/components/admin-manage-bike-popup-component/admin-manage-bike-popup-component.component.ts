@@ -70,28 +70,24 @@ export class AdminManageBikePopupComponent {
       this.adminManageBikeNameError = 'Enter valid name';
       return;
     }
-
     this.adminManageBikeNameError = '';
 
     if (!this.bikeSize || this.bikeSize <= 0 || this.bikeSize >= 20000) {
       this.adminManageBikeSizeError = 'Enter valid bike size';
       return;
     }
-
     this.adminManageBikeSizeError = '';
 
     if (!this.bikePrice || this.bikePrice <= 0 || this.bikePrice >= 20000) {
       this.adminManageBikePriceError = 'Enter valid bike price';
       return;
     }
-
     this.adminManageBikePriceError = '';
 
     if (this.modelId === -1) {
       this.adminManageBikeModelError = 'Select a valid model';
       return;
     }
-
     this.adminManageBikeModelError = '';
 
     // Only check checkbox if data exists (update button was pressed)

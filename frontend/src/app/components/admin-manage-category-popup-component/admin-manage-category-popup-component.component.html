@@ -9,6 +9,8 @@
           id="manage-category-name-input"
           [attr.placeholder]="adminManageCategoryInputPlaceholderName"
           class="admin-manage-category-popup-component-textinput input"
+          [(ngModel)]="categoryName"
+          name="categoryName"
         />
         <span class="input-error-hint">
           {{ adminManageCategoryNameErrorText }}
@@ -23,6 +25,8 @@
           id="manage-category-price-input"
           [attr.placeholder]="adminManageCategoryInputPlaceholderPrice"
           class="admin-manage-category-popup-component-textinput1 input"
+          [(ngModel)]="categoryPrice"
+          name="categoryPrice"
         />
         <span class="input-error-hint">
           {{ adminManageCategoryPriceErrorText }}
@@ -30,7 +34,7 @@
       </div>
     </div>
   </form>
-  <button-save-discard-component
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
     rootClassName="button-save-discard-component-root-class-name"
   ></button-save-discard-component>
 </div>

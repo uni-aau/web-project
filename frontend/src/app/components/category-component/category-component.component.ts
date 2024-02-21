@@ -42,7 +42,6 @@ export class CategoryComponent {
 
     insertData() {
         if (this.categoryData) {
-            console.log(this.categoryData)
             this.categoryId = this.categoryData.category_id;
             this.categoryPrice = LanguageHandler.formatString("Price: {0}$", [this.categoryData.price])
             this.categoryName = this.categoryData.category_name;
@@ -84,9 +83,10 @@ export class CategoryComponent {
         this.popupService.openUpdateCategoryPopup(this.categoryData.category_name, this.categoryData.price).subscribe({
             next: (val) => {
                 if (val) {
-                    this.categoryService.updateCategory(this.categoryId, val.categoryName, val.categoryData).subscribe({
+                    this.categoryService.updateCategory(this.categoryId, val.categoryName, val.categoryPrice).subscribe({
                         next: (val) => {
                             if (val.success) {
+                                console.log(val);
                                 this.onCategoryUpdate.emit(this.categoryId);
                             }
                         },

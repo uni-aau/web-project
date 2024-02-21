@@ -13,7 +13,7 @@
     class="admin-categories-management-container1"
     *ngIf="categories.length > 0"
   >
-    <category-component [visibleBookButton]="false" *ngFor="let category of filteredCategories" [categoryData]="category" (onCategoryUpdate)="handleUpdatedCategory()"
+    <category-component [visibleBookButton]="false" *ngFor="let category of filteredCategories" [categoryData]="category" (onCategoryUpdate)="handleUpdatedCategory()" (onCategoryDelete)="handleCategoryDelete()"
       rootClassName="category-component-root-class-name3"
     ></category-component>
   </div>
