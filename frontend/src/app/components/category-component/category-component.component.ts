@@ -61,37 +61,41 @@ export class CategoryComponent {
         if (!this.categoryData.model_name) {
             this.popupService.openPopup(this.deleteCategoryPopupText)
                 .subscribe(result => {
-                    if (result) {
-                        this.categoryService.deleteCategory(this.categoryId).subscribe({
-                            next: (res) => {
-                                if (res.success) {
-                                    this.onCategoryDelete.emit(this.categoryId);
-                                } else {
-                                    console.log("Error, deletion was not successful: ", res);
-                                }
-                            },
-                            error: (err) => console.log(`Error while deleting category ${this.categoryId}:`, err)
-                        })
-                    } else console.log("User canceled action");
+                    if (result) this.executeDeletionQuery();
                 })
         } else {
             alert("There are currently models assigned") // TODO reset with actual snackbar
         }
     }
 
+    executeDeletionQuery() {
+        this.categoryService.deleteCategory(this.categoryId).subscribe({
+            next: (res) => {
+                if (res.success) {
+                    this.onCategoryDelete.emit(this.categoryId);
+                } else {
+                    console.log("Error, deletion was not successful: ", res);
+                }
+            },
+            error: (err) => console.log(`Error while deleting category ${this.categoryId}:`, err)
+        })
+    }
+
     updateCategory() {
         this.popupService.openUpdateCategoryPopup(this.categoryData.category_name, this.categoryData.price).subscribe({
             next: (val) => {
-                if (val) {
-                    this.categoryService.updateCategory(this.categoryId, val.categoryName, val.categoryPrice).subscribe({
-                        next: (val) => {
-                            if (val.success) {
-                                console.log(val);
-                                this.onCategoryUpdate.emit(this.categoryId);
-                            }
-                        },
-                        error: (err) => console.log(err)
-                    })
+                if (val) this.executeUpdateQuery(val);
+            },
+            error: (err) => console.log(err)
+        })
+    }
+
+    executeUpdateQuery(val: any) {
+        this.categoryService.updateCategory(this.categoryId, val.categoryName, val.categoryPrice).subscribe({
+            next: (val) => {
+                if (val.success) {
+                    console.log(val);
+                    this.onCategoryUpdate.emit(this.categoryId);
                 }
             },
             error: (err) => console.log(err)

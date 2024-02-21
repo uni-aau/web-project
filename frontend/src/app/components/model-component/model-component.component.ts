@@ -19,8 +19,11 @@ export class ModelComponent implements OnInit {
     @Input()
     rootClassName: string = ''
     @Input()
-    modelAssignedToCategory: string = 'Assigned to: {0}'
-    modelAssignedToCategoryOld: string = 'Assigned to: {0}'
+    modelAssignedToCategory: string = 'Assigned to Category: {0}'
+    modelAssignedToCategoryOld: string = 'Assigned to Category: {0}'
+    @Input()
+    modelAssignedBikes: string = 'Assigned Bikes: {0}'
+    modelAssignedBikesOld: string = 'Assigned Bikes: {0}'
     @Input()
     modelData: any | undefined;
 
@@ -49,6 +52,7 @@ export class ModelComponent implements OnInit {
             this.modelName = this.modelData.model_name;
             this.modelPrice = LanguageHandler.formatString("Price: {0}$", [this.modelData.price])
             this.modelAssignedToCategory = LanguageHandler.formatString(this.modelAssignedToCategoryOld, [this.modelData.category_name])
+            this.modelAssignedBikes = LanguageHandler.formatString(this.modelAssignedBikesOld, [this.modelData.bike_count])
         }
     }
 
@@ -58,41 +62,42 @@ export class ModelComponent implements OnInit {
     }
 
     deleteModel() {
-        // if (!this.categoryData.model_name) {
-        this.popupService.openPopup(this.deleteModelPopupDescription)
-            .subscribe(result => {
-                if (result) {
-                    this.modelService.deleteModel(this.modelId).subscribe({
-                        next: (res) => {
-                            if (res.success) {
-                                this.onModelDelete.emit(this.modelId);
-                            } else {
-                                console.log("Error, deletion was not successful: ", res);
-                            }
-                        },
-                        error: (err) => console.log(`Error while deleting model ${this.modelId}:`, err)
-                    })
+        if (this.modelData.bike_count == 0) {
+            this.popupService.openPopup(this.deleteModelPopupDescription)
+                .subscribe(result => {
+                    if (result) this.executeDeletionQuery();
+                })
+        } else alert("There are currently bikes assigned") // TODO reset with actual snackbar
+    }
+
+    executeDeletionQuery() {
+        this.modelService.deleteModel(this.modelId).subscribe({
+            next: (res) => {
+                if (res.success) {
+                    this.onModelDelete.emit(this.modelId);
+                } else {
+                    console.log("Error, deletion was not successful: ", res);
                 }
-            })
-        // }
-        // else {
-        //   alert("There are currently models assigned") // TODO reset with actual snackbar
-        // }
+            },
+            error: (err) => console.log(`Error while deleting model ${this.modelId}:`, err)
+        })
     }
 
     updateModel() {
         this.popupService.openUpdateModelPopup(this.modelData.model_name, this.modelData.price).subscribe({
             next: (val) => {
-                if (val) {
-                    this.modelService.updateModel(this.modelId, val.modelName, val.modelPrice, val.categoryId).subscribe({
-                        next: (val) => {
-                            if (val.success) {
-                                console.log(val);
-                                this.onModelUpdate.emit(this.modelId);
-                            }
-                        },
-                        error: (err) => console.log(err)
-                    })
+                if (val) this.executeUpdateQuery(val);
+            },
+            error: (err) => console.log(err)
+        })
+    }
+
+    executeUpdateQuery(val: any) {
+        this.modelService.updateModel(this.modelId, val.modelName, val.modelPrice, val.categoryId).subscribe({
+            next: (val) => {
+                if (val.success) {
+                    console.log(val);
+                    this.onModelUpdate.emit(this.modelId);
                 }
             },
             error: (err) => console.log(err)
