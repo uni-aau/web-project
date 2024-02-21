@@ -46,11 +46,11 @@ export class AdminCategoriesManagement {
 
 
     performCreate() {
-
+            // TODO
     }
 
     handleCategoryDelete() {
-
+        this.fetchCategories();
     }
 
     handleUpdatedCategory() {
