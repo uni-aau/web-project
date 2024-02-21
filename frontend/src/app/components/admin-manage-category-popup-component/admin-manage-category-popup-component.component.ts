@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core'
 })
 export class AdminManageCategoryPopupComponent {
   @Input()
+  adminManageCategoryNameErrorText: string = ''
+  @Input()
+  adminManageCategoryPriceErrorText: string = ''
+  @Input()
   adminManageCategoryLabelPrice: string = 'Price'
   @Input()
   adminManageCategoryLabelName: string = 'Category Name'
@@ -16,9 +20,5 @@ export class AdminManageCategoryPopupComponent {
   adminManageCategoryInputPlaceholderName: string = 'Enter name'
   @Input()
   adminManageCategoryTitle: string = 'Manage Category'
-  @Input()
-  adminManageCategoryNameErrorText: string = ''
-  @Input()
-  adminManageCategoryPriceErrorText: string = ''
   constructor() {}
 }
