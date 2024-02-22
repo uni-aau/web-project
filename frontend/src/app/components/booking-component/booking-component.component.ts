@@ -6,6 +6,7 @@ import {PopupService} from "../../services/popup.service";
 import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 import {ActivatedRoute, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {LanguageHandler} from "../../handler/LanguageHandler";
 
 @Component({
   selector: 'booking-component',
@@ -55,6 +56,7 @@ export class BookingComponent {
         console.log(navigation.station.station_name)
         if (navigation.station && navigation.station.station_name) {
           this.filterInput(navigation.station.station_name)
+          this.bookingLabelSearch = LanguageHandler.formatString(this.bookingLabelSearch, [navigation.station.station_address, navigation.station.station_name])
         }
       },
       error: (err) => {
