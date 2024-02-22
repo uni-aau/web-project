@@ -1,5 +1,7 @@
 <div class="not-found-container">
-  <app-navbar rootClassName="navbar-root-class-name3"></app-navbar>
+  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+  <admin-navbar *ngIf="AuthService.getRole() === 'admin'" rootClassName="admin-navbar-root-class-name1"></admin-navbar>
   <not-found-component
     rootClassName="not-found-component-root-class-name"
   ></not-found-component>
