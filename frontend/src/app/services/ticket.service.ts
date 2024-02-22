@@ -39,4 +39,8 @@ export class TicketService {
     return this.http.get(`${baseURL}/rented/${userId}`);
   }
 
+  updateTicketStatus(ticketId: number, status: string): Observable<any> {
+    return this.http.put(`${baseURL}/ticket/${ticketId}/status`, {status: status});
+  }
+
 }
