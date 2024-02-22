@@ -4,7 +4,7 @@
 >
   <span class="heading">{{ bookingActiveRentalsTitle }}</span>
   <div class="booking-active-rentals-user-component-container1">
-    <booking-active-rentals-list-entry-component *ngFor="let rental of rentals" [rentalsData]="rental"
+    <booking-active-rentals-list-entry-component *ngFor="let rental of rentals" [rentalsData]="rental" (onReturnBike)="handleReturnBike()"
       rootClassName="booking-active-rentals-list-entry-component-root-class-name"
     ></booking-active-rentals-list-entry-component>
   </div>

@@ -29,4 +29,8 @@ export class BookingActiveRentalsUserComponent {
     })
 
   }
+
+  handleReturnBike() {
+    this.fetchRentals();
+  }
 }

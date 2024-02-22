@@ -143,6 +143,7 @@ export class PopupService {
         categoryId: categoryId
       }
     })
+    return dialogRef.afterClosed();
   }
 
   openRentTicketPopup(bikeName:string, parkingPlace: string, bookedType: string, rentingTime: Date, ticketId: number) {
