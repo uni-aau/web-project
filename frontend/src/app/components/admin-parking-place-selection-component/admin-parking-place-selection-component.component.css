@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .admin-parking-place-selection-component-container {
   width: 100%;
@@ -12,18 +12,20 @@
   justify-content: center;
 }
 .admin-parking-place-selection-component-text {
+  width: 50px;
   font-size: 20px;
   margin-left: var(--dl-space-space-unit);
-  margin-right: var(--dl-space-space-unit);
 }
 .admin-parking-place-selection-component-select {
   width: 100%;
-  height: 30px;
+  height: 60px;
   margin-right: var(--dl-space-space-unit);
 }
 .admin-parking-place-selection-component-icon {
   width: 24px;
   height: 24px;
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-halfunit);
   margin-right: var(--dl-space-space-unit);
 }
 

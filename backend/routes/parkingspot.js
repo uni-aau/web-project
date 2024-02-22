@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
         });
 });
 
+router.get('/:stationId', async (req, res) => {
+    const stationId = req.params.stationId;
+
+    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM ParkingSpot WHERE station_id = $1', values: [stationId]})
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching parking spots: " + e.message})
+        });
+});
+
 router.get('/spot/:spotId', async (req, res) => {
     const {spotId} = req.params;
 

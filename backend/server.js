@@ -18,7 +18,7 @@ const stationReviewRoutes = require('./routes/stationReview');
 const transactionRoutes = require('./routes/transaction');
 const bikeModelReviewRoutes = require('./routes/bikeModelReview');
 const walletRoutes = require('./routes/wallet');
-const parkingSpotRoutes = require('./routes/parkingSpot');
+const parkingSpotRoutes = require('./routes/parkingspot');
 const authRoutes = require('./routes/authentication')
 
 const bikeCategoryRoutes = require('./routes/bikeCategory')
