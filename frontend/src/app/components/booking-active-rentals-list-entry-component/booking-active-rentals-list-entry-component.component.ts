@@ -17,12 +17,13 @@ export class BookingActiveRentalsListEntryComponent implements OnInit {
     bookingActiveRentalsEntryRentingInformation: string =
         'Renting Start: {0} | Due Date: {1}'
     @Input()
-    bookingActiveRentalsEntryLocationInformation: string =
+    bookingActiveRentalsEntryLocationInformation: string = ''
+    bookingActiveRentalsEntryLocationInformationOld: string =
         'Bike Station: {0} | Parking Place: {1}'
     @Input()
     rootClassName: string = ''
     @Input()
-    bookingActiveRentalsEntrySelectedBike: string = 'Selected Bike: {0}'
+    bookingActiveRentalsEntrySelectedBike: string = 'Selected Bike: -'
     @Input()
     bookingActiveRentalsEntryImageAlt: string = 'image'
     @Input()
