@@ -31,4 +31,8 @@ export class ParkingspotService {
   deleteParkingSpotWithBikeId(spotId: number, bikeId: number) {
     return this.http.delete(`${baseURL}/spot/${spotId}/${bikeId}`);
   }
+
+  createParkingSpot(stationId: number, spotNumber: number, categoryIds: number[]) {
+    return this.http.post(`${baseURL}/spot`, {stationId: stationId, spotNumber: spotNumber, categoryIds: categoryIds});
+  }
 }

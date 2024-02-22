@@ -66,32 +66,33 @@ router.post('/spot', async (req, res) => {
         });
 });
 
-// TODO Oder route ist /spot/:stationId/:spotNumber
 // Nur categoryIds können geupdatet werden
 router.put('/spot/:spotId', async (req, res) => {
     const { spotId } = req.params;
-    // Hint categoryIds is an array, since multiple categories can be held in one spot
     const { newCategoryIds } = req.body;
 
-    if (!newCategoryIds) return res.status(500).json({ error: "Not all required data inserted" });
+    if (!newCategoryIds) {
+        return res.status(400).json({ error: "Not all required data inserted" });
+    }
 
-    DatabaseService.executeSelectionQuery({
-        text: 'SELECT category_id FROM parkingspotcategory WHERE spot_id = $1',
-        values: [spotId]
-    })
+    pool.query('SELECT category_id FROM parkingspotcategory WHERE spot_id = $1', [spotId])
         .then(result => {
-            const existingCategoryIds = result.map(row => row.category_id);
+            const existingCategoryIds = result.rows.map(row => row.category_id);
+
             const categoriesToAdd = newCategoryIds.filter(id => !existingCategoryIds.includes(id));
             const categoriesToRemove = existingCategoryIds.filter(id => !newCategoryIds.includes(id));
 
-            const addPromises = categoriesToAdd.map(categoryId => pool.query('INSERT INTO parkingspotcategory (spot_id, category_id) VALUES($1, $2)', [spotId, categoryId]));
+            const addPromises = categoriesToAdd.length > 0 
+                                ? categoriesToAdd.map(categoryId => pool.query('INSERT INTO parkingspotcategory (spot_id, category_id) VALUES($1, $2)', [spotId, categoryId]))
+                                : [Promise.resolve()];
             const removePromises = categoriesToRemove.map(categoryId => pool.query('DELETE FROM parkingspotcategory WHERE spot_id = $1 AND category_id = $2', [spotId, categoryId]));
 
             return Promise.all([...addPromises, ...removePromises]);
         })
-        .then(result => res.status(200).json({ success: true }))
-        .catch(e => res.status(500).json({ error: "Error while updating parking spot categories: " + e.message }))
+        .then(() => res.status(200).json({ success: true }))
+        .catch(e => res.status(500).json({ error: "Error while updating parking spot categories: " + e.message }));
 });
+
 
 router.delete('/spot/:spotId/:bikeId', async (req, res) => {
     const { spotId, bikeId } = req.params;
@@ -115,7 +116,7 @@ router.delete('/spot/:spotId', async (req, res) => {
     DatabaseService.executeDeleteQuery({ text: 'DELETE FROM parkingspot WHERE spot_id = $1', values: [spotId] })
     .then(result => res.status(200).json({ success: true, rowsChanged: result }))
     .catch(e => res.status(500).json({ error: "Error while deleting parking spot: " + e.message }))
-    
+
 });
 
 module.exports = router;
