@@ -20,7 +20,8 @@ export class BookingActiveTicketsComponent {
     this.ticketService.fetchTickets().subscribe((res)=> {
       this.tickets = res.filter((ticket:any)=> {
         console.log(ticket)
-        return ticket.user_id === Number(localStorage.getItem("user_id"))
+        return ticket.user_id === Number(localStorage.getItem("user_id")) &&
+          ticket.status !== "Completed"
       });
       console.log(this.tickets)
     });

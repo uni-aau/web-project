@@ -4,7 +4,7 @@ DROP TYPE IF EXISTS bike_status, booked_type, booking_status;
 
 CREATE TYPE bike_status AS ENUM ('Available', 'Booked', 'Rented', 'Maintenance'); -- ENUM will be checked in bike component
 CREATE TYPE booked_type AS ENUM ('Bike', 'Model', 'Category');
-CREATE TYPE booking_status AS ENUM ('Booked', 'Rented', 'Overdue', 'Canceled', 'NotTaken');
+CREATE TYPE booking_status AS ENUM ('Booked', 'Rented', 'Overdue', 'Canceled', 'NotTaken', 'Completed');
 
 CREATE TABLE Wallet
 (
@@ -178,9 +178,11 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
                     renting_end, price)
-VALUES ((SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Bike',
+VALUES ((SELECT user_id FROM "User" WHERE username = 'janeDoe'), 'Bike',
         (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(),
         NOW() + INTERVAL '1 hour', NOW() + INTERVAL '4 hours', 5);
+
+
 
 INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
 VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),

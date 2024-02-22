@@ -27,6 +27,7 @@ export class BookedTypeEntryComponent {
   bookedTypeEntryDueDate: string = 'Due Date: {0}'
   @Input()
   ticketData:any;
+  showRentButton: boolean = true;
   constructor() {}
 
   ngOnInit() {
@@ -48,5 +49,9 @@ export class BookedTypeEntryComponent {
       "Status: {0}", [this.ticketData.status]);
     this.bookedTypeEntryDueDate = LanguageHandler.formatString(
       "Due Date: {0}", [this.ticketData.renting_end]);
+
+    if(this.ticketData.status === "Rented"){
+      this.showRentButton = false
+    }
   }
 }
