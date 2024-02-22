@@ -75,6 +75,7 @@ export class AdminBikeStationEntryComponent implements OnInit {
           let sum = 0;
           data.forEach((rate: any) => {
             sum += rate.rating
+            this.ratingsAmount++;
           })
 
           let mean = sum / data.length;

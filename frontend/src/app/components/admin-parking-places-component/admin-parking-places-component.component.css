@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .admin-parking-places-component-container {
   flex: 0 0 auto;
@@ -42,7 +42,7 @@
   justify-content: flex-end;
 }
 .admin-parking-places-component-button {
-  margin-right: var(--dl-space-space-halfunit);
+
 }
 .admin-parking-places-component-text1 {
   align-self: flex-start;
