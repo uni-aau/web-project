@@ -46,7 +46,7 @@
       *ngIf="!currentSelection || currentSelection === 'models'"
       class="booking-component-model-container">
       <model-component
-        *ngFor="let model of models"
+        *ngFor="let model of filteredModels"
         [showAdminButtons]="false"
         [visibleBookButton]="true"
         [modelData]="model"
@@ -57,7 +57,7 @@
       *ngIf="!currentSelection || currentSelection === 'categories'"
       class="booking-component-categories-container">
       <category-component
-        *ngFor="let category of categories"
+        *ngFor="let category of filteredCategories"
         [showAdminButtons]="false"
         [visibleBookButton]="true"
         [categoryData]="category"

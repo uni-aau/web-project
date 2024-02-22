@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input, model} from '@angular/core'
 import {BikeService} from "../../services/bike.service";
 import {ModelService} from "../../services/model.service";
 import {CategoryService} from "../../services/category.service";
@@ -27,10 +27,12 @@ export class BookingComponent {
   @Input()
   rootClassName: string = ''
 
-  bikes: any;
-  filteredBikes: any;
-  models: any;
-  categories: any;
+  bikes: any[] = [];
+  filteredBikes: any[] = [];
+  models: any[] = [];
+  filteredModels: any[] = [];
+  categories: any[] = [];
+  filteredCategories: any[] = [];
   currentSelection: string | null = null;
   constructor(private bikeService:BikeService,
               private modelService:ModelService,
@@ -67,6 +69,7 @@ export class BookingComponent {
     this.modelService.getModels().subscribe({
       next: (res) => {
         this.models = res;
+        this.filteredModels = res;
         console.log(this.models)
       },
       error: (err) => {
@@ -77,6 +80,7 @@ export class BookingComponent {
     this.categoryService.getCategories().subscribe({
       next: (res) => {
         this.categories = res;
+        this.filteredCategories = res;
         console.log(this.categories)
       },
       error: (err) => {
@@ -86,8 +90,16 @@ export class BookingComponent {
     })
   }
 
-  performSearch($event: string) {
-
+  performSearch(searchTerm: string) {
+    if (!searchTerm) {
+      this.filteredBikes = this.bikes;
+      this.filteredModels = this.models;
+      this.filteredCategories = this.categories;
+    } else {
+      this.filteredBikes = this.bikes.filter(bike => bike.bike_name.toLowerCase().includes(searchTerm.toLowerCase()));
+      this.filteredCategories = this.categories.filter(category => category.category_name.toLowerCase().includes(searchTerm.toLowerCase()));
+      this.filteredModels = this.models.filter(model => model.model_name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
   }
 
   selectComponent(componentName: string) {
@@ -99,12 +111,5 @@ export class BookingComponent {
   }
 
   performBook($event: any) {
-    // this.popupService.openBookTicketPopup("category", "bikeName", 123).subscribe({
-    //   next: (val) => {
-    //
-    //   },
-    //   error: (err) => console.log(err)
-    //   }
-    // )
   }
 }
