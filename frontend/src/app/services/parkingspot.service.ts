@@ -23,4 +23,12 @@ export class ParkingspotService {
   updateParkingSpot(spotId: number, newCategoryIds: number[]) : Observable<any> {
     return this.http.put(`${baseURL}/spot/${spotId}`, {newCategoryIds: newCategoryIds});
   }
+
+  deleteParkingSpot(spotId: number) {
+    return this.http.delete(`${baseURL}/spot/${spotId}`);
+  }
+
+  deleteParkingSpotWithBikeId(spotId: number, bikeId: number) {
+    return this.http.delete(`${baseURL}/spot/${spotId}/${bikeId}`);
+  }
 }

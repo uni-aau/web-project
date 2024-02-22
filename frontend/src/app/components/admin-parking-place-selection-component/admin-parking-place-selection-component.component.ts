@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {ParkingspotService} from "../../services/parkingspot.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'admin-parking-place-selection-component',
   templateUrl: 'admin-parking-place-selection-component.component.html',
   styleUrls: ['admin-parking-place-selection-component.component.css'],
 })
-export class AdminParkingPlaceSelectionComponent implements OnInit{
+export class AdminParkingPlaceSelectionComponent implements OnInit {
   @Input()
   adminParkingPlacesPlaceNumber: string = '{0}.'
   @Input()
@@ -18,16 +18,22 @@ export class AdminParkingPlaceSelectionComponent implements OnInit{
   @Input() parkingPlaceGeneralSelection = 'None'
 
   selectedCategories: any[] = [];
+  assignedBikeStatus: string = '';
+  bikeId: number = -1;
 
-  @Output() onDataChange : EventEmitter<any> = new EventEmitter<any>();
+  @Output() onDataChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onSpotDelete: EventEmitter<any> = new EventEmitter<any>();
+
+  popupDescription = 'Do you really want to delete the parking place? Assigned available bikes will be unassigned!'
 
 
-  constructor(private spotService: ParkingspotService) {
+  constructor(private spotService: ParkingspotService, private popupService: PopupService) {
 
   }
+
   ngOnInit(): void {
     console.log(this.spot)
-    if(this.spot) {
+    if (this.spot) {
       this.adminParkingPlacesPlaceNumber = `${this.spot.spot_number}.`;
       this.selectedCategories = this.spot.categories;
       this.fetchAssignedBike();
@@ -35,7 +41,7 @@ export class AdminParkingPlaceSelectionComponent implements OnInit{
   }
 
   handleSelectionChange() {
-    this.onDataChange.emit({ ...this.spot, categories: this.selectedCategories });
+    this.onDataChange.emit({...this.spot, categories: this.selectedCategories});
     console.log(this.selectedCategories)
   }
 
@@ -43,18 +49,47 @@ export class AdminParkingPlaceSelectionComponent implements OnInit{
     this.spotService.fetchAssignedBike(this.spot.spot_id).subscribe({
       next: (val) => {
         console.log(val);
-        this.adminParkingPlaceAssignedBike = 'Assigned Bike: ' + val[0].bike_name
+        this.adminParkingPlaceAssignedBike = 'Assigned Bike: ' + val[0].bike_name;
+        this.bikeId = val[0].bike_id;
+        this.assignedBikeStatus = val[0].status;
       },
       error: (err) => {
-        if(err.status === 404) this.adminParkingPlaceAssignedBike = 'Assigned Bike: None';
+        if (err.status === 404) this.adminParkingPlaceAssignedBike = 'Assigned Bike: None';
         else console.log("Error while fetching assigned bike: ", err)
 
-    }
+      }
     })
   }
 
 
   handleParkingPlaceDeletion() {
-    console.log("Test")
+    if ((this.assignedBikeStatus && (this.assignedBikeStatus === 'Available' || this.assignedBikeStatus === 'Maintenance')) || !this.assignedBikeStatus) {
+      this.popupService.openPopup(this.popupDescription).subscribe({
+        next: (result) => {
+          if (result) this.executeDeletionQuery()
+        },
+      })
+    } else alert('The bike is currently not available!')
+  }
+
+  executeDeletionQuery() {
+    if(this.bikeId > 0) {
+      this.spotService.deleteParkingSpotWithBikeId(this.spot.spot_id, this.bikeId).subscribe({
+        next: (val) => {
+          this.onSpotDelete.emit();
+          console.log(val)
+        },
+        error: (err) => console.log("Error while deleting parking spot: ", err)
+      })
+    } else {
+      this.spotService.deleteParkingSpot(this.spot.spot_id).subscribe({
+        next: (val) => {
+          this.onSpotDelete.emit();
+          console.log(val)
+        },
+        error: (err) => console.log("Error while deleting parking spot: ", err)
+      })
+    }
+
   }
 }

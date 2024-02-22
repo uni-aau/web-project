@@ -58,7 +58,9 @@ export class AdminParkingPlacesComponent implements OnInit {
 
   fetchParkingSpots() {
     this.parkingService.fetchParkingSpots(this.stationId).subscribe({
-      next: (val) => this.parkingSpots = val,
+      next: (val) => {
+        this.parkingSpots = val
+      },
       error: (err) => {
         if (err.status === 404) this.parkingSpots = [];
         else console.log(`Error while fetching parking spots from station ${this.stationId}`, err)
@@ -67,7 +69,12 @@ export class AdminParkingPlacesComponent implements OnInit {
   }
 
   handleSpotUpdate(updatedSpot: any) {
+    console.log("TEST ", updatedSpot)
     this.updatedSpots.set(updatedSpot.spot_id, updatedSpot);
+  }
+
+  handleSpotDeletion() {
+    this.fetchParkingSpots();
   }
 
   handleConfirm() {
