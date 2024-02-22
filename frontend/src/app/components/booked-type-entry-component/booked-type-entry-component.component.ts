@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
+import {PopupService} from "../../services/popup.service";
 
 @Component({
   selector: 'booked-type-entry-component',
@@ -26,13 +27,20 @@ export class BookedTypeEntryComponent {
   @Input()
   bookedTypeEntryDueDate: string = 'Due Date: {0}'
   @Input()
-  ticketData:any;
+  ticketData: any;
   showRentButton: boolean = true;
-  constructor() {}
+
+  constructor(private popupService: PopupService) {
+  }
 
   ngOnInit() {
-   this.insertData();
+    this.insertData();
   }
+
+  openQrCode() {
+    this.popupService.openQrCodePopup();
+  }
+
 
   private insertData() {
     this.bookedTypeEntryTicketId = LanguageHandler.formatString(
@@ -50,7 +58,7 @@ export class BookedTypeEntryComponent {
     this.bookedTypeEntryDueDate = LanguageHandler.formatString(
       "Due Date: {0}", [this.ticketData.renting_end]);
 
-    if(this.ticketData.status === "Rented"){
+    if (this.ticketData.status === "Rented") {
       this.showRentButton = false
     }
   }

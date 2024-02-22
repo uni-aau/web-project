@@ -9,6 +9,6 @@ export class BookingQRCodePopupComponent {
   @Input()
   imageAlt: string = 'image'
   @Input()
-  imageSrc: string = '/assets/qr-500h.png'
+  imageSrc: string = '/assets/qr-1200h.png'
   constructor() {}
 }
