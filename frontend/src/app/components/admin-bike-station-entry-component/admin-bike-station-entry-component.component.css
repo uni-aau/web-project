@@ -161,4 +161,9 @@
     width: 100%;
     justify-content: center;
   }
+
+  .admin-bike-station-entry-component-text3 {
+    font-size: 16px;
+    margin-left: 4px;
+  }
 }

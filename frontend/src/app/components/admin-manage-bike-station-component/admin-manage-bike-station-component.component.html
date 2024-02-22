@@ -3,7 +3,7 @@
   [ngClass]="rootClassName"
 >
   <map-component rootClassName="map-component-root-class-name2"></map-component>
-  <form class="admin-manage-bike-station-component-form">
+  <div class="admin-manage-bike-station-component-form">
     <div class="admin-manage-bike-station-component-container1">
       <div class="admin-manage-bike-station-component-container2">
         <div class="admin-manage-bike-station-component-container3">
@@ -14,7 +14,7 @@
             type="number"
             id="manage-bike-station-longitude-input"
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
-            value="{{ adminManageBikeStationInputPlaceholderLongitude }}"
+            [(ngModel)]="longitude"
             class="admin-manage-bike-station-component-textinput input"
           />
           <span class="input-error-hint">
@@ -29,7 +29,7 @@
             type="number"
             id="manage-bike-station-latitude-input"
             [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
-            value="{{ adminManageBikeStationInputPlaceholderLatitude }}"
+            [(ngModel)]="latitude"
             class="admin-manage-bike-station-component-textinput1 input"
           />
           <span class="input-error-hint">
@@ -45,7 +45,7 @@
           type="text"
           id="manage-bike-station-station-name-input"
           [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
-          value="{{ adminManageBikeStationInputPlaceholderName }}"
+          [(ngModel)]="stationName"
           class="admin-manage-bike-station-component-textinput2 input"
         />
         <span class="input-error-hint">
@@ -60,7 +60,7 @@
           type="text"
           id="manage-bike-station-address-input"
           [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
-          value="{{ adminManageBikeStationInputPlaceholderAddress }}"
+          [(ngModel)]="stationAddress"
           class="admin-manage-bike-station-component-textinput3 input"
         />
         <span class="input-error-hint">
@@ -73,9 +73,10 @@
       <textarea
         [attr.placeholder]="adminManageBikeStationStationInputPlaceholder"
         class="admin-manage-bike-station-component-textarea textarea"
-      >{{ adminManageBikeStationStationInputPlaceholder }}</textarea>
+        [(ngModel)]="stationDescription"
+      ></textarea>
     </div>
-  </form>
+  </div>
   <span class="input-error-hint">
     {{ adminManageBikeStationDescriptionError }}
   </span>
@@ -83,4 +84,5 @@
     {{ adminManageBikeStationImageTitle }}
   </span>
   <image-upload-preview-component></image-upload-preview-component>
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"></button-save-discard-component>
 </div>

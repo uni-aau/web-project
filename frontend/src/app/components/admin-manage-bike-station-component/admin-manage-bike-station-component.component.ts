@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core'
-import {BikeStations} from "../../pages/bike-stations/bike-stations.component";
 import {BikeStation} from "../../types/bikeStation.type";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Config} from "../../Config"
+import {BikeStationService} from "../../services/bikestation.service";
 
 @Component({
   selector: 'admin-manage-bike-station-component',
@@ -10,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class AdminManageBikeStationComponent {
   @Input()
-  bikeStation: BikeStation =  {
+  bikeStation: BikeStation = {
     description: "string",
     latitude: 0,
     longitude: 0,
@@ -26,22 +27,22 @@ export class AdminManageBikeStationComponent {
   @Input()
   adminManageBikeStationStationLabelDescription: string = 'Describe your station with a few words'
   @Input()
-  adminManageBikeStationStationInputPlaceholder: string = this.bikeStation.description
+  adminManageBikeStationStationInputPlaceholder: string = 'Station Description'
 
   @Input()
-  adminManageBikeStationInputPlaceholderAddress: string = this.bikeStation.station_address
+  adminManageBikeStationInputPlaceholderAddress: string = 'Station Address'
   @Input()
   adminManageBikeStationLabelAddress: string = 'Address'
   @Input()
   adminManageBikeStationLabelLongitude: string = "Longitude"
   @Input()
-  adminManageBikeStationInputPlaceholderLatitude: number = this.bikeStation.latitude
+  adminManageBikeStationInputPlaceholderLatitude: string = 'Latitude'
   @Input()
-  adminManageBikeStationInputPlaceholderName: string = this.bikeStation.station_name
+  adminManageBikeStationInputPlaceholderName: string = 'Station Name'
   @Input()
   adminManageBikeStationImageTitle: string = 'Station Image'
   @Input()
-  adminManageBikeStationInputPlaceholderLongitude: number = this.bikeStation.longitude
+  adminManageBikeStationInputPlaceholderLongitude: string = 'Longitude'
   @Input()
   adminManageBikeStationLabelLatitude: string = 'Latitude'
   @Input()
@@ -58,22 +59,89 @@ export class AdminManageBikeStationComponent {
   adminManageBikeStationAddressError: string = ''
   @Input()
   adminManageBikeStationStationNameError: string = ''
-  constructor(private route: ActivatedRoute) {}
+
+  @Output() onDataChange: EventEmitter<any> = new EventEmitter<any>();
+
+  longitude: number | undefined;
+  latitude: number | undefined;
+  stationName: string = '';
+  stationDescription: string = '';
+  stationAddress: string = '';
+  imageLink: string = '';
+
+  constructor(private route: ActivatedRoute, private router: Router, private stationService: BikeStationService) {
+  }
+
+  stationId = -1;
+  maxDescriptionCharacters = 60;
 
   ngOnInit(): void {
-    console.log("test");
     if (history.state && history.state.bikeStation) {
       this.bikeStation = history.state.bikeStation;
-      this.adminManageBikeStationStationInputPlaceholder = this.bikeStation.description;
-      this.adminManageBikeStationInputPlaceholderAddress = this.bikeStation.station_address;
-      this.adminManageBikeStationInputPlaceholderLatitude = this.bikeStation.latitude;
-      this.adminManageBikeStationInputPlaceholderName = this.bikeStation.station_name;
-      this.adminManageBikeStationInputPlaceholderLongitude = this.bikeStation.longitude;
+      this.longitude = this.bikeStation.longitude;
+      this.latitude = this.bikeStation.latitude;
+      this.stationName = this.bikeStation.station_name;
+      this.stationAddress = this.bikeStation.station_address;
+      this.stationDescription = this.bikeStation.description;
+      this.stationId = this.bikeStation.station_id;
     }
   }
 
-  sendDataToParent(): void {
-    console.log(this.bikeStation)
-    this.save.emit(this.bikeStation);
+  handleConfirm() {
+    const longitudeRegex = /^-?([1-9]?\d(\.\d+)?|1[0-7]\d(\.\d+)?|180(\.0+)?)$/;
+    const latitudeRegex = /^-?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+
+    if (!this.longitude || !longitudeRegex.test(String(this.longitude))) {
+      this.adminManageBikeStationLongitudeError = 'Insert valid longitude (-180 to 180)';
+      return;
+    }
+    this.adminManageBikeStationLongitudeError = '';
+
+    if (!this.latitude || !latitudeRegex.test(String(this.latitude))) {
+      this.adminManageBikeStationLatitudeError = 'Insert valid latitude (-90 to 90)';
+      return;
+    }
+    this.adminManageBikeStationLatitudeError = '';
+
+    if (!this.stationName.trim()) {
+      this.adminManageBikeStationStationNameError = 'Insert valid station name';
+      return;
+    }
+    this.adminManageBikeStationStationNameError = '';
+
+    if (!this.stationAddress.trim()) {
+      this.adminManageBikeStationAddressError = 'Insert valid station address';
+      return;
+    }
+    this.adminManageBikeStationAddressError = '';
+
+    if (this.stationDescription.length > this.maxDescriptionCharacters) {
+      this.adminManageBikeStationDescriptionError = `Insert max. ${this.maxDescriptionCharacters} characters`
+      return;
+    }
+
+    this.imageLink = Config.noImageLink;
+
+    if(this.stationId > 0) this.executeUpdateQuery()
+    else this.executeInsertionQuery();
   }
+
+  handleCancel() {
+    this.router.navigate(["/admin-bike-stations"]);
+  }
+
+  executeUpdateQuery() {
+      this.stationService.updateStation(this.stationId, this.stationName, this.stationDescription, this.stationAddress, this.longitude, this.latitude, this.imageLink).subscribe({
+        next: (val) => this.handleCancel(),
+        error: (err) => console.log(`Error while updating station ${this.stationId} `, err)
+      })
+  }
+
+  executeInsertionQuery() {
+    this.stationService.createStation(this.stationName, this.stationDescription, this.stationAddress, this.longitude, this.latitude, this.imageLink).subscribe({
+      next: (val) => this.handleCancel(),
+      error: (err) => console.log(`Error while creating station `, err)
+    })
+  }
+
 }

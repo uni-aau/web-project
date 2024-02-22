@@ -3,6 +3,7 @@ import {BikeStation} from "../../types/bikeStation.type";
 import {
   AdminManageBikeStationComponent
 } from "../admin-manage-bike-station-component/admin-manage-bike-station-component.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'admin-update-bike-station-component',
@@ -10,21 +11,11 @@ import {
   styleUrls: ['admin-update-bike-station-component.component.css'],
 })
 export class AdminUpdateBikeStationComponent {
-  @Output() save = new EventEmitter<string>();
   @Input()
   rootClassName: string = ''
   @Input()
-  adminManageBikestationButtonSaveBikeStation: string = 'Save'
-  @Input()
-  adminManageBikeStationTitle: string = 'Manage Bikestation'
-  @Input()
-  adminManageBikeStationButtonDiscard: string = 'Discard'
+  adminManageBikeStationTitle: string = 'Manage Bike Station'
 
-  @ViewChild(AdminManageBikeStationComponent) manageBikeStationComponent: AdminManageBikeStationComponent | undefined;
-
-  constructor() {}
-
-  onSave(): void {
-    console.log(this.manageBikeStationComponent!.sendDataToParent());
+  constructor() {
   }
 }

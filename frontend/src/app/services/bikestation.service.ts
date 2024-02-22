@@ -28,4 +28,12 @@ export class BikeStationService {
     return this.http.get(`${baseURL}/station/${stationId}/bike-status`)
   }
 
+  updateStation(stationId: number, stationName: string, stationDescription: string, stationAddress: string, longitude: any, latitude: any, imageLink: string): Observable<any> {
+    return this.http.put(`${baseURL}/station/${stationId}`, {stationName: stationName, description: stationDescription, stationAddress: stationAddress, longitude: longitude, latitude: latitude, stationImageLocation: imageLink })
+  }
+
+  createStation(stationName: string, stationDescription: string, stationAddress: string, longitude: any, latitude: any, imageLink: string): Observable<any> {
+    return this.http.post(`${baseURL}/station`, {stationName: stationName, description: stationDescription, stationAddress: stationAddress, longitude: longitude, latitude: latitude, stationImageLocation: imageLink })
+  }
+
 }
