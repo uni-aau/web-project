@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .register-component-container {
   width: 368px;
@@ -37,46 +37,65 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.register-component-text {
-  width: 50%;
-  text-align: left;
-  margin-right: var(--dl-space-space-halfunit);
-}
-.register-component-text1 {
-  width: 50%;
-  text-align: left;
-  margin-left: var(--dl-space-space-halfunit);
-}
 .register-component-container3 {
-  flex: 1;
-  width: 100%;
-  height: 100%;
+  flex: 0 0 auto;
+  width: 50%;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
 }
-.register-component-textinput {
-  width: 50%;
+.register-component-text {
+  text-align: left;
   margin-right: var(--dl-space-space-halfunit);
 }
-.register-component-textinput1 {
-  width: 50%;
-  margin-left: var(--dl-space-space-halfunit);
-}
-.register-component-textinput2 {
+.register-component-textinput {
   width: 100%;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
-}
-.register-component-textinput3 {
-  width: 100%;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 .register-component-container4 {
   flex: 0 0 auto;
-  width: auto;
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-halfunit);
+  flex-direction: column;
+}
+.register-component-text02 {
+  text-align: left;
+  margin-left: var(--dl-space-space-halfunit);
+}
+.register-component-textinput1 {
+  width: 100%;
+}
+.register-component-container5 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex-direction: column;
+}
+.register-component-textinput2 {
+  width: 100%;
+}
+.register-component-container6 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex-direction: column;
+}
+.register-component-textinput3 {
+  width: 100%;
+}
+.register-component-container7 {
+  flex: 0 0 auto;
+  width: 100%;
   height: auto;
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   justify-content: flex-start;
 }
 .register-component-textinput4 {
@@ -90,7 +109,7 @@
 .register-component-button:hover {
   background: #084f9e;
 }
-.register-component-text5 {
+.register-component-text10 {
   color: var(--dl-color-gray-500);
   font-size: 15px;
   font-style: normal;

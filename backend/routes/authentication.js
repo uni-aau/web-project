@@ -55,9 +55,14 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10)
 
     try {
-        const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1 OR email = $2', [username.toLowerCase(), email.toLowerCase()]);
+        const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1', [username.toLowerCase()]);
         if (existingUser.rows.length) {
-            return res.status(400).json({exists: true, message: "User with this username or email already exists!"})
+            return res.status(400).json({username: true, exists: true, message: "User with this username already exists!"})
+        }
+
+        const existingEmail = await pool.query('SELECT * FROM "User" WHERE email = $1', [email.toLowerCase()]);
+        if (existingEmail.rows.length) {
+            return res.status(400).json({email: true, exists: true, message: "User with this email already exists!"})
         }
 
         const walletResult = await pool.query('INSERT INTO Wallet (balance, available_balance) VALUES (0, 0) RETURNING *');

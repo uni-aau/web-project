@@ -32,11 +32,57 @@ export class RegisterComponent {
   @Input()
   registerInputPlaceholderPassword: string = 'Enter your password'
   @Input()
-  registerInputLbaleLastName: string = 'Last Name'
+  registerInputLabelLastName: string = 'Last Name'
   @Input()
   registerInputPlaceholderUsername: string = 'Enter username'
+  @Input()
+  registerFirstnameError: string = ''
+  @Input()
+  registerLastnameError: string = ''
+  @Input()
+  registerUsernameError: string = ''
+  @Input()
+  registerEmailError: string = ''
+  @Input()
+  registerPasswordError: string = ''
 
   constructor(private authService: AuthService, private router: Router) {
+  }
+
+  handleRegister(firstname: string, lastname: string, username: string, email: string, password: string) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!firstname.trim()) {
+      this.registerFirstnameError = 'Enter valid firstname';
+      return;
+    }
+    this.registerFirstnameError = '';
+
+    if (!lastname.trim()) {
+      this.registerLastnameError = 'Enter valid lastname';
+      return;
+    }
+    this.registerLastnameError = '';
+
+    if (!username.trim()) {
+      this.registerUsernameError = 'Enter valid username';
+      return;
+    }
+    this.registerUsernameError = '';
+
+    if (!email.trim() || !emailRegex.test(email)) {
+      this.registerEmailError = 'Enter valid email';
+      return;
+    }
+    this.registerEmailError = '';
+
+    if (!password.trim()) {
+      this.registerPasswordError = 'Enter valid password';
+      return;
+    }
+    this.registerPasswordError = '';
+
+    this.register(firstname, lastname, username, email, password);
   }
 
   register(firstname: string, lastname: string, username: string, email: string, password: string) {
@@ -46,7 +92,13 @@ export class RegisterComponent {
           this.router.navigate(["/login"]);
         },
         error: (err) => {
-          console.log("Registration failed", err);
+          if (err.status === 400 && err.error.exists && err.error.username) {
+            this.registerUsernameError = 'This username already exists';
+          } else if (err.status === 400 && err.error.exists && err.error.email) {
+            this.registerEmailError = 'This email already exists';
+          } else {
+            console.log("Registration failed", err);
+          }
         }
       }
     )
