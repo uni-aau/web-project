@@ -40,7 +40,8 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        this.loginError = 'Invalid Username or Password';
+        if(err.status === 404 || err.status === 401) this.loginError = 'Invalid Username or Password';
+        else this.loginError = 'Unexpected error occurred'
         console.log("Login failed", err)
       }
     })

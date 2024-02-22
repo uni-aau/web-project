@@ -87,6 +87,10 @@ export class BookTicketPopupComponent {
     });
   }
 
+  performCancel() {
+    this.dialogRef.close();
+  }
+
 
   addTimeToDate(startDate: any, timeString: any) {
     const {hours, minutes} = this.extractTime(timeString);
