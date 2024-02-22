@@ -15,6 +15,11 @@ export class BikeService {
       return this.http.delete(`${baseURL}/bike/${bikeId}`);
   }
 
+  unassignBike(bikeId:number){
+    console.log("unassign")
+    return this.http.post(`${baseURL}/bike/${bikeId}/unasign`, {});
+  }
+
   fetchBikes(): Observable<any> {
     return this.http.get(`${baseURL}/`)
   }
