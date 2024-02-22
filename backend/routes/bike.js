@@ -18,7 +18,7 @@ router.get('/', function (eq, res) {
 router.get('/bike/:bikeId', function (req, res) {
     const {bikeId} = req.params;
 
-    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike WHERE bike_id = $1', values: [bikeId]})
+    DatabaseService.executeSelectionQuery({text: 'SELECT b.*, m.model_name, c.category_name, c.category_id, s.station_name FROM Bike b LEFT JOIN Station s ON b.station_id = s.station_id JOIN BikeModel m ON b.model_id = m.model_id JOIN BikeCategory c ON m.category_id = c.category_id WHERE b.bike_id = $1', values: [bikeId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
@@ -75,7 +75,7 @@ router.get('/bike/:bikeId/type', function (req, res) {
         });
 });
 
-router.get('/bike/:bikeId/status', function (req, res) {
+router.put('/bike/:bikeId/status', function (req, res) {
     const {bikeId} = req.params;
     const {bikeStatus} = req.body;
 
