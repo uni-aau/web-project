@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {PopupService} from "../../services/popup.service";
+import {BikeService} from "../../services/bike.service";
 
 @Component({
   selector: 'booked-type-entry-component',
@@ -28,13 +29,16 @@ export class BookedTypeEntryComponent {
   bookedTypeEntryDueDate: string = 'Due Date: {0}'
   @Input()
   ticketData: any;
+  bike: any
   showRentButton: boolean = true;
 
-  constructor(private popupService: PopupService) {
+
+  constructor(private popupService: PopupService, private bikeService:BikeService) {
   }
 
   ngOnInit() {
     this.insertData();
+    console.log(this.ticketData)
   }
 
   openQrCode() {
@@ -61,5 +65,19 @@ export class BookedTypeEntryComponent {
     if (this.ticketData.status === "Rented") {
       this.showRentButton = false
     }
+
+    this.bikeService.getBike(this.ticketData.bike_id).subscribe((bikes:any) => {
+      this.bike = bikes[0]
+    })
+  }
+
+  performRent($event: MouseEvent) {
+      this.popupService.openRentTicketPopup(
+        this.bike.bike_name,
+        this.bike.assigned_to,
+        this.ticketData.booked_type,
+        new Date(),
+        this.ticketData.ticket_id
+        )
   }
 }
