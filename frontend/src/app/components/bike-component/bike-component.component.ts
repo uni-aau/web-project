@@ -3,6 +3,7 @@ import {BikeService} from "../../services/bike.service";
 import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {TicketService} from "../../services/ticket.service";
+import {TicketUtilityService} from "../../services/ticket.utility.service";
 
 @Component({
   selector: 'bike-component',
@@ -56,7 +57,7 @@ export class BikeComponent implements OnInit {
   @Output() onBikeUpdate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private bikeService: BikeService, private popupService: PopupService,
-              private ticketService:TicketService) {
+              private ticketService:TicketService, private ticketUtilyService:TicketUtilityService) {
   }
 
   ngOnInit() {
@@ -201,27 +202,5 @@ export class BikeComponent implements OnInit {
         });
       }
     });
-  }
-
-  addTimeToDate(startDate: any, timeString: any) {
-    const {hours, minutes} = this.extractTime(timeString);
-    const result = new Date(startDate);
-    result.setHours(result.getHours() + hours);
-    result.setMinutes(result.getMinutes() + minutes);
-    return result;
-  }
-
-  extractTime(timeString: string) {
-    const [hours, minutes] = timeString.split(':').map(Number);
-    return {hours, minutes};
-  }
-
-  formatDateForInput(date: Date): string {
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
   }
 }
