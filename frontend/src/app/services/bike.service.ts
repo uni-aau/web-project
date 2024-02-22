@@ -34,4 +34,8 @@ export class BikeService {
   addBike(bikeName: string, bikeSize: number, bikePrice: number, bikeStatus: string, bikeImage: string, modelId: number ): Observable<any> {
     return this.http.post(`${baseURL}/bike`, {bikeName: bikeName, modelId: modelId, status: bikeStatus, bikeImage: bikeImage, size: bikeSize, price: bikePrice});
   }
+
+  updateBikeStatus(bikeId: number, bikeStatus: string) {
+    return this.http.put(`${baseURL}/bike/${bikeId}/status`, {bikeStatus: bikeStatus});
+  }
 }

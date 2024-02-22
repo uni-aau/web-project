@@ -15,15 +15,10 @@
       <select
         id="manage-bike-models-selector"
         class="return-bike-popup-component-select selector-style"
+        (change)="handleSelect($event)"
       >
-        <option value="Option 1">Option 1</option>
-        <option value="Option 1">Option 1</option>
-        <option value="Option 1">Option 1</option>
-        <option value="Option 2">Option 2</option>
-        <option value="Option 2">Option 2</option>
-        <option value="Option 3">Option 3</option>
-        <option value="Option 3">Option 3</option>
-        <option value="Option 3">Option 3</option>
+        <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
+        <option *ngFor="let station of bikeStations" [value]="station.station_id">{{station.station_name}}</option>
       </select>
       <span class="input-error-hint">{{ returnBikeError }}</span>
     </div>
@@ -33,7 +28,7 @@
       </span>
     </div>
   </div>
-  <button-save-discard-component
+  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
     rootClassName="button-save-discard-component-root-class-name2"
   ></button-save-discard-component>
 </div>

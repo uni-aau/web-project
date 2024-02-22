@@ -4,107 +4,144 @@ import {DialogPopupComponent} from "../components/dialog-popup-component/dialog-
 import {Observable} from "rxjs";
 import {DepositMoneyPopup} from "../components/deposit-money-popup/deposit-money-popup.component";
 import {
-    AdminBikeAssignmentComponent
+  AdminBikeAssignmentComponent
 } from "../components/admin-bike-assignment-component/admin-bike-assignment-component.component";
 import {
-    AdminManageBikePopupComponent
+  AdminManageBikePopupComponent
 } from "../components/admin-manage-bike-popup-component/admin-manage-bike-popup-component.component";
 import {
-    BookTicketPopupComponent
+  BookTicketPopupComponent
 } from "../components/book-ticket-popup-component/book-ticket-popup-component.component";
 import {
-    AdminManageCategoryPopupComponent
+  AdminManageCategoryPopupComponent
 } from "../components/admin-manage-category-popup-component/admin-manage-category-popup-component.component";
 import {
-    AdminManageModelPopupComponent
+  AdminManageModelPopupComponent
 } from "../components/admin-manage-model-popup-component/admin-manage-model-popup-component.component";
 import {NewReviewPopupComponent} from "../components/new-review-popup-component/new-review-popup-component.component";
 import {
   BookingQRCodePopupComponent
 } from "../components/booking-qr-code-popup-component/booking-qr-code-popup-component.component";
+import {
+  ReturnBikePopupComponent
+} from "../components/return-bike-popup-component/return-bike-popup-component.component";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class PopupService {
 
-    constructor(private dialog: MatDialog) {
-    }
+  constructor(private dialog: MatDialog) {
+  }
 
-    openPopup(description: string): Observable<boolean> {
-        const dialogRef = this.dialog.open(DialogPopupComponent, {data: {description: description}})
+  openPopup(description: string): Observable<boolean> {
+    const dialogRef = this.dialog.open(DialogPopupComponent, {data: {description: description}})
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openDepositMoneyPopup(): Observable<number> {
-        const dialogRef = this.dialog.open(DepositMoneyPopup);
+  openDepositMoneyPopup(): Observable<number> {
+    const dialogRef = this.dialog.open(DepositMoneyPopup);
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openAssignBikePopup(modelName: string, categoryName: string, categoryId: string) {
-        const dialogRef = this.dialog.open(AdminBikeAssignmentComponent, {data: {model: modelName, category: categoryName, categoryId: categoryId}})
+  openAssignBikePopup(modelName: string, categoryName: string, categoryId: string) {
+    const dialogRef = this.dialog.open(AdminBikeAssignmentComponent, {
+      data: {
+        model: modelName,
+        category: categoryName,
+        categoryId: categoryId
+      }
+    })
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openCreateBikePopup() {
-        const dialogRef = this.dialog.open(AdminManageBikePopupComponent)
+  openCreateBikePopup() {
+    const dialogRef = this.dialog.open(AdminManageBikePopupComponent)
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openUpdateBikePopup(bikeName: string, bikeSize: number, bikePrice: number, bikeStatus: string, imageLink: string) {
-        const dialogRef = this.dialog.open(AdminManageBikePopupComponent, {data: {bikeName: bikeName, bikePrice: bikePrice, bikeSize: bikeSize, bikeStatus: bikeStatus, imageLink: imageLink}})
+  openUpdateBikePopup(bikeName: string, bikeSize: number, bikePrice: number, bikeStatus: string, imageLink: string) {
+    const dialogRef = this.dialog.open(AdminManageBikePopupComponent, {
+      data: {
+        bikeName: bikeName,
+        bikePrice: bikePrice,
+        bikeSize: bikeSize,
+        bikeStatus: bikeStatus,
+        imageLink: imageLink
+      }
+    })
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-  openBookTicketPopup(category: string, bikeName: string | null, price:number) {
-        const dialogRef = this.dialog.open(BookTicketPopupComponent, {
-            data: {
-                category: category,
-                bikeName: bikeName,
-                price: price
-            }
-        })
+  openBookTicketPopup(category: string, bikeName: string | null, price: number) {
+    const dialogRef = this.dialog.open(BookTicketPopupComponent, {
+      data: {
+        category: category,
+        bikeName: bikeName,
+        price: price
+      }
+    })
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openCreateCategoryPopup() {
-        const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent)
+  openCreateCategoryPopup() {
+    const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent)
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openUpdateCategoryPopup(categoryName: string, categoryPrice: number) {
-        const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent, {data: {categoryName: categoryName, categoryPrice: categoryPrice}})
+  openUpdateCategoryPopup(categoryName: string, categoryPrice: number) {
+    const dialogRef = this.dialog.open(AdminManageCategoryPopupComponent, {
+      data: {
+        categoryName: categoryName,
+        categoryPrice: categoryPrice
+      }
+    })
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openCreateModelPopup() {
-        const dialogRef = this.dialog.open(AdminManageModelPopupComponent)
+  openCreateModelPopup() {
+    const dialogRef = this.dialog.open(AdminManageModelPopupComponent)
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 
-    openUpdateModelPopup(modelName: string, modelPrice: number) {
-        const dialogRef = this.dialog.open(AdminManageModelPopupComponent, {data: {modelName: modelName, modelPrice: modelPrice}})
+  openUpdateModelPopup(modelName: string, modelPrice: number) {
+    const dialogRef = this.dialog.open(AdminManageModelPopupComponent, {
+      data: {
+        modelName: modelName,
+        modelPrice: modelPrice
+      }
+    })
 
     return dialogRef.afterClosed();
   }
 
   openNewReviewPopup() {
-      const dialogRef = this.dialog.open(NewReviewPopupComponent)
+    const dialogRef = this.dialog.open(NewReviewPopupComponent)
 
-      return dialogRef.afterClosed();
+    return dialogRef.afterClosed();
   }
 
   openQrCodePopup() {
     const dialogRef = this.dialog.open(BookingQRCodePopupComponent)
+  }
+
+  openReturnBikePopup(ticketId: number, categoryId: number) {
+    const dialogRef = this.dialog.open(ReturnBikePopupComponent, {
+      data: {
+        ticketId: ticketId,
+        categoryId: categoryId
+      }
+    })
+    return dialogRef.afterClosed();
   }
 
 }
