@@ -22,7 +22,7 @@
   <div class="admin-parking-places-component-container4">
     <admin-parking-place-selection-component *ngFor="let spot of parkingSpots" [spot]="spot" [categories]="categories"
                                              rootClassName="admin-parking-place-selection-component-root-class-name"
-                                             (onDataChange)="handleSpotUpdate($event)"
+                                             (onDataChange)="handleSpotUpdate($event)" (onSpotDelete)="handleSpotDeletion()"
     ></admin-parking-place-selection-component>
   </div>
 

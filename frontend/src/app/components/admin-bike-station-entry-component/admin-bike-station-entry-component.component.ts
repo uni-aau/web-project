@@ -139,7 +139,6 @@ export class AdminBikeStationEntryComponent implements OnInit {
   }
 
 
-  // TODO parkingspot
   onUpdate() {
     this.router.navigate(["/admin-manage-bike-station"], {
       state: {
