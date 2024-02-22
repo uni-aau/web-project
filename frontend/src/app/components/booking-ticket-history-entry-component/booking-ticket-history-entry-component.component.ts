@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
+import {BikeService} from "../../services/bike.service";
 
 @Component({
   selector: 'booking-ticket-history-entry-component',
@@ -20,7 +21,7 @@ export class BookingTicketHistoryEntryComponent {
   rootClassName: string = ''
   @Input()
   ticketData:any
-  constructor() {}
+  constructor(private bikeService:BikeService) {}
 
   ngOnInit() {
     this.insertData();
@@ -29,13 +30,18 @@ export class BookingTicketHistoryEntryComponent {
 
   private insertData() {
     this.bookingHistoryEntryTitle = LanguageHandler.formatString(
-      "{0} (Price: {1})", [this.ticketData.category_name, this.ticketData.price]);
+      "{0} (Price: {1}$)", [this.ticketData.category_name, this.ticketData.price]);
     this.bookingHistoryEntryRentingInformation = LanguageHandler.formatString(
-      "Booked at: {0} | Rented  at: %s | Renting Time: {1}", [this.ticketData.renting_start, this.ticketData.renting_end]);
+      "Booked at: {0}  Rented  at: {1}  Returned at: {2}", [this.ticketData.booking_time, this.ticketData.renting_start, this.ticketData.renting_end]);
     this.bookingHistoryEntryStatus = LanguageHandler.formatString(
       "Status: {0}", [this.ticketData.status]);
-    this.bookingHistoryEntryRentedBike = LanguageHandler.formatString(
-      "Rented Bike: {0}", [this.ticketData.booked_type]);
+
+
+
+    this.bikeService.getBike(this.ticketData.bike_id).subscribe((res:any) => {
+      this.bookingHistoryEntryRentedBike = LanguageHandler.formatString(
+        "Rented Bike: {0}", [res[0].bike_name]);
+    })
 
   }
 }

@@ -176,11 +176,14 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike2', 2,
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
-                    renting_end, price)
-VALUES ((SELECT user_id FROM "User" WHERE username = 'janeDoe'), 'Bike',
-        (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(),
-        NOW() + INTERVAL '1 hour', NOW() + INTERVAL '4 hours', 5);
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
+VALUES (2, 'Bike', 1, 1, 1, 'Booked', '2024-02-22 19:45:51.332626', '2024-02-22 20:45:51.332626', '2024-02-22 23:45:51.332626', 5);
+
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
+VALUES ( 2, 'Bike', 1, 1, 1, 'Rented', '2024-02-22 19:46:31.036000', '2024-02-22 20:46:00.000000', '2024-02-22 21:46:00.000000', 5);
+
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
+VALUES ( 2, 'Bike', 1, 1, 1, 'Completed', '2024-02-22 19:47:08.618000', '2024-02-22 20:47:00.000000', '2024-02-22 21:47:00.000000', 5);
 
 
 
