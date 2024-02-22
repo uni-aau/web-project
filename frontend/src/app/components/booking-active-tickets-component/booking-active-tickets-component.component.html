@@ -8,9 +8,8 @@
     class="booking-active-tickets-component-container1"
   ></div>
   <booked-type-entry-component
+    *ngFor="let ticket of tickets"
+    [ticketData]="ticket"
     rootClassName="booked-type-entry-component-root-class-name"
-  ></booked-type-entry-component>
-  <booked-type-entry-component
-    rootClassName="booked-type-entry-component-root-class-name1"
   ></booked-type-entry-component>
 </div>

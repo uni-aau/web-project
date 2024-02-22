@@ -127,7 +127,8 @@ export class ModelComponent implements OnInit {
           status,
           bookingDate,
           rentingStart,
-          endDate
+          endDate,
+          price
         ).subscribe({
           next: (response) => {
             console.log('Buchung erfolgreich', response);

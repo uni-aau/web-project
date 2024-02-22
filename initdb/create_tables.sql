@@ -96,7 +96,8 @@ CREATE TABLE Ticket
     status        booking_status NOT NULL,
     booking_time  TIMESTAMP      NOT NULL,
     renting_start TIMESTAMP      NOT NULL,
-    renting_end   TIMESTAMP      NOT NULL
+    renting_end   TIMESTAMP      NOT NULL,
+    price           DECIMAL NOT NULL
 );
 
 CREATE TABLE Rentals
@@ -176,10 +177,10 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
-                    renting_end)
+                    renting_end, price)
 VALUES ((SELECT user_id FROM "User" WHERE username = 'johnDoe'), 'Bike',
         (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain'), NULL, NULL, 'Booked', NOW(),
-        NOW() + INTERVAL '1 hour', NOW() + INTERVAL '4 hours');
+        NOW() + INTERVAL '1 hour', NOW() + INTERVAL '4 hours', 5);
 
 INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
 VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),

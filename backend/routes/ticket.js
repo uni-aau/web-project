@@ -4,7 +4,7 @@ const DatabaseService = require("../database-service");
 
 router.get('/', async (req, res) => {
     DatabaseService.executeSelectionQuery({
-        text: 'SELECT * FROM Ticket',
+        text: 'SELECT t.* ,c.category_name FROM Ticket t JOIN bikecategory c ON t.category_id = c.category_id',
         values: []
     })
         .then(results => res.status(200).json(results))
@@ -29,13 +29,13 @@ router.get('/:userId', async (req, res) => {
 });
 
 router.post('/ticket', async (req, res) => {
-    const {userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd} = req.body;
+    const {userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd, price} = req.body;
     console.log("book")
-    if (!userId || !bookedType || !status || !bookingTime || !rentingStart || !rentingEnd) return res.status(500).json({error: "Not all required data inserted"});
+    if (!userId || !bookedType || !status || !bookingTime || !rentingStart || !rentingEnd || !price) return res.status(500).json({error: "Not all required data inserted"});
 
     let query = {
-        text: 'INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
-        values: [userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd]
+        text: 'INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+        values: [userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd, price]
     }
 
     DatabaseService.executeInsertionQuery(query)

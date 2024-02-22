@@ -191,7 +191,8 @@ export class BikeComponent implements OnInit {
           status,
           bookingDate,
           rentingStart,
-          endDate
+          endDate,
+          price
         ).subscribe({
           next: (response) => {
             console.log('Buchung erfolgreich', response);
