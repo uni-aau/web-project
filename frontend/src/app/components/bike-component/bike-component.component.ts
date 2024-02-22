@@ -177,8 +177,10 @@ export class BikeComponent implements OnInit {
 
       dialogRef.subscribe(result => {
       if (result) {
-        const { price, status, bookingDate, endDate } = result;
+        const { price, status, bookingDate, rentingStart, endDate } = result;
 
+        // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
+        // damit die löschbar sind
         this.ticketService.newTicket(
           price,
           "Bike",
@@ -187,7 +189,7 @@ export class BikeComponent implements OnInit {
           this.bikeData.model_id,
           status,
           bookingDate,
-          bookingDate,
+          rentingStart,
           endDate
         ).subscribe({
           next: (response) => {

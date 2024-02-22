@@ -36,6 +36,7 @@ export class BookTicketPopupComponent {
   bookingDate: any;
   bookingDuration: any;
   formattedBookingDate: string = "";
+  availableWalletAmountAfterBooking = -1;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -59,8 +60,9 @@ export class BookTicketPopupComponent {
 
     this.walletService.fetchWalletBalance().subscribe((data) => {
       console.log(data[0].available_balance);
+      this.availableWalletAmountAfterBooking = data[0].available_balance - this.data.price;
       this.bookTicketPopupNewWalletAmount = LanguageHandler.formatString('New Wallet Balance: {0}', [
-        String(data[0].available_balance - this.data.price),
+        String(this.availableWalletAmountAfterBooking),
       ]);
     });
   }
@@ -76,13 +78,19 @@ export class BookTicketPopupComponent {
     let endDate = this.addTimeToDate(this.bookingDate, this.bookingDuration);
     const formattedEndDate = this.formatDateForInput(endDate);
 
+    if(this.availableWalletAmountAfterBooking < 0) {
+      this.bookTicketWalletError = 'You do not have enough money for booking!';
+      return;
+    }
+
     this.dialogRef.close({
       price: this.data.price,
       bikeId: this.data.bikeId,
       modelId: this.data.modelId,
       categoryId: this.data.categoryId,
       status: this.immediateBooking ? 'Rented' : 'Booked',
-      bookingDate: this.formattedBookingDate,
+      bookingDate: new Date().getTime(), // Wann gebucht wurde (für history)
+      rentingStart: this.formattedBookingDate, // Wann gerented wird
       endDate: formattedEndDate
     });
   }
