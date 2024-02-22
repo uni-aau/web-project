@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .login-component-container {
   width: 368px;
@@ -9,6 +9,14 @@
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+}
+.login-component-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex-direction: column;
 }
 .login-component-textinput {
   width: 100%;
@@ -22,8 +30,11 @@
   font-size: 14px;
   align-self: flex-end;
   font-style: normal;
-  margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-halfunit);
   text-decoration: none;
+}
+.login-component-text2 {
+  align-self: center;
 }
 .login-component-button {
   width: 100%;
@@ -34,7 +45,7 @@
   color: var(--dl-color-gray-white);
   background: #084f9e;
 }
-.login-component-text2 {
+.login-component-text3 {
   font-size: 15px;
   font-style: normal;
   font-weight: 400;

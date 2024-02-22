@@ -1,35 +1,39 @@
+<script src="login-component.component.ts"></script>
 <form class="login-component-container" [ngClass]="rootClassName" (ngSubmit)="login(username.value, password.value)">
   <login-register-image-component
     rootClassName="login-register-image-component-root-class-name"
   ></login-register-image-component>
-  <span class="input-label-text">{{ loginInputLabelUsername }}</span>
-  <input
-    type="text"
-    id="login-username-input"
-    [attr.placeholder]="loginInputPlaceholderUsername"
-    required="true"
-    class="login-component-textinput input"
-    #username="ngModel"
-    name="username"
-    ngModel
-  />
-  <span class="input-label-text">{{ loginInputLabelPassword }}</span>
-  <input
-    type="password"
-    id="login-password-input"
-    [attr.placeholder]="loginInputPlaceholderPassword"
-    class="login-component-textinput1 input"
-    required="true"
-    #password="ngModel"
-    name="password"
-    ngModel
-  />
-  <a
-    routerLink="/reset-password"
-    class="login-component-navlink link-text-font"
-  >
-    {{ loginForgotPasswordText }}
-  </a>
+  <div class="login-component-container1">
+    <span class="input-label-text">{{ loginInputLabelUsername }}</span>
+    <input
+      type="text"
+      id="login-username-input"
+      required="true"
+      [attr.placeholder]="loginInputPlaceholderUsername"
+      class="login-component-textinput input"
+      #username="ngModel"
+      name="username"
+      ngModel
+    />
+    <span class="input-label-text">{{ loginInputLabelPassword }}</span>
+    <input
+      type="password"
+      id="login-password-input"
+      required="true"
+      [attr.placeholder]="loginInputPlaceholderPassword"
+      class="login-component-textinput1 input"
+      #password="ngModel"
+      name="password"
+      ngModel
+    />
+    <a
+      routerLink="/reset-password"
+      class="login-component-navlink link-text-font"
+    >
+      {{ loginForgotPasswordText }}
+    </a>
+    <span class="login-component-text2 nput-error-hint">{{ loginError }}</span>
+  </div>
   <button
     id="login-button"
     type="submit"
@@ -37,7 +41,7 @@
   >
     {{ loginButtonLogin }}
   </button>
-  <span class="login-component-text2">{{ loginNoAccount }}</span>
+  <span class="login-component-text3">{{ loginNoAccount }}</span>
   <a routerLink="/register" class="login-component-navlink1 link-text-font">
     {{ loginNoAccountSubText }}
   </a>

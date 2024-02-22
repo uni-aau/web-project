@@ -26,18 +26,21 @@ export class LoginComponent {
   loginNoAccount: string = "Don't have an account yet?"
   @Input()
   loginInputPlaceholderPassword: string = 'Enter your password'
+  @Input()
+  loginError: string = '';
   constructor(private authService: AuthService, private router: Router) {}
 
   login(usernameOrEmail: string, password: string){
     this.authService.login(usernameOrEmail, password).subscribe({
       next: (response) => {
-        console.log("Login successful", response)
+        this.loginError = '';
         localStorage.setItem('authToken', response.token);
         localStorage.setItem('isAdmin', response.is_admin);
         localStorage.setItem('user_id', response.user_id);
         this.router.navigate(['/']);
       },
       error: (err) => {
+        this.loginError = 'Invalid Username or Password';
         console.log("Login failed", err)
       }
     })
