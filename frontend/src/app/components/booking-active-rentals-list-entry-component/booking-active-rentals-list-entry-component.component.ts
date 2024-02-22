@@ -46,7 +46,10 @@ export class BookingActiveRentalsListEntryComponent implements OnInit {
 
     fetchBike() {
         this.bikeService.getBike(this.rentalsData.bike_id).subscribe({
-            next: (val) => this.bikeData = val,
+            next: (val) => {
+                this.bikeData = val
+                this.bookingActiveRentalsEntrySelectedBike = 'Selected Bike: ' + this.bikeData[0].bike_name;
+            },
             error: (err) => console.log(err)
         })
     }
