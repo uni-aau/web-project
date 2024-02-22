@@ -15,7 +15,9 @@
         *ngIf="showAdminButtons"
         rootClassName="button-update-delete-component-root-class-name1"
       ></button-update-delete-component>
-      <button-book-component *ngIf="visibleBookButton"
+      <button-book-component
+        *ngIf="visibleBookButton"
+        (click)="performBook($event)"
         rootClassName="button-book-component-root-class-name1"
       ></button-book-component>
     </div>

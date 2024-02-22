@@ -58,7 +58,7 @@ export class PopupService {
         return dialogRef.afterClosed();
     }
 
-    openBookTicketPopup(category: string, bikeName: string, price: number) {
+  openBookTicketPopup(category: string, bikeName: string | null, price:number) {
         const dialogRef = this.dialog.open(BookTicketPopupComponent, {
             data: {
                 category: category,

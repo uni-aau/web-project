@@ -11,7 +11,7 @@ export class TicketService {
 
   constructor(private http: HttpClient) {}
 
-  newTicket(value: number, bookType:string, bikeId:number, modelId:number, categoryId:number, statusBooking: string,
+  newTicket(value: number, bookType:string, bikeId:number|undefined, modelId:number|undefined, categoryId:number, statusBooking: string,
             bookingTime: any, rentingStart:any, rentingEnd:any) {
 
     return this.http.post(`${baseURL}/ticket`, {
