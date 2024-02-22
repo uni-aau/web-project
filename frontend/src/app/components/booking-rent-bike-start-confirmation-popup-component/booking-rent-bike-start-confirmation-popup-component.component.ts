@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core'
+import {Component, Inject, Input} from '@angular/core'
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {LanguageHandler} from "../../handler/LanguageHandler";
 
 @Component({
   selector: 'booking-rent-bike-start-confirmation-popup-component',
@@ -25,5 +27,23 @@ export class BookingRentBikeStartConfirmationPopupComponent {
   @Input()
   bookingRentBikeStartConfirmationHint: string =
     'After starting the bike rental, you will find further information in the Active Rentals menu'
-  constructor() {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    if (data) {
+      this.fillInputs();
+    }
+  }
+
+  private fillInputs() {
+    console.log(this.data)
+    this.bookingRentBikeStartConfirmationSelectedBike = LanguageHandler.formatString(
+      'Selected Bike: {0}', [this.data.bikeName]);
+    this.bookingRentBikeStartConfirmationBookedType = LanguageHandler.formatString(
+      'Booked Type: {0}', [this.data.bookedType]);
+    this.bookingRentBikeStartConfirmationRentingTime = LanguageHandler.formatString(
+      'Renting Time: {0} ', [this.data.rentingTime]);
+    this.bookingRentBikeStartConfirmationTicketID = LanguageHandler.formatString(
+      'Ticket ID: {0}', [this.data.ticketId]);
+    this.bookingRentBikeStartConfirmationParkingPlace = LanguageHandler.formatString(
+      'Parking Place: {0}', [this.data.parkingPlace]);
+  }
 }

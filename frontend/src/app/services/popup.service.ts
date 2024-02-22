@@ -22,6 +22,9 @@ import {NewReviewPopupComponent} from "../components/new-review-popup-component/
 import {
   BookingQRCodePopupComponent
 } from "../components/booking-qr-code-popup-component/booking-qr-code-popup-component.component";
+import {
+  BookingRentBikeStartConfirmationPopupComponent
+} from "../components/booking-rent-bike-start-confirmation-popup-component/booking-rent-bike-start-confirmation-popup-component.component";
 
 @Injectable({
     providedIn: 'root'
@@ -105,6 +108,20 @@ export class PopupService {
 
   openQrCodePopup() {
     const dialogRef = this.dialog.open(BookingQRCodePopupComponent)
+  }
+
+  openRentTicketPopup(bikeName:string, parkingPlace: string, bookedType: string, rentingTime: Date, ticketId: number) {
+    const dialogRef = this.dialog.open(BookingRentBikeStartConfirmationPopupComponent, {
+      data: {
+        bikeName: bikeName,
+        parkingPlace: parkingPlace,
+        bookedType: bookedType,
+        rentingTime: rentingTime,
+        ticketId: ticketId
+      }
+    })
+
+    return dialogRef.afterClosed();
   }
 
 }
