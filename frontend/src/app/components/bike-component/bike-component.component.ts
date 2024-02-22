@@ -176,7 +176,7 @@ export class BikeComponent implements OnInit {
     const dialogRef = this.popupService.openBookTicketPopup(this.bikeCategory, this.bikeBikeName, this.bikeData.price)
 
 
-      dialogRef.subscribe(result => {
+    dialogRef.subscribe(result => {
       if (result) {
         const { price, status, bookingDate, rentingStart, endDate } = result;
 

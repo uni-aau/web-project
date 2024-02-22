@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {PopupService} from "../../services/popup.service";
 import {CategoryService} from "../../services/category.service";
+import {TicketService} from "../../services/ticket.service";
+import {TicketUtilityService} from "../../services/ticket.utility.service";
 
 @Component({
     selector: 'category-component',
@@ -33,7 +35,8 @@ export class CategoryComponent {
     @Output() onCategoryDelete: EventEmitter<any> = new EventEmitter<any>();
     @Output() onCategoryUpdate: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(private popupService: PopupService, private categoryService: CategoryService) {
+    constructor(private popupService: PopupService, private categoryService: CategoryService,
+                private ticketService:TicketService, private ticketUtilyService:TicketUtilityService) {
     }
 
     ngOnInit() {
@@ -101,4 +104,37 @@ export class CategoryComponent {
             error: (err) => console.log(err)
         })
     }
+
+  performBook($event: MouseEvent) {
+    console.log(this.categoryData)
+    const dialogRef = this.popupService.openBookTicketPopup(this.categoryData.category_name, " " ,this.categoryData.price)
+
+
+    dialogRef.subscribe(result => {
+      if (result) {
+        const { price, status, bookingDate, rentingStart, endDate } = result;
+
+        // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
+        // damit die löschbar sind
+        this.ticketService.newTicket(
+          price,
+          "Model",
+          undefined,
+          undefined,
+          this.categoryData.category_id,
+          status,
+          bookingDate,
+          rentingStart,
+          endDate
+        ).subscribe({
+          next: (response) => {
+            console.log('Buchung erfolgreich', response);
+          },
+          error: (error) => {
+            console.error('Fehler bei der Buchung', error);
+          }
+        });
+      }
+    });
+  }
 }
