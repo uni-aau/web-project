@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {BikeService} from "../../services/bike.service";
+import {DateHandler} from "../../handler/DateHandler";
 
 @Component({
   selector: 'booking-ticket-history-entry-component',
@@ -32,7 +33,7 @@ export class BookingTicketHistoryEntryComponent {
     this.bookingHistoryEntryTitle = LanguageHandler.formatString(
       "{0} (Price: {1}$)", [this.ticketData.category_name, this.ticketData.price]);
     this.bookingHistoryEntryRentingInformation = LanguageHandler.formatString(
-      "Booked at: {0}  Rented  at: {1}  Returned at: {2}", [this.ticketData.booking_time, this.ticketData.renting_start, this.ticketData.renting_end]);
+      "Booked at: {0}  Rented  at: {1}  Returned at: {2}", [DateHandler.formatTimestamp(this.ticketData.booking_time), DateHandler.formatTimestamp(this.ticketData.renting_start), DateHandler.formatTimestamp(this.ticketData.renting_end)]);
     this.bookingHistoryEntryStatus = LanguageHandler.formatString(
       "Status: {0}", [this.ticketData.status]);
 

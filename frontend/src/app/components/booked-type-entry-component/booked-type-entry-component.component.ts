@@ -3,6 +3,7 @@ import {LanguageHandler} from "../../handler/LanguageHandler";
 import {PopupService} from "../../services/popup.service";
 import {BikeService} from "../../services/bike.service";
 import {TicketService} from "../../services/ticket.service";
+import {DateHandler} from "../../handler/DateHandler";
 
 @Component({
     selector: 'booked-type-entry-component',
@@ -51,9 +52,9 @@ export class BookedTypeEntryComponent {
         this.bookedTypeEntryTicketId = LanguageHandler.formatString(
             'TicketID: {0}', [this.ticketData.ticket_id]);
         this.bookedTypeEntryRentingInformation = LanguageHandler.formatString(
-            "Rent Start: {0} | Renting Time: {1}", [this.ticketData.renting_start, this.ticketData.renting_end]);
+            "Rent Start: {0} | Renting Time: {1}", [DateHandler.formatTimestamp(this.ticketData.renting_start), DateHandler.formatTimestamp(this.ticketData.renting_end)]);
         this.bookedTypeEntryBookingDate = LanguageHandler.formatString(
-            "Booked at: {0}", [this.ticketData.booking_time]);
+            "Booked at: {0}", [DateHandler.formatTimestamp(this.ticketData.booking_time)]);
         this.bookedTypeEntryBookedType = LanguageHandler.formatString(
             "Booked Type: {0}", [this.ticketData.booked_type]);
         this.bookedTypeEntryTitle = LanguageHandler.formatString(
@@ -61,7 +62,7 @@ export class BookedTypeEntryComponent {
         this.bookedTypeEntryStatus = LanguageHandler.formatString(
             "Status: {0}", [this.ticketData.status]);
         this.bookedTypeEntryDueDate = LanguageHandler.formatString(
-            "Due Date: {0}", [this.ticketData.renting_end]);
+            "Due Date: {0}", [DateHandler.formatTimestamp(this.ticketData.renting_end)]);
 
         if (this.ticketData.status === "Rented") {
             this.showRentButton = false
