@@ -66,8 +66,8 @@ CREATE TABLE ParkingSpotCategory
     spot_id     INT NOT NULL,
     category_id INT NOT NULL,
     PRIMARY KEY (spot_id, category_id),
-    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id),
-    FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id)
+    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id)  ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Bike
@@ -132,15 +132,18 @@ CREATE TABLE StationReview
 INSERT INTO Wallet (balance, available_balance)
 VALUES (100.00, 100.00),
        (150.00, 100.00),
-       (100.00, 10.00);
+       (100.00, 10.00),
+       (0.00, 0.00);
 
 INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id)
 VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
         '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
        ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false,
         '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2),
-       ('dadi', 'Dado', 'Dodo', 'dadi1@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
-        3);
+       ('dadi', 'Dado', 'Dodo', 'dadi1@speed.at', true, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
+        3),
+    ('dad', 'Dado', 'Dodo', 'dadi2@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
+        4);
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude)
 VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 14.305278, 46.624722),
@@ -156,16 +159,20 @@ VALUES ('Mountain Pro', 5.0, (SELECT category_id FROM BikeCategory WHERE categor
 
 INSERT INTO ParkingSpot (station_id, spot_number)
 VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 1),
-       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 2);
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 2),
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 3),
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 4);
 
 INSERT INTO ParkingSpotCategory(spot_id, category_id)
 VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
-       (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
+       (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
+       (3, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
+       (4, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
-INSERT INTO Bike (station_id, bike_name, model_id, is_available, status, size, price)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike1',
+INSERT INTO Bike (station_id, bike_name, assigned_to, model_id, is_available, status, size, price)
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike1', 1,
         (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
-       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), 'Bike2',
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike2', 2,
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,

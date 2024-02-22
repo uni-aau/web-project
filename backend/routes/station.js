@@ -54,12 +54,31 @@ router.put('/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating bike station: " + e.message}))
 });
 
+router.get('/station/:stationId/bike-status', async (req, res) => {
+    const {stationId} = req.params;
+
+    DatabaseService.executeSelectionQuery({text: 'Select bike_id from Bike WHERE bike.station_id = $1 AND status NOT IN ($2, $3)', values: [stationId, 'Available', 'Maintenance']})
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike: " + e.message})
+        });
+});
+
 router.delete('/station/:stationId', async (req, res) => {
     const {stationId} = req.params;
 
-    DatabaseService.executeDeleteQuery({text: 'DELETE FROM station WHERE station_id = $1', values: [stationId]})
-        .then(result => res.status(200).json({success: true, rowsChanged: result}))
-        .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e.message}))
+    DatabaseService.executeUpdateQuery({text:'UPDATE BIKE SET station_id = NULL, assigned_to = NULL where station_id = $1', values: [stationId]})
+        .then(() => {
+            DatabaseService.executeDeleteQuery({text: 'DELETE FROM parkingspot WHERE station_id = $1', values: [stationId]})
+                .then(() => {
+                    DatabaseService.executeDeleteQuery({text: 'DELETE FROM station WHERE station_id = $1', values: [stationId]})
+                        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+                        .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e.message}))
+                })
+                .catch(e => res.status(500).json({error: "Error while deleting parking spots from station: " + e.message}))
+        })
+        .catch(e => res.status(500).json({error: "Error while updating station assignments (station deletion): " + e.message}))
 });
 
 router.get('/free-spot/', function (req, res) {
