@@ -24,7 +24,7 @@ export class BookingTicketHistoryEntryComponent {
 
   ngOnInit() {
     this.insertData();
-    console.log(this.ticketDatax)
+    console.log(this.ticketData)
   }
 
   private insertData() {
