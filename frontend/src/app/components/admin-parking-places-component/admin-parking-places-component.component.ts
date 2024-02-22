@@ -40,6 +40,7 @@ export class AdminParkingPlacesComponent implements OnInit {
   stationId = 0;
   parkingSpots: any[] = [];
   categories: any[] = [];
+  updatedSpots: Map<number, any> = new Map(); // Using a Map to track updates by spot ID
 
   constructor(private router: Router, private parkingService: ParkingspotService, private categoryService: CategoryService) {
   }
@@ -65,8 +66,25 @@ export class AdminParkingPlacesComponent implements OnInit {
     })
   }
 
-  handleConfirm() {
+  handleSpotUpdate(updatedSpot: any) {
+    this.updatedSpots.set(updatedSpot.spot_id, updatedSpot);
+  }
 
+  handleConfirm() {
+    // Check for id für create todo
+    const spotsToUpdate = Array.from(this.updatedSpots.values());
+    console.log(spotsToUpdate);
+    if (spotsToUpdate.length > 0) {
+      spotsToUpdate.forEach(spot => {
+        this.parkingService.updateParkingSpot(spot.spot_id, spot.categories).subscribe({
+          next: (val) => {
+            console.log(val);
+            this.fetchParkingSpots();
+          },
+          error: (err) => console.log("Error while updating parking spots: ", this.parkingSpots)
+        })
+      })
+    }
   }
 
   handleCancel() {
@@ -75,9 +93,9 @@ export class AdminParkingPlacesComponent implements OnInit {
 
   fetchCategories() {
     this.categoryService.getCategories().subscribe({
-      next:(val) => this.categories = val,
-      error:(err) => {
-        if(err.status === 404) this.categories = [];
+      next: (val) => this.categories = val,
+      error: (err) => {
+        if (err.status === 404) this.categories = [];
         else console.log("Error while fetching categories: ", err);
       }
     })

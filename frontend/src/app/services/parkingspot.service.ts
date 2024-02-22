@@ -15,4 +15,12 @@ export class ParkingspotService {
   fetchParkingSpots(stationId: number): Observable<any> {
     return this.http.get(`${baseURL}/${stationId}`)
   }
+
+  fetchAssignedBike(spotId: number) :Observable<any> {
+    return this.http.get(`${baseURL}/spot/${spotId}/assigned-bikes`);
+  }
+
+  updateParkingSpot(spotId: number, newCategoryIds: number[]) : Observable<any> {
+    return this.http.put(`${baseURL}/spot/${spotId}`, {newCategoryIds: newCategoryIds});
+  }
 }

@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:stationId', async (req, res) => {
     const stationId = req.params.stationId;
 
-    DatabaseService.executeSelectionQuery({text: 'SELECT ps.spot_id, ps.station_id, ps.spot_number, ARRAY_AGG(bc.category_id) AS categories FROM ParkingSpot ps JOIN ParkingSpotCategory psc ON ps.spot_id = psc.spot_id JOIN BikeCategory bc ON psc.category_id = bc.category_id WHERE ps.station_id = $1 GROUP BY ps.spot_id', values: [stationId]})
+    DatabaseService.executeSelectionQuery({text: 'SELECT ps.spot_id, ps.station_id, ps.spot_number, ARRAY_AGG(bc.category_id) AS categories FROM ParkingSpot ps LEFT JOIN ParkingSpotCategory psc ON ps.spot_id = psc.spot_id LEFT JOIN BikeCategory bc ON psc.category_id = bc.category_id WHERE ps.station_id = $1 GROUP BY ps.spot_id', values: [stationId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
@@ -27,6 +27,17 @@ router.get('/spot/:spotId', async (req, res) => {
     const {spotId} = req.params;
 
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM ParkingSpot WHERE spot_id = $1', values: [spotId]})
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching bike: " + e.message})
+        });
+});
+
+router.get('/spot/:spotId/assigned-bikes', async (req, res) => {
+    const {spotId} = req.params;
+
+    DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Bike WHERE assigned_to = $1', values: [spotId]})
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
