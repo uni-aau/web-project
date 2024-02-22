@@ -34,6 +34,10 @@ export class TicketService {
     return this.http.get(`${baseURL}/`)
   }
 
+  rentTicket(ticketId: number): Observable<any> {
+    return this.http.post(`${baseURL}/ticket/${ticketId}/rent`, {})
+  }
+
   selectRentedTickets(): Observable<any> {
     let userId = localStorage.getItem("user_id")
     return this.http.get(`${baseURL}/rented/${userId}`);

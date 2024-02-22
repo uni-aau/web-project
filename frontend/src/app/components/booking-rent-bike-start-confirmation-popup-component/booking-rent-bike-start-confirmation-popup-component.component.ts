@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from '@angular/core'
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 
 @Component({
@@ -27,7 +27,7 @@ export class BookingRentBikeStartConfirmationPopupComponent {
   @Input()
   bookingRentBikeStartConfirmationHint: string =
     'After starting the bike rental, you will find further information in the Active Rentals menu'
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<BookingRentBikeStartConfirmationPopupComponent>,) {
     if (data) {
       this.fillInputs();
     }
@@ -45,5 +45,13 @@ export class BookingRentBikeStartConfirmationPopupComponent {
       'Ticket ID: {0}', [this.data.ticketId]);
     this.bookingRentBikeStartConfirmationParkingPlace = LanguageHandler.formatString(
       'Parking Place: {0}', [this.data.parkingPlace]);
+  }
+
+  performConfirm($event: void) {
+    this.dialogRef.close({success: true});
+  }
+
+  performCancel($event: void) {
+    this.dialogRef.close();
   }
 }

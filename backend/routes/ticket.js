@@ -28,6 +28,31 @@ const userId = req.params.userId;
         });
 });
 
+router.post('/ticket/:ticketId/rent', async (req, res) => {
+    const { ticketId } = req.params;
+
+    // Prüfung, ob ticketId vorhanden ist
+    if (!ticketId) {
+        return res.status(400).json({ error: 'ticketId is required' });
+    }
+
+    const updateQuery = `
+    UPDATE Ticket
+    SET booked_type = 'Rented'
+    WHERE ticket_id = $1
+  `;
+
+    DatabaseService.executeSelectionQuery({
+        text: updateQuery,
+        values: [ticketId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: `Error while renting tickets of user ${userId}: ` + e.message})
+        });
+});
+
 
 router.get('/:userId', async (req, res) => {
     const {userId} = req.params;

@@ -27,6 +27,8 @@
     </span>
   </div>
   <button-yes-cancel
+    (confirm)="performConfirm($event)"
+    (cancel)="performCancel($event)"
     rootClassName="button-yes-cancel-root-class-name"
   ></button-yes-cancel>
 </div>

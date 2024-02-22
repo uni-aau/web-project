@@ -119,4 +119,18 @@ router.delete('/bike/:bikeId', function (req, res) {
         .catch(e => res.status(500).json({error: "Error while deleting bike: " + e.message}))
 });
 
+
+router.post('/bike/:bikeId/unasign', async (req, res) => {
+    const {bikeId} = req.params;
+    console.log("unassign")
+    if (!bikeId) {
+        return res.status(400).send({ error: 'bikeId is required' });
+    }
+
+    DatabaseService.executeDeleteQuery({
+        text: 'UPDATE Bike SET assigned_to = NULL, station_id = NULL WHERE bike_id = $1', values: [bikeId]})
+        .then(result => res.status(200).json({success: true, rowsChanged: result}))
+        .catch(e => res.status(500).json({error: "Error while deleting bike: " + e.message}))
+});
+
 module.exports = router;
