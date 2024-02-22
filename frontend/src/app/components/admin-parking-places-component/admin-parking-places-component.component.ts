@@ -28,19 +28,22 @@ export class AdminParkingPlacesComponent implements OnInit {
     station_address: "string",
     station_image_location: "string",
     station_name: "string",
-    station_id: 0
+    station_id: -1
   };
 
   parkingSpot: ParkingSpot = {
-    spot_id: 0,
-    station_id: 0,
-    spot_number: 0
+    spot_id: -1,
+    station_id: -1,
+    spot_number: -1,
+    created_spot: -1
   };
 
   stationId = 0;
   parkingSpots: any[] = [];
   categories: any[] = [];
-  updatedSpots: Map<number, any> = new Map(); // Using a Map to track updates by spot ID
+  updatedSpots: Map<number, any> = new Map();
+  newSpots: Map<number, any> = new Map();
+  counter = 0;
 
   constructor(private router: Router, private parkingService: ParkingspotService, private categoryService: CategoryService) {
   }
@@ -69,8 +72,13 @@ export class AdminParkingPlacesComponent implements OnInit {
   }
 
   handleSpotUpdate(updatedSpot: any) {
-    console.log("TEST ", updatedSpot)
     this.updatedSpots.set(updatedSpot.spot_id, updatedSpot);
+    console.log(this.updatedSpots);
+  }
+
+  handleNewSpots(newSpot: any) {
+    this.newSpots.set(newSpot.spot_id, newSpot);
+    console.log(this.newSpots);
   }
 
   handleSpotDeletion() {
@@ -78,24 +86,72 @@ export class AdminParkingPlacesComponent implements OnInit {
   }
 
   handleConfirm() {
-    // Check for id für create todo
     const spotsToUpdate = Array.from(this.updatedSpots.values());
     console.log(spotsToUpdate);
     if (spotsToUpdate.length > 0) {
       spotsToUpdate.forEach(spot => {
-        this.parkingService.updateParkingSpot(spot.spot_id, spot.categories).subscribe({
+        if (spot.spot_id) {
+          console.log("TEST ", spot.categories)
+          this.parkingService.updateParkingSpot(spot.spot_id, spot.categories).subscribe({
+            next: (val) => {
+              console.log(val);
+              this.updatedSpots = new Map();
+              this.fetchParkingSpots();
+            },
+            error: (err) => console.log("Error while updating parking spots: ", err)
+          })
+        }
+      })
+    }
+
+    const newSpotsToInsert = Array.from(this.newSpots.values());
+    if (newSpotsToInsert.length > 0) {
+      newSpotsToInsert.forEach(spot => {
+        this.parkingService.createParkingSpot(spot.station_id, spot.spot_number, spot.categories).subscribe({
           next: (val) => {
-            console.log(val);
-            this.fetchParkingSpots();
+            this.fetchParkingSpots()
+            this.newSpots = new Map();
           },
-          error: (err) => console.log("Error while updating parking spots: ", this.parkingSpots)
+          error: (err) => console.log("Error while adding new parking spots: ", err)
         })
       })
     }
+
+  }
+
+  addParkingSpot() {
+    if (this.stationId > 0) {
+      const spotNumbers = this.parkingSpots.map(spot => spot.spot_number).sort((a, b) => a - b);
+      let nextAvailableSpotNumber = 1;
+      for (let i = 0; i < spotNumbers.length; i++) {
+        if (spotNumbers[i] !== nextAvailableSpotNumber) {
+          break; // Found a gap
+        }
+        nextAvailableSpotNumber++;
+      }
+
+      this.counter++;
+      let spot = {spot_id: this.counter, station_id: this.stationId, spot_number: nextAvailableSpotNumber}
+
+      this.handleNewSpots({...spot, categories: []})
+      this.parkingSpots.push({
+        spot_id: undefined,
+        station_id: this.stationId,
+        spot_number: nextAvailableSpotNumber,
+        categories: [],
+        created_spot: this.counter
+      })
+
+    } else alert('Please create bike station before adding parking places')
   }
 
   handleCancel() {
     this.router.navigate(["/admin-bike-stations"]);
+  }
+
+  handleNewSpotDeletion(event : any) {
+    this.newSpots.delete(event)
+    this.parkingSpots = this.parkingSpots.filter(spot => spot.created_spot !== event);
   }
 
   fetchCategories() {
