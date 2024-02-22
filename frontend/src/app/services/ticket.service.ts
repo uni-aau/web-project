@@ -9,10 +9,11 @@ const baseURL = "http://localhost:3000/api/tickets"
 })
 export class TicketService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  newTicket(value: number, bookType:string, bikeId:number|undefined, modelId:number|undefined, categoryId:number, statusBooking: string,
-            bookingTime: any, rentingStart:any, rentingEnd:any, price:number) {
+  newTicket(value: number, bookType: string, bikeId: number | undefined, modelId: number | undefined, categoryId: number, statusBooking: string,
+            bookingTime: any, rentingStart: any, rentingEnd: any, price: number) {
 
     return this.http.post(`${baseURL}/ticket`, {
       amount: value,
@@ -25,12 +26,17 @@ export class TicketService {
       bookingTime: bookingTime,
       rentingStart: rentingStart,
       rentingEnd: rentingEnd,
-      price:price
+      price: price
     });
   }
 
   fetchTickets(): Observable<any> {
     return this.http.get(`${baseURL}/`)
+  }
+
+  selectRentedTickets(): Observable<any> {
+    let userId = localStorage.getItem("user_id")
+    return this.http.get(`${baseURL}/rented/${userId}`);
   }
 
 }

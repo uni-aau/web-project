@@ -14,6 +14,21 @@ router.get('/', async (req, res) => {
         });
 });
 
+router.get('/rented/:userId', async (req, res) => {
+const userId = req.params.userId;
+
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT * from Ticket where user_id = $1 AND status = \'Overdue\' OR status = \'Rented\'',
+        values: [userId]
+    })
+        .then(results => res.status(200).json(results))
+        .catch(e => {
+            if (e.message === "Nothing found") res.status(404).json({error: e.message})
+            else res.status(500).json({error: "Error while fetching tickets: " + e.message})
+        });
+});
+
+
 router.get('/:userId', async (req, res) => {
     const {userId} = req.params;
 
