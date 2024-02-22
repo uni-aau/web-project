@@ -12,7 +12,7 @@ export class TicketService {
   constructor(private http: HttpClient) {}
 
   newTicket(value: number, bookType:string, bikeId:number|undefined, modelId:number|undefined, categoryId:number, statusBooking: string,
-            bookingTime: any, rentingStart:any, rentingEnd:any) {
+            bookingTime: any, rentingStart:any, rentingEnd:any, price:number) {
 
     return this.http.post(`${baseURL}/ticket`, {
       amount: value,
@@ -24,8 +24,13 @@ export class TicketService {
       status: statusBooking,
       bookingTime: bookingTime,
       rentingStart: rentingStart,
-      rentingEnd: rentingEnd
+      rentingEnd: rentingEnd,
+      price:price
     });
+  }
+
+  fetchTickets(): Observable<any> {
+    return this.http.get(`${baseURL}/`)
   }
 
 }
