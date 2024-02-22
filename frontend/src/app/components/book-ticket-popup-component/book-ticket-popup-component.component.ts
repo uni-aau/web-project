@@ -37,6 +37,7 @@ export class BookTicketPopupComponent {
   bookingDuration: any;
   formattedBookingDate: string = "";
   availableWalletAmountAfterBooking = -1;
+  totalPrice: number = 0;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -50,50 +51,89 @@ export class BookTicketPopupComponent {
 
   ngOnInit() {
     this.bookingDate = new Date();
-    this.bookingDuration = "00:00";
+    this.bookingDuration = "01:00";
+    this.updateTotalPrice()
+  }
+
+  updateTotalPrice() {
+    const durationInHours = this.calculateDurationInHours();
+    this.totalPrice = this.data.price * durationInHours;
+    this.bookTicketPopupTotalPrice = `Total Price: ${this.totalPrice.toFixed(2)}$`;
+    console.log(this.bookTicketPopupTotalPrice)
+    this.walletService.fetchWalletBalance().subscribe((data) => {
+      this.availableWalletAmountAfterBooking = data[0].available_balance - this.totalPrice;
+      this.bookTicketPopupNewWalletAmount = LanguageHandler.formatString('New Wallet Balance: {0}', [
+        this.availableWalletAmountAfterBooking.toFixed(2)
+      ]);
+    });
   }
 
   private fillInputs() {
     this.bookTicketPopupName = LanguageHandler.formatString('Name: {0}', [this.data.bikeName]);
     this.bookTicketPopupCategory = LanguageHandler.formatString('Category: {0}', [this.data.category]);
-    this.bookTicketPopupTotalPrice = LanguageHandler.formatString('Total Price: {0}', [this.data.price]);
+    this.bookTicketPopupTotalPrice = LanguageHandler.formatString('Total Price: {0}$', [this.data.price]);
+
 
     this.walletService.fetchWalletBalance().subscribe((data) => {
       console.log(data[0].available_balance);
-      this.availableWalletAmountAfterBooking = data[0].available_balance - this.data.price;
+      this.availableWalletAmountAfterBooking = data[0].available_balance - this.totalPrice;
       this.bookTicketPopupNewWalletAmount = LanguageHandler.formatString('New Wallet Balance: {0}', [
         String(this.availableWalletAmountAfterBooking),
       ]);
     });
   }
 
+  calculateDurationInHours() {
+    const [hours, minutes] = this.bookingDuration.split(':').map(Number);
+    return hours + minutes / 60;
+  }
+
   performBook() {
+    const now = new Date();
+
+    let startDate;
+    let endDate;
+
     if (this.immediateBooking) {
-      this.bookingDate = new Date();
-      this.formattedBookingDate = this.formatDateForInput(this.bookingDate);
+      startDate = now;
+      this.formattedBookingDate = this.formatDateForInput(now);
+      endDate = this.addTimeToDate(startDate, this.bookingDuration); 
     } else {
-      this.updateFormattedBookingDate();
+      startDate = new Date(this.formattedBookingDate);
+      endDate = this.addTimeToDate(startDate, this.bookingDuration);
     }
 
-    let endDate = this.addTimeToDate(this.bookingDate, this.bookingDuration);
-    const formattedEndDate = this.formatDateForInput(endDate);
+    if (!this.immediateBooking && startDate < now) {
+      this.bookTicketBookingTimeError = 'Booking start date must be in the future.';
+      return;
+    }
 
-    if(this.availableWalletAmountAfterBooking < 0) {
+    if (endDate <= startDate) {
+      this.bookTicketRentDurationError = 'End date must be after start date.';
+      return;
+    }
+
+    const durationInHours = this.calculateDurationInHours();
+    const totalPrice = this.data.price * durationInHours;
+
+    if (this.availableWalletAmountAfterBooking < totalPrice) {
       this.bookTicketWalletError = 'You do not have enough money for booking!';
       return;
     }
 
+
     this.dialogRef.close({
-      price: this.data.price,
+      price: totalPrice,
       bikeId: this.data.bikeId,
       modelId: this.data.modelId,
       categoryId: this.data.categoryId,
       status: this.immediateBooking ? 'Rented' : 'Booked',
-      bookingDate: new Date().getTime(), // Wann gebucht wurde (für history)
-      rentingStart: this.formattedBookingDate, // Wann gerented wird
-      endDate: formattedEndDate
+      bookingDate: now,
+      rentingStart: this.formatDateForInput(startDate),
+      endDate: this.formatDateForInput(endDate)
     });
   }
+
 
   performCancel() {
     this.dialogRef.close();

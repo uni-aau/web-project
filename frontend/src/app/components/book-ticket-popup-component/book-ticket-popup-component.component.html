@@ -49,6 +49,7 @@
       <input
         type="time"
         id="book-ticket-rent-duration-time-picker"
+        (change)="updateTotalPrice()"
         [(ngModel)]="bookingDuration"
         [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
         class="input"
@@ -66,7 +67,7 @@
     <span
       class="book-ticket-popup-component-text10 model-bike-category-general-text"
     >
-      {{ bookTicketPopupTotalPrice }}
+      {{ totalPrice }}
     </span>
   </div>
   <span class="book-ticket-popup-component-text11">
