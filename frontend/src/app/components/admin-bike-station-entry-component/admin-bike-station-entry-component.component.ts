@@ -4,6 +4,7 @@ import {BikeStation} from "../../types/bikeStation.type";
 import {ReviewsService} from "../../services/reviews.service";
 import {PopupService} from "../../services/popup.service";
 import {BikeStationService} from "../../services/bikestation.service";
+import {ParkingSpot} from "../../types/parkingSpot.type";
 
 @Component({
   selector: 'admin-bike-station-entry-component',
@@ -22,6 +23,7 @@ export class AdminBikeStationEntryComponent implements OnInit {
     station_name: "string",
     station_id: 0
   };
+
   @Input()
   adminBikeStationEntryButtonUpdate: string = 'Update'
   @Input()

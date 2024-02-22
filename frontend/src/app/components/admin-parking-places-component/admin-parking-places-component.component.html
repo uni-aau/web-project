@@ -18,18 +18,12 @@
   <span class="admin-parking-places-component-text1">
     {{ adminParkingPlacesHint }}
   </span>
+
   <div class="admin-parking-places-component-container4">
-    <admin-parking-place-selection-component
+    <admin-parking-place-selection-component *ngFor="let spot of parkingSpots" [spot]="spot" [categories]="categories"
       rootClassName="admin-parking-place-selection-component-root-class-name"
     ></admin-parking-place-selection-component>
-    <admin-parking-place-selection-component
-      rootClassName="admin-parking-place-selection-component-root-class-name1"
-    ></admin-parking-place-selection-component>
-    <admin-parking-place-selection-component
-      rootClassName="admin-parking-place-selection-component-root-class-name2"
-    ></admin-parking-place-selection-component>
-    <admin-parking-place-selection-component
-      rootClassName="admin-parking-place-selection-component-root-class-name3"
-    ></admin-parking-place-selection-component>
   </div>
+
+  <button-save-discard-component (confirm)="handleConfirm()"(cancel)="handleCancel()"></button-save-discard-component>
 </div>

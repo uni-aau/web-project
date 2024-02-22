@@ -77,6 +77,9 @@ import {FormsModule} from "@angular/forms";
 import {AccountSettingsComponent} from "./account-settings-component/account-settings-component.component";
 import {UnauthorizedComponent} from "./unauthorized-component/unauthorized-component.component";
 import {DepositMoneyPopup} from "./deposit-money-popup/deposit-money-popup.component";
+import {MatFormField} from "@angular/material/form-field";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -155,7 +158,7 @@ import {DepositMoneyPopup} from "./deposit-money-popup/deposit-money-popup.compo
     ButtonYesCancel,
     UnauthorizedComponent
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, MatFormField, MatSelect, MatOption],
   exports: [
     AccountSettingsComponent,
     AdminBikeAssignmentComponent,

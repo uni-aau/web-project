@@ -1,5 +1,5 @@
-:host { 
-  display: contents; 
+:host {
+  display: contents;
 }
 .admin-manage-bike-station-component-container {
   flex: 0 0 auto;
@@ -83,6 +83,9 @@
   width: 100%;
   height: var(--dl-size-size-small);
   max-height: var(--dl-size-size-medium);
+  min-width: 100%;
+  max-width: 100%;
+  min-height: var(--dl-size-size-small);
 }
 .admin-manage-bike-station-component-text10 {
   font-size: 22px;
