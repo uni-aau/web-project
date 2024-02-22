@@ -9,12 +9,12 @@ export class ReturnBikePopupComponent {
   @Input()
   returnBikeTicketId: string = 'Ticket ID: {0}'
   @Input()
-  returnBikeBikeCategories: string = 'Bike Categories: {0}'
-  @Input()
   returnBikeParkingPlace: string = 'Parking Place: {0} [Full | Number]'
   @Input()
   returnBikeLabelBikeStation: string = 'Select Bike Station'
   @Input()
   returnBikeTitle: string = 'Return Bike'
+  @Input()
+  returnBikeError: string = ''
   constructor() {}
 }

@@ -1,5 +1,5 @@
-<div class="return-bike-popup-component-container">
-  <span class="heading">{{ returnBikeTitle }}</span>
+<div class="return-bike-popup-component-container popup-container">
+  <span class="popup-heading">{{ returnBikeTitle }}</span>
   <div class="return-bike-popup-component-container1">
     <div class="return-bike-popup-component-container2">
       <div class="return-bike-popup-component-container3">
@@ -7,15 +7,10 @@
           {{ returnBikeTicketId }}
         </span>
       </div>
-      <div class="return-bike-popup-component-container4">
-        <span class="return-bike-popup-component-text2 input-label-text">
-          {{ returnBikeBikeCategories }}
-        </span>
-      </div>
     </div>
   </div>
-  <div class="return-bike-popup-component-container5">
-    <div class="return-bike-popup-component-container6">
+  <div class="return-bike-popup-component-container4">
+    <div class="return-bike-popup-component-container5">
       <span class="input-label-text">{{ returnBikeLabelBikeStation }}</span>
       <select
         id="manage-bike-models-selector"
@@ -30,8 +25,9 @@
         <option value="Option 3">Option 3</option>
         <option value="Option 3">Option 3</option>
       </select>
+      <span class="input-error-hint">{{ returnBikeError }}</span>
     </div>
-    <div class="return-bike-popup-component-container7">
+    <div class="return-bike-popup-component-container6">
       <span class="return-bike-popup-component-text4 input-label-text">
         {{ returnBikeParkingPlace }}
       </span>
