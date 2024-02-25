@@ -2,6 +2,7 @@ import {Component, Inject, Input} from '@angular/core'
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ModelService} from "../../services/model.service";
 import {ReviewsService} from "../../services/reviews.service";
+import {Config} from "../../Config";
 
 @Component({
   selector: 'new-review-popup-component',
@@ -67,17 +68,14 @@ export class NewReviewPopupComponent {
     }
 
   handleConfirm() {
-      if(!this.ratingTitle) {
-          this.newReviewTitleError = 'Insert valid title';
+      if(!this.ratingTitle || this.ratingTitle.length > Config.maxInputLength) {
+          this.newReviewTitleError = `Insert valid title (max length: ${Config.maxInputLength})`;
           return;
       }
 
       let modelId = this.modelId === -1 ? undefined : this.modelId;
-      console.log(modelId)
 
       this.dialogRef.close({ratingTitle: this.ratingTitle, rating: this.rating, ratingModel: modelId, ratingDescription: this.ratingDescription})
-
-
   }
 
   fetchModels() {

@@ -51,33 +51,35 @@ export class RegisterComponent {
 
   handleRegister(firstname: string, lastname: string, username: string, email: string, password: string) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const maxLength = 100;
+    const maxPasswordLength = 255;
 
-    if (!firstname.trim()) {
-      this.registerFirstnameError = 'Enter valid firstname';
+    if (!firstname.trim() || firstname.length > maxLength) {
+      this.registerFirstnameError = `Enter valid firstname (max length: ${maxLength})`;
       return;
     }
     this.registerFirstnameError = '';
 
-    if (!lastname.trim()) {
-      this.registerLastnameError = 'Enter valid lastname';
+    if (!lastname.trim() || lastname.length > maxLength) {
+      this.registerLastnameError = `Enter valid lastname (max length: ${maxLength})`;
       return;
     }
     this.registerLastnameError = '';
 
-    if (!username.trim()) {
-      this.registerUsernameError = 'Enter valid username';
+    if (!username.trim() || username.length > maxLength) {
+      this.registerUsernameError = `Enter valid username (max length: ${maxLength})`;
       return;
     }
     this.registerUsernameError = '';
 
-    if (!email.trim() || !emailRegex.test(email)) {
-      this.registerEmailError = 'Enter valid email';
+    if (!email.trim() || !emailRegex.test(email) || email.length > maxLength) {
+      this.registerEmailError = `Enter valid email (max length: ${maxLength})`;
       return;
     }
     this.registerEmailError = '';
 
-    if (!password.trim()) {
-      this.registerPasswordError = 'Enter valid password';
+    if (!password.trim() || password.length > maxPasswordLength) {
+      this.registerPasswordError = `Enter valid password (max length: ${maxPasswordLength})`;
       return;
     }
     this.registerPasswordError = '';

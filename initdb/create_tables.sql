@@ -16,26 +16,26 @@ CREATE TABLE Wallet
 CREATE TABLE "User"
 (
     user_id                    SERIAL PRIMARY KEY,
-    username                   VARCHAR UNIQUE        NOT NULL,
-    firstname                  VARCHAR               NOT NULL,
-    lastname                   VARCHAR               NOT NULL,
-    email                      VARCHAR UNIQUE        NOT NULL,
+    username                   VARCHAR(100) UNIQUE        NOT NULL,
+    firstname                  VARCHAR(100)               NOT NULL,
+    lastname                   VARCHAR(100)               NOT NULL,
+    email                      VARCHAR(100) UNIQUE        NOT NULL,
     is_admin                   BOOLEAN               NOT NULL,
-    password_hash              VARCHAR               NOT NULL,
+    password_hash              VARCHAR(500)               NOT NULL,
     has_connected_bank_account BOOLEAN DEFAULT FALSE NOT NULL,
     wallet_id                  INT UNIQUE            NOT NULL REFERENCES Wallet (wallet_id),
-    profile_picture_location   VARCHAR DEFAULT '/assets/no-image.svg'
+    profile_picture_location   VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
 CREATE TABLE Station
 (
     station_id             SERIAL PRIMARY KEY,
-    station_name           VARCHAR NOT NULL,
+    station_name           VARCHAR(100) NOT NULL,
     description            VARCHAR,
-    station_address        VARCHAR NOT NULL,
+    station_address        VARCHAR(200) NOT NULL,
     longitude              DECIMAL,
     latitude               DECIMAL,
-    station_image_location VARCHAR DEFAULT '/assets/no-image.svg'
+    station_image_location VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
 CREATE TABLE BikeCategory
@@ -48,7 +48,7 @@ CREATE TABLE BikeCategory
 CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
-    model_name  VARCHAR NOT NULL,
+    model_name  VARCHAR(100) NOT NULL,
     price       FLOAT   NOT NULL,
     category_id INT     NOT NULL REFERENCES BikeCategory (category_id)
 );
@@ -73,7 +73,7 @@ CREATE TABLE ParkingSpotCategory
 CREATE TABLE Bike
 (
     bike_id             SERIAL PRIMARY KEY,
-    bike_name           VARCHAR     NOT NULL,
+    bike_name           VARCHAR(100)     NOT NULL,
     station_id          INT REFERENCES Station (station_id),
     model_id            INT         NOT NULL REFERENCES BikeModel (model_id),
     assigned_to         INT REFERENCES ParkingSpot (spot_id),
@@ -81,7 +81,7 @@ CREATE TABLE Bike
     status              bike_status NOT NULL,
     size                INT         NOT NULL,
     price               FLOAT       NOT NULL,
-    bike_image_location VARCHAR DEFAULT '/assets/no-image.svg'
+    bike_image_location VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
 -- TODO
@@ -114,7 +114,7 @@ CREATE TABLE Transaction
     ticket_id        INT REFERENCES Ticket (ticket_id),
     user_id          INT REFERENCES "User" (user_id),
     amount           DECIMAL NOT NULL,
-    transaction_type VARCHAR NOT NULL,
+    transaction_type VARCHAR(100) NOT NULL,
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -123,7 +123,7 @@ CREATE TABLE StationReview
     review_id  SERIAL PRIMARY KEY,
     station_id INT     NOT NULL REFERENCES Station (station_id) ON DELETE CASCADE,
     user_id    INT     NOT NULL REFERENCES "User" (user_id) ON DELETE CASCADE,
-    title      VARCHAR NOT NULL,
+    title      VARCHAR(200) NOT NULL,
     model_id   INT REFERENCES BikeModel (model_id) ON DELETE CASCADE,
     rating     INT     NOT NULL,
     comment    TEXT    NOT NULL,

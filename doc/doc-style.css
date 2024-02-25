@@ -342,8 +342,8 @@ td.docs {
 }
 .pilwrap .pilcrow {
   font: 12px Arial;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   text-decoration: none;
-  color: #454545;
   position: absolute;
   left: -20px;
   padding: 1px 2px;
