@@ -6,9 +6,9 @@
 
 // Use localStorage to store data about the tree's state: whether or not
 // the tree is visible and which directories are expanded. Unless the state
-var sidebarVisible = (window.localStorage && window.localStorage.docker_showSidebar) ?
-                        window.localStorage.docker_showSidebar == 'yes' :
-                        defaultSidebar;
+let sidebarVisible = (window.localStorage && window.localStorage.docker_showSidebar) ?
+    window.localStorage.docker_showSidebar === 'yes' :
+    defaultSidebar;
 
 /**
  * ## makeTree
@@ -20,8 +20,8 @@ var sidebarVisible = (window.localStorage && window.localStorage.docker_showSide
  * @param {string} filename The current file name
  */
 function makeTree(treeData, root, filename) {
-  var treeNode = document.getElementById('tree');
-  var treeHandle = document.getElementById('sidebar-toggle');
+  const treeNode = document.getElementById('tree');
+  const treeHandle = document.getElementById('sidebar-toggle');
   treeHandle.addEventListener('click', toggleTree, false);
 
   // Build the html and add it to the container.
@@ -50,7 +50,7 @@ function makeTree(treeData, root, filename) {
  * so it can be restored on the next pageview.
  */
 function treeScrolled() {
-  var tree = document.getElementById('tree');
+  const tree = document.getElementById('tree');
   if (window.localStorage) window.localStorage.docker_treeScroll = tree.scrollTop;
 }
 
@@ -63,7 +63,7 @@ function treeScrolled() {
  */
 function nodeClicked(e) {
   // Find the target
-  var t = e.target;
+  let t = e.target;
 
   // If the click target is actually a file (rather than a directory), ignore it
   if (t.tagName.toLowerCase() !== 'div' || t.className === 'children') return;
@@ -75,7 +75,7 @@ function nodeClicked(e) {
   if (!t || t.parentNode.id == 'tree') return;
 
   // Find the path and toggle the state, saving the state in the localStorage variable
-  var path = t.getAttribute('rel');
+  const path = t.getAttribute('rel');
   if (t.className.indexOf('open') !== -1) {
     t.className = t.className.replace(/\s*open/g, '');
     if (window.localStorage) window.localStorage.removeItem('docker_openPath:' + path);
@@ -98,27 +98,27 @@ function nodeClicked(e) {
  */
 function nodeHtml(nodename, node, path, root) {
   // Firstly, figure out whether or not the directory is expanded from localStorage
-  var isOpen = window.localStorage && window.localStorage['docker_openPath:' + path] == 'yes';
-  var out = '<div class="dir' + (isOpen ? ' open' : '') + '" rel="' + path + '">';
+  const isOpen = window.localStorage && window.localStorage['docker_openPath:' + path] == 'yes';
+  let out = '<div class="dir' + (isOpen ? ' open' : '') + '" rel="' + path + '">';
   out += '<div class="nodename">' + nodename + '</div>';
   out += '<div class="children">';
 
   // Loop through all child directories first
   if (node.dirs) {
-    var dirs = [];
-    for (var i in node.dirs) {
+    const dirs = [];
+    for (const i in node.dirs) {
       if (node.dirs.hasOwnProperty(i)) dirs.push({ name: i, html: nodeHtml(i, node.dirs[i], path + i + '/', root) });
     }
     // Have to store them in an array first and then sort them alphabetically here
-    dirs.sort(function(a, b) { return (a.name > b.name) ? 1 : (a.name == b.name) ? 0 : -1; });
+    dirs.sort(function(a, b) { return (a.name > b.name) ? 1 : (a.name === b.name) ? 0 : -1; });
 
-    for (var k = 0; k < dirs.length; k += 1) out += dirs[k].html;
+    for (let k = 0; k < dirs.length; k += 1) out += dirs[k].html;
   }
 
   // Now loop through all the child files alphabetically
   if (node.files) {
     node.files.sort();
-    for (var j = 0; j < node.files.length; j += 1) {
+    for (let j = 0; j < node.files.length; j += 1) {
       out += '<a class="file" href="' + root + path + node.files[j] + '.html">' + node.files[j] + '</a>';
     }
   }
@@ -158,11 +158,12 @@ function toggleTree() {
  * Wires up events on the sidebar tabe
  */
 function wireUpTabs() {
-  var tabEl = document.getElementById('sidebar_switch');
-  var children = tabEl.childNodes;
+  const tabEl = document.getElementById('sidebar_switch');
+  const children = tabEl.childNodes;
 
   // Each tab has a class corresponding of the id of its tab pane
-  for (var i = 0, l = children.length; i < l; i += 1) {
+  let i = 0, l = children.length;
+  for (; i < l; i += 1) {
     // Ignore text nodes
     if (children[i].nodeType !== 1) continue;
     children[i].addEventListener('click', function(c) {
@@ -179,16 +180,17 @@ function wireUpTabs() {
  * @param {string} tab The ID of the tab to switch to
  */
 function switchTab(tab) {
-  var tabEl = document.getElementById('sidebar_switch');
-  var children = tabEl.childNodes;
+  const tabEl = document.getElementById('sidebar_switch');
+  const children = tabEl.childNodes;
 
   // Easiest way to go through tabs without any kind of selector is just to look at the tab bar
-  for (var i = 0, l = children.length; i < l; i += 1) {
+  let i = 0, l = children.length;
+  for (; i < l; i += 1) {
     // Ignore text nodes
     if (children[i].nodeType !== 1) continue;
 
     // Figure out what tab pane this tab button corresponts to
-    var t = children[i].className.replace(/\s.*$/, '');
+    const t = children[i].className.replace(/\s.*$/, '');
     if (t === tab) {
       // Show the tab pane, select the tab button
       document.getElementById(t).style.display = 'block';

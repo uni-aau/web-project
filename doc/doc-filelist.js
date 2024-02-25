@@ -1,1 +1,1 @@
-var tree={};
+const tree = {};
