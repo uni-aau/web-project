@@ -3,8 +3,9 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
 const DatabaseService = require('../database-service')
+const { verifyUserToken } = require('../auth');
 
-router.get('/userdata', function (req, res) {
+router.get('/userdata', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -19,7 +20,7 @@ router.get('/userdata', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/firstname', function (req, res) {
+router.put('/firstname', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {firstname} = req.body;
 
@@ -37,7 +38,7 @@ router.put('/firstname', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/lastname', function (req, res) {
+router.put('/lastname', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {lastname} = req.body;
 
@@ -51,7 +52,7 @@ router.put('/lastname', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/email', function (req, res) {
+router.put('/email', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {email} = req.body;
 
@@ -79,7 +80,7 @@ router.put('/email', function (req, res) {
     }).catch(e => res.status(500).json({error: e.message}));
 });
 
-router.put('/username', function (req, res) {
+router.put('/username', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {username} = req.body;
 
@@ -107,7 +108,7 @@ router.put('/username', function (req, res) {
     }).catch(e => res.status(500).json({error: e.message}));
 });
 
-router.put('/profile-picture', function (req, res) {
+router.put('/profile-picture', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {profilePictureLocation} = req.body;
 
@@ -121,7 +122,7 @@ router.put('/profile-picture', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.get('/profile-picture', function (req, res) {
+router.get('/profile-picture', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -134,7 +135,7 @@ router.get('/profile-picture', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/password', function (req, res) {
+router.put('/password', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {password} = req.body;
 
@@ -152,21 +153,5 @@ router.put('/password', function (req, res) {
         })
         .catch(e => res.status(500).json({error: e.message}));
 });
-
-
-function executeUpdateQuery(query) {
-    console.log("Executing: " + query.text + " with values: " + query.values);
-
-    return new Promise((resolve, reject) => {
-        pool.query(query)
-            .then(results => {
-                if (results.rowCount <= 0) reject(new Error("No data changed"));
-                else resolve(results.rowCount);
-            })
-            .catch(error => {
-                reject(error.message)
-            })
-    })
-}
 
 module.exports = router;

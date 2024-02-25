@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const DatabaseService = require("../database-service");
+const { verifyUserToken } = require('../auth');
 
-router.put('/balance', function (req, res) {
+router.put('/balance', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {balance} = req.body;
 
@@ -27,7 +28,7 @@ router.put('/balance', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}));
 });
 
-router.put('/deposit-money', function (req, res) {
+router.put('/deposit-money', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {amount} = req.body;
 
@@ -47,7 +48,7 @@ router.put('/deposit-money', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}));
 });
 
-router.get('/balance', function (req, res) {
+router.get('/balance', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -64,7 +65,7 @@ router.get('/balance', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}));
 });
 
-router.put('/available-balance', function (req, res) {
+router.put('/available-balance', verifyUserToken, function (req, res) {
     const {userId} = req.user;
     const {availableBalance} = req.body;
 
@@ -82,7 +83,7 @@ router.put('/available-balance', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}));
 });
 
-router.get('/bank-connection', function (req, res) {
+router.get('/bank-connection', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -95,7 +96,7 @@ router.get('/bank-connection', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/connect', function (req, res) {
+router.put('/connect', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});
@@ -108,7 +109,7 @@ router.put('/connect', function (req, res) {
         .catch(e => res.status(500).json({error: e.message}))
 });
 
-router.put('/disconnect', function (req, res) {
+router.put('/disconnect', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 
     if (!userId) return res.status(500).json({error: "UserId is undefined"});

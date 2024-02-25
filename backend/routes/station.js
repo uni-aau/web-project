@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../pool');
 const DatabaseService = require("../database-service");
+const { verifyUserToken, verifyAdminToken } = require('../auth');
 
 router.get('/', async (req, res) => {
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Station', values: []})
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
         });
 });
 
-router.get('/station/:stationId', function (req, res) {
+router.get('/station/:stationId', verifyUserToken, function (req, res) {
     const {stationId} = req.params;
 
     DatabaseService.executeSelectionQuery({text: 'SELECT * FROM Station WHERE station_id = $1', values: [stationId]})
@@ -23,7 +24,7 @@ router.get('/station/:stationId', function (req, res) {
         });
 });
 
-router.post('/station', async (req, res) => {
+router.post('/station', verifyAdminToken, async (req, res) => {
     const {stationName, description, stationAddress, longitude, latitude, stationImageLocation} = req.body;
 
     if (!stationName || !stationAddress || !longitude || !latitude) return res.status(500).json({error: "Not all required data inserted"});
@@ -38,7 +39,7 @@ router.post('/station', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while adding bike station: " + e.message}))
 });
 
-router.put('/station/:stationId', async (req, res) => {
+router.put('/station/:stationId', verifyAdminToken, async (req, res) => {
     const {stationId} = req.params;
     const {stationName, description, stationAddress, longitude, latitude, stationImageLocation} = req.body;
 
@@ -54,7 +55,7 @@ router.put('/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating bike station: " + e.message}))
 });
 
-router.get('/station/:stationId/bike-status', async (req, res) => {
+router.get('/station/:stationId/bike-status', verifyUserToken, async (req, res) => {
     const {stationId} = req.params;
 
     DatabaseService.executeSelectionQuery({text: 'Select bike_id from Bike WHERE bike.station_id = $1 AND status NOT IN ($2, $3)', values: [stationId, 'Available', 'Maintenance']})
@@ -65,7 +66,7 @@ router.get('/station/:stationId/bike-status', async (req, res) => {
         });
 });
 
-router.delete('/station/:stationId', async (req, res) => {
+router.delete('/station/:stationId', verifyAdminToken, async (req, res) => {
     const {stationId} = req.params;
 
     DatabaseService.executeUpdateQuery({text:'UPDATE BIKE SET station_id = NULL, assigned_to = NULL where station_id = $1', values: [stationId]})
@@ -81,7 +82,7 @@ router.delete('/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating station assignments (station deletion): " + e.message}))
 });
 
-router.get('/free-spot/', function (req, res) {
+router.get('/free-spot/', verifyUserToken, function (req, res) {
     const {categoryId, stationId} = req.query;
 
     if (!stationId || !categoryId) return res.status(500).json({error: "Not all required data inserted"});

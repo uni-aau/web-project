@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
-const pgSession = require('connect-pg-simple')(session);
 
 const app = express();
 
@@ -16,7 +15,6 @@ const bikeRoutes = require('./routes/bike');
 const bikeModelRoutes = require('./routes/bikeModel');
 const stationReviewRoutes = require('./routes/stationReview');
 const transactionRoutes = require('./routes/transaction');
-const bikeModelReviewRoutes = require('./routes/bikeModelReview');
 const walletRoutes = require('./routes/wallet');
 const parkingSpotRoutes = require('./routes/parkingspot');
 const authRoutes = require('./routes/authentication')
@@ -27,17 +25,16 @@ const { verifyUserToken, verifyAdminToken } = require('./auth');
 
 app.use('/api/auth', authRoutes);
 // TODO
-app.use('/api/users', verifyUserToken, userRoutes);
-app.use('/api/tickets', verifyUserToken,ticketRoutes);
-app.use('/api/stations', verifyUserToken,stationRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/tickets', verifyUserToken, ticketRoutes);
+app.use('/api/stations', stationRoutes);
 app.use('/api/bikes', verifyUserToken, bikeRoutes);
-app.use('/api/bikeModels', verifyUserToken,bikeModelRoutes);
-app.use('/api/stationReviews',verifyUserToken, stationReviewRoutes);
-app.use('/api/transactions', verifyUserToken,transactionRoutes);
-app.use('/api/bikeModelReviews',verifyUserToken, bikeModelReviewRoutes);
-app.use('/api/bikeCategory',verifyUserToken, bikeCategoryRoutes);
-app.use('/api/wallets', verifyUserToken, walletRoutes);
-app.use('/api/parkingSpots',verifyUserToken, parkingSpotRoutes);
+app.use('/api/bikeModels', verifyUserToken, bikeModelRoutes);
+app.use('/api/stationReviews', stationReviewRoutes);
+app.use('/api/transactions', verifyUserToken, transactionRoutes);
+app.use('/api/bikeCategory', verifyUserToken, bikeCategoryRoutes);
+app.use('/api/wallets', walletRoutes);
+app.use('/api/parkingSpots', verifyUserToken, parkingSpotRoutes);
 
 app.get("/", (req, res) => {
     res.setHeader('Content-Type', 'text/html');

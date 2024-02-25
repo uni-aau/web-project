@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const DatabaseService = require('../database-service');
+const { verifyUserToken, verifyAdminToken } = require('../auth');
 
 router.get('/station/:stationId', async (req, res) => {
     const {stationId} = req.params;
@@ -16,7 +17,7 @@ router.get('/station/:stationId', async (req, res) => {
         });
 });
 
-router.post('/review/station/:stationId', async (req, res) => {
+router.post('/review/station/:stationId', verifyUserToken, async (req, res) => {
     const {stationId} = req.params;
     const {userId} = req.user;
     const {rating, title, comment, modelId} = req.body;
@@ -32,7 +33,7 @@ router.post('/review/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: `Error while adding new review to station ${stationId}: ` + e.message}))
 });
 
-router.put('/review/:reviewId/station/:stationId', async (req, res) => {
+router.put('/review/:reviewId/station/:stationId', verifyUserToken, async (req, res) => {
     const {reviewId, stationId} = req.params;
     const {rating, title, comment, modelId} = req.body;
 
@@ -46,7 +47,7 @@ router.put('/review/:reviewId/station/:stationId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while updating review: " + e.message}))
 });
 
-router.delete('/review/:reviewId', async (req, res) => {
+router.delete('/review/:reviewId', verifyAdminToken, async (req, res) => {
     const {reviewId} = req.params;
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM stationreview WHERE review_id = $1', values: [reviewId]})
@@ -54,7 +55,7 @@ router.delete('/review/:reviewId', async (req, res) => {
         .catch(e => res.status(500).json({error: "Error while deleting review: " + e.message}))
 });
 
-router.delete('/review/station/:stationId', async (req, res) => {
+router.delete('/review/station/:stationId', verifyAdminToken, async (req, res) => {
     const {stationId} = req.params;
 
     DatabaseService.executeDeleteQuery({text: 'DELETE FROM stationreview WHERE station_id = $1', values: [stationId]})
