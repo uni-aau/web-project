@@ -1,5 +1,32 @@
 # WebTechnologien Projekt (WS2023)
 
+## Getting Started
+### Required
+- **Backend** (npm i for dependencies in /backend)
+  - Node >= v20.9.0
+  - NPM >= v10.2.3
+- **Frontend** (npm i for dependencies in /frontend)
+  - Angular > 17
+- **Database**
+  - Docker Desktop
+  - PostgreSQL > 15
+  - PgAdmin 4 (Optional - GUI)
+### Execution
+- Initialize new PostgresSQL Server
+  - Database Hostname/address: **localhost**
+  - Database Port: **5433**
+  - Database Username: **postgres**
+  - And then a new PostgresSQL Database in this server
+    - Database Name: **postgres**
+    - Database Password: **postgres**
+- Create and populate database tables with ``docker-compose up -d``
+  - You can reset database with ``docker-compose down -v``
+- Check out to /backend-folder
+  - Start backend with **node server.js**
+- Check out to /frontend-folder
+  - Start frontend with **ng serve --open**
+
+## Task
 As you have mastered web development fundamentals, you are now asked to implement an online system for the local bike rental.
 The customers should be able to buy tickets either remotely (e.g., from their smartphones) or locally via special terminals. In both cases, the customer uses the same web service interface.
 

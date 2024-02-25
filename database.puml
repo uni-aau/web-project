@@ -4,42 +4,48 @@
 entity "User" {
   +user_id : int [PK]
   --
-  username : varchar
+  #wallet_id : int [FK]
+  username : varchar [Unique]
+  firstname: varchar
+  lastname: varchar
   email : varchar [Unique]
+  is_admin : boolean
+  has_connected_bank_account boolean
   password_hash : varchar
-  isAdmin: boolean
-  +wallet_id : int [FK]
+  profile_picture_location varchar
 }
 
 entity "Wallet" {
   +wallet_id : int [PK]
   --
   balance : decimal
+  available_balance : decimal
 }
 
 entity "Station" {
   +station_id : int [PK]
   --
-  name : varchar
-  location : varchar
+  station_name : varchar
+  description: varchar
+  station_address : varchar
   longitude : decimal
   latitude : decimal
+  station_image_location : varchar
 }
 
 entity "BikeCategory" {
   +category_id : int [PK]
   --
-  name : varchar
+  category_name : varchar
+  price: float
 }
 
 entity "BikeModel" {
   +model_id : int [PK]
   --
   #category_id : int [FK]
-  name : varchar
-  description : text
-  wheel_size : int
-  extra_features : text
+  model_name : varchar
+  price : float
 }
 
 entity "Bike" {
@@ -47,26 +53,13 @@ entity "Bike" {
   --
   #station_id : int [FK]
   #model_id : int [FK]
+  #assigned_to : int [FK]
+  bike_name: varchar
   is_available : boolean
-}
-
-entity "Ticket" {
-  +ticket_id : int [PK]
-  --
-  #user_id : int [FK]
-  #category_id : int [FK]
-  start_time : timestamp
-  end_time : timestamp
-  status : varchar
-}
-
-entity "Transaction" {
-  +transaction_id : int [PK]
-  --
-  #user_id : int [FK]
-  amount : decimal
-  transaction_type : varchar
-  timestamp : timestamp
+  status : bike_status [Enum]
+  size : int
+  price : float
+  bike_image_location varchar
 }
 
 entity "ParkingSpot" {
@@ -77,21 +70,44 @@ entity "ParkingSpot" {
   #category_id : int [FK]
 }
 
+entity "ParkingSpotCategory" {
+  +spot_id, category_id : int [PK]
+  --
+  #spot_id : int [FK]
+  #category_id : int [FK]
+}
+
+entity "Ticket" {
+  +ticket_id : int [PK]
+  --
+  #user_id : int [FK]
+  #bike_id : int [FK]
+  #model_id : int [FK]
+  #category_id : int [FK]
+  booked_type : booked_type
+  status : booking_status [Enum]
+  booking_time : timestamp
+  renting_start : timestamp
+  renting_end : timestamp
+}
+
+entity "Transaction" {
+  +transaction_id : int [PK]
+  --
+  #ticket_id : int [FK]
+  #user_id : int [FK]
+  amount : decimal
+  transaction_type : varchar
+  timestamp : timestamp
+}
+
 entity "StationReview" {
   +review_id : int [PK]
   --
   #station_id : int [FK]
   #user_id : int [FK]
-  rating : int
-  comment : text
-  timestamp : timestamp
-}
-
-entity "BikeModelReview" {
-  +review_id : int [PK]
-  --
   #model_id : int [FK]
-  #user_id : int [FK]
+  title : varchar
   rating : int
   comment : text
   timestamp : timestamp
@@ -101,14 +117,16 @@ User ||--o{ Wallet : "owns"
 User ||--o{ Ticket : "books"
 User ||--o{ Transaction : "performs"
 User ||--o{ StationReview : "writes"
-User ||--o{ BikeModelReview : "writes"
 Station ||--o{ Bike : "hosts"
 Station ||--o{ StationReview : "receives"
 Station ||--o{ ParkingSpot : "contains"
 BikeCategory ||--o{ BikeModel : "includes"
 BikeModel ||--o{ Bike : "includes"
-BikeModel ||--o{ BikeModelReview : "receives"
+BikeModel ||--o{ StationReview : "receives"
 BikeCategory ||--o{ Ticket : "categorized in"
+BikeModel ||--o{ Ticket : "categorized in"
+Bike ||--o{ Ticket : "categorized in"
 BikeCategory ||--o{ ParkingSpot : "accommodates"
+ParkingSpot ||--o{ ParkingSpotCategory : "hosts"
 
 @enduml
