@@ -4,7 +4,7 @@ const DatabaseService = require("../database-service");
 
 router.get('/', async (req, res) => {
     DatabaseService.executeSelectionQuery({
-        text: 'SELECT t.* ,c.category_name FROM Ticket t JOIN bikecategory c ON t.category_id = c.category_id',
+        text: 'SELECT t.*, c.category_name, b.bike_name, m.model_name FROM Ticket t LEFT JOIN bikecategory c ON t.category_id = c.category_id LEFT JOIN bikemodel m ON t.model_id = m.model_id LEFT JOIN bike b ON t.category_id = b.bike_id',
         values: []
     })
         .then(results => res.status(200).json(results))

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {PopupService} from "../../services/popup.service";
 import {BikeService} from "../../services/bike.service";
@@ -31,6 +31,10 @@ export class BookedTypeEntryComponent {
     bookedTypeEntryDueDate: string = 'Due Date: {0}'
     @Input()
     ticketData: any;
+
+    @Output()
+    onDataChange: EventEmitter<any> = new EventEmitter<any>();
+
     bike: any
     showRentButton: boolean = true;
 
@@ -49,6 +53,7 @@ export class BookedTypeEntryComponent {
 
 
     private insertData() {
+        console.log(this.ticketData)
         this.bookedTypeEntryTicketId = LanguageHandler.formatString(
             'TicketID: {0}', [this.ticketData.ticket_id]);
         this.bookedTypeEntryRentingInformation = LanguageHandler.formatString(
@@ -57,8 +62,14 @@ export class BookedTypeEntryComponent {
             "Booked at: {0}", [DateHandler.formatTimestamp(this.ticketData.booking_time)]);
         this.bookedTypeEntryBookedType = LanguageHandler.formatString(
             "Booked Type: {0}", [this.ticketData.booked_type]);
-        this.bookedTypeEntryTitle = LanguageHandler.formatString(
+
+        if(this.ticketData.bike_id)  this.bookedTypeEntryTitle = LanguageHandler.formatString(
+            "{0} (Price: {1}$)", [this.ticketData.bike_name, this.ticketData.price]);
+        else if(this.ticketData.model_id)  this.bookedTypeEntryTitle = LanguageHandler.formatString(
+            "{0} (Price: {1}$)", [this.ticketData.model_name, this.ticketData.price]);
+        else this.bookedTypeEntryTitle = LanguageHandler.formatString(
             "{0} (Price: {1}$)", [this.ticketData.category_name, this.ticketData.price]);
+
         this.bookedTypeEntryStatus = LanguageHandler.formatString(
             "Status: {0}", [this.ticketData.status]);
         this.bookedTypeEntryDueDate = LanguageHandler.formatString(
@@ -81,12 +92,13 @@ export class BookedTypeEntryComponent {
             new Date(),
             this.ticketData.ticket_id
         ).subscribe((res) => {
-            if (res.success) {
+            if (res && res.success) {
                 this.bikeService.unassignBike(this.bike.bike_id).subscribe({
                     next: (val) => {
                         this.ticketService.rentTicket(this.ticketData.ticket_id).subscribe({
                             next: (val) => {
-                                console.log(val)
+                                console.log(val);
+                                this.onDataChange.emit(0);
                             },
                             error: (err) => console.log(err)
                         })

@@ -8,6 +8,7 @@
     class="booking-active-tickets-component-container1"
   ></div>
   <booked-type-entry-component
+          (onDataChange)="updateData()"
     *ngFor="let ticket of tickets"
     [ticketData]="ticket"
     rootClassName="booked-type-entry-component-root-class-name"

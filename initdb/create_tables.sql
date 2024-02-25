@@ -134,7 +134,7 @@ INSERT INTO Wallet (balance, available_balance)
 VALUES (100.00, 100.00),
        (150.00, 100.00),
        (100.00, 10.00),
-       (0.00, 0.00);
+       (1000.00, 1000.00);
 
 INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id)
 VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
@@ -162,18 +162,25 @@ INSERT INTO ParkingSpot (station_id, spot_number)
 VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 1),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 2),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 3),
-       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 4);
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 4),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), 1),
+       ((SELECT station_id FROM Station WHERE station_name = 'North Station'), 2);
 
 INSERT INTO ParkingSpotCategory(spot_id, category_id)
 VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
+(1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
        (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
+       (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
        (3, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
-       (4, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
+       (4, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
+       (4, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
+       (5, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
+       (6, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
 INSERT INTO Bike (station_id, bike_name, assigned_to, model_id, is_available, status, size, price)
-VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike1', 1,
+VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Mountain-Bike 300', 1,
         (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
-       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Bike2', 2,
+       ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'E-Bike 12h', 2,
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
