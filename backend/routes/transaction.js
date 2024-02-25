@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../pool');
 
 router.get('/user/:userId', async (req, res) => {
-    const { userId } = req.params;
+    const {userId} = req.params;
     try {
         const result = await pool.query('SELECT * FROM Transaction WHERE user_id = $1', [userId]);
         res.json(result.rows);
@@ -14,7 +14,7 @@ router.get('/user/:userId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { userId, amount, transactionType } = req.body;
+    const {userId, amount, transactionType} = req.body;
     try {
         const result = await pool.query(
             'INSERT INTO Transaction (user_id, amount, transaction_type) VALUES ($1, $2, $3) RETURNING *',
@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:transactionId', async (req, res) => {
-    const { transactionId } = req.params;
-    const { amount, transactionType } = req.body;
+    const {transactionId} = req.params;
+    const {amount, transactionType} = req.body;
     try {
         const result = await pool.query(
             'UPDATE Transaction SET amount = $1, transaction_type = $2 WHERE transaction_id = $3 RETURNING *',
@@ -47,7 +47,7 @@ router.put('/:transactionId', async (req, res) => {
 });
 
 router.delete('/:transactionId', async (req, res) => {
-    const { transactionId } = req.params;
+    const {transactionId} = req.params;
     try {
         const result = await pool.query('DELETE FROM Transaction WHERE transaction_id = $1 RETURNING *', [transactionId]);
         if (result.rows.length > 0) {

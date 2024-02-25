@@ -1,119 +1,119 @@
-<div class="admin-navbar-container" [ngClass]="rootClassName">
-  <header data-thq="thq-navbar" class="navbar-general">
-    <a routerLink="/">
-      <img
-        [attr.alt]="adminNavbarLogoAlt"
-        [attr.src]="adminNavbarLogo"
-        class="admin-navbar-image"
-      />
-    </a>
-    <div data-thq="thq-navbar-nav" class="admin-navbar-desktop-menu">
-      <nav class="admin-navbar-links">
-        <a routerLink="/admin-bike-stations" class="navbar-links-style">
-          {{ adminNavbarLinkBikeStations }}
-        </a>
-        <a routerLink="/admin-manage-bikes" class="navbar-links-style">
-          {{ adminNavbarLinkBikes }}
-        </a>
-        <a routerLink="/admin-manage-categories" class="navbar-links-style">
-          {{ adminNavbarLinkCategories }}
-        </a>
-        <a routerLink="/admin-manage-models" class="navbar-links-style">
-          {{ adminNavbarLinkModels }}
-        </a>
-        <a
-          routerLink="/admin-manage-bike-rentals"
-          class="admin-navbar-navlink05 navbar-links-style"
-        >
-          {{ adminNavbarLinkActiveTickets }}
-        </a>
-      </nav>
-      <div class="admin-navbar-buttons">
-        <a routerLink="/account" class="admin-navbar-navlink06">
-          <img
-            [attr.alt]="adminNavbarSettingsImageAlt"
-            [attr.src]="adminNavbarSettingsImage"
-            class="admin-navbar-image1"
-          />
-        </a>
-        <button
-          id="navbar-button-logout"
-          type="button"
-          class="button admin-navbar-button"
-          (click)="authService.logout()"
-        >
-          {{ adminNavbarButtonLogout }}
-        </button>
-      </div>
-    </div>
-    <div data-thq="thq-burger-menu" class="admin-navbar-burger-menu">
-      <svg viewBox="0 0 1024 1024" class="admin-navbar-icon">
-        <path
-          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-        ></path>
-      </svg>
-    </div>
-    <div
-      data-thq="thq-mobile-menu"
-      class="admin-navbar-mobile-menu navbar-general-mobile"
-    >
-      <div class="admin-navbar-nav">
-        <div class="admin-navbar-top">
-          <img
-            [attr.alt]="adminNavbarLogoAlt"
-            [attr.src]="adminNavbarLogo"
-            class="admin-navbar-logo"
-          />
-          <div data-thq="thq-close-menu" class="admin-navbar-close-menu">
-            <svg viewBox="0 0 1024 1024" class="admin-navbar-icon2">
-              <path
-                d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-        <nav class="admin-navbar-links1">
-          <a
-            routerLink="/admin-bike-stations"
-            class="navbar-links-style-mobile"
-          >
-            {{ adminNavbarLinkBikeStations }}
-          </a>
-          <a routerLink="/admin-manage-bikes" class="navbar-links-style-mobile">
-            {{ adminNavbarLinkBikes }}
-          </a>
-          <a
-            routerLink="/admin-manage-categories"
-            class="navbar-links-style-mobile"
-          >
-            {{ adminNavbarLinkCategories }}
-          </a>
-          <a
-            routerLink="/admin-manage-models"
-            class="navbar-links-style-mobile"
-          >
-            {{ adminNavbarLinkModels }}
-          </a>
-          <a
-            routerLink="/admin-manage-bike-rentals"
-            class="navbar-links-style-mobile"
-          >
-            {{ adminNavbarLinkActiveTickets }}
-          </a>
-        </nav>
-        <div class="admin-navbar-buttons1">
-          <a routerLink="/account" class="admin-navbar-navlink12">
+<div [ngClass]="rootClassName" class="admin-navbar-container">
+    <header class="navbar-general" data-thq="thq-navbar">
+        <a routerLink="/">
             <img
-              [attr.alt]="adminNavbarSettingsImageAlt"
-              [attr.src]="adminNavbarSettingsImage"
-              class="admin-navbar-image2"
+                    [attr.alt]="adminNavbarLogoAlt"
+                    [attr.src]="adminNavbarLogo"
+                    class="admin-navbar-image"
             />
-          </a>
-          <button id="navbar-button-logout-mobile" class="button" (click)="authService.logout()">
-            {{ adminNavbarButtonLogout }}
-          </button>
+        </a>
+        <div class="admin-navbar-desktop-menu" data-thq="thq-navbar-nav">
+            <nav class="admin-navbar-links">
+                <a class="navbar-links-style" routerLink="/admin-bike-stations">
+                    {{ adminNavbarLinkBikeStations }}
+                </a>
+                <a class="navbar-links-style" routerLink="/admin-manage-bikes">
+                    {{ adminNavbarLinkBikes }}
+                </a>
+                <a class="navbar-links-style" routerLink="/admin-manage-categories">
+                    {{ adminNavbarLinkCategories }}
+                </a>
+                <a class="navbar-links-style" routerLink="/admin-manage-models">
+                    {{ adminNavbarLinkModels }}
+                </a>
+                <a
+                        class="admin-navbar-navlink05 navbar-links-style"
+                        routerLink="/admin-manage-bike-rentals"
+                >
+                    {{ adminNavbarLinkActiveTickets }}
+                </a>
+            </nav>
+            <div class="admin-navbar-buttons">
+                <a class="admin-navbar-navlink06" routerLink="/account">
+                    <img
+                            [attr.alt]="adminNavbarSettingsImageAlt"
+                            [attr.src]="adminNavbarSettingsImage"
+                            class="admin-navbar-image1"
+                    />
+                </a>
+                <button
+                        (click)="authService.logout()"
+                        class="button admin-navbar-button"
+                        id="navbar-button-logout"
+                        type="button"
+                >
+                    {{ adminNavbarButtonLogout }}
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+        <div class="admin-navbar-burger-menu" data-thq="thq-burger-menu">
+            <svg class="admin-navbar-icon" viewBox="0 0 1024 1024">
+                <path
+                        d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+            </svg>
+        </div>
+        <div
+                class="admin-navbar-mobile-menu navbar-general-mobile"
+                data-thq="thq-mobile-menu"
+        >
+            <div class="admin-navbar-nav">
+                <div class="admin-navbar-top">
+                    <img
+                            [attr.alt]="adminNavbarLogoAlt"
+                            [attr.src]="adminNavbarLogo"
+                            class="admin-navbar-logo"
+                    />
+                    <div class="admin-navbar-close-menu" data-thq="thq-close-menu">
+                        <svg class="admin-navbar-icon2" viewBox="0 0 1024 1024">
+                            <path
+                                    d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+                <nav class="admin-navbar-links1">
+                    <a
+                            class="navbar-links-style-mobile"
+                            routerLink="/admin-bike-stations"
+                    >
+                        {{ adminNavbarLinkBikeStations }}
+                    </a>
+                    <a class="navbar-links-style-mobile" routerLink="/admin-manage-bikes">
+                        {{ adminNavbarLinkBikes }}
+                    </a>
+                    <a
+                            class="navbar-links-style-mobile"
+                            routerLink="/admin-manage-categories"
+                    >
+                        {{ adminNavbarLinkCategories }}
+                    </a>
+                    <a
+                            class="navbar-links-style-mobile"
+                            routerLink="/admin-manage-models"
+                    >
+                        {{ adminNavbarLinkModels }}
+                    </a>
+                    <a
+                            class="navbar-links-style-mobile"
+                            routerLink="/admin-manage-bike-rentals"
+                    >
+                        {{ adminNavbarLinkActiveTickets }}
+                    </a>
+                </nav>
+                <div class="admin-navbar-buttons1">
+                    <a class="admin-navbar-navlink12" routerLink="/account">
+                        <img
+                                [attr.alt]="adminNavbarSettingsImageAlt"
+                                [attr.src]="adminNavbarSettingsImage"
+                                class="admin-navbar-image2"
+                        />
+                    </a>
+                    <button (click)="authService.logout()" class="button" id="navbar-button-logout-mobile">
+                        {{ adminNavbarButtonLogout }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 </div>

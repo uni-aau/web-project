@@ -41,7 +41,7 @@ export class ModelComponent implements OnInit {
     @Output() onModelUpdate: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private modelService: ModelService, private popupService: PopupService,
-                private ticketService:TicketService, private ticketUtilyService:TicketUtilityService) {
+                private ticketService: TicketService, private ticketUtilyService: TicketUtilityService) {
     }
 
     ngOnInit() {
@@ -107,37 +107,37 @@ export class ModelComponent implements OnInit {
         })
     }
 
-  performBook($event: MouseEvent) {
-    console.log(this.modelData)
-    const dialogRef = this.popupService.openBookTicketPopup(this.modelData.category_name, this.modelData.model_name, this.modelData.price)
+    performBook($event: MouseEvent) {
+        console.log(this.modelData)
+        const dialogRef = this.popupService.openBookTicketPopup(this.modelData.category_name, this.modelData.model_name, this.modelData.price)
 
 
-    dialogRef.subscribe(result => {
-      if (result) {
-        const { price, status, bookingDate, rentingStart, endDate } = result;
+        dialogRef.subscribe(result => {
+            if (result) {
+                const {price, status, bookingDate, rentingStart, endDate} = result;
 
-        // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
-        // damit die löschbar sind
-        this.ticketService.newTicket(
-          price,
-          "Model",
-          undefined,
-          this.modelData.category_id,
-          this.modelData.model_id,
-          status,
-          bookingDate,
-          rentingStart,
-          endDate,
-          price
-        ).subscribe({
-          next: (response) => {
-            console.log('Buchung erfolgreich', response);
-          },
-          error: (error) => {
-            console.error('Fehler bei der Buchung', error);
-          }
+                // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
+                // damit die löschbar sind
+                this.ticketService.newTicket(
+                    price,
+                    "Model",
+                    undefined,
+                    this.modelData.category_id,
+                    this.modelData.model_id,
+                    status,
+                    bookingDate,
+                    rentingStart,
+                    endDate,
+                    price
+                ).subscribe({
+                    next: (response) => {
+                        console.log('Buchung erfolgreich', response);
+                    },
+                    error: (error) => {
+                        console.error('Fehler bei der Buchung', error);
+                    }
+                });
+            }
         });
-      }
-    });
-  }
+    }
 }

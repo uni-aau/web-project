@@ -4,60 +4,60 @@ import {BikeStation} from "../../types/bikeStation.type";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'admin-bike-stations-component',
-  templateUrl: 'admin-bike-stations-component.component.html',
-  styleUrls: ['admin-bike-stations-component.component.css'],
+    selector: 'admin-bike-stations-component',
+    templateUrl: 'admin-bike-stations-component.component.html',
+    styleUrls: ['admin-bike-stations-component.component.css'],
 })
 export class AdminBikeStationsComponent {
-  @Input()
-  adminManageBikeStationsTitle: string = 'Manage Bike Stations'
-  @Input()
-  rootClassName: string = ''
-  bikeStations: BikeStation[] = [];
-  filteredBikeStations: BikeStation[] = [];
+    @Input()
+    adminManageBikeStationsTitle: string = 'Manage Bike Stations'
+    @Input()
+    rootClassName: string = ''
+    bikeStations: BikeStation[] = [];
+    filteredBikeStations: BikeStation[] = [];
 
-  constructor(private bikeStationService: BikeStationService, private router : Router) {
-  }
-
-  ngOnInit() {
-    this.fetchData();
-    console.log("fetch")
-  }
-
-  fetchData() {
-    this.bikeStationService.getBikeStations().subscribe(data => {
-      console.log(data);
-      this.bikeStations = data;
-      this.performSearch("")
-    });
-  }
-
-  performSearch(searchTerm: string) {
-    console.log(searchTerm)
-    if (!searchTerm) {
-      this.filteredBikeStations = this.bikeStations;
-    } else {
-      this.filteredBikeStations = this.bikeStations.filter(station =>
-        station.station_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        station.station_address.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        station.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    constructor(private bikeStationService: BikeStationService, private router: Router) {
     }
-  }
 
-  createStation($event: any) {
-    this.router.navigate(["/admin-manage-bike-station"])
-  }
+    ngOnInit() {
+        this.fetchData();
+        console.log("fetch")
+    }
 
-  handleReviewDeletion() {
-    this.fetchData();
-  }
+    fetchData() {
+        this.bikeStationService.getBikeStations().subscribe(data => {
+            console.log(data);
+            this.bikeStations = data;
+            this.performSearch("")
+        });
+    }
 
-  handleStationDelete(){
-    this.fetchData();
-  }
+    performSearch(searchTerm: string) {
+        console.log(searchTerm)
+        if (!searchTerm) {
+            this.filteredBikeStations = this.bikeStations;
+        } else {
+            this.filteredBikeStations = this.bikeStations.filter(station =>
+                station.station_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                station.station_address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                station.description.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+    }
 
-  handleUpdatedStation() {
-    this.fetchData();
-  }
+    createStation($event: any) {
+        this.router.navigate(["/admin-manage-bike-station"])
+    }
+
+    handleReviewDeletion() {
+        this.fetchData();
+    }
+
+    handleStationDelete() {
+        this.fetchData();
+    }
+
+    handleUpdatedStation() {
+        this.fetchData();
+    }
 }

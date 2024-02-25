@@ -18,7 +18,10 @@ router.get('/', function (eq, res) {
 router.get('/bike/:bikeId', function (req, res) {
     const {bikeId} = req.params;
 
-    DatabaseService.executeSelectionQuery({text: 'SELECT b.*, m.model_name, c.category_name, c.category_id, s.station_name FROM Bike b LEFT JOIN Station s ON b.station_id = s.station_id JOIN BikeModel m ON b.model_id = m.model_id JOIN BikeCategory c ON m.category_id = c.category_id WHERE b.bike_id = $1', values: [bikeId]})
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT b.*, m.model_name, c.category_name, c.category_id, s.station_name FROM Bike b LEFT JOIN Station s ON b.station_id = s.station_id JOIN BikeModel m ON b.model_id = m.model_id JOIN BikeCategory c ON m.category_id = c.category_id WHERE b.bike_id = $1',
+        values: [bikeId]
+    })
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})
@@ -124,11 +127,12 @@ router.post('/bike/:bikeId/unasign', async (req, res) => {
     const {bikeId} = req.params;
     console.log("unassign")
     if (!bikeId) {
-        return res.status(400).send({ error: 'bikeId is required' });
+        return res.status(400).send({error: 'bikeId is required'});
     }
 
     DatabaseService.executeDeleteQuery({
-        text: 'UPDATE Bike SET assigned_to = NULL, station_id = NULL WHERE bike_id = $1', values: [bikeId]})
+        text: 'UPDATE Bike SET assigned_to = NULL, station_id = NULL WHERE bike_id = $1', values: [bikeId]
+    })
         .then(result => res.status(200).json({success: true, rowsChanged: result}))
         .catch(e => res.status(500).json({error: "Error while deleting bike: " + e.message}))
 });

@@ -1,11 +1,12 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .account-settings-component-container {
-  width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
 }
 

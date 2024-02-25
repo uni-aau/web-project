@@ -1,117 +1,136 @@
 :host {
-  display: contents;
+    display: contents;
 }
+
 .admin-manage-bike-station-component-container {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  position: relative;
-  align-self: center;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
-  justify-content: center;
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    position: relative;
+    align-self: center;
+    align-items: flex-start;
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-halfunit);
+    flex-direction: column;
+    justify-content: center;
 }
+
 .admin-manage-bike-station-component-form {
-  width: 100%;
-  height: auto;
-  display: flex;
+    width: 100%;
+    height: auto;
+    display: flex;
 }
+
 .admin-manage-bike-station-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .admin-manage-bike-station-component-container2 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  margin-top: var(--dl-space-space-halfunit);
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-unit);
-  justify-content: center;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: var(--dl-space-space-halfunit);
+    align-items: flex-start;
+    margin-bottom: var(--dl-space-space-unit);
+    justify-content: center;
 }
+
 .admin-manage-bike-station-component-container3 {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    padding-right: var(--dl-space-space-halfunit);
+    flex-direction: column;
 }
+
 .admin-manage-bike-station-component-textinput {
-  width: 100%;
+    width: 100%;
 }
+
 .admin-manage-bike-station-component-container4 {
-  flex: 0 0 auto;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    padding-left: var(--dl-space-space-halfunit);
+    flex-direction: column;
 }
+
 .admin-manage-bike-station-component-textinput1 {
-  width: 100%;
+    width: 100%;
 }
+
 .admin-manage-bike-station-component-container5 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-unit);
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--dl-space-space-unit);
+    flex-direction: column;
 }
+
 .admin-manage-bike-station-component-textinput2 {
-  width: 100%;
+    width: 100%;
 }
+
 .admin-manage-bike-station-component-container6 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-unit);
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--dl-space-space-unit);
+    flex-direction: column;
 }
+
 .admin-manage-bike-station-component-textinput3 {
-  width: 100%;
+    width: 100%;
 }
+
 .admin-manage-bike-station-component-textarea {
-  width: 100%;
-  height: var(--dl-size-size-small);
-  max-height: var(--dl-size-size-medium);
-  min-width: 100%;
-  max-width: 100%;
-  min-height: var(--dl-size-size-small);
+    width: 100%;
+    height: var(--dl-size-size-small);
+    max-height: var(--dl-size-size-medium);
+    min-width: 100%;
+    max-width: 100%;
+    min-height: var(--dl-size-size-small);
 }
+
 .admin-manage-bike-station-component-text10 {
-  font-size: 22px;
-  align-self: center;
-  font-style: normal;
-  margin-top: var(--dl-space-space-unit);
-  font-weight: 600;
-  margin-bottom: var(--dl-space-space-halfunit);
+    font-size: 22px;
+    align-self: center;
+    font-style: normal;
+    margin-top: var(--dl-space-space-unit);
+    font-weight: 600;
+    margin-bottom: var(--dl-space-space-halfunit);
 }
+
 .admin-manage-bike-station-component-root-class-name {
-  align-self: flex-start;
+    align-self: flex-start;
 }
-@media(max-width: 767px) {
-  .admin-manage-bike-station-component-container {
-    width: 75%;
-  }
-  .admin-manage-bike-station-component-root-class-name {
-    width: 100%;
-    margin-bottom: var(--dl-space-space-twounits);
-  }
+
+@media (max-width: 767px) {
+    .admin-manage-bike-station-component-container {
+        width: 75%;
+    }
+
+    .admin-manage-bike-station-component-root-class-name {
+        width: 100%;
+        margin-bottom: var(--dl-space-space-twounits);
+    }
 }
-@media(max-width: 479px) {
-  .admin-manage-bike-station-component-container {
-    width: 100%;
-  }
-  .admin-manage-bike-station-component-root-class-name {
-    margin-bottom: var(--dl-space-space-threeunits);
-  }
+
+@media (max-width: 479px) {
+    .admin-manage-bike-station-component-container {
+        width: 100%;
+    }
+
+    .admin-manage-bike-station-component-root-class-name {
+        margin-bottom: var(--dl-space-space-threeunits);
+    }
 }

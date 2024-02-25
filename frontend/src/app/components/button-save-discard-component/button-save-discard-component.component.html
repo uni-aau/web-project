@@ -1,13 +1,13 @@
-<div class="button-save-discard-component-container" [ngClass]="rootClassName">
-  <button id="save-button" type="button" class="button-general button-green" (click)="onConfirm()">
-    {{ adminManageModelButtonSave }}
-  </button>
-  <button
-    id="discard-button"
-    type="button"
-    class="button-save-discard-component-button1 button-general button-red"
-    (click)="onCancel()"
-  >
-    {{ adminManageModelButtonDiscard }}
-  </button>
+<div [ngClass]="rootClassName" class="button-save-discard-component-container">
+    <button (click)="onConfirm()" class="button-general button-green" id="save-button" type="button">
+        {{ adminManageModelButtonSave }}
+    </button>
+    <button
+            (click)="onCancel()"
+            class="button-save-discard-component-button1 button-general button-red"
+            id="discard-button"
+            type="button"
+    >
+        {{ adminManageModelButtonDiscard }}
+    </button>
 </div>

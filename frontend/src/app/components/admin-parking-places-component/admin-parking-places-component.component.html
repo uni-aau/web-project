@@ -1,31 +1,35 @@
-<div class="admin-parking-places-component-container" [ngClass]="rootClassName">
-  <div class="admin-parking-places-component-container1">
-    <div class="admin-parking-places-component-container2">
+<div [ngClass]="rootClassName" class="admin-parking-places-component-container">
+    <div class="admin-parking-places-component-container1">
+        <div class="admin-parking-places-component-container2">
       <span class="admin-parking-places-component-text subheading">
         {{ adminParkingPlacesTitle }}
       </span>
+        </div>
+        <div class="admin-parking-places-component-container3">
+            <button
+                    (click)="addParkingSpot()"
+                    class="admin-parking-places-component-button button-blue button-general"
+                    id="parking-places-add-place-button"
+                    type="button"
+            >
+                {{ adminParkingPlacesButtonAddPlace }}
+            </button>
+        </div>
     </div>
-    <div class="admin-parking-places-component-container3">
-      <button
-        id="parking-places-add-place-button"
-        type="button"
-        class="admin-parking-places-component-button button-blue button-general"
-        (click)="addParkingSpot()"
-      >
-        {{ adminParkingPlacesButtonAddPlace }}
-      </button>
-    </div>
-  </div>
-  <span class="admin-parking-places-component-text1">
+    <span class="admin-parking-places-component-text1">
     {{ adminParkingPlacesHint }}
   </span>
 
-  <div class="admin-parking-places-component-container4">
-    <admin-parking-place-selection-component *ngFor="let spot of parkingSpots" [spot]="spot" [categories]="categories"
-                                             rootClassName="admin-parking-place-selection-component-root-class-name"
-                                             (onDataChange)="handleSpotUpdate($event)" (onSpotDelete)="handleSpotDeletion()" (onNewlyCreatedSpotDelete)="handleNewSpotDeletion($event)"
-    ></admin-parking-place-selection-component>
-  </div>
+    <div class="admin-parking-places-component-container4">
+        <admin-parking-place-selection-component (onDataChange)="handleSpotUpdate($event)" (onNewlyCreatedSpotDelete)="handleNewSpotDeletion($event)"
+                                                 (onSpotDelete)="handleSpotDeletion()"
+                                                 *ngFor="let spot of parkingSpots"
+                                                 [categories]="categories"
+                                                 [spot]="spot"
+                                                 rootClassName="admin-parking-place-selection-component-root-class-name"
+        ></admin-parking-place-selection-component>
+    </div>
 
-  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"></button-save-discard-component>
+    <button-save-discard-component (cancel)="handleCancel()"
+                                   (confirm)="handleConfirm()"></button-save-discard-component>
 </div>

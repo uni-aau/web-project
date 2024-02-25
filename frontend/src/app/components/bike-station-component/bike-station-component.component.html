@@ -1,71 +1,71 @@
-<div class="bike-station-component-container" [ngClass]="rootClassName">
-  <div class="bike-station-component-container1">
-    <div class="bike-station-component-container2">
-      <div class="bike-station-component-container3">
-        <div class="bike-station-component-container4">
+<div [ngClass]="rootClassName" class="bike-station-component-container">
+    <div class="bike-station-component-container1">
+        <div class="bike-station-component-container2">
+            <div class="bike-station-component-container3">
+                <div class="bike-station-component-container4">
           <span class="bike-station-component-text model-bike-category-title">
             {{ bikeStationTitle }}
           </span>
-          <span class="bike-station-component-text1">
+                    <span class="bike-station-component-text1">
             {{ bikeStationLocation }}
           </span>
-          <span class="bike-station-component-text2">
+                    <span class="bike-station-component-text2">
             {{ bikeStationDescription1 }}
           </span>
-        </div>
-        <div class="bike-station-component-container5">
-          <div *ngFor="let number of ratingNumber">
-            <svg viewBox="0 0 1024 1024" class="review-star">
-              <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
-            </svg>
-          </div>
+                </div>
+                <div class="bike-station-component-container5">
+                    <div *ngFor="let number of ratingNumber">
+                        <svg class="review-star" viewBox="0 0 1024 1024">
+                            <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                        </svg>
+                    </div>
 
-          <div *ngFor="let number of ratingNumberReversed">
-            <svg viewBox="0 0 1024 1024" class="review-star">
-              <path d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
-            </svg>
-          </div>
-          <span class="bike-station-component-text3">
+                    <div *ngFor="let number of ratingNumberReversed">
+                        <svg class="review-star" viewBox="0 0 1024 1024">
+                            <path d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
+                        </svg>
+                    </div>
+                    <span class="bike-station-component-text3">
             {{ bikeStationRatingAmount }}
           </span>
+                </div>
+            </div>
+            <div class="bike-station-component-container6">
+                <img
+                        [attr.alt]="bikeStationImageAlt"
+                        [attr.src]="bikeStationImageSrc1"
+                        class="bike-station-component-image"
+                        id="bike-station-image"
+                />
+            </div>
         </div>
-      </div>
-      <div class="bike-station-component-container6">
-        <img
-          id="bike-station-image"
-          [attr.alt]="bikeStationImageAlt"
-          [attr.src]="bikeStationImageSrc1"
-          class="bike-station-component-image"
-        />
-      </div>
+        <div class="bike-station-component-container7">
+            <div class="bike-station-component-container8">
+                <button
+                        (click)="rateStation()"
+                        class="bike-station-component-button button-blue button-general"
+                        id="bike-station-rate-button"
+                        type="button"
+                >
+                    {{ bikeStationButtonRate1 }}
+                </button>
+                <button
+                        (click)="performViewRatingsClick()"
+                        class="button-blue button-general bike-station-component-button1"
+                        id="bike-station-view-ratings-button"
+                        type="button"
+                >
+                    {{ bikeStationButtonViewRatings }}
+                </button>
+            </div>
+            <button
+                    (click)="performMoreInfo()"
+                    class="bike-station-component-button2 button-blue button-general"
+                    id="bike-station-more-infos-button"
+                    type="button"
+            >
+                {{ bikeStationButtonMoreInfos1 }}
+            </button>
+        </div>
     </div>
-    <div class="bike-station-component-container7">
-      <div class="bike-station-component-container8">
-        <button
-          id="bike-station-rate-button"
-          type="button"
-          class="bike-station-component-button button-blue button-general"
-          (click)="rateStation()"
-        >
-          {{ bikeStationButtonRate1 }}
-        </button>
-        <button
-          id="bike-station-view-ratings-button"
-          type="button"
-          class="button-blue button-general bike-station-component-button1"
-          (click)="performViewRatingsClick()"
-        >
-          {{ bikeStationButtonViewRatings }}
-        </button>
-      </div>
-      <button
-        id="bike-station-more-infos-button"
-        type="button"
-        (click)="performMoreInfo()"
-        class="bike-station-component-button2 button-blue button-general"
-      >
-        {{ bikeStationButtonMoreInfos1 }}
-      </button>
-    </div>
-  </div>
 </div>

@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 router.post('/login', async (req, res, next) => {
-    const { email, username, password } = req.body;
+    const {email, username, password} = req.body;
 
-    if (!password || (!username && !email)) return res.status(500).json({ error: "Body does not contain all values" });
+    if (!password || (!username && !email)) return res.status(500).json({error: "Body does not contain all values"});
 
     const emailLower = email ? email.toLowerCase() : undefined;
     const usernameLower = username ? username.toLowerCase() : undefined;
@@ -30,15 +30,15 @@ router.post('/login', async (req, res, next) => {
                 const token = jwt.sign(
                     tokenData,
                     "meinSuperGeheimesJWTSecret",
-                    { expiresIn: '1h' }
+                    {expiresIn: '1h'}
                 );
 
-                res.status(200).json({ token: token, is_admin: user.is_admin, user_id: user.user_id });
+                res.status(200).json({token: token, is_admin: user.is_admin, user_id: user.user_id});
             } else {
-                res.status(401).json({ message: "Invalid Password" });
+                res.status(401).json({message: "Invalid Password"});
             }
         } else {
-            res.status(404).json({ message: "User not found" });
+            res.status(404).json({message: "User not found"});
         }
     } catch (err) {
         console.error('Error while logging in:', err.stack);
@@ -57,7 +57,11 @@ router.post('/register', async (req, res) => {
     try {
         const existingUser = await pool.query('SELECT * FROM "User" WHERE username = $1', [username.toLowerCase()]);
         if (existingUser.rows.length) {
-            return res.status(400).json({username: true, exists: true, message: "User with this username already exists!"})
+            return res.status(400).json({
+                username: true,
+                exists: true,
+                message: "User with this username already exists!"
+            })
         }
 
         const existingEmail = await pool.query('SELECT * FROM "User" WHERE email = $1', [email.toLowerCase()]);

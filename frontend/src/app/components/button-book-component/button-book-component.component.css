@@ -1,11 +1,12 @@
 :host {
-  display: contents;
+    display: contents;
 }
+
 .button-book-component-container {
-  width: auto;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: flex-start;
-  flex-direction: column;
+    width: auto;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
 }

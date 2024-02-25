@@ -1,38 +1,40 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
 import {AuthService} from "../../services/auth.service";
 
 @Component({
-  selector: 'admin-navbar',
-  templateUrl: 'admin-navbar.component.html',
-  styleUrls: ['admin-navbar.component.css'],
+    selector: 'admin-navbar',
+    templateUrl: 'admin-navbar.component.html',
+    styleUrls: ['admin-navbar.component.css'],
 })
 export class AdminNavbar {
-  @Input()
-  adminNavbarLogoAlt: string = 'image'
-  @Input()
-  adminNavbarSettingsImage: string = '/assets/no-image.svg'
-  @Input()
-  adminNavbarLinkBikeStations: string = 'Bike Stations'
-  @Input()
-  adminNavbarLinkModels: string = 'Models'
-  @Input()
-  adminNavbarLogo: string = '/assets/logo_black-1500h.png'
-  @Input()
-  adminNavbarLinkBikes: string = 'Bikes'
-  @Input()
-  adminNavbarLinkActiveTickets: string = 'Tickets Management'
-  @Input()
-  adminNavbarLinkCategories: string = 'Categories'
-  @Input()
-  adminNavbarButtonLogout: string = 'Logout'
-  @Input()
-  adminNavbarSettingsImageAlt: string = 'image'
-  @Input()
-  rootClassName: string = ''
-  constructor(public authService: AuthService) {}
+    @Input()
+    adminNavbarLogoAlt: string = 'image'
+    @Input()
+    adminNavbarSettingsImage: string = '/assets/no-image.svg'
+    @Input()
+    adminNavbarLinkBikeStations: string = 'Bike Stations'
+    @Input()
+    adminNavbarLinkModels: string = 'Models'
+    @Input()
+    adminNavbarLogo: string = '/assets/logo_black-1500h.png'
+    @Input()
+    adminNavbarLinkBikes: string = 'Bikes'
+    @Input()
+    adminNavbarLinkActiveTickets: string = 'Tickets Management'
+    @Input()
+    adminNavbarLinkCategories: string = 'Categories'
+    @Input()
+    adminNavbarButtonLogout: string = 'Logout'
+    @Input()
+    adminNavbarSettingsImageAlt: string = 'image'
+    @Input()
+    rootClassName: string = ''
 
-  logout(){
-    console.log("logout admin com")
-    this.authService.logout();
-  }
+    constructor(public authService: AuthService) {
+    }
+
+    logout() {
+        console.log("logout admin com")
+        this.authService.logout();
+    }
 }

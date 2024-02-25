@@ -1,9 +1,10 @@
 <div class="home-container">
-  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
-  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
-  <admin-navbar *ngIf="AuthService.getRole() === 'admin'" rootClassName="admin-navbar-root-class-name1"></admin-navbar>
+    <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+    <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+    <admin-navbar *ngIf="AuthService.getRole() === 'admin'"
+                  rootClassName="admin-navbar-root-class-name1"></admin-navbar>
 
-  <home-showcase rootClassName="home-showcase-root-class-name"></home-showcase>
-  <home-bikes rootClassName="home-bikes-root-class-name"></home-bikes>
-  <app-footer></app-footer>
+    <home-showcase rootClassName="home-showcase-root-class-name"></home-showcase>
+    <home-bikes rootClassName="home-bikes-root-class-name"></home-bikes>
+    <app-footer></app-footer>
 </div>

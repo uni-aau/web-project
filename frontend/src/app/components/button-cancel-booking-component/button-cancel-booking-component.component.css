@@ -1,12 +1,13 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .button-cancel-booking-component-container {
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 

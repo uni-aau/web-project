@@ -4,7 +4,10 @@ const pool = require('../pool');
 const DatabaseService = require("../database-service");
 
 router.get('/', function (req, res) {
-    DatabaseService.executeSelectionQuery({text: 'SELECT m.*, c.category_name, COUNT(b.bike_id) AS bike_count FROM bikemodel m JOIN BikeCategory c ON m.category_id = c.category_id LEFT JOIN bike b ON b.model_id = m.model_id GROUP BY m.model_id, c.category_id', values: []})
+    DatabaseService.executeSelectionQuery({
+        text: 'SELECT m.*, c.category_name, COUNT(b.bike_id) AS bike_count FROM bikemodel m JOIN BikeCategory c ON m.category_id = c.category_id LEFT JOIN bike b ON b.model_id = m.model_id GROUP BY m.model_id, c.category_id',
+        values: []
+    })
         .then(results => res.status(200).json(results))
         .catch(e => {
             if (e.message === "Nothing found") res.status(404).json({error: e.message})

@@ -20,10 +20,10 @@ CREATE TABLE "User"
     firstname                  VARCHAR(100)               NOT NULL,
     lastname                   VARCHAR(100)               NOT NULL,
     email                      VARCHAR(100) UNIQUE        NOT NULL,
-    is_admin                   BOOLEAN               NOT NULL,
+    is_admin                   BOOLEAN                    NOT NULL,
     password_hash              VARCHAR(500)               NOT NULL,
-    has_connected_bank_account BOOLEAN DEFAULT FALSE NOT NULL,
-    wallet_id                  INT UNIQUE            NOT NULL REFERENCES Wallet (wallet_id),
+    has_connected_bank_account BOOLEAN      DEFAULT FALSE NOT NULL,
+    wallet_id                  INT UNIQUE                 NOT NULL REFERENCES Wallet (wallet_id),
     profile_picture_location   VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
@@ -49,8 +49,8 @@ CREATE TABLE BikeModel
 (
     model_id    SERIAL PRIMARY KEY,
     model_name  VARCHAR(100) NOT NULL,
-    price       FLOAT   NOT NULL,
-    category_id INT     NOT NULL REFERENCES BikeCategory (category_id)
+    price       FLOAT        NOT NULL,
+    category_id INT          NOT NULL REFERENCES BikeCategory (category_id)
 );
 
 CREATE TABLE ParkingSpot
@@ -66,21 +66,21 @@ CREATE TABLE ParkingSpotCategory
     spot_id     INT NOT NULL,
     category_id INT NOT NULL,
     PRIMARY KEY (spot_id, category_id),
-    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id)  ON DELETE CASCADE,
+    FOREIGN KEY (spot_id) REFERENCES ParkingSpot (spot_id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES BikeCategory (category_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Bike
 (
     bike_id             SERIAL PRIMARY KEY,
-    bike_name           VARCHAR(100)     NOT NULL,
+    bike_name           VARCHAR(100) NOT NULL,
     station_id          INT REFERENCES Station (station_id),
-    model_id            INT         NOT NULL REFERENCES BikeModel (model_id),
+    model_id            INT          NOT NULL REFERENCES BikeModel (model_id),
     assigned_to         INT REFERENCES ParkingSpot (spot_id),
-    is_available        BOOLEAN DEFAULT TRUE,
-    status              bike_status NOT NULL,
-    size                INT         NOT NULL,
-    price               FLOAT       NOT NULL,
+    is_available        BOOLEAN      DEFAULT TRUE,
+    status              bike_status  NOT NULL,
+    size                INT          NOT NULL,
+    price               FLOAT        NOT NULL,
     bike_image_location VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
@@ -97,7 +97,7 @@ CREATE TABLE Ticket
     booking_time  TIMESTAMP      NOT NULL,
     renting_start TIMESTAMP      NOT NULL,
     renting_end   TIMESTAMP      NOT NULL,
-    price           DECIMAL NOT NULL
+    price         DECIMAL        NOT NULL
 );
 
 CREATE TABLE Rentals
@@ -113,7 +113,7 @@ CREATE TABLE Transaction
     transaction_id   SERIAL PRIMARY KEY,
     ticket_id        INT REFERENCES Ticket (ticket_id),
     user_id          INT REFERENCES "User" (user_id),
-    amount           DECIMAL NOT NULL,
+    amount           DECIMAL      NOT NULL,
     transaction_type VARCHAR(100) NOT NULL,
     timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -121,12 +121,12 @@ CREATE TABLE Transaction
 CREATE TABLE StationReview
 (
     review_id  SERIAL PRIMARY KEY,
-    station_id INT     NOT NULL REFERENCES Station (station_id) ON DELETE CASCADE,
-    user_id    INT     NOT NULL REFERENCES "User" (user_id) ON DELETE CASCADE,
+    station_id INT          NOT NULL REFERENCES Station (station_id) ON DELETE CASCADE,
+    user_id    INT          NOT NULL REFERENCES "User" (user_id) ON DELETE CASCADE,
     title      VARCHAR(200) NOT NULL,
     model_id   INT REFERENCES BikeModel (model_id) ON DELETE CASCADE,
-    rating     INT     NOT NULL,
-    comment    TEXT    NOT NULL,
+    rating     INT          NOT NULL,
+    comment    TEXT         NOT NULL,
     timestamp  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -143,7 +143,7 @@ VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
         '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2),
        ('dadi', 'Dado', 'Dodo', 'dadi1@speed.at', true, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
         3),
-    ('dad', 'Dado', 'Dodo', 'dadi2@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
+       ('dad', 'Dado', 'Dodo', 'dadi2@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
         4);
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude)
@@ -168,7 +168,7 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
 
 INSERT INTO ParkingSpotCategory(spot_id, category_id)
 VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
-(1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
+       (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
        (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
        (2, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
        (3, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric')),
@@ -183,14 +183,20 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'E-Bike 12h', 2,
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
-VALUES (2, 'Bike', 1, 1, 1, 'Booked', '2024-02-22 19:45:51.332626', '2024-02-22 20:45:51.332626', '2024-02-22 23:45:51.332626', 5);
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
+                    renting_end, price)
+VALUES (2, 'Bike', 1, 1, 1, 'Booked', '2024-02-22 19:45:51.332626', '2024-02-22 20:45:51.332626',
+        '2024-02-22 23:45:51.332626', 5);
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
-VALUES ( 2, 'Bike', 1, 1, 1, 'Rented', '2024-02-22 19:46:31.036000', '2024-02-22 20:46:00.000000', '2024-02-22 21:46:00.000000', 5);
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
+                    renting_end, price)
+VALUES (2, 'Bike', 1, 1, 1, 'Rented', '2024-02-22 19:46:31.036000', '2024-02-22 20:46:00.000000',
+        '2024-02-22 21:46:00.000000', 5);
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start, renting_end, price)
-VALUES ( 2, 'Bike', 1, 1, 1, 'Completed', '2024-02-22 19:47:08.618000', '2024-02-22 20:47:00.000000', '2024-02-22 21:47:00.000000', 5);
+INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
+                    renting_end, price)
+VALUES (2, 'Bike', 1, 1, 1, 'Completed', '2024-02-22 19:47:08.618000', '2024-02-22 20:47:00.000000',
+        '2024-02-22 21:47:00.000000', 5);
 
 
 

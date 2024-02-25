@@ -1,128 +1,131 @@
-<div class="drop-down-component" [ngClass]="rootClassName">
-  <div class="drop-down-main-element">
-    <div class="drop-down-toggle-main">
-      <svg
-        viewBox="0 0 1024 1024"
-        class="user-account-drop-down-component-icon"
-      >
-        <path
-          d="M512 662q62 0 106-44t44-106-44-106-106-44-106 44-44 106 44 106 106 44zM830 554l90 70q14 10 4 28l-86 148q-8 14-26 8l-106-42q-42 30-72 42l-16 112q-4 18-20 18h-172q-16 0-20-18l-16-112q-38-16-72-42l-106 42q-18 6-26-8l-86-148q-10-18 4-28l90-70q-2-14-2-42t2-42l-90-70q-14-10-4-28l86-148q8-14 26-8l106 42q42-30 72-42l16-112q4-18 20-18h172q16 0 20 18l16 112q38 16 72 42l106-42q18-6 26 8l86 148q10 18-4 28l-90 70q2 14 2 42t-2 42z"
-        ></path>
-      </svg>
-      <span class="drop-down-title">{{ userSettingsTitle }}</span>
-      <div class="drop-down-arrow">
-        <svg viewBox="0 0 1024 1024" class="arrow-style">
-          <path d="M298 426h428l-214 214z"></path>
-        </svg>
-      </div>
+<div [ngClass]="rootClassName" class="drop-down-component">
+    <div class="drop-down-main-element">
+        <div class="drop-down-toggle-main">
+            <svg
+                    class="user-account-drop-down-component-icon"
+                    viewBox="0 0 1024 1024"
+            >
+                <path
+                        d="M512 662q62 0 106-44t44-106-44-106-106-44-106 44-44 106 44 106 106 44zM830 554l90 70q14 10 4 28l-86 148q-8 14-26 8l-106-42q-42 30-72 42l-16 112q-4 18-20 18h-172q-16 0-20-18l-16-112q-38-16-72-42l-106 42q-18 6-26-8l-86-148q-10-18 4-28l90-70q-2-14-2-42t2-42l-90-70q-14-10-4-28l86-148q8-14 26-8l106 42q42-30 72-42l16-112q4-18 20-18h172q16 0 20 18l16 112q38 16 72 42l106-42q18-6 26 8l86 148q10 18-4 28l-90 70q2 14 2 42t-2 42z"
+                ></path>
+            </svg>
+            <span class="drop-down-title">{{ userSettingsTitle }}</span>
+            <div class="drop-down-arrow">
+                <svg class="arrow-style" viewBox="0 0 1024 1024">
+                    <path d="M298 426h428l-214 214z"></path>
+                </svg>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="drop-down-list">
-    <div class="drop-down-list-drop-down">
-      <div class="drop-down-toggle">
-        <form id="update-name-container" class="drop-down-container-style" (ngSubmit)="updateName(firstname.value, lastname.value)">
+    <div class="drop-down-list">
+        <div class="drop-down-list-drop-down">
+            <div class="drop-down-toggle">
+                <form (ngSubmit)="updateName(firstname.value, lastname.value)" class="drop-down-container-style"
+                      id="update-name-container">
           <span class="user-account-drop-down-component-text01">
             {{ userSettingsChangeNameTitle }}
           </span>
-          <span class="user-account-drop-down-component-text02">
+                    <span class="user-account-drop-down-component-text02">
             {{ userSettingsChangeNameSubtitle }}
           </span>
-          <input
-            type="text"
-            id="user-settings-first-name-input"
-            required="true"
-            [attr.placeholder]="userSettingsInputFirstNamePlaceholder"
-            class="user-account-drop-down-component-textinput input account-settings-input"
-            #firstname="ngModel"
-            name="firstname"
-            ngModel
-          />
-          <input
-            type="text"
-            [attr.placeholder]="userSettingsChangeLastNamePlaceholder"
-            id="user-settings-first-last-name-input"
-            required="true"
-            class="input account-settings-input"
-            #lastname="ngModel"
-            name="lastname"
-            ngModel
-          />
-          <span *ngIf="userSettingsChangeNameError !== ''" class="input-error-hint">
+                    <input
+                            #firstname="ngModel"
+                            [attr.placeholder]="userSettingsInputFirstNamePlaceholder"
+                            class="user-account-drop-down-component-textinput input account-settings-input"
+                            id="user-settings-first-name-input"
+                            name="firstname"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <input
+                            #lastname="ngModel"
+                            [attr.placeholder]="userSettingsChangeLastNamePlaceholder"
+                            class="input account-settings-input"
+                            id="user-settings-first-last-name-input"
+                            name="lastname"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <span *ngIf="userSettingsChangeNameError !== ''" class="input-error-hint">
             {{ userSettingsChangeNameError }}
           </span>
-          <button
-            id="user-settings-name-save-button"
-            type="submit"
-            class="button-account-settings button-blue button-general"
-          >
-            {{ userSettingsButtonSaveName }}
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="drop-down-list-drop-down">
-      <div class="drop-down-toggle">
-        <form id="update-email-container" class="drop-down-container-style" (ngSubmit)="updateEmail(email.value)">
+                    <button
+                            class="button-account-settings button-blue button-general"
+                            id="user-settings-name-save-button"
+                            type="submit"
+                    >
+                        {{ userSettingsButtonSaveName }}
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="drop-down-list-drop-down">
+            <div class="drop-down-toggle">
+                <form (ngSubmit)="updateEmail(email.value)" class="drop-down-container-style"
+                      id="update-email-container">
           <span class="user-account-drop-down-component-text04">
             {{ userSettingsChangeMailTitle }}
           </span>
-          <span class="user-account-drop-down-component-text05">
+                    <span class="user-account-drop-down-component-text05">
             {{ userSettingsChangeEmailSubtitle }}
           </span>
-          <input
-            type="text"
-            id="user-settings-email-input"
-            required="true"
-            [attr.placeholder]="userSettingsChangeEmailPlaceholder"
-            class="input account-settings-input"
-            #email="ngModel"
-            name="email"
-            ngModel
-          />
-          <span *ngIf="userSettingsChangeEmailError !== ''" class="input-error-hint">
+                    <input
+                            #email="ngModel"
+                            [attr.placeholder]="userSettingsChangeEmailPlaceholder"
+                            class="input account-settings-input"
+                            id="user-settings-email-input"
+                            name="email"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <span *ngIf="userSettingsChangeEmailError !== ''" class="input-error-hint">
             {{ userSettingsChangeEmailError }}
           </span>
-          <button
-            id="user-settings-email-save-button"
-            type="submit"
-            class="button-account-settings button-blue button-general"
-          >
-            {{ userSettingsButtonSaveEmail }}
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="drop-down-list-drop-down">
-      <div class="drop-down-toggle">
-        <form id="update-username-container" class="drop-down-container-style" (ngSubmit)="updateUsername(username.value)">
+                    <button
+                            class="button-account-settings button-blue button-general"
+                            id="user-settings-email-save-button"
+                            type="submit"
+                    >
+                        {{ userSettingsButtonSaveEmail }}
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="drop-down-list-drop-down">
+            <div class="drop-down-toggle">
+                <form (ngSubmit)="updateUsername(username.value)" class="drop-down-container-style"
+                      id="update-username-container">
           <span class="user-account-drop-down-component-text07">
             {{ userSettingsChangeUsernameTitle1 }}
           </span>
-          <span class="user-account-drop-down-component-text08">
+                    <span class="user-account-drop-down-component-text08">
             {{ userSettingsChangeUsernameSubtitle }}
           </span>
-          <input
-            type="text"
-            id="user-settings-username-input"
-            required="true"
-            [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
-            class="input account-settings-input"
-            #username="ngModel"
-            name="username"
-            ngModel
-          />
-          <span *ngIf="userSettingsChangeUsernameError !== ''" class="input-error-hint">
+                    <input
+                            #username="ngModel"
+                            [attr.placeholder]="userSettingsChangeUsernamePlaceholder"
+                            class="input account-settings-input"
+                            id="user-settings-username-input"
+                            name="username"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <span *ngIf="userSettingsChangeUsernameError !== ''" class="input-error-hint">
             {{ userSettingsChangeUsernameError }}
           </span>
-          <button
-            id="user-settings-username-save-button"
-            type="submit"
-            class="button-account-settings button-blue button-general"
-          >
-            {{ userSettingsButtonSaveUsername }}
-          </button>
-        </form>
-      </div>
+                    <button
+                            class="button-account-settings button-blue button-general"
+                            id="user-settings-username-save-button"
+                            type="submit"
+                    >
+                        {{ userSettingsButtonSaveUsername }}
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -1,16 +1,16 @@
 <div
-  class="booking-active-tickets-component-container"
-  [ngClass]="rootClassName"
+        [ngClass]="rootClassName"
+        class="booking-active-tickets-component-container"
 >
-  <span class="subheading">{{ bookingActiveTicketsTitle }}</span>
-  <div
-    id="active-user-tickets-entry-list"
-    class="booking-active-tickets-component-container1"
-  ></div>
-  <booked-type-entry-component
-          (onDataChange)="updateData()"
-    *ngFor="let ticket of tickets"
-    [ticketData]="ticket"
-    rootClassName="booked-type-entry-component-root-class-name"
-  ></booked-type-entry-component>
+    <span class="subheading">{{ bookingActiveTicketsTitle }}</span>
+    <div
+            class="booking-active-tickets-component-container1"
+            id="active-user-tickets-entry-list"
+    ></div>
+    <booked-type-entry-component
+            (onDataChange)="updateData()"
+            *ngFor="let ticket of tickets"
+            [ticketData]="ticket"
+            rootClassName="booked-type-entry-component-root-class-name"
+    ></booked-type-entry-component>
 </div>

@@ -1,36 +1,36 @@
 <div
-  class="booking-active-rentals-list-entry-component-container"
-  [ngClass]="rootClassName"
+        [ngClass]="rootClassName"
+        class="booking-active-rentals-list-entry-component-container"
 >
-  <div class="model-bike-category-main-component">
-    <div class="booking-active-rentals-list-entry-component-container2">
-      <div class="booking-active-rentals-list-entry-component-container3">
+    <div class="model-bike-category-main-component">
+        <div class="booking-active-rentals-list-entry-component-container2">
+            <div class="booking-active-rentals-list-entry-component-container3">
         <span class="model-bike-category-title">
           {{ bookingActiveRentalsEntrySelectedBike }}
         </span>
-        <span class="model-bike-category-general-text">
+                <span class="model-bike-category-general-text">
           {{ bookingActiveRentalsEntryType }}
         </span>
-<!--        <span class="model-bike-category-general-text">-->
-<!--          {{ bookingActiveRentalsEntryLocationInformation }}-->
-<!--        </span>-->
-        <span class="model-bike-category-general-text">
+                <!--        <span class="model-bike-category-general-text">-->
+                <!--          {{ bookingActiveRentalsEntryLocationInformation }}-->
+                <!--        </span>-->
+                <span class="model-bike-category-general-text">
           {{ bookingActiveRentalsEntryRentingInformation }}
         </span>
-        <span class="model-bike-category-general-text">
+                <span class="model-bike-category-general-text">
           {{ bookingActiveRentalsEntryStatus }}
         </span>
-      </div>
-      <div class="booking-active-rentals-list-entry-component-container4">
-        <img
-          [attr.alt]="bookingActiveRentalsEntryImageAlt"
-          [attr.src]="bookingActiveRentalsEntryImage"
-          class="booking-active-rentals-list-entry-component-image"
-        />
-        <button-return-bike (click)="handleReturnBike()"
-          rootClassName="button-return-bike-root-class-name"
-        ></button-return-bike>
-      </div>
+            </div>
+            <div class="booking-active-rentals-list-entry-component-container4">
+                <img
+                        [attr.alt]="bookingActiveRentalsEntryImageAlt"
+                        [attr.src]="bookingActiveRentalsEntryImage"
+                        class="booking-active-rentals-list-entry-component-image"
+                />
+                <button-return-bike (click)="handleReturnBike()"
+                                    rootClassName="button-return-bike-root-class-name"
+                ></button-return-bike>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

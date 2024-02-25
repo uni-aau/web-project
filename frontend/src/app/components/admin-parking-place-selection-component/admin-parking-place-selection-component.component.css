@@ -1,48 +1,54 @@
 :host {
-  display: contents;
+    display: contents;
 }
+
 .admin-parking-place-selection-component-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  margin-bottom: var(--dl-space-space-unit);
-  flex-direction: column;
-  justify-content: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: var(--dl-space-space-unit);
+    flex-direction: column;
+    justify-content: center;
 }
+
 .admin-parking-place-selection-component-container1 {
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
+
 .admin-parking-place-selection-component-text {
-  width: 50px;
-  font-size: 20px;
-  margin-left: var(--dl-space-space-unit);
-  margin-right: var(--dl-space-space-unit);
+    width: 50px;
+    font-size: 20px;
+    margin-left: var(--dl-space-space-unit);
+    margin-right: var(--dl-space-space-unit);
 }
+
 .admin-parking-place-selection-component-select {
-  width: 100%;
-  height: 65px;
-  margin-right: var(--dl-space-space-unit);
+    width: 100%;
+    height: 65px;
+    margin-right: var(--dl-space-space-unit);
 }
+
 .admin-parking-place-selection-component-icon {
-  width: 24px;
-  height: 24px;
-  align-self: flex-start;
-  margin-top: var(--dl-space-space-halfunit);
-  margin-right: var(--dl-space-space-unit);
+    width: 24px;
+    height: 24px;
+    align-self: flex-start;
+    margin-top: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-unit);
 }
+
 .admin-parking-place-selection-component-text1 {
-  color: var(--dl-color-gray-500);
-  align-self: flex-start;
-  margin-left: var(--dl-space-space-unit);
-  margin-top: -16px;
+    color: var(--dl-color-gray-500);
+    align-self: flex-start;
+    margin-left: var(--dl-space-space-unit);
+    margin-top: -16px;
 }
 
 

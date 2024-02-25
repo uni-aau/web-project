@@ -20,7 +20,7 @@ const parkingSpotRoutes = require('./routes/parkingspot');
 const authRoutes = require('./routes/authentication')
 
 const bikeCategoryRoutes = require('./routes/bikeCategory')
-const { verifyUserToken, verifyAdminToken } = require('./auth');
+const {verifyUserToken, verifyAdminToken} = require('./auth');
 
 
 app.use('/api/auth', authRoutes);

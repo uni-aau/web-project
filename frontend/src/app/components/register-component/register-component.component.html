@@ -1,93 +1,94 @@
-<form class="register-component-container" [ngClass]="rootClassName" (ngSubmit)="handleRegister(firstname.value, lastname.value, username.value, email.value, password.value)">
-  <login-register-image-component
-    rootClassName="login-register-image-component-root-class-name1"
-  ></login-register-image-component>
-  <form class="register-component-form">
-    <div class="register-component-container1">
-      <div class="register-component-container2">
-        <div class="register-component-container3">
+<form (ngSubmit)="handleRegister(firstname.value, lastname.value, username.value, email.value, password.value)" [ngClass]="rootClassName"
+      class="register-component-container">
+    <login-register-image-component
+            rootClassName="login-register-image-component-root-class-name1"
+    ></login-register-image-component>
+    <form class="register-component-form">
+        <div class="register-component-container1">
+            <div class="register-component-container2">
+                <div class="register-component-container3">
           <span class="register-component-text input-label-text">
             {{ registerInputLabelFirstName }}
           </span>
-          <input
-            type="text"
-            id="register-first-name-input"
-            required="true"
-            [attr.placeholder]="registerInputPlaceholderFirstName"
-            class="register-component-textinput input"
-            #firstname="ngModel"
-            name="firstname"
-            ngModel
-          />
-          <span class="input-error-hint">{{ registerFirstnameError }}</span>
-        </div>
-        <div class="register-component-container4">
+                    <input
+                            #firstname="ngModel"
+                            [attr.placeholder]="registerInputPlaceholderFirstName"
+                            class="register-component-textinput input"
+                            id="register-first-name-input"
+                            name="firstname"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <span class="input-error-hint">{{ registerFirstnameError }}</span>
+                </div>
+                <div class="register-component-container4">
           <span class="register-component-text02 input-label-text">
             {{ registerInputLabelLastName }}
           </span>
-          <input
-            type="text"
-            id="register-last-name-input"
-            required="true"
-            [attr.placeholder]="registerInputPlaceholderLastName"
-            class="register-component-textinput1 input"
-            #lastname="ngModel"
-            name="lastname"
-            ngModel
-          />
-          <span class="input-error-hint">{{ registerLastnameError }}</span>
+                    <input
+                            #lastname="ngModel"
+                            [attr.placeholder]="registerInputPlaceholderLastName"
+                            class="register-component-textinput1 input"
+                            id="register-last-name-input"
+                            name="lastname"
+                            ngModel
+                            required="true"
+                            type="text"
+                    />
+                    <span class="input-error-hint">{{ registerLastnameError }}</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="register-component-container5">
-      <span class="input-label-text">{{ registerInputLabelUsername }}</span>
-      <input
-        type="text"
-        id="register-user-name-input"
-        required="true"
-        [attr.placeholder]="registerInputPlaceholderUsername"
-        class="register-component-textinput2 input"
-        #username="ngModel"
-        name="username"
-        ngModel
-      />
-      <span class="input-error-hint">{{ registerUsernameError }}</span>
-    </div>
-    <div class="register-component-container6">
-      <span class="input-label-text">{{ registerInputLabelEmail }}</span>
-      <input
-        type="email"
-        id="register-email-input"
-        required="true"
-        [attr.placeholder]="registerInputPlaceholderEmail"
-        class="register-component-textinput3 input"
-        #email="ngModel"
-        name="email"
-        ngModel
-      />
-      <span class="input-error-hint">{{ registerEmailError }}</span>
-    </div>
-    <div class="register-component-container7">
-      <span class="input-label-text">{{ registerInputLabelPassword }}</span>
-      <input
-        type="password"
-        id="register-password-input"
-        required="true"
-        [attr.placeholder]="registerInputPlaceholderPassword"
-        class="register-component-textinput4 input"
-        #password="ngModel"
-        name="password"
-        ngModel
-      />
-      <span class="input-error-hint">{{ registerPasswordError }}</span>
-    </div>
-  </form>
-  <button
-    id="register-button"
-    type="submit"
-    class="register-component-button button-blue button-general"
-  >
-    {{ registerButton }}
-  </button>
-  <span class="register-component-text10">{{ registerAccountHint }}</span>
+        <div class="register-component-container5">
+            <span class="input-label-text">{{ registerInputLabelUsername }}</span>
+            <input
+                    #username="ngModel"
+                    [attr.placeholder]="registerInputPlaceholderUsername"
+                    class="register-component-textinput2 input"
+                    id="register-user-name-input"
+                    name="username"
+                    ngModel
+                    required="true"
+                    type="text"
+            />
+            <span class="input-error-hint">{{ registerUsernameError }}</span>
+        </div>
+        <div class="register-component-container6">
+            <span class="input-label-text">{{ registerInputLabelEmail }}</span>
+            <input
+                    #email="ngModel"
+                    [attr.placeholder]="registerInputPlaceholderEmail"
+                    class="register-component-textinput3 input"
+                    id="register-email-input"
+                    name="email"
+                    ngModel
+                    required="true"
+                    type="email"
+            />
+            <span class="input-error-hint">{{ registerEmailError }}</span>
+        </div>
+        <div class="register-component-container7">
+            <span class="input-label-text">{{ registerInputLabelPassword }}</span>
+            <input
+                    #password="ngModel"
+                    [attr.placeholder]="registerInputPlaceholderPassword"
+                    class="register-component-textinput4 input"
+                    id="register-password-input"
+                    name="password"
+                    ngModel
+                    required="true"
+                    type="password"
+            />
+            <span class="input-error-hint">{{ registerPasswordError }}</span>
+        </div>
+    </form>
+    <button
+            class="register-component-button button-blue button-general"
+            id="register-button"
+            type="submit"
+    >
+        {{ registerButton }}
+    </button>
+    <span class="register-component-text10">{{ registerAccountHint }}</span>
 </form>

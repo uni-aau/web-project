@@ -54,19 +54,19 @@ export class AdminManageModelPopupComponent {
     }
 
     handleConfirm() {
-        if(!this.modelName.trim()) {
+        if (!this.modelName.trim()) {
             this.manageModelNameErrorHint = 'Enter valid name';
             return;
         }
         this.manageModelNameErrorHint = '';
 
-        if(!this.modelPrice || this.modelPrice <= 0 || this.modelPrice >= 20000) {
+        if (!this.modelPrice || this.modelPrice <= 0 || this.modelPrice >= 20000) {
             this.manageModelPriceErrorHint = 'Enter valid price';
             return;
         }
         this.manageModelPriceErrorHint = '';
 
-        if(this.categoryId === -1) {
+        if (this.categoryId === -1) {
             this.manageModelAssignModelErrorHint = 'Select a valid model';
             return;
         }

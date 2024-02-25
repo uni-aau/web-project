@@ -1,21 +1,16 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core'
-import {BikeStation} from "../../types/bikeStation.type";
-import {
-  AdminManageBikeStationComponent
-} from "../admin-manage-bike-station-component/admin-manage-bike-station-component.component";
-import {Router} from "@angular/router";
+import {Component, Input} from '@angular/core'
 
 @Component({
-  selector: 'admin-update-bike-station-component',
-  templateUrl: 'admin-update-bike-station-component.component.html',
-  styleUrls: ['admin-update-bike-station-component.component.css'],
+    selector: 'admin-update-bike-station-component',
+    templateUrl: 'admin-update-bike-station-component.component.html',
+    styleUrls: ['admin-update-bike-station-component.component.css'],
 })
 export class AdminUpdateBikeStationComponent {
-  @Input()
-  rootClassName: string = ''
-  @Input()
-  adminManageBikeStationTitle: string = 'Manage Bike Station'
+    @Input()
+    rootClassName: string = ''
+    @Input()
+    adminManageBikeStationTitle: string = 'Manage Bike Station'
 
-  constructor() {
-  }
+    constructor() {
+    }
 }

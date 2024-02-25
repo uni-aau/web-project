@@ -1,21 +1,23 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .admin-manage-bike-rentals-component-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .admin-manage-bike-rentals-component-container1 {
-  flex: 0 0 auto;
-  width: 95%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 95%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 

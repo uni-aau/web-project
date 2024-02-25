@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/rented/:userId', async (req, res) => {
-const userId = req.params.userId;
+    const userId = req.params.userId;
 
     DatabaseService.executeSelectionQuery({
         text: 'SELECT * from Ticket where user_id = $1 AND status = \'Overdue\' OR status = \'Rented\'',
@@ -29,11 +29,11 @@ const userId = req.params.userId;
 });
 
 router.post('/ticket/:ticketId/rent', async (req, res) => {
-    const { ticketId } = req.params;
+    const {ticketId} = req.params;
 
     // Prüfung, ob ticketId vorhanden ist
     if (!ticketId) {
-        return res.status(400).json({ error: 'ticketId is required' });
+        return res.status(400).json({error: 'ticketId is required'});
     }
 
     const updateQuery = 'UPDATE Ticket SET status = \'Rented\' WHERE ticket_id = $1';
@@ -65,7 +65,18 @@ router.get('/:userId', async (req, res) => {
 });
 
 router.post('/ticket', async (req, res) => {
-    const {userId, bookedType, bikeId, modelId, categoryId, status, bookingTime, rentingStart, rentingEnd, price} = req.body;
+    const {
+        userId,
+        bookedType,
+        bikeId,
+        modelId,
+        categoryId,
+        status,
+        bookingTime,
+        rentingStart,
+        rentingEnd,
+        price
+    } = req.body;
     console.log("book")
     if (!userId || !bookedType || !status || !bookingTime || !rentingStart || !rentingEnd || !price) return res.status(500).json({error: "Not all required data inserted"});
 

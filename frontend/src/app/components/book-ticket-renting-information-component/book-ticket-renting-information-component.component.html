@@ -1,28 +1,28 @@
-<div class="booking-information-component" [ngClass]="rootClassName">
-  <div class="book-ticket-renting-information-component-container1">
+<div [ngClass]="rootClassName" class="booking-information-component">
+    <div class="book-ticket-renting-information-component-container1">
     <span
-      class="book-ticket-renting-information-component-text input-label-text"
+            class="book-ticket-renting-information-component-text input-label-text"
     >
       {{ bookTicketLabelRentingInformation }}
     </span>
-    <input
-      type="datetime-local"
-      id="book-ticket-rent-date-picker"
-      [attr.placeholder]="bookTicketRentingInformationInputPlaceholderRentDate"
-      class="input"
-    />
-  </div>
-  <div class="book-ticket-renting-information-component-container2">
+        <input
+                [attr.placeholder]="bookTicketRentingInformationInputPlaceholderRentDate"
+                class="input"
+                id="book-ticket-rent-date-picker"
+                type="datetime-local"
+        />
+    </div>
+    <div class="book-ticket-renting-information-component-container2">
     <span
-      class="book-ticket-renting-information-component-text1 input-label-text"
+            class="book-ticket-renting-information-component-text1 input-label-text"
     >
       {{ bookTicketRentingInformationLabelRentDuration }}
     </span>
-    <input
-      type="time"
-      id="book-ticket-rent-duration-time-picker"
-      [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
-      class="input"
-    />
-  </div>
+        <input
+                [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
+                class="input"
+                id="book-ticket-rent-duration-time-picker"
+                type="time"
+        />
+    </div>
 </div>

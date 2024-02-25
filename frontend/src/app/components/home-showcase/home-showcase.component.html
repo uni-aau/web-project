@@ -1,27 +1,27 @@
-<div class="home-showcase-container" [ngClass]="rootClassName">
-  <h1 id="title_home_showcase" class="heading">{{ homeShowcaseTitle }}</h1>
-  <div class="home-showcase-container1">
-    <img
-      id="image_home_showcase"
-      [attr.alt]="homeShowcaseImageAlt"
-      [attr.src]="homeShowcaseImageSrc"
-      loading="lazy"
-      class="home-showcase-image"
-    />
-    <div class="home-showcase-container2">
-      <span id="heading_home_showcase" class="home-showcase-text1">
+<div [ngClass]="rootClassName" class="home-showcase-container">
+    <h1 class="heading" id="title_home_showcase">{{ homeShowcaseTitle }}</h1>
+    <div class="home-showcase-container1">
+        <img
+                [attr.alt]="homeShowcaseImageAlt"
+                [attr.src]="homeShowcaseImageSrc"
+                class="home-showcase-image"
+                id="image_home_showcase"
+                loading="lazy"
+        />
+        <div class="home-showcase-container2">
+      <span class="home-showcase-text1" id="heading_home_showcase">
         {{ homeShowcaseHeading }}
       </span>
-      <span id="text_home_showcase" class="home-showcase-text2">
+            <span class="home-showcase-text2" id="text_home_showcase">
         {{ homeShowcaseText }}
       </span>
-      <a
-        routerLink="/bike-stations"
-        id="button_home_showcase"
-        class="home-showcase-navlink button-blue button-general"
-      >
-        {{ homeShowcaseButtonRentNow }}
-      </a>
+            <a
+                    class="home-showcase-navlink button-blue button-general"
+                    id="button_home_showcase"
+                    routerLink="/bike-stations"
+            >
+                {{ homeShowcaseButtonRentNow }}
+            </a>
+        </div>
     </div>
-  </div>
 </div>

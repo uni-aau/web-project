@@ -1,48 +1,49 @@
 <div class="admin-manage-model-popup-component-container popup-container">
-  <span class="popup-heading">{{ adminManageModelTitle }}</span>
-  <form class="admin-manage-model-popup-component-form">
-    <div class="admin-manage-model-popup-component-container1">
-      <div class="admin-manage-model-popup-component-container2">
-        <span class="input-label-text">{{ adminManageModelLabelName }}</span>
-        <input
-          type="text"
-          id="manage-model-name-input"
-          [attr.placeholder]="adminManageModelInputPlaceholderName"
-          class="admin-manage-model-popup-component-textinput input"
-          [(ngModel)]="modelName"
-          name="modelName"
-        />
-        <span class="input-error-hint">{{ manageModelNameErrorHint }}</span>
-      </div>
-      <div class="admin-manage-model-popup-component-container3">
-        <span class="input-label-text">{{ adminManageModelLabelPrice }}</span>
-        <input
-          type="number"
-          id="manage-model-price-input"
-          [attr.placeholder]="adminManageModelInputPlaceholderPrice"
-          class="admin-manage-model-popup-component-textinput1 input"
-          [(ngModel)]="modelPrice"
-          name="modelPrice"
-        />
-        <span class="input-error-hint">{{ manageModelPriceErrorHint }}</span>
-      </div>
-    </div>
-    <span class="admin-manage-model-popup-component-text5 input-label-text">
+    <span class="popup-heading">{{ adminManageModelTitle }}</span>
+    <form class="admin-manage-model-popup-component-form">
+        <div class="admin-manage-model-popup-component-container1">
+            <div class="admin-manage-model-popup-component-container2">
+                <span class="input-label-text">{{ adminManageModelLabelName }}</span>
+                <input
+                        [(ngModel)]="modelName"
+                        [attr.placeholder]="adminManageModelInputPlaceholderName"
+                        class="admin-manage-model-popup-component-textinput input"
+                        id="manage-model-name-input"
+                        name="modelName"
+                        type="text"
+                />
+                <span class="input-error-hint">{{ manageModelNameErrorHint }}</span>
+            </div>
+            <div class="admin-manage-model-popup-component-container3">
+                <span class="input-label-text">{{ adminManageModelLabelPrice }}</span>
+                <input
+                        [(ngModel)]="modelPrice"
+                        [attr.placeholder]="adminManageModelInputPlaceholderPrice"
+                        class="admin-manage-model-popup-component-textinput1 input"
+                        id="manage-model-price-input"
+                        name="modelPrice"
+                        type="number"
+                />
+                <span class="input-error-hint">{{ manageModelPriceErrorHint }}</span>
+            </div>
+        </div>
+        <span class="admin-manage-model-popup-component-text5 input-label-text">
       {{ adminManageModelLabelAssignModels }}
     </span>
-    <select
-      id="manage-category-models-selector"
-      class="admin-manage-model-popup-component-select selector-style"
-      (change)="handleSelect($event)"
-    >
-      <option [value]="-1">{{adminManageModelSelectorGeneralSelection}}</option>
-      <option *ngFor="let category of bikeCategories" [value]="category.category_id">{{category.category_name}}</option>
-    </select>
-    <span class="admin-manage-model-popup-component-text6 input-error-hint">
+        <select
+                (change)="handleSelect($event)"
+                class="admin-manage-model-popup-component-select selector-style"
+                id="manage-category-models-selector"
+        >
+            <option [value]="-1">{{adminManageModelSelectorGeneralSelection}}</option>
+            <option *ngFor="let category of bikeCategories"
+                    [value]="category.category_id">{{category.category_name}}</option>
+        </select>
+        <span class="admin-manage-model-popup-component-text6 input-error-hint">
       {{ manageModelAssignModelErrorHint }}
     </span>
-  </form>
-  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
-    rootClassName="button-save-discard-component-root-class-name1"
-  ></button-save-discard-component>
+    </form>
+    <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
+                                   rootClassName="button-save-discard-component-root-class-name1"
+    ></button-save-discard-component>
 </div>

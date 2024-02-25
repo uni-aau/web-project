@@ -1,20 +1,22 @@
-<div class="admin-model-management-container" [ngClass]="rootClassName">
-  <span class="heading">{{ adminModelsManagement }}</span>
-  <searching-component [searchInputPlaceholder]="'Search for models...'" (search)="performSearch($event)" (create)="performCreate()"
-    rootClassName="searching-component-root-class-name4"
-  ></searching-component>
+<div [ngClass]="rootClassName" class="admin-model-management-container">
+    <span class="heading">{{ adminModelsManagement }}</span>
+    <searching-component (create)="performCreate()" (search)="performSearch($event)"
+                         [searchInputPlaceholder]="'Search for models...'"
+                         rootClassName="searching-component-root-class-name4"
+    ></searching-component>
 
-  <div *ngIf="models.length == 0">
-    <no-entries-component></no-entries-component>
-  </div>
+    <div *ngIf="models.length == 0">
+        <no-entries-component></no-entries-component>
+    </div>
 
-  <div
-    id="manage-models-entry-list-container"
-    class="admin-model-management-container1"
-    *ngIf="models.length > 0"
-  >
-    <model-component [visibleBookButton]="false" *ngFor="let model of filteredModels" [modelData]="model" (onModelUpdate)="handleModelUpdate()" (onModelDelete)="handleModelDelete()"
-      rootClassName="model-component-root-class-name3"
-    ></model-component>
-  </div>
+    <div
+            *ngIf="models.length > 0"
+            class="admin-model-management-container1"
+            id="manage-models-entry-list-container"
+    >
+        <model-component (onModelDelete)="handleModelDelete()" (onModelUpdate)="handleModelUpdate()" *ngFor="let model of filteredModels"
+                         [modelData]="model" [visibleBookButton]="false"
+                         rootClassName="model-component-root-class-name3"
+        ></model-component>
+    </div>
 </div>

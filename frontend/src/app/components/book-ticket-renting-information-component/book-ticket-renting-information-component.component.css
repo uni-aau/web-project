@@ -1,39 +1,46 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .book-ticket-renting-information-component-container1 {
-  flex: 0 0 auto;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+    flex: 0 0 auto;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .book-ticket-renting-information-component-text {
-  align-self: center;
+    align-self: center;
 }
+
 .book-ticket-renting-information-component-container2 {
-  flex: 0 0 auto;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+    flex: 0 0 auto;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .book-ticket-renting-information-component-text1 {
-  align-self: center;
+    align-self: center;
 }
+
 .book-ticket-renting-information-component-root-class-name {
-  width: 95%;
+    width: 95%;
 }
-@media(max-width: 767px) {
-  .book-ticket-renting-information-component-container1 {
-    width: 100%;
-    margin-bottom: var(--dl-space-space-unit);
-  }
-  .book-ticket-renting-information-component-container2 {
-    width: 100%;
-  }
+
+@media (max-width: 767px) {
+    .book-ticket-renting-information-component-container1 {
+        width: 100%;
+        margin-bottom: var(--dl-space-space-unit);
+    }
+
+    .book-ticket-renting-information-component-container2 {
+        width: 100%;
+    }
 }

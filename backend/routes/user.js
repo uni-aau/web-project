@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../pool');
 const DatabaseService = require('../database-service')
-const { verifyUserToken } = require('../auth');
+const {verifyUserToken} = require('../auth');
 
 router.get('/userdata', verifyUserToken, function (req, res) {
     const {userId} = req.user;

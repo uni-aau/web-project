@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const DatabaseService = require("../database-service");
-const { verifyUserToken } = require('../auth');
+const {verifyUserToken} = require('../auth');
 
 router.put('/balance', verifyUserToken, function (req, res) {
     const {userId} = req.user;

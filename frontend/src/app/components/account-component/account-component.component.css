@@ -1,80 +1,90 @@
 :host {
-  display: contents;
-}
-.account-component-container {
-  width: 60%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  margin-bottom: var(--dl-space-space-twounits);
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.account-component-container1 {
-  flex: 0 0 auto;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-self: flex-start;
-  align-items: flex-start;
-  justify-content: center;
-}
-.account-component-profile-pic-image-container {
-  width: var(--dl-size-size-medium);
-  height: var(--dl-size-size-medium);
-  display: flex;
-  align-items: center;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  margin-right: var(--dl-space-space-twounits);
-  border-radius: var(--dl-radius-radius-round);
-  background-size: cover;
-  justify-content: center;
-  background-image: url("/assets/no-image.svg");
-  background-position: center;
-}
-.account-component-icon {
-  width: 55px;
-  height: 55px;
-  opacity: 0.5;
-}
-.account-component-container2 {
-  flex: 0 0 auto;
-  width: auto;
-  height: 100%;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.account-component-text1 {
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 500;
-  margin-bottom: var(--dl-space-space-unit);
-}
-.account-component-text2 {
-  color: var(--dl-color-gray-500);
-  font-size: 18px;
-}
-.account-component-root-class-name1 {
-  margin-bottom: var(--dl-space-space-twounits);
+    display: contents;
 }
 
-@media(max-width: 479px) {
-  .account-component-container {
-    width: 100%;
-    padding: var(--dl-space-space-halfunit);
-  }
-  .account-component-profile-pic-image-container {
-    width: 70px;
-    height: 70px;
-    margin-right: var(--dl-space-space-unit);
-  }
-  .account-component-icon {
-    width: 45px;
-    height: 45px;
-  }
+.account-component-container {
+    width: 60%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: var(--dl-space-space-twounits);
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.account-component-container1 {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.account-component-profile-pic-image-container {
+    width: var(--dl-size-size-medium);
+    height: var(--dl-size-size-medium);
+    display: flex;
+    align-items: center;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    margin-right: var(--dl-space-space-twounits);
+    border-radius: var(--dl-radius-radius-round);
+    background-size: cover;
+    justify-content: center;
+    background-image: url("/assets/no-image.svg");
+    background-position: center;
+}
+
+.account-component-icon {
+    width: 55px;
+    height: 55px;
+    opacity: 0.5;
+}
+
+.account-component-container2 {
+    flex: 0 0 auto;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-component-text1 {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: var(--dl-space-space-unit);
+}
+
+.account-component-text2 {
+    color: var(--dl-color-gray-500);
+    font-size: 18px;
+}
+
+.account-component-root-class-name1 {
+    margin-bottom: var(--dl-space-space-twounits);
+}
+
+@media (max-width: 479px) {
+    .account-component-container {
+        width: 100%;
+        padding: var(--dl-space-space-halfunit);
+    }
+
+    .account-component-profile-pic-image-container {
+        width: 70px;
+        height: 70px;
+        margin-right: var(--dl-space-space-unit);
+    }
+
+    .account-component-icon {
+        width: 45px;
+        height: 45px;
+    }
 }

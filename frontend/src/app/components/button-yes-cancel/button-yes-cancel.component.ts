@@ -1,27 +1,29 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core'
 
 @Component({
-  selector: 'button-yes-cancel',
-  templateUrl: 'button-yes-cancel.component.html',
-  styleUrls: ['button-yes-cancel.component.css'],
+    selector: 'button-yes-cancel',
+    templateUrl: 'button-yes-cancel.component.html',
+    styleUrls: ['button-yes-cancel.component.css'],
 })
 export class ButtonYesCancel {
-  @Input()
-  dialogPopupButtonYes: string = 'Confirm'
-  @Input()
-  dialogPopupButtonAbort: string = 'Cancel'
-  @Input()
-  rootClassName: string = ''
+    @Input()
+    dialogPopupButtonYes: string = 'Confirm'
+    @Input()
+    dialogPopupButtonAbort: string = 'Cancel'
+    @Input()
+    rootClassName: string = ''
 
-  @Output() confirm = new EventEmitter<void>();
-  @Output() cancel = new EventEmitter<void>();
-  constructor() {}
+    @Output() confirm = new EventEmitter<void>();
+    @Output() cancel = new EventEmitter<void>();
 
-  onConfirm() {
-    this.confirm.emit();
-  }
+    constructor() {
+    }
 
-  onCancel() {
-    this.cancel.emit();
-  }
+    onConfirm() {
+        this.confirm.emit();
+    }
+
+    onCancel() {
+        this.cancel.emit();
+    }
 }

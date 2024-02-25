@@ -1,30 +1,33 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .admin-manage-bike-rentals-list-entry-container {
-  width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  padding-left: var(--dl-space-space-halfunit);
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
-  padding-right: var(--dl-space-space-halfunit);
-  flex-direction: column;
-  justify-content: flex-start;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: var(--dl-space-space-halfunit);
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+    padding-right: var(--dl-space-space-halfunit);
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .admin-manage-bike-rentals-list-entry-container2 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .admin-manage-bike-rentals-list-entry-container3 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 

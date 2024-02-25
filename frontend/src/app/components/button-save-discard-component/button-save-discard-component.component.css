@@ -1,19 +1,21 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .button-save-discard-component-container {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  margin-top: var(--dl-space-space-oneandhalfunits);
-  align-items: center;
-  justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    margin-top: var(--dl-space-space-oneandhalfunits);
+    align-items: center;
+    justify-content: flex-start;
 }
+
 .button-save-discard-component-button1 {
-  right: 0px;
-  position: absolute;
+    right: 0px;
+    position: absolute;
 }
 
 

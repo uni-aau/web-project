@@ -56,7 +56,7 @@ class DatabaseService {
                     else resolve(results.rowCount);
                 })
                 .catch(error => {
-                    reject(new Error("Error inserting: "+ error.message))
+                    reject(new Error("Error inserting: " + error.message))
                 })
         })
     }

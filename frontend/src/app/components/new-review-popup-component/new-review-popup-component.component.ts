@@ -5,57 +5,57 @@ import {ReviewsService} from "../../services/reviews.service";
 import {Config} from "../../Config";
 
 @Component({
-  selector: 'new-review-popup-component',
-  templateUrl: 'new-review-popup-component.component.html',
-  styleUrls: ['new-review-popup-component.component.css'],
+    selector: 'new-review-popup-component',
+    templateUrl: 'new-review-popup-component.component.html',
+    styleUrls: ['new-review-popup-component.component.css'],
 })
 export class NewReviewPopupComponent {
-  @Input()
-  newReviewModelError: string = ''
-  @Input()
-  newReviewDescriptionError: string = ''
-  @Input()
-  newReviewTitleError: string = ''
-  @Input()
-  newReviewLabelTitle: string = 'Enter Title'
-  @Input()
-  newReviewInputPlaceholderTitle: string = 'What is important?'
-  @Input()
-  newReviewLinkDelete: string = '(Delete)'
-  @Input()
-  rootClassName: string = ''
-  @Input()
-  newReviewLabelSelectModel: string = 'Select Model'
-  @Input()
-  newReviewTitle: string = 'Create Review'
-  @Input()
-  newReviewLabelDescription: string = 'Enter a description for your rating'
-  @Input()
-  newReviewInputPlaceholderDescription: string =
-    'What did you like? What did you dislike?'
-  @Input()
-  newReviewButtonSend: string = 'Send'
-  @Input()
-  newReviewSubtitleRating: string = 'Rating'
-  @Input()
-  newRatingGeneralSelection: string = 'None'
+    @Input()
+    newReviewModelError: string = ''
+    @Input()
+    newReviewDescriptionError: string = ''
+    @Input()
+    newReviewTitleError: string = ''
+    @Input()
+    newReviewLabelTitle: string = 'Enter Title'
+    @Input()
+    newReviewInputPlaceholderTitle: string = 'What is important?'
+    @Input()
+    newReviewLinkDelete: string = '(Delete)'
+    @Input()
+    rootClassName: string = ''
+    @Input()
+    newReviewLabelSelectModel: string = 'Select Model'
+    @Input()
+    newReviewTitle: string = 'Create Review'
+    @Input()
+    newReviewLabelDescription: string = 'Enter a description for your rating'
+    @Input()
+    newReviewInputPlaceholderDescription: string =
+        'What did you like? What did you dislike?'
+    @Input()
+    newReviewButtonSend: string = 'Send'
+    @Input()
+    newReviewSubtitleRating: string = 'Rating'
+    @Input()
+    newRatingGeneralSelection: string = 'None'
 
-  ratingDescription: string = '';
-  ratingTitle: string = '';
-  stars = [1, 2, 3, 4, 5];
-  rating = 1;
+    ratingDescription: string = '';
+    ratingTitle: string = '';
+    stars = [1, 2, 3, 4, 5];
+    rating = 1;
 
-  bikeModels: any[] = [];
-  modelId: number = -1;
+    bikeModels: any[] = [];
+    modelId: number = -1;
 
-  constructor(public dialogRef: MatDialogRef<NewReviewPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private reviewService: ReviewsService, private modelService: ModelService) {
-    this.fetchModels();
+    constructor(public dialogRef: MatDialogRef<NewReviewPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private reviewService: ReviewsService, private modelService: ModelService) {
+        this.fetchModels();
 
-  }
+    }
 
-  setRating(newRating: number): void {
-    this.rating = newRating;
-  }
+    setRating(newRating: number): void {
+        this.rating = newRating;
+    }
 
     getPath(index: number): string {
         if (index < this.rating) {
@@ -67,34 +67,34 @@ export class NewReviewPopupComponent {
         }
     }
 
-  handleConfirm() {
-      if(!this.ratingTitle || this.ratingTitle.length > Config.maxInputLength) {
-          this.newReviewTitleError = `Insert valid title (max length: ${Config.maxInputLength})`;
-          return;
-      }
+    handleConfirm() {
+        if (!this.ratingTitle || this.ratingTitle.length > Config.maxInputLength) {
+            this.newReviewTitleError = `Insert valid title (max length: ${Config.maxInputLength})`;
+            return;
+        }
 
-      let modelId = this.modelId === -1 ? undefined : this.modelId;
+        let modelId = this.modelId === -1 ? undefined : this.modelId;
 
-      this.dialogRef.close({ratingTitle: this.ratingTitle, rating: this.rating, ratingModel: modelId, ratingDescription: this.ratingDescription})
-  }
-
-  fetchModels() {
-    this.modelService.getModels().subscribe({
-      next: (val) => this.bikeModels = val,
-      error: (err) => {
-        if (err.status === 404) this.bikeModels = [];
-        console.log(err.error);
-      }
-    })
-  }
-
-  handleSelect(event: any) {
-    const modelId = event.target.value;
-
-    if (modelId && modelId != -1) {
-      this.modelId = modelId;
+        this.dialogRef.close({ratingTitle: this.ratingTitle, rating: this.rating, ratingModel: modelId, ratingDescription: this.ratingDescription})
     }
-  }
+
+    fetchModels() {
+        this.modelService.getModels().subscribe({
+            next: (val) => this.bikeModels = val,
+            error: (err) => {
+                if (err.status === 404) this.bikeModels = [];
+                console.log(err.error);
+            }
+        })
+    }
+
+    handleSelect(event: any) {
+        const modelId = event.target.value;
+
+        if (modelId && modelId != -1) {
+            this.modelId = modelId;
+        }
+    }
 
 
 }

@@ -1,23 +1,26 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .button-assign-update-delete-component-container {
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .button-assign-update-delete-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  padding-left: var(--dl-space-space-halfunit);
-  padding-right: var(--dl-space-space-halfunit);
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-halfunit);
 }
+
 .button-assign-update-delete-component-button {
-  width: 100%;
+    width: 100%;
 }
 

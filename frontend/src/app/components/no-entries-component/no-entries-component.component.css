@@ -1,15 +1,17 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .no-entries-component-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .no-entries-component-root-class-name {
-  display: none;
+    display: none;
 }

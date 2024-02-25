@@ -1,68 +1,68 @@
-<div class="booking-component-container" [ngClass]="rootClassName">
-  <span class="booking-component-text heading">{{ bookingTitle }}</span>
-  <div class="booking-component-container1">
+<div [ngClass]="rootClassName" class="booking-component-container">
+    <span class="booking-component-text heading">{{ bookingTitle }}</span>
+    <div class="booking-component-container1">
   <span
-    class="link-text-font booking-navbar-title"
-    [ngClass]="{'selected-category': currentSelection === 'bikes', 'hover-category': true}"
-    (click)="selectComponent('bikes')">
+          (click)="selectComponent('bikes')"
+          [ngClass]="{'selected-category': currentSelection === 'bikes', 'hover-category': true}"
+          class="link-text-font booking-navbar-title">
     {{ bookingBikesTitle }}
   </span>
-    <span
-      class="link-text-font booking-navbar-title"
-      [ngClass]="{'selected-category': currentSelection === 'models', 'hover-category': true}"
-      (click)="selectComponent('models')">
+        <span
+                (click)="selectComponent('models')"
+                [ngClass]="{'selected-category': currentSelection === 'models', 'hover-category': true}"
+                class="link-text-font booking-navbar-title">
     {{ bookingModelsTitle }}
   </span>
-    <span
-      class="link-text-font booking-navbar-title"
-      [ngClass]="{'selected-category': currentSelection === 'categories', 'hover-category': true}"
-      (click)="selectComponent('categories')">
+        <span
+                (click)="selectComponent('categories')"
+                [ngClass]="{'selected-category': currentSelection === 'categories', 'hover-category': true}"
+                class="link-text-font booking-navbar-title">
     {{ bookingCategoriesTitle }}
   </span>
-  </div>
-  <div class="booking-component-container2">
-    <span class="input-label-text">{{ bookingLabelSearch }}</span>
-    <searching-component
-      [visibleCreateButton]="false"
-      (search)="performSearch($event)"
-      [searchInputPlaceholder]="'Search for desired booking type...'"
-      rootClassName="searching-component-root-class-name6"
-    ></searching-component>
-  </div>
-  <div class="booking-component-container3">
-    <div
-      *ngIf="!currentSelection || currentSelection === 'bikes'"
-      class="booking-component-bike-container">
-      <bike-component
-        *ngFor="let bike of filteredBikes"
-        [bikeData]="bike"
-        [visibleAdminButtons]="false"
-        (book) ="performBook($event)"
-        rootClassName="bike-component-root-class-name4"
-      ></bike-component>
+    </div>
+    <div class="booking-component-container2">
+        <span class="input-label-text">{{ bookingLabelSearch }}</span>
+        <searching-component
+                (search)="performSearch($event)"
+                [searchInputPlaceholder]="'Search for desired booking type...'"
+                [visibleCreateButton]="false"
+                rootClassName="searching-component-root-class-name6"
+        ></searching-component>
+    </div>
+    <div class="booking-component-container3">
+        <div
+                *ngIf="!currentSelection || currentSelection === 'bikes'"
+                class="booking-component-bike-container">
+            <bike-component
+                    (book)="performBook($event)"
+                    *ngFor="let bike of filteredBikes"
+                    [bikeData]="bike"
+                    [visibleAdminButtons]="false"
+                    rootClassName="bike-component-root-class-name4"
+            ></bike-component>
 
+        </div>
+        <div
+                *ngIf="!currentSelection || currentSelection === 'models'"
+                class="booking-component-model-container">
+            <model-component
+                    *ngFor="let model of filteredModels"
+                    [modelData]="model"
+                    [showAdminButtons]="false"
+                    [visibleBookButton]="true"
+                    rootClassName="model-component-root-class-name"
+            ></model-component>
+        </div>
+        <div
+                *ngIf="!currentSelection || currentSelection === 'categories'"
+                class="booking-component-categories-container">
+            <category-component
+                    *ngFor="let category of filteredCategories"
+                    [categoryData]="category"
+                    [showAdminButtons]="false"
+                    [visibleBookButton]="true"
+                    rootClassName="category-component-root-class-name"
+            ></category-component>
+        </div>
     </div>
-    <div
-      *ngIf="!currentSelection || currentSelection === 'models'"
-      class="booking-component-model-container">
-      <model-component
-        *ngFor="let model of filteredModels"
-        [showAdminButtons]="false"
-        [visibleBookButton]="true"
-        [modelData]="model"
-        rootClassName="model-component-root-class-name"
-      ></model-component>
-    </div>
-    <div
-      *ngIf="!currentSelection || currentSelection === 'categories'"
-      class="booking-component-categories-container">
-      <category-component
-        *ngFor="let category of filteredCategories"
-        [showAdminButtons]="false"
-        [visibleBookButton]="true"
-        [categoryData]="category"
-        rootClassName="category-component-root-class-name"
-      ></category-component>
-    </div>
-  </div>
 </div>

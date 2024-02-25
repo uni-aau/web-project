@@ -29,4 +29,4 @@ const verifyAdminToken = (req, res, next) => {
     });
 };
 
-module.exports = { verifyUserToken, verifyAdminToken };
+module.exports = {verifyUserToken, verifyAdminToken};

@@ -1,40 +1,46 @@
-:host { 
-  display: contents; 
+:host {
+    display: contents;
 }
+
 .booking-rent-bike-start-confirmation-popup-component-container {
-  width: 500px;
-  display: flex;
-  padding: var(--dl-space-space-halfunit);
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
+    width: 500px;
+    display: flex;
+    padding: var(--dl-space-space-halfunit);
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .booking-rent-bike-start-confirmation-popup-component-text {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
+
 .booking-rent-bike-start-confirmation-popup-component-text1 {
-  color: var(--dl-color-gray-500);
-  text-align: center;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
+    color: var(--dl-color-gray-500);
+    text-align: center;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
+
 .booking-rent-bike-start-confirmation-popup-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: var(--dl-space-space-oneandhalfunits);
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+    flex-direction: column;
 }
+
 .booking-rent-bike-start-confirmation-popup-component-text2 {
-  font-size: 22px;
-  font-style: normal;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: var(--dl-space-space-unit);
+    font-size: 22px;
+    font-style: normal;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: var(--dl-space-space-unit);
 }
-@media(max-width: 479px) {
-  .booking-rent-bike-start-confirmation-popup-component-container {
-    width: 95%;
-  }
+
+@media (max-width: 479px) {
+    .booking-rent-bike-start-confirmation-popup-component-container {
+        width: 95%;
+    }
 }

@@ -1,82 +1,91 @@
 :host {
-  display: contents;
+    display: contents;
 }
+
 .booking-component-container {
-  width: 80%;
-  height: auto;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
+    width: 80%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .booking-component-text {
-  margin-bottom: var(--dl-space-space-unit);
+    margin-bottom: var(--dl-space-space-unit);
 }
+
 .booking-component-container1 {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--dl-space-space-twounits);
-  justify-content: center;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--dl-space-space-twounits);
+    justify-content: center;
 }
+
 .booking-component-container2 {
-  flex: 0 0 auto;
-  width: 90%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .booking-component-container3 {
-  flex: 0 0 auto;
-  width: 90%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .booking-component-bike-container {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .booking-component-model-container {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .booking-component-categories-container {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .selected-category {
-  font-weight: bold;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+    font-weight: bold;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
 }
 
 .hover-category:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
 
-@media(max-width: 767px) {
-  .booking-component-container {
-    width: 95%;
-  }
+@media (max-width: 767px) {
+    .booking-component-container {
+        width: 95%;
+    }
 }
-@media(max-width: 479px) {
-  .booking-component-container1 {
-    flex-direction: column;
-  }
+
+@media (max-width: 479px) {
+    .booking-component-container1 {
+        flex-direction: column;
+    }
 }

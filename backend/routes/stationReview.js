@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const DatabaseService = require('../database-service');
-const { verifyUserToken, verifyAdminToken } = require('../auth');
+const {verifyUserToken, verifyAdminToken} = require('../auth');
 
 router.get('/station/:stationId', async (req, res) => {
     const {stationId} = req.params;

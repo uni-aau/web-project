@@ -1,41 +1,43 @@
-<div class="bike-component-container" [ngClass]="rootClassName">
-  <div class="model-bike-category-main-component">
-    <div class="bike-component-container2">
-      <div class="bike-component-container3 list-button-container">
-        <span class="model-bike-category-title">{{ bikeBikeName }}</span>
-        <span class="model-bike-category-general-text">{{ bikeSize }}</span>
-        <span class="model-bike-category-general-text">
+<div [ngClass]="rootClassName" class="bike-component-container">
+    <div class="model-bike-category-main-component">
+        <div class="bike-component-container2">
+            <div class="bike-component-container3 list-button-container">
+                <span class="model-bike-category-title">{{ bikeBikeName }}</span>
+                <span class="model-bike-category-general-text">{{ bikeSize }}</span>
+                <span class="model-bike-category-general-text">
           {{ bikeAssignedStation }}
         </span>
-        <span class="model-bike-category-general-text">{{ bikeAssignedParkingSpot }}</span>
-        <span class="model-bike-category-general-text">{{ bikeModel }}</span>
-        <span class="model-bike-category-general-text">{{ bikeCategory }}</span>
-        <div class="bike-component-container4">
+                <span class="model-bike-category-general-text">{{ bikeAssignedParkingSpot }}</span>
+                <span class="model-bike-category-general-text">{{ bikeModel }}</span>
+                <span class="model-bike-category-general-text">{{ bikeCategory }}</span>
+                <div class="bike-component-container4">
           <span class="bike-component-text5 model-bike-category-general-text">
             {{ bikeStatusText }}
           </span>
-          <span class="bike-component-text6 model-bike-category-general-text" [style.color]="bikeStatusColor" [style.font-weight]="'bold'">
+                    <span [style.color]="bikeStatusColor" [style.font-weight]="'bold'"
+                          class="bike-component-text6 model-bike-category-general-text">
             &nbsp;{{ bikeStatus }}
           </span>
-        </div>
-        <span class="model-bike-category-general-text">{{ bikePrice }}</span>
-      </div>
-      <div class="bike-component-container5">
-        <img
-          [attr.alt]="bikeImageAlt"
-          [attr.src]="bikeImageSrc"
-          class="bike-component-image"
-        />
-        <button-book-component
-          (click)="performBook($event)"
-          *ngIf="visibleBookButton"
-          rootClassName="button-book-component-root-class-name2"
-        ></button-book-component>
+                </div>
+                <span class="model-bike-category-general-text">{{ bikePrice }}</span>
+            </div>
+            <div class="bike-component-container5">
+                <img
+                        [attr.alt]="bikeImageAlt"
+                        [attr.src]="bikeImageSrc"
+                        class="bike-component-image"
+                />
+                <button-book-component
+                        (click)="performBook($event)"
+                        *ngIf="visibleBookButton"
+                        rootClassName="button-book-component-root-class-name2"
+                ></button-book-component>
 
-        <button-assign-update-delete-component *ngIf="visibleAdminButtons" (buttonClicked)="handleButtonClicked($event)"
-                                               rootClassName="button-assign-update-delete-component-root-class-name"
-        ></button-assign-update-delete-component>
-      </div>
+                <button-assign-update-delete-component (buttonClicked)="handleButtonClicked($event)"
+                                                       *ngIf="visibleAdminButtons"
+                                                       rootClassName="button-assign-update-delete-component-root-class-name"
+                ></button-assign-update-delete-component>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

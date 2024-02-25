@@ -1,46 +1,47 @@
 <div class="admin-bike-assignment-component-container popup-container">
-  <span class="popup-heading">{{ adminAssignBikeTitle }}</span>
-  <form class="admin-bike-assignment-component-form">
-    <div class="admin-bike-assignment-component-container1">
-      <div class="admin-bike-assignment-component-container2">
-        <div class="admin-bike-assignment-component-container3">
+    <span class="popup-heading">{{ adminAssignBikeTitle }}</span>
+    <form class="admin-bike-assignment-component-form">
+        <div class="admin-bike-assignment-component-container1">
+            <div class="admin-bike-assignment-component-container2">
+                <div class="admin-bike-assignment-component-container3">
           <span class="admin-bike-assignment-component-text1 input-label-text">
             {{ adminAssignBikeBikeModel }}
           </span>
-        </div>
-        <div class="admin-bike-assignment-component-container4">
+                </div>
+                <div class="admin-bike-assignment-component-container4">
           <span class="admin-bike-assignment-component-text2 input-label-text">
             {{ adminAssignBikeBikeCategories }}
           </span>
-        </div>
-      </div>
-      <div class="admin-bike-assignment-component-container5">
-        <div class="admin-bike-assignment-component-container6">
+                </div>
+            </div>
+            <div class="admin-bike-assignment-component-container5">
+                <div class="admin-bike-assignment-component-container6">
           <span class="input-label-text">
             {{ adminAssignBikeSelectorLabel }}
           </span>
-          <select
-            id="manage-bike-models-selector"
-            class="admin-bike-assignment-component-select selector-style"
-            (change)="handleSelect($event)"
-          >
-            <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
-            <option *ngFor="let station of bikeStations" [value]="station.station_id">{{station.station_name}}</option>
-          </select>
-          <span class="input-error-hint">{{ adminAssignBikeErrorText }}</span>
-        </div>
-        <div class="admin-bike-assignment-component-container7">
+                    <select
+                            (change)="handleSelect($event)"
+                            class="admin-bike-assignment-component-select selector-style"
+                            id="manage-bike-models-selector"
+                    >
+                        <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
+                        <option *ngFor="let station of bikeStations"
+                                [value]="station.station_id">{{station.station_name}}</option>
+                    </select>
+                    <span class="input-error-hint">{{ adminAssignBikeErrorText }}</span>
+                </div>
+                <div class="admin-bike-assignment-component-container7">
           <span class="admin-bike-assignment-component-text5 input-label-text">
             {{ adminAssignBikeParkingPlace }}
           </span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <span class="admin-bike-assignment-component-text6 input-error-hint">
+        <span class="admin-bike-assignment-component-text6 input-error-hint">
       {{ adminAssignBikeError }}
     </span>
-  </form>
-  <button-save-discard-component (confirm)="handleConfirm()" (cancel)="handleCancel()"
-    rootClassName="button-save-discard-component-root-class-name3"
-  ></button-save-discard-component>
+    </form>
+    <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
+                                   rootClassName="button-save-discard-component-root-class-name3"
+    ></button-save-discard-component>
 </div>

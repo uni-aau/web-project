@@ -51,39 +51,6 @@ export class BookedTypeEntryComponent {
         this.popupService.openQrCodePopup();
     }
 
-
-    private insertData() {
-        console.log(this.ticketData)
-        this.bookedTypeEntryTicketId = LanguageHandler.formatString(
-            'TicketID: {0}', [this.ticketData.ticket_id]);
-        this.bookedTypeEntryRentingInformation = LanguageHandler.formatString(
-            "Rent Start: {0} | Renting Time: {1}", [DateHandler.formatTimestamp(this.ticketData.renting_start), DateHandler.formatTimestamp(this.ticketData.renting_end)]);
-        this.bookedTypeEntryBookingDate = LanguageHandler.formatString(
-            "Booked at: {0}", [DateHandler.formatTimestamp(this.ticketData.booking_time)]);
-        this.bookedTypeEntryBookedType = LanguageHandler.formatString(
-            "Booked Type: {0}", [this.ticketData.booked_type]);
-
-        if(this.ticketData.bike_id)  this.bookedTypeEntryTitle = LanguageHandler.formatString(
-            "{0} (Price: {1}$)", [this.ticketData.bike_name, this.ticketData.price]);
-        else if(this.ticketData.model_id)  this.bookedTypeEntryTitle = LanguageHandler.formatString(
-            "{0} (Price: {1}$)", [this.ticketData.model_name, this.ticketData.price]);
-        else this.bookedTypeEntryTitle = LanguageHandler.formatString(
-            "{0} (Price: {1}$)", [this.ticketData.category_name, this.ticketData.price]);
-
-        this.bookedTypeEntryStatus = LanguageHandler.formatString(
-            "Status: {0}", [this.ticketData.status]);
-        this.bookedTypeEntryDueDate = LanguageHandler.formatString(
-            "Due Date: {0}", [DateHandler.formatTimestamp(this.ticketData.renting_end)]);
-
-        if (this.ticketData.status === "Rented") {
-            this.showRentButton = false
-        }
-
-        this.bikeService.getBike(this.ticketData.bike_id).subscribe((bikes: any) => {
-            this.bike = bikes[0]
-        })
-    }
-
     performRent($event: MouseEvent) {
         this.popupService.openRentTicketPopup(
             this.bike.bike_name,
@@ -105,6 +72,38 @@ export class BookedTypeEntryComponent {
                     }, error: (err) => console.log(err)
                 })
             }
+        })
+    }
+
+    private insertData() {
+        console.log(this.ticketData)
+        this.bookedTypeEntryTicketId = LanguageHandler.formatString(
+            'TicketID: {0}', [this.ticketData.ticket_id]);
+        this.bookedTypeEntryRentingInformation = LanguageHandler.formatString(
+            "Rent Start: {0} | Renting Time: {1}", [DateHandler.formatTimestamp(this.ticketData.renting_start), DateHandler.formatTimestamp(this.ticketData.renting_end)]);
+        this.bookedTypeEntryBookingDate = LanguageHandler.formatString(
+            "Booked at: {0}", [DateHandler.formatTimestamp(this.ticketData.booking_time)]);
+        this.bookedTypeEntryBookedType = LanguageHandler.formatString(
+            "Booked Type: {0}", [this.ticketData.booked_type]);
+
+        if (this.ticketData.bike_id) this.bookedTypeEntryTitle = LanguageHandler.formatString(
+            "{0} (Price: {1}$)", [this.ticketData.bike_name, this.ticketData.price]);
+        else if (this.ticketData.model_id) this.bookedTypeEntryTitle = LanguageHandler.formatString(
+            "{0} (Price: {1}$)", [this.ticketData.model_name, this.ticketData.price]);
+        else this.bookedTypeEntryTitle = LanguageHandler.formatString(
+                "{0} (Price: {1}$)", [this.ticketData.category_name, this.ticketData.price]);
+
+        this.bookedTypeEntryStatus = LanguageHandler.formatString(
+            "Status: {0}", [this.ticketData.status]);
+        this.bookedTypeEntryDueDate = LanguageHandler.formatString(
+            "Due Date: {0}", [DateHandler.formatTimestamp(this.ticketData.renting_end)]);
+
+        if (this.ticketData.status === "Rented") {
+            this.showRentButton = false
+        }
+
+        this.bikeService.getBike(this.ticketData.bike_id).subscribe((bikes: any) => {
+            this.bike = bikes[0]
         })
     }
 }
