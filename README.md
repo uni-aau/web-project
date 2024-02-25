@@ -1,5 +1,8 @@
 # WebTechnologien Projekt (WS2023)
-
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=uni-aau_web-project&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=uni-aau_web-project)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=uni-aau_web-project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=uni-aau_web-project)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=uni-aau_web-project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=uni-aau_web-project)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=uni-aau_web-project&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=uni-aau_web-project)
 ## Getting Started
 ### Required
 - **Backend** (npm i for dependencies in /backend)
