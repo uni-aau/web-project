@@ -8,6 +8,11 @@
             rootClassName="searching-component-root-class-name5"
     ></searching-component>
 
+  <map-component
+    [stations]="filteredBikeStations"
+    rootClassName="map-component-root-class-name1">
+  </map-component>
+
     <div *ngIf="bikeStations.length == 0">
         <no-entries-component></no-entries-component>
     </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import {icon, Marker} from 'leaflet';
 import {BikeStation} from '../../types/bikeStation.type';
@@ -8,7 +8,7 @@ import {BikeStation} from '../../types/bikeStation.type';
     templateUrl: './map-component.component.html',
     styleUrls: ['./map-component.component.css']
 })
-export class MapComponent implements OnInit, OnChanges {
+export class MapComponent implements OnInit, OnChanges, OnDestroy {
     @Input() stations: BikeStation[] = [];
     @Input() rootClassName: string = '';
     private map: L.Map | undefined;
@@ -39,6 +39,14 @@ export class MapComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         this.addStationsToMap();
     }
+
+  ngOnDestroy() {
+    if (this.map) {
+      this.map.off();
+      this.map.remove();
+      this.map = undefined;
+    }
+  }
 
     private addStationsToMap(): void {
         console.log(this.stations + "add")
