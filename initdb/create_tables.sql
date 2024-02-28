@@ -146,9 +146,9 @@ VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
        ('dad', 'Dado', 'Dodo', 'dadi2@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
         4);
 
-INSERT INTO Station (station_name, description, station_address, longitude, latitude)
-VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 14.305278, 46.624722),
-       ('North Station', 'Nice Station Description', 'Viktring', 14.262222, 46.615556);
+INSERT INTO Station (station_name, description, station_address, longitude, latitude, station_image_location)
+VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 14.305278, 46.624722, '/assets/central-station.png'),
+       ('North Station', 'Nice Station Description', 'Viktring', 14.262222, 46.615556, '/assets/north-station.png');
 
 INSERT INTO BikeCategory (category_name, price)
 VALUES ('Mountain', 5.0),

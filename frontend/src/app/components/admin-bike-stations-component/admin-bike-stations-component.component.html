@@ -27,6 +27,7 @@
                 (onStationUpdate)="handleUpdatedStation()"
                 *ngFor="let station of filteredBikeStations"
                 [adminBikeStationEntryDescription]="station.description"
+                [adminBikeStationEntryImageSrc]="station.station_image_location"
                 [adminBikeStationEntryImageAlt]="station.station_name"
                 [adminBikeStationEntryLocation]="station.station_address"
                 [adminBikeStationEntryStationName]="station.station_name"
