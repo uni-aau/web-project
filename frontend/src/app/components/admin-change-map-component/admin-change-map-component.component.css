@@ -33,3 +33,15 @@
 .map-component-root-class-name2 {
     margin-bottom: var(--dl-space-space-unit);
 }
+
+#mapChange {
+  cursor: pointer;
+}
+
+.hint {
+  color: var(--dl-color-gray-500);
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+}

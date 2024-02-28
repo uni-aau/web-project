@@ -125,6 +125,13 @@ export class AdminManageBikeStationComponent {
         else this.executeInsertionQuery();
     }
 
+    handleMapChange(latLong: any) {
+      const {lat, lng} = latLong;
+
+      this.longitude = lng.toFixed(6);
+      this.latitude = lat.toFixed(6);
+    }
+
     handleCancel() {
         this.router.navigate(["/admin-bike-stations"]);
     }

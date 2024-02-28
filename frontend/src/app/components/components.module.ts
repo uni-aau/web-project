@@ -199,7 +199,8 @@ import {AdminChangeMapComponent} from "./admin-change-map-component/admin-change
     ButtonRentBikeComponent,
     BookingRentBikeStartConfirmationPopupComponent,
     ButtonYesCancel,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    AdminChangeMapComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule, MatFormField, MatSelect, MatOption],
   exports: [

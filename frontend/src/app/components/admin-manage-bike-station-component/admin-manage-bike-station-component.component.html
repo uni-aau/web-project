@@ -1,89 +1,91 @@
 <div
-        [ngClass]="rootClassName"
-        class="admin-manage-bike-station-component-container"
+  [ngClass]="rootClassName"
+  class="admin-manage-bike-station-component-container"
 >
-    <admin-change-map-component rootClassName="map-component-root-class-name2"></admin-change-map-component>
-    <div class="admin-manage-bike-station-component-form">
-        <div class="admin-manage-bike-station-component-container1">
-            <div class="admin-manage-bike-station-component-container2">
-                <div class="admin-manage-bike-station-component-container3">
+  <admin-change-map-component rootClassName="map-component-root-class-name2"
+                              (mapChange)="handleMapChange($event)"
+                              [station]="bikeStation"></admin-change-map-component>
+  <div class="admin-manage-bike-station-component-form">
+    <div class="admin-manage-bike-station-component-container1">
+      <div class="admin-manage-bike-station-component-container2">
+        <div class="admin-manage-bike-station-component-container3">
           <span class="input-label-text">
             {{ adminManageBikeStationLabelLongitude }}
           </span>
-                    <input
-                            [(ngModel)]="longitude"
-                            [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
-                            class="admin-manage-bike-station-component-textinput input"
-                            id="manage-bike-station-longitude-input"
-                            type="number"
-                    />
-                    <span class="input-error-hint">
+          <input
+            [(ngModel)]="longitude"
+            [attr.placeholder]="adminManageBikeStationInputPlaceholderLongitude"
+            class="admin-manage-bike-station-component-textinput input"
+            id="manage-bike-station-longitude-input"
+            type="number"
+          />
+          <span class="input-error-hint">
             {{ adminManageBikeStationLongitudeError }}
           </span>
-                </div>
-                <div class="admin-manage-bike-station-component-container4">
+        </div>
+        <div class="admin-manage-bike-station-component-container4">
           <span class="input-label-text">
             {{ adminManageBikeStationLabelLatitude }}
           </span>
-                    <input
-                            [(ngModel)]="latitude"
-                            [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
-                            class="admin-manage-bike-station-component-textinput1 input"
-                            id="manage-bike-station-latitude-input"
-                            type="number"
-                    />
-                    <span class="input-error-hint">
+          <input
+            [(ngModel)]="latitude"
+            [attr.placeholder]="adminManageBikeStationInputPlaceholderLatitude"
+            class="admin-manage-bike-station-component-textinput1 input"
+            id="manage-bike-station-latitude-input"
+            type="number"
+          />
+          <span class="input-error-hint">
             {{ adminManageBikeStationLatitudeError }}
           </span>
-                </div>
-            </div>
-            <div class="admin-manage-bike-station-component-container5">
+        </div>
+      </div>
+      <div class="admin-manage-bike-station-component-container5">
         <span class="input-label-text">
           {{ adminManageBikeStationStationLabelName }}
         </span>
-                <input
-                        [(ngModel)]="stationName"
-                        [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
-                        class="admin-manage-bike-station-component-textinput2 input"
-                        id="manage-bike-station-station-name-input"
-                        type="text"
-                />
-                <span class="input-error-hint">
+        <input
+          [(ngModel)]="stationName"
+          [attr.placeholder]="adminManageBikeStationInputPlaceholderName"
+          class="admin-manage-bike-station-component-textinput2 input"
+          id="manage-bike-station-station-name-input"
+          type="text"
+        />
+        <span class="input-error-hint">
           {{ adminManageBikeStationStationNameError }}
         </span>
-            </div>
-            <div class="admin-manage-bike-station-component-container6">
+      </div>
+      <div class="admin-manage-bike-station-component-container6">
         <span class="input-label-text">
           {{ adminManageBikeStationLabelAddress }}
         </span>
-                <input
-                        [(ngModel)]="stationAddress"
-                        [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
-                        class="admin-manage-bike-station-component-textinput3 input"
-                        id="manage-bike-station-address-input"
-                        type="text"
-                />
-                <span class="input-error-hint">
+        <input
+          [(ngModel)]="stationAddress"
+          [attr.placeholder]="adminManageBikeStationInputPlaceholderAddress"
+          class="admin-manage-bike-station-component-textinput3 input"
+          id="manage-bike-station-address-input"
+          type="text"
+        />
+        <span class="input-error-hint">
           {{ adminManageBikeStationAddressError }}
         </span>
-            </div>
-            <span class="input-label-text">
+      </div>
+      <span class="input-label-text">
         {{ adminManageBikeStationStationLabelDescription }}
       </span>
-            <textarea
-                    [(ngModel)]="stationDescription"
-                    [attr.placeholder]="adminManageBikeStationStationInputPlaceholder"
-                    class="admin-manage-bike-station-component-textarea textarea"
-            ></textarea>
-        </div>
+      <textarea
+        [(ngModel)]="stationDescription"
+        [attr.placeholder]="adminManageBikeStationStationInputPlaceholder"
+        class="admin-manage-bike-station-component-textarea textarea"
+      ></textarea>
     </div>
-    <span class="input-error-hint">
+  </div>
+  <span class="input-error-hint">
     {{ adminManageBikeStationDescriptionError }}
   </span>
-    <span class="admin-manage-bike-station-component-text10">
+  <span class="admin-manage-bike-station-component-text10">
     {{ adminManageBikeStationImageTitle }}
   </span>
-    <image-upload-preview-component></image-upload-preview-component>
-    <button-save-discard-component (cancel)="handleCancel()"
-                                   (confirm)="handleConfirm()"></button-save-discard-component>
+  <image-upload-preview-component></image-upload-preview-component>
+  <button-save-discard-component (cancel)="handleCancel()"
+                                 (confirm)="handleConfirm()"></button-save-discard-component>
 </div>
