@@ -177,11 +177,11 @@ VALUES (1, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain
        (5, (SELECT category_id FROM BikeCategory WHERE category_name = 'Mountain')),
        (6, (SELECT category_id FROM BikeCategory WHERE category_name = 'Electric'));
 
-INSERT INTO Bike (station_id, bike_name, assigned_to, model_id, is_available, status, size, price)
+INSERT INTO Bike (station_id, bike_name, assigned_to, model_id, is_available, status, size, price, bike_image_location)
 VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'Mountain-Bike 300', 1,
-        (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0),
+        (SELECT model_id FROM BikeModel WHERE model_name = 'Mountain Pro'), TRUE, 'Available', 20, 5.0, '/assets/mountain-bike-300.png'),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'E-Bike 12h', 2,
-        (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0);
+        (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0, '/assets/e-bike-12h.png');
 
 INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
                     renting_end, price)

@@ -60,7 +60,7 @@
 
 .bike-component-image {
     width: 200px;
-    height: 135px;
+    height: 160px;
     align-self: flex-end;
     object-fit: cover;
     margin-right: var(--dl-space-space-halfunit);
@@ -100,7 +100,7 @@
     }
 
     .bike-component-image {
-        height: 120px;
+        height: 155px;
         align-self: center;
         margin-right: 0px;
     }
