@@ -134,7 +134,7 @@ export class PopupService {
     }
 
     openQrCodePopup() {
-        const dialogRef = this.dialog.open(BookingQRCodePopupComponent)
+        this.dialog.open(BookingQRCodePopupComponent)
     }
 
     openReturnBikePopup(ticketId: number, categoryId: number) {
