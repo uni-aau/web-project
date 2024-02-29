@@ -4,6 +4,7 @@ import {PopupService} from "../../services/popup.service";
 import {BikeService} from "../../services/bike.service";
 import {TicketService} from "../../services/ticket.service";
 import {DateHandler} from "../../handler/DateHandler";
+import {WalletService} from "../../services/wallet.service";
 
 @Component({
   selector: 'booked-type-entry-component',
@@ -40,7 +41,7 @@ export class BookedTypeEntryComponent {
 
 
   constructor(private popupService: PopupService, private bikeService: BikeService,
-              private ticketService: TicketService) {
+              private ticketService: TicketService, private walletService: WalletService) {
   }
 
   ngOnInit() {

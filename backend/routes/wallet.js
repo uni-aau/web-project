@@ -48,6 +48,26 @@ router.put('/deposit-money', verifyUserToken, function (req, res) {
         .catch(e => res.status(500).json({error: e.message}));
 });
 
+router.put('/withdraw-money', verifyUserToken, function (req, res) {
+    const {userId} = req.user;
+    const {amount} = req.body;
+
+    if (!userId || !amount) return res.status(500).json({error: "amount or userId is undefined"});
+
+    DatabaseService.executeSelectionQuery({text: 'SELECT wallet_id FROM "User" WHERE user_id = $1', values: [userId]})
+        .then(result => {
+            let query = {
+                text: 'UPDATE Wallet SET balance = balance - $1, available_balance = available_balance - $1 WHERE wallet_id = $2',
+                values: [amount, result[0].wallet_id]
+            }
+
+            DatabaseService.executeUpdateQuery(query)
+                .then(result => res.status(200).json({success: true, rowsChanged: result}))
+                .catch(e => res.status(500).json({error: e.message}))
+        })
+        .catch(e => res.status(500).json({error: e.message}));
+});
+
 router.get('/balance', verifyUserToken, function (req, res) {
     const {userId} = req.user;
 

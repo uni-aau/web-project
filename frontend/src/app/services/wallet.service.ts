@@ -32,4 +32,8 @@ export class WalletService {
     return this.http.put(`${baseURL}/disconnect`, {})
   }
 
+  withDrawMoneyUser(amount: number): Observable<any> {
+    return this.http.put(`${baseURL}/withdraw-money`, {amount: amount});
+  }
+
 }

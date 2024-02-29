@@ -4,6 +4,7 @@ import {PopupService} from "../../services/popup.service";
 import {CategoryService} from "../../services/category.service";
 import {TicketService} from "../../services/ticket.service";
 import {TicketUtilityService} from "../../services/ticket.utility.service";
+import {WalletService} from "../../services/wallet.service";
 
 @Component({
   selector: 'category-component',
@@ -36,7 +37,7 @@ export class CategoryComponent {
   @Output() onCategoryUpdate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private popupService: PopupService, private categoryService: CategoryService,
-              private ticketService: TicketService, private ticketUtilyService: TicketUtilityService) {
+              private ticketService: TicketService, private ticketUtilyService: TicketUtilityService, private walletService: WalletService) {
   }
 
   ngOnInit() {
@@ -114,8 +115,6 @@ export class CategoryComponent {
       if (result) {
         const {price, status, bookingDate, rentingStart, endDate} = result;
 
-        // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
-        // damit die löschbar sind
         this.ticketService.newTicket(
           price,
           "Model",
@@ -129,10 +128,13 @@ export class CategoryComponent {
           price
         ).subscribe({
           next: (response) => {
-            console.log('Buchung erfolgreich', response);
+            this.walletService.withDrawMoneyUser(result.price).subscribe({
+              next: (response) => console.log('Booking Successful', response),
+              error: (error) => console.log("Error while withdrawing money:", error)
+            })
           },
           error: (error) => {
-            console.error('Fehler bei der Buchung', error);
+            console.error('Error while booking', error);
           }
         });
       }

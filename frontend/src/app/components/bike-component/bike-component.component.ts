@@ -4,6 +4,7 @@ import {PopupService} from "../../services/popup.service";
 import {LanguageHandler} from "../../handler/LanguageHandler";
 import {TicketService} from "../../services/ticket.service";
 import {TicketUtilityService} from "../../services/ticket.utility.service";
+import {WalletService} from "../../services/wallet.service";
 
 @Component({
   selector: 'bike-component',
@@ -57,7 +58,7 @@ export class BikeComponent implements OnInit {
   @Output() onBikeUpdate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private bikeService: BikeService, private popupService: PopupService,
-              private ticketService: TicketService, private ticketUtilyService: TicketUtilityService) {
+              private ticketService: TicketService, private ticketUtilyService: TicketUtilityService, private walletService: WalletService) {
   }
 
   ngOnInit() {
@@ -180,8 +181,6 @@ export class BikeComponent implements OnInit {
       if (result) {
         const {price, status, bookingDate, rentingStart, endDate} = result;
 
-        // Todo bookType muss festgelegt werden + für history muss es bike/category/model copy geben
-        // damit die löschbar sind
         this.ticketService.newTicket(
           price,
           "Bike",
@@ -195,10 +194,13 @@ export class BikeComponent implements OnInit {
           price
         ).subscribe({
           next: (response) => {
-            console.log('Buchung erfolgreich', response);
+            this.walletService.withDrawMoneyUser(result.price).subscribe({
+              next: (response) => console.log('Booking Successful', response),
+              error: (error) => console.log("Error while withdrawing money:", error)
+            })
           },
           error: (error) => {
-            console.error('Fehler bei der Buchung', error);
+            console.error('Error while booking', error);
           }
         });
       }
