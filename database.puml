@@ -89,6 +89,7 @@ entity "Ticket" {
   booking_time : timestamp
   renting_start : timestamp
   renting_end : timestamp
+  price : float
 }
 
 entity "Transaction" {

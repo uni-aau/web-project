@@ -84,7 +84,6 @@ CREATE TABLE Bike
     bike_image_location VARCHAR(500) DEFAULT '/assets/no-image.svg'
 );
 
--- TODO
 CREATE TABLE Ticket
 (
     ticket_id     SERIAL PRIMARY KEY,
