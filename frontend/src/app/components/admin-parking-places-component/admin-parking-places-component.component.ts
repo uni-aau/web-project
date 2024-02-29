@@ -73,7 +73,7 @@ export class AdminParkingPlacesComponent implements OnInit {
 
     handleSpotUpdate(updatedSpot: any) {
         this.updatedSpots.set(updatedSpot.spot_id, updatedSpot);
-        console.log(this.updatedSpots);
+        console.log("Updated spot: ", updatedSpot, " | Updated Spots: ", this.updatedSpots );
     }
 
     handleNewSpots(newSpot: any) {

@@ -43,7 +43,7 @@ export class AdminParkingPlaceSelectionComponent implements OnInit {
 
     handleSelectionChange() {
         this.onDataChange.emit({...this.spot, categories: this.selectedCategories});
-        console.log(this.selectedCategories)
+        console.log("Selected categories: ", this.selectedCategories)
     }
 
     fetchAssignedBike() {
