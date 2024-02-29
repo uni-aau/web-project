@@ -183,23 +183,6 @@ VALUES ((SELECT station_id FROM Station WHERE station_name = 'Central Station'),
        ((SELECT station_id FROM Station WHERE station_name = 'Central Station'), 'E-Bike 12h', 2,
         (SELECT model_id FROM BikeModel WHERE model_name = 'E-Bike 3000'), TRUE, 'Rented', 30, 6.0, '/assets/e-bike-12h.png');
 
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
-                    renting_end, price)
-VALUES (2, 'Bike', 1, 1, 1, 'Booked', '2024-02-22 19:45:51.332626', '2024-02-22 20:45:51.332626',
-        '2024-02-22 23:45:51.332626', 5);
-
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
-                    renting_end, price)
-VALUES (2, 'Bike', 1, 1, 1, 'Rented', '2024-02-22 19:46:31.036000', '2024-02-22 20:46:00.000000',
-        '2024-02-22 21:46:00.000000', 5);
-
-INSERT INTO Ticket (user_id, booked_type, bike_id, model_id, category_id, status, booking_time, renting_start,
-                    renting_end, price)
-VALUES (2, 'Bike', 1, 1, 1, 'Completed', '2024-02-22 19:47:08.618000', '2024-02-22 20:47:00.000000',
-        '2024-02-22 21:47:00.000000', 5);
-
-
-
 INSERT INTO Transaction (ticket_id, user_id, amount, transaction_type)
 VALUES (1, (SELECT user_id FROM "User" WHERE username = 'johnDoe'), 20.00, 'Rental'),
        (1, (SELECT user_id FROM "User" WHERE username = 'janeDoe'), 30.00, 'Rental');

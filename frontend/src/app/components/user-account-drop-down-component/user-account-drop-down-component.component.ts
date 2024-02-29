@@ -118,10 +118,10 @@ export class UserAccountDropDownComponent {
             },
             error: (err) => {
                 if (err.error.exists === true) {
-                    this.userSettingsChangeEmailError = 'This username already exists!';
+                    this.userSettingsChangeUsernameError = 'This username already exists!';
                     return;
                 }
-                this.userSettingsChangeEmailError = 'Could not update username!';
+                this.userSettingsChangeUsernameError = 'Could not update username!';
                 console.log("Error:", err.error);
             }
         })

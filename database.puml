@@ -84,7 +84,7 @@ entity "Ticket" {
   #bike_id : int [FK]
   #model_id : int [FK]
   #category_id : int [FK]
-  booked_type : booked_type
+  booked_type : booked_type [Enum]
   status : booking_status [Enum]
   booking_time : timestamp
   renting_start : timestamp
