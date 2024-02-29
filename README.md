@@ -9,7 +9,7 @@
   - Node >= v20.9.0
   - NPM >= v10.2.3
 - **Frontend** (npm i for dependencies in /frontend)
-  - Angular > 17
+  - Angular >= 17
 - **Database**
   - Docker Desktop
   - PostgreSQL > 15
