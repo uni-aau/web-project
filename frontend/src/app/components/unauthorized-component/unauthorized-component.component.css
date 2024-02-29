@@ -1,14 +1,14 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .unauthorized-component-container {
-    width: 95%;
-    height: 500px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  width: 95%;
+  height: 500px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 

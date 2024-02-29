@@ -1,40 +1,40 @@
 <div class="admin-manage-category-popup-component-container popup-container">
-    <span class="popup-heading">{{ adminManageCategoryTitle }}</span>
-    <form class="admin-manage-category-popup-component-form">
-        <div class="admin-manage-category-popup-component-container1">
-            <div class="admin-manage-category-popup-component-container2">
-                <span class="input-label-text">{{ adminManageCategoryLabelName }}</span>
-                <input
-                        [(ngModel)]="categoryName"
-                        [attr.placeholder]="adminManageCategoryInputPlaceholderName"
-                        class="admin-manage-category-popup-component-textinput input"
-                        id="manage-category-name-input"
-                        name="categoryName"
-                        type="text"
-                />
-                <span class="input-error-hint">
+  <span class="popup-heading">{{ adminManageCategoryTitle }}</span>
+  <form class="admin-manage-category-popup-component-form">
+    <div class="admin-manage-category-popup-component-container1">
+      <div class="admin-manage-category-popup-component-container2">
+        <span class="input-label-text">{{ adminManageCategoryLabelName }}</span>
+        <input
+          [(ngModel)]="categoryName"
+          [attr.placeholder]="adminManageCategoryInputPlaceholderName"
+          class="admin-manage-category-popup-component-textinput input"
+          id="manage-category-name-input"
+          name="categoryName"
+          type="text"
+        />
+        <span class="input-error-hint">
           {{ adminManageCategoryNameErrorText }}
         </span>
-            </div>
-            <div class="admin-manage-category-popup-component-container3">
+      </div>
+      <div class="admin-manage-category-popup-component-container3">
         <span class="input-label-text">
           {{ adminManageCategoryLabelPrice }}
         </span>
-                <input
-                        [(ngModel)]="categoryPrice"
-                        [attr.placeholder]="adminManageCategoryInputPlaceholderPrice"
-                        class="admin-manage-category-popup-component-textinput1 input"
-                        id="manage-category-price-input"
-                        name="categoryPrice"
-                        type="number"
-                />
-                <span class="input-error-hint">
+        <input
+          [(ngModel)]="categoryPrice"
+          [attr.placeholder]="adminManageCategoryInputPlaceholderPrice"
+          class="admin-manage-category-popup-component-textinput1 input"
+          id="manage-category-price-input"
+          name="categoryPrice"
+          type="number"
+        />
+        <span class="input-error-hint">
           {{ adminManageCategoryPriceErrorText }}
         </span>
-            </div>
-        </div>
-    </form>
-    <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
-                                   rootClassName="button-save-discard-component-root-class-name"
-    ></button-save-discard-component>
+      </div>
+    </div>
+  </form>
+  <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
+                                 rootClassName="button-save-discard-component-root-class-name"
+  ></button-save-discard-component>
 </div>

@@ -1,191 +1,191 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .admin-bike-station-entry-component-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-items: center;
-    margin-bottom: var(--dl-space-space-twounits);
-    flex-direction: row;
-    justify-content: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-twounits);
+  flex-direction: row;
+  justify-content: center;
 }
 
 .admin-bike-station-entry-component-container01 {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    box-shadow: 0 3px 2px -2px gray;
-    align-items: flex-start;
-    border-bottom: 1px solid #D3D3D3;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  box-shadow: 0 3px 2px -2px gray;
+  align-items: flex-start;
+  border-bottom: 1px solid #D3D3D3;
+  flex-direction: column;
 }
 
 .admin-bike-station-entry-component-container02 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 150px;
-    display: flex;
-    margin-top: var(--dl-space-space-halfunit);
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: flex-start;
 }
 
 .admin-bike-station-entry-component-container03 {
-    flex: 0 0 auto;
-    width: 60%;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 60%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-bike-station-entry-component-container04 {
-    width: auto;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .admin-bike-station-entry-component-text {
-    padding-left: var(--dl-space-space-halfunit);
-    margin-bottom: 0px;
+  padding-left: var(--dl-space-space-halfunit);
+  margin-bottom: 0px;
 }
 
 .admin-bike-station-entry-component-text1 {
-    width: 100%;
-    font-size: 17px;
-    font-style: normal;
-    text-align: left;
-    font-weight: 400;
-    padding-left: var(--dl-space-space-halfunit);
-    margin-bottom: var(--dl-space-space-halfunit);
+  width: 100%;
+  font-size: 17px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  padding-left: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 
 .admin-bike-station-entry-component-text2 {
-    color: var(--dl-color-gray-500);
-    width: 100%;
-    height: 100%;
-    font-size: 17px;
-    text-align: justify;
-    padding-left: var(--dl-space-space-halfunit);
+  color: var(--dl-color-gray-500);
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  text-align: justify;
+  padding-left: var(--dl-space-space-halfunit);
 }
 
 .admin-bike-station-entry-component-container05 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-end;
-    padding-left: var(--dl-space-space-halfunit);
-    justify-content: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  padding-left: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
 }
 
 .admin-bike-station-entry-component-icon08 {
-    margin-right: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
 }
 
 .admin-bike-station-entry-component-text3 {
-    font-size: 20px;
-    align-self: center;
-    font-style: normal;
-    text-align: center;
-    font-weight: 500;
-    margin-left: var(--dl-space-space-halfunit);
+  font-size: 20px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+  margin-left: var(--dl-space-space-halfunit);
 }
 
 .admin-bike-station-entry-component-container06 {
-    flex: 0 0 auto;
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-self: center;
-    align-items: flex-start;
-    justify-content: flex-end;
+  flex: 0 0 auto;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .admin-bike-station-entry-component-image {
-    width: 200px;
-    height: 100%;
-    object-fit: cover;
-    margin-right: var(--dl-space-space-halfunit);
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  margin-right: var(--dl-space-space-halfunit);
 }
 
 .admin-bike-station-entry-component-container07 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    margin-top: var(--dl-space-space-halfunit);
-    align-items: center;
-    justify-content: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-top: var(--dl-space-space-halfunit);
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .admin-bike-station-entry-component-container08 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: auto;
-    display: flex;
-    padding: var(--dl-space-space-halfunit);
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 50%;
+  height: auto;
+  display: flex;
+  padding: var(--dl-space-space-halfunit);
+  align-items: flex-start;
 }
 
 .admin-bike-station-entry-component-button {
-    top: 6px;
-    left: var(--dl-space-space-halfunit);
-    position: static;
-    margin-right: var(--dl-space-space-unit);
+  top: 6px;
+  left: var(--dl-space-space-halfunit);
+  position: static;
+  margin-right: var(--dl-space-space-unit);
 }
 
 .admin-bike-station-entry-component-button1 {
-    top: 6px;
-    left: var(--dl-space-space-halfunit);
-    position: static;
+  top: 6px;
+  left: var(--dl-space-space-halfunit);
+  position: static;
 }
 
 .admin-bike-station-entry-component-container09 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: auto;
-    display: flex;
-    padding: var(--dl-space-space-halfunit);
-    align-items: flex-start;
-    justify-content: flex-end;
+  flex: 0 0 auto;
+  width: 50%;
+  height: auto;
+  display: flex;
+  padding: var(--dl-space-space-halfunit);
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .admin-bike-station-entry-component-button2 {
-    margin-right: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
 }
 
 
 @media (max-width: 479px) {
-    .admin-bike-station-entry-component-container03 {
-        padding-right: var(--dl-space-space-halfunit);
-    }
+  .admin-bike-station-entry-component-container03 {
+    padding-right: var(--dl-space-space-halfunit);
+  }
 
-    .admin-bike-station-entry-component-image {
-        min-width: 100px;
-    }
+  .admin-bike-station-entry-component-image {
+    min-width: 100px;
+  }
 
-    .admin-bike-station-entry-component-container07 {
-        flex-direction: column;
-    }
+  .admin-bike-station-entry-component-container07 {
+    flex-direction: column;
+  }
 
-    .admin-bike-station-entry-component-container08 {
-        width: 100%;
-        justify-content: center;
-    }
+  .admin-bike-station-entry-component-container08 {
+    width: 100%;
+    justify-content: center;
+  }
 
-    .admin-bike-station-entry-component-container09 {
-        width: 100%;
-        justify-content: center;
-    }
+  .admin-bike-station-entry-component-container09 {
+    width: 100%;
+    justify-content: center;
+  }
 
-    .admin-bike-station-entry-component-text3 {
-        font-size: 16px;
-        margin-left: 4px;
-    }
+  .admin-bike-station-entry-component-text3 {
+    font-size: 16px;
+    margin-left: 4px;
+  }
 }

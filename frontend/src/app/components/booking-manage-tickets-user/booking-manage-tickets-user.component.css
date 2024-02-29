@@ -1,27 +1,27 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .booking-manage-tickets-user-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .booking-manage-tickets-user-container1 {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 @media (max-width: 767px) {
-    .booking-manage-tickets-user-container1 {
-        width: 100%;
-        flex-direction: column;
-    }
+  .booking-manage-tickets-user-container1 {
+    width: 100%;
+    flex-direction: column;
+  }
 }

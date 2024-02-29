@@ -1,16 +1,16 @@
 <div
-        [ngClass]="rootClassName"
-        class="booking-ticket-history-component-container"
+  [ngClass]="rootClassName"
+  class="booking-ticket-history-component-container"
 >
-    <span class="subheading">{{ bookingHistoryTitle }}</span>
-    <div
-            class="booking-ticket-history-component-container1"
-            id="booking-history-user-entry-list"
-    >
-        <booking-ticket-history-entry-component
-                *ngFor="let ticket of tickets"
-                [ticketData]="ticket"
-                rootClassName="booking-ticket-history-entry-component-root-class-name1"
-        ></booking-ticket-history-entry-component>
-    </div>
+  <span class="subheading">{{ bookingHistoryTitle }}</span>
+  <div
+    class="booking-ticket-history-component-container1"
+    id="booking-history-user-entry-list"
+  >
+    <booking-ticket-history-entry-component
+      *ngFor="let ticket of tickets"
+      [ticketData]="ticket"
+      rootClassName="booking-ticket-history-entry-component-root-class-name1"
+    ></booking-ticket-history-entry-component>
+  </div>
 </div>

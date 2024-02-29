@@ -1,31 +1,31 @@
 <div [ngClass]="rootClassName" class="bike-stations-component-container">
-    <span class="heading">{{ bikeStationsTitle }}</span>
-    <searching-component
-            (search)="performSearch($event)"
-            [searchInputPlaceholder]="'Search for stations...'"
-            [visibleCreateButton]="false"
-            rootClassName="searching-component-root-class-name5"
-    ></searching-component>
-    <map-component
-            [stations]="filteredBikeStations"
-            rootClassName="map-component-root-class-name1">
-    </map-component>
+  <span class="heading">{{ bikeStationsTitle }}</span>
+  <searching-component
+    (search)="performSearch($event)"
+    [searchInputPlaceholder]="'Search for stations...'"
+    [visibleCreateButton]="false"
+    rootClassName="searching-component-root-class-name5"
+  ></searching-component>
+  <map-component
+    [stations]="filteredBikeStations"
+    rootClassName="map-component-root-class-name1">
+  </map-component>
+  <div class="bike-stations-component-container1">
     <div class="bike-stations-component-container1">
-        <div class="bike-stations-component-container1">
-            <bike-station-component
-                    (onStationUpdate)="handleStationUpdate()" *ngFor="let station of filteredBikeStations"
-                    [bikeStationDescription1]="station.description"
-                    [bikeStationId]="station.station_id"
-                    [bikeStationImageAlt]="station.station_name"
-                    [bikeStationImageSrc1]="station.station_image_location"
-                    [bikeStationLocation]="station.station_address"
-                    [bikeStationTitle]="station.station_name"
-                    [bikeStation]="station"
-                    rootClassName="bike-station-component-root-class-name"
-            ></bike-station-component>
-            <div *ngIf="bikeStations.length == 0">
-                <no-entries-component></no-entries-component>
-            </div>
-        </div>
+      <bike-station-component
+        (onStationUpdate)="handleStationUpdate()" *ngFor="let station of filteredBikeStations"
+        [bikeStationDescription1]="station.description"
+        [bikeStationId]="station.station_id"
+        [bikeStationImageAlt]="station.station_name"
+        [bikeStationImageSrc1]="station.station_image_location"
+        [bikeStationLocation]="station.station_address"
+        [bikeStationTitle]="station.station_name"
+        [bikeStation]="station"
+        rootClassName="bike-station-component-root-class-name"
+      ></bike-station-component>
+      <div *ngIf="bikeStations.length == 0">
+        <no-entries-component></no-entries-component>
+      </div>
     </div>
+  </div>
 </div>

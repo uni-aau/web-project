@@ -1,159 +1,159 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .book-ticket-popup-component-container {
-    width: 600px;
+  width: 600px;
 }
 
 .book-ticket-popup-component-text01 {
-    font-size: 24px;
-    margin-bottom: var(--dl-space-space-halfunit);
+  font-size: 24px;
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 
 .book-ticket-popup-component-container1 {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .book-ticket-popup-component-container2 {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 .book-ticket-popup-component-container3 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .book-ticket-popup-component-container4 {
-    flex: 0 0 auto;
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--dl-space-space-halfunit);
-    justify-content: flex-start;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
 }
 
 .book-ticket-popup-component-text02 {
-    align-self: center;
-    margin-right: var(--dl-space-space-halfunit);
+  align-self: center;
+  margin-right: var(--dl-space-space-halfunit);
 }
 
 .book-ticket-popup-component-icon {
-    width: 24px;
-    height: 24px;
-    transition: 0.3s;
+  width: 24px;
+  height: 24px;
+  transition: 0.3s;
 }
 
 .book-ticket-popup-component-container5 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .book-ticket-popup-component-text04 {
-    align-self: center;
+  align-self: center;
 }
 
 .book-ticket-popup-component-container6 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .book-ticket-popup-component-text06 {
-    align-self: center;
+  align-self: center;
 }
 
 .book-ticket-popup-component-container7 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .book-ticket-popup-component-text10 {
-    font-size: 22px;
-    font-style: normal;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 0px;
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0px;
 }
 
 .book-ticket-popup-component-text11 {
-    color: var(--dl-color-gray-500);
-    width: 100%;
-    text-align: center;
+  color: var(--dl-color-gray-500);
+  width: 100%;
+  text-align: center;
 }
 
 .book-ticket-popup-component-container8 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    margin-top: var(--dl-space-space-unit);
-    align-items: center;
-    padding-left: var(--dl-space-space-unit);
-    margin-bottom: var(--dl-space-space-halfunit);
-    justify-content: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-top: var(--dl-space-space-unit);
+  align-items: center;
+  padding-left: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  justify-content: flex-start;
 }
 
 .book-ticket-popup-component-button1 {
-    right: var(--dl-space-space-unit);
-    position: absolute;
+  right: var(--dl-space-space-unit);
+  position: absolute;
 }
 
 @media (max-width: 991px) {
-    .book-ticket-popup-component-container {
-        width: 100%;
-    }
+  .book-ticket-popup-component-container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 767px) {
-    .book-ticket-popup-component-container {
-        width: 100%;
-    }
+  .book-ticket-popup-component-container {
+    width: 100%;
+  }
 
-    .book-ticket-popup-component-container2 {
-        margin-bottom: var(--dl-space-space-unit);
-        flex-direction: column;
-    }
+  .book-ticket-popup-component-container2 {
+    margin-bottom: var(--dl-space-space-unit);
+    flex-direction: column;
+  }
 
-    .book-ticket-popup-component-container3 {
-        width: 100%;
-        margin-bottom: var(--dl-space-space-unit);
-    }
+  .book-ticket-popup-component-container3 {
+    width: 100%;
+    margin-bottom: var(--dl-space-space-unit);
+  }
 
-    .book-ticket-popup-component-container5 {
-        width: 100%;
-    }
+  .book-ticket-popup-component-container5 {
+    width: 100%;
+  }
 
-    .book-ticket-popup-component-container6 {
-        width: 100%;
-    }
+  .book-ticket-popup-component-container6 {
+    width: 100%;
+  }
 }
 
 @media (max-width: 479px) {
-    .book-ticket-popup-component-text02 {
-        width: 100%;
-    }
+  .book-ticket-popup-component-text02 {
+    width: 100%;
+  }
 }

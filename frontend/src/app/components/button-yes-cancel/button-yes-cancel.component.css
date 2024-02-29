@@ -1,29 +1,29 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .button-yes-cancel-container {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    position: relative;
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
 }
 
 .button-yes-cancel-container1 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
 }
 
 .button-yes-cancel-container2 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+  flex: 0 0 auto;
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 

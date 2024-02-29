@@ -1,5 +1,4 @@
 import {bootstrapApplication} from '@angular/platform-browser';
-import {appConfig} from './app/app.config';
 import {AppComponent} from './app/app.component';
 import {provideRouter, withHashLocation} from "@angular/router";
 import {
@@ -17,7 +16,6 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import {provideAnimations} from "@angular/platform-browser/animations";
 
 
-
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes, withHashLocation()),
@@ -27,9 +25,8 @@ bootstrapApplication(AppComponent, {
       withInterceptorsFromDi(),
       withFetch(),
       withInterceptors([spinnerInterceptor, authInterceptor]),
-
     ),
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
 })
   .catch((err) => console.error(err));

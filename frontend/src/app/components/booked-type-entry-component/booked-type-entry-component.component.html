@@ -1,38 +1,38 @@
 <div [ngClass]="rootClassName" class="booked-type-entry-component-container">
-    <div class="model-bike-category-main-component">
-        <div class="booked-type-entry-component-container2">
-            <span class="model-bike-category-title">{{ bookedTypeEntryTitle }}</span>
-            <span class="model-bike-category-general-text">
+  <div class="model-bike-category-main-component">
+    <div class="booked-type-entry-component-container2">
+      <span class="model-bike-category-title">{{ bookedTypeEntryTitle }}</span>
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryBookedType }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryBookingDate }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryRentingInformation }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryDueDate }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryStatus }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ bookedTypeEntryTicketId }}
       </span>
-        </div>
-        <div class="booked-type-entry-component-container3">
-            <button-show-qr-code (click)="openQrCode()"
-                                 rootClassName="button-show-qr-code-root-class-name"
-            ></button-show-qr-code>
-            <button-cancel-booking-component *ngIf="showRentButton"
-                                             rootClassName="button-cancel-booking-component-root-class-name"
-            ></button-cancel-booking-component>
-            <button-rent-bike-component
-                    (click)="performRent($event)"
-                    *ngIf="showRentButton"
-                    rootClassName="button-rent-bike-component-root-class-name1"
-            ></button-rent-bike-component>
-        </div>
     </div>
+    <div class="booked-type-entry-component-container3">
+      <button-show-qr-code (click)="openQrCode()"
+                           rootClassName="button-show-qr-code-root-class-name"
+      ></button-show-qr-code>
+      <button-cancel-booking-component *ngIf="showRentButton"
+                                       rootClassName="button-cancel-booking-component-root-class-name"
+      ></button-cancel-booking-component>
+      <button-rent-bike-component
+        (click)="performRent($event)"
+        *ngIf="showRentButton"
+        rootClassName="button-rent-bike-component-root-class-name1"
+      ></button-rent-bike-component>
+    </div>
+  </div>
 </div>

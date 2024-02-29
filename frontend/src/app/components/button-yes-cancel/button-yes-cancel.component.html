@@ -1,22 +1,22 @@
 <div [ngClass]="rootClassName" class="button-yes-cancel-container">
-    <div class="button-yes-cancel-container1">
-        <button
-                (click)="onConfirm()"
-                class="button-general button-green"
-                id="dialog-popup-yes-button"
-                type="button"
-        >
-            {{ dialogPopupButtonYes }}
-        </button>
-    </div>
-    <div class="button-yes-cancel-container2">
-        <button
-                (click)="onCancel()"
-                class="button button-red"
-                id="dialog-popup-abort-button"
-                type="button"
-        >
-            {{ dialogPopupButtonAbort }}
-        </button>
-    </div>
+  <div class="button-yes-cancel-container1">
+    <button
+      (click)="onConfirm()"
+      class="button-general button-green"
+      id="dialog-popup-yes-button"
+      type="button"
+    >
+      {{ dialogPopupButtonYes }}
+    </button>
+  </div>
+  <div class="button-yes-cancel-container2">
+    <button
+      (click)="onCancel()"
+      class="button button-red"
+      id="dialog-popup-abort-button"
+      type="button"
+    >
+      {{ dialogPopupButtonAbort }}
+    </button>
+  </div>
 </div>

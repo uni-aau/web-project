@@ -1,26 +1,27 @@
 <div
-        [ngClass]="rootClassName"
-        class="admin-bikes-management-component-container"
+  [ngClass]="rootClassName"
+  class="admin-bikes-management-component-container"
 >
-    <span class="heading">{{ adminBikesManagementTitle }}</span>
-    <searching-component (create)="performCreate()" (search)="performSearch($event)"
-                         [searchInputPlaceholder]="'Search for bikes...'"
-                         rootClassName="searching-component-root-class-name2"
-    ></searching-component>
+  <span class="heading">{{ adminBikesManagementTitle }}</span>
+  <searching-component (create)="performCreate()" (search)="performSearch($event)"
+                       [searchInputPlaceholder]="'Search for bikes...'"
+                       rootClassName="searching-component-root-class-name2"
+  ></searching-component>
 
-    <div *ngIf="bikes.length == 0">
-        <no-entries-component></no-entries-component>
-    </div>
+  <div *ngIf="bikes.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
 
-    <div
-            *ngIf="bikes.length > 0"
-            class="admin-bikes-management-component-container1"
-            id="manage-bikes-entry-list-container"
-    >
-        <bike-component (onBikeDelete)="handleBikeDelete($event)" (onBikeUpdate)="handleUpdatedBike()" *ngFor="let bike of filteredBikes"
-                        [bikeData]="bike" [visibleBookButton]="false"
-                        rootClassName="bike-component-root-class-name8"
+  <div
+    *ngIf="bikes.length > 0"
+    class="admin-bikes-management-component-container1"
+    id="manage-bikes-entry-list-container"
+  >
+    <bike-component (onBikeDelete)="handleBikeDelete($event)" (onBikeUpdate)="handleUpdatedBike()"
+                    *ngFor="let bike of filteredBikes"
+                    [bikeData]="bike" [visibleBookButton]="false"
+                    rootClassName="bike-component-root-class-name8"
 
-        ></bike-component>
-    </div>
+    ></bike-component>
+  </div>
 </div>

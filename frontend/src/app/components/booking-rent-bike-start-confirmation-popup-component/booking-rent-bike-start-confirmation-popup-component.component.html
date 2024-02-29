@@ -1,34 +1,34 @@
 <div class="booking-rent-bike-start-confirmation-popup-component-container">
   <span
-          class="booking-rent-bike-start-confirmation-popup-component-text heading"
+    class="booking-rent-bike-start-confirmation-popup-component-text heading"
   >
     {{ bookingRentBikeStartConfirmationTitle }}
   </span>
-    <span class="booking-rent-bike-start-confirmation-popup-component-text1">
+  <span class="booking-rent-bike-start-confirmation-popup-component-text1">
     {{ bookingRentBikeStartConfirmationHint }}
   </span>
-    <div class="booking-rent-bike-start-confirmation-popup-component-container1">
+  <div class="booking-rent-bike-start-confirmation-popup-component-container1">
     <span
-            class="booking-rent-bike-start-confirmation-popup-component-text2 model-bike-category-general-text"
+      class="booking-rent-bike-start-confirmation-popup-component-text2 model-bike-category-general-text"
     >
       {{ bookingRentBikeStartConfirmationSelectedBike }}
     </span>
-        <span class="model-bike-category-general-text">
+    <span class="model-bike-category-general-text">
       {{ bookingRentBikeStartConfirmationParkingPlace }}
     </span>
-        <span class="model-bike-category-general-text">
+    <span class="model-bike-category-general-text">
       {{ bookingRentBikeStartConfirmationBookedType }}
     </span>
-        <span class="model-bike-category-general-text">
+    <span class="model-bike-category-general-text">
       {{ bookingRentBikeStartConfirmationRentingTime }}
     </span>
-        <span class="model-bike-category-general-text">
+    <span class="model-bike-category-general-text">
       {{ bookingRentBikeStartConfirmationTicketID }}
     </span>
-    </div>
-    <button-yes-cancel
-            (cancel)="performCancel($event)"
-            (confirm)="performConfirm($event)"
-            rootClassName="button-yes-cancel-root-class-name"
-    ></button-yes-cancel>
+  </div>
+  <button-yes-cancel
+    (cancel)="performCancel($event)"
+    (confirm)="performConfirm($event)"
+    rootClassName="button-yes-cancel-root-class-name"
+  ></button-yes-cancel>
 </div>

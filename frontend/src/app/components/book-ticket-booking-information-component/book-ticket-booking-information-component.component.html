@@ -1,38 +1,38 @@
 <div [ngClass]="rootClassName" class="booking-information-component">
-    <div class="book-ticket-booking-information-component-container1">
-        <div class="book-ticket-booking-information-component-container2">
+  <div class="book-ticket-booking-information-component-container1">
+    <div class="book-ticket-booking-information-component-container2">
       <span
-              class="book-ticket-booking-information-component-text input-label-text"
+        class="book-ticket-booking-information-component-text input-label-text"
       >
         {{ bookTicketBookingInformationImmediateBooking }}
       </span>
-            <svg
-                    class="book-ticket-booking-information-component-icon"
-                    viewBox="0 0 1024 1024"
-            >
-                <path
-                        d="M470 384v-86h84v86h-84zM512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM470 726v-256h84v256h-84z"
-                ></path>
-            </svg>
-        </div>
-        <input
-                checked="true"
-                class="checkbox-style"
-                id="book-ticket-immediate-checkbox"
-                type="checkbox"
-        />
+      <svg
+        class="book-ticket-booking-information-component-icon"
+        viewBox="0 0 1024 1024"
+      >
+        <path
+          d="M470 384v-86h84v86h-84zM512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM470 726v-256h84v256h-84z"
+        ></path>
+      </svg>
     </div>
-    <div class="book-ticket-booking-information-component-container3">
+    <input
+      checked="true"
+      class="checkbox-style"
+      id="book-ticket-immediate-checkbox"
+      type="checkbox"
+    />
+  </div>
+  <div class="book-ticket-booking-information-component-container3">
     <span
-            class="book-ticket-booking-information-component-text1 input-label-text"
+      class="book-ticket-booking-information-component-text1 input-label-text"
     >
       {{ bookTicketBookingInformationLabelBookingTime }}
     </span>
-        <input
-                [attr.placeholder]="bookTicketBookingInformationInputPlaceholderBookingTime"
-                class="input"
-                id="book-ticket-booking-date-picker"
-                type="datetime-local"
-        />
-    </div>
+    <input
+      [attr.placeholder]="bookTicketBookingInformationInputPlaceholderBookingTime"
+      class="input"
+      id="book-ticket-booking-date-picker"
+      type="datetime-local"
+    />
+  </div>
 </div>

@@ -1,35 +1,35 @@
 <div class="return-bike-popup-component-container popup-container">
-    <span class="popup-heading">{{ returnBikeTitle }}</span>
-    <div class="return-bike-popup-component-container1">
-        <div class="return-bike-popup-component-container2">
-            <div class="return-bike-popup-component-container3">
+  <span class="popup-heading">{{ returnBikeTitle }}</span>
+  <div class="return-bike-popup-component-container1">
+    <div class="return-bike-popup-component-container2">
+      <div class="return-bike-popup-component-container3">
         <span class="return-bike-popup-component-text1 input-label-text">
           {{ returnBikeTicketId }}
         </span>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="return-bike-popup-component-container4">
-        <div class="return-bike-popup-component-container5">
-            <span class="input-label-text">{{ returnBikeLabelBikeStation }}</span>
-            <select
-                    (change)="handleSelect($event)"
-                    class="return-bike-popup-component-select selector-style"
-                    id="manage-bike-models-selector"
-            >
-                <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
-                <option *ngFor="let station of bikeStations"
-                        [value]="station.station_id">{{station.station_name}}</option>
-            </select>
-            <span class="input-error-hint">{{ returnBikeError }}</span>
-        </div>
-        <div class="return-bike-popup-component-container6">
+  </div>
+  <div class="return-bike-popup-component-container4">
+    <div class="return-bike-popup-component-container5">
+      <span class="input-label-text">{{ returnBikeLabelBikeStation }}</span>
+      <select
+        (change)="handleSelect($event)"
+        class="return-bike-popup-component-select selector-style"
+        id="manage-bike-models-selector"
+      >
+        <option [value]="-1">{{adminAssignBikeSelectorGeneralSelection}}</option>
+        <option *ngFor="let station of bikeStations"
+                [value]="station.station_id">{{station.station_name}}</option>
+      </select>
+      <span class="input-error-hint">{{ returnBikeError }}</span>
+    </div>
+    <div class="return-bike-popup-component-container6">
       <span class="return-bike-popup-component-text4 input-label-text">
         {{ returnBikeParkingPlace }}
       </span>
-        </div>
     </div>
-    <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
-                                   rootClassName="button-save-discard-component-root-class-name2"
-    ></button-save-discard-component>
+  </div>
+  <button-save-discard-component (cancel)="handleCancel()" (confirm)="handleConfirm()"
+                                 rootClassName="button-save-discard-component-root-class-name2"
+  ></button-save-discard-component>
 </div>

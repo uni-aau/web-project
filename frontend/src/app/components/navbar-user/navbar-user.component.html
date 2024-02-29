@@ -1,100 +1,100 @@
 <div [ngClass]="rootClassName" class="navbar-user-container">
-    <header class="navbar-general" data-thq="thq-navbar">
-        <a routerLink="/">
-            <img
-                    [attr.alt]="userNavbarLogoImageAlt"
-                    [attr.src]="userNavbarLogo"
-                    class="navbar-user-image"
-            />
+  <header class="navbar-general" data-thq="thq-navbar">
+    <a routerLink="/">
+      <img
+        [attr.alt]="userNavbarLogoImageAlt"
+        [attr.src]="userNavbarLogo"
+        class="navbar-user-image"
+      />
+    </a>
+    <div class="navbar-user-desktop-menu" data-thq="thq-navbar-nav">
+      <nav class="navbar-user-links">
+        <a class="navbar-links-style" routerLink="/">
+          {{ userNavbarLinkAbout }}
         </a>
-        <div class="navbar-user-desktop-menu" data-thq="thq-navbar-nav">
-            <nav class="navbar-user-links">
-                <a class="navbar-links-style" routerLink="/">
-                    {{ userNavbarLinkAbout }}
-                </a>
-                <a class="navbar-links-style" routerLink="/bike-stations">
-                    {{ userNavbarLinkBikeStations }}
-                </a>
-                <a class="navbar-links-style" routerLink="/manage-tickets-user">
-                    {{ userNavbarLinkYourTickets }}
-                </a>
-                <a
-                        class="navbar-user-navlink04 navbar-links-style"
-                        routerLink="/active-rentals"
-                >
-                    {{ userNavbarLinkRentedBikes }}
-                </a>
-            </nav>
-            <div class="navbar-user-buttons">
-                <a class="navbar-user-navlink05" routerLink="/account">
-                    <img
-                            [attr.alt]="userNavbarSettingsImageAlt"
-                            [attr.src]="userNavbarSettingsImageSrc"
-                            class="navbar-user-image1"
-                    />
-                </a>
-                <button (click)="authService.logout()" class="button navbar-user-button" type="button">
-                    {{ userNavbarButtonLogout }}
-                </button>
-            </div>
-        </div>
-        <div class="navbar-user-burger-menu" data-thq="thq-burger-menu">
-            <svg class="navbar-user-icon" viewBox="0 0 1024 1024">
-                <path
-                        d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-                ></path>
-            </svg>
-        </div>
-        <div
-                class="navbar-user-mobile-menu navbar-general-mobile"
-                data-thq="thq-mobile-menu"
+        <a class="navbar-links-style" routerLink="/bike-stations">
+          {{ userNavbarLinkBikeStations }}
+        </a>
+        <a class="navbar-links-style" routerLink="/manage-tickets-user">
+          {{ userNavbarLinkYourTickets }}
+        </a>
+        <a
+          class="navbar-user-navlink04 navbar-links-style"
+          routerLink="/active-rentals"
         >
-            <div class="navbar-user-nav">
-                <div class="navbar-user-top">
-                    <img
-                            [attr.alt]="userNavbarLogoImageAlt"
-                            [attr.src]="userNavbarLogo"
-                            class="navbar-user-logo"
-                    />
-                    <div class="navbar-user-close-menu" data-thq="thq-close-menu">
-                        <svg class="navbar-user-icon2" viewBox="0 0 1024 1024">
-                            <path
-                                    d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                            ></path>
-                        </svg>
-                    </div>
-                </div>
-                <nav class="navbar-user-links1">
-                    <a class="navbar-links-style-mobile" routerLink="/">
-                        {{ userNavbarLinkAbout }}
-                    </a>
-                    <a class="navbar-links-style-mobile" routerLink="/bike-stations">
-                        {{ userNavbarLinkBikeStations }}
-                    </a>
-                    <a
-                            class="navbar-links-style-mobile"
-                            routerLink="/manage-tickets-user"
-                    >
-                        {{ userNavbarLinkYourTickets }}
-                    </a>
-                    <a
-                            class="navbar-user-navlink09 navbar-links-style-mobile"
-                            routerLink="/active-rentals"
-                    >
-                        {{ userNavbarLinkRentedBikes }}
-                    </a>
-                </nav>
-                <div class="navbar-user-buttons1">
-                    <a class="navbar-user-navlink10" routerLink="/account">
-                        <img
-                                [attr.alt]="userNavbarSettingsImageAlt"
-                                [attr.src]="userNavbarSettingsImageSrc"
-                                class="navbar-user-image2"
-                        />
-                    </a>
-                    <button class="button">{{ userNavbarButtonLogout }}</button>
-                </div>
-            </div>
+          {{ userNavbarLinkRentedBikes }}
+        </a>
+      </nav>
+      <div class="navbar-user-buttons">
+        <a class="navbar-user-navlink05" routerLink="/account">
+          <img
+            [attr.alt]="userNavbarSettingsImageAlt"
+            [attr.src]="userNavbarSettingsImageSrc"
+            class="navbar-user-image1"
+          />
+        </a>
+        <button (click)="authService.logout()" class="button navbar-user-button" type="button">
+          {{ userNavbarButtonLogout }}
+        </button>
+      </div>
+    </div>
+    <div class="navbar-user-burger-menu" data-thq="thq-burger-menu">
+      <svg class="navbar-user-icon" viewBox="0 0 1024 1024">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+        ></path>
+      </svg>
+    </div>
+    <div
+      class="navbar-user-mobile-menu navbar-general-mobile"
+      data-thq="thq-mobile-menu"
+    >
+      <div class="navbar-user-nav">
+        <div class="navbar-user-top">
+          <img
+            [attr.alt]="userNavbarLogoImageAlt"
+            [attr.src]="userNavbarLogo"
+            class="navbar-user-logo"
+          />
+          <div class="navbar-user-close-menu" data-thq="thq-close-menu">
+            <svg class="navbar-user-icon2" viewBox="0 0 1024 1024">
+              <path
+                d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+              ></path>
+            </svg>
+          </div>
         </div>
-    </header>
+        <nav class="navbar-user-links1">
+          <a class="navbar-links-style-mobile" routerLink="/">
+            {{ userNavbarLinkAbout }}
+          </a>
+          <a class="navbar-links-style-mobile" routerLink="/bike-stations">
+            {{ userNavbarLinkBikeStations }}
+          </a>
+          <a
+            class="navbar-links-style-mobile"
+            routerLink="/manage-tickets-user"
+          >
+            {{ userNavbarLinkYourTickets }}
+          </a>
+          <a
+            class="navbar-user-navlink09 navbar-links-style-mobile"
+            routerLink="/active-rentals"
+          >
+            {{ userNavbarLinkRentedBikes }}
+          </a>
+        </nav>
+        <div class="navbar-user-buttons1">
+          <a class="navbar-user-navlink10" routerLink="/account">
+            <img
+              [attr.alt]="userNavbarSettingsImageAlt"
+              [attr.src]="userNavbarSettingsImageSrc"
+              class="navbar-user-image2"
+            />
+          </a>
+          <button class="button">{{ userNavbarButtonLogout }}</button>
+        </div>
+      </div>
+    </div>
+  </header>
 </div>

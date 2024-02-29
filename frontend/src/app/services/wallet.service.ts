@@ -5,31 +5,31 @@ import {Observable} from "rxjs";
 const baseURL = "http://localhost:3000/api/wallets"
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class WalletService {
 
-    constructor(private http: HttpClient) {
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    depositMoney(value: number) {
-        return this.http.put(`${baseURL}/deposit-money`, {amount: value});
-    }
+  depositMoney(value: number) {
+    return this.http.put(`${baseURL}/deposit-money`, {amount: value});
+  }
 
-    fetchWalletBalance(): Observable<any> {
-        return this.http.get(`${baseURL}/balance`);
-    }
+  fetchWalletBalance(): Observable<any> {
+    return this.http.get(`${baseURL}/balance`);
+  }
 
-    hasBankAccountConnected(): Observable<any> {
-        return this.http.get(`${baseURL}/bank-connection`);
-    }
+  hasBankAccountConnected(): Observable<any> {
+    return this.http.get(`${baseURL}/bank-connection`);
+  }
 
-    connectBankAccount(): Observable<any> {
-        return this.http.put(`${baseURL}/connect`, {});
-    }
+  connectBankAccount(): Observable<any> {
+    return this.http.put(`${baseURL}/connect`, {});
+  }
 
-    disconnectBankAccount(): Observable<any> {
-        return this.http.put(`${baseURL}/disconnect`, {})
-    }
+  disconnectBankAccount(): Observable<any> {
+    return this.http.put(`${baseURL}/disconnect`, {})
+  }
 
 }

@@ -1,48 +1,48 @@
 <script src="login-component.component.ts"></script>
 <form (ngSubmit)="login(username.value, password.value)" [ngClass]="rootClassName" class="login-component-container">
-    <login-register-image-component
-            rootClassName="login-register-image-component-root-class-name"
-    ></login-register-image-component>
-    <div class="login-component-container1">
-        <span class="input-label-text">{{ loginInputLabelUsername }}</span>
-        <input
-                #username="ngModel"
-                [attr.placeholder]="loginInputPlaceholderUsername"
-                class="login-component-textinput input"
-                id="login-username-input"
-                name="username"
-                ngModel
-                required="true"
-                type="text"
-        />
-        <span class="input-label-text">{{ loginInputLabelPassword }}</span>
-        <input
-                #password="ngModel"
-                [attr.placeholder]="loginInputPlaceholderPassword"
-                class="login-component-textinput1 input"
-                id="login-password-input"
-                name="password"
-                ngModel
-                required="true"
-                type="password"
-        />
-        <a
-                class="login-component-navlink link-text-font"
-                routerLink="/reset-password"
-        >
-            {{ loginForgotPasswordText }}
-        </a>
-        <span class="login-component-text2 input-error-hint">{{ loginError }}</span>
-    </div>
-    <button
-            class="login-component-button button button-blue"
-            id="login-button"
-            type="submit"
+  <login-register-image-component
+    rootClassName="login-register-image-component-root-class-name"
+  ></login-register-image-component>
+  <div class="login-component-container1">
+    <span class="input-label-text">{{ loginInputLabelUsername }}</span>
+    <input
+      #username="ngModel"
+      [attr.placeholder]="loginInputPlaceholderUsername"
+      class="login-component-textinput input"
+      id="login-username-input"
+      name="username"
+      ngModel
+      required="true"
+      type="text"
+    />
+    <span class="input-label-text">{{ loginInputLabelPassword }}</span>
+    <input
+      #password="ngModel"
+      [attr.placeholder]="loginInputPlaceholderPassword"
+      class="login-component-textinput1 input"
+      id="login-password-input"
+      name="password"
+      ngModel
+      required="true"
+      type="password"
+    />
+    <a
+      class="login-component-navlink link-text-font"
+      routerLink="/reset-password"
     >
-        {{ loginButtonLogin }}
-    </button>
-    <span class="login-component-text3">{{ loginNoAccount }}</span>
-    <a class="login-component-navlink1 link-text-font" routerLink="/register">
-        {{ loginNoAccountSubText }}
+      {{ loginForgotPasswordText }}
     </a>
+    <span class="login-component-text2 input-error-hint">{{ loginError }}</span>
+  </div>
+  <button
+    class="login-component-button button button-blue"
+    id="login-button"
+    type="submit"
+  >
+    {{ loginButtonLogin }}
+  </button>
+  <span class="login-component-text3">{{ loginNoAccount }}</span>
+  <a class="login-component-navlink1 link-text-font" routerLink="/register">
+    {{ loginNoAccountSubText }}
+  </a>
 </form>

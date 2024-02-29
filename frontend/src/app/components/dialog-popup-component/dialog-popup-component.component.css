@@ -1,17 +1,17 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .dialog-popup-component-container {
-    width: 500px;
+  width: 500px;
 }
 
 .dialog-popup-component-text1 {
-    margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-twounits);
 }
 
 @media (max-width: 767px) {
-    .dialog-popup-component-container {
-        width: 100%;
-    }
+  .dialog-popup-component-container {
+    width: 100%;
+  }
 }

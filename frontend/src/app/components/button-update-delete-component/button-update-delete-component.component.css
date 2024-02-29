@@ -1,17 +1,17 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .button-update-delete-component-container {
-    width: auto;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-items: flex-start;
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
 }
 
 .button-update-delete-component-button {
-    margin-right: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
 }
 
 

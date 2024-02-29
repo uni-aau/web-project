@@ -1,12 +1,12 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .button-manual-bike-return-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 

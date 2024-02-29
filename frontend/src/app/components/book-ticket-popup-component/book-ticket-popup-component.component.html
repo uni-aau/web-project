@@ -1,95 +1,95 @@
 <div class="book-ticket-popup-component-container popup-container">
-    <span class="popup-heading">{{ bookTicketPopupTitle }}</span>
-    <span class="book-ticket-popup-component-text01 subheading">
+  <span class="popup-heading">{{ bookTicketPopupTitle }}</span>
+  <span class="book-ticket-popup-component-text01 subheading">
     {{ bookTicketPopupSubtitleBookingInfo }}
   </span>
-    <div
-            class="book-ticket-popup-component-container1 booking-information-component"
-    >
-        <div class="book-ticket-popup-component-container2">
-            <div class="book-ticket-popup-component-container3">
-                <div class="book-ticket-popup-component-container4">
+  <div
+    class="book-ticket-popup-component-container1 booking-information-component"
+  >
+    <div class="book-ticket-popup-component-container2">
+      <div class="book-ticket-popup-component-container3">
+        <div class="book-ticket-popup-component-container4">
           <span class="book-ticket-popup-component-text02 input-label-text">
             {{ bookTicketBookingInformationImmediateBooking }}
           </span>
-                    <svg class="book-ticket-popup-component-icon" viewBox="0 0 1024 1024">
-                        <path
-                                d="M470 384v-86h84v86h-84zM512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM470 726v-256h84v256h-84z"
-                        ></path>
-                    </svg>
-                </div>
-                <input
-                        [(ngModel)]="immediateBooking"
-                        checked="true"
-                        class="checkbox-style"
-                        id="book-ticket-immediate-checkbox"
-                        type="checkbox"
-                />
-                <span class="input-error-hint">{{ bookTicketCheckboxError }}</span>
-            </div>
-            <div class="book-ticket-popup-component-container5">
+          <svg class="book-ticket-popup-component-icon" viewBox="0 0 1024 1024">
+            <path
+              d="M470 384v-86h84v86h-84zM512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM470 726v-256h84v256h-84z"
+            ></path>
+          </svg>
+        </div>
+        <input
+          [(ngModel)]="immediateBooking"
+          checked="true"
+          class="checkbox-style"
+          id="book-ticket-immediate-checkbox"
+          type="checkbox"
+        />
+        <span class="input-error-hint">{{ bookTicketCheckboxError }}</span>
+      </div>
+      <div class="book-ticket-popup-component-container5">
         <span class="book-ticket-popup-component-text04 input-label-text">
           {{ bookTicketBookingInformationLabelBookingTime }}
         </span>
-                <input
-                        [(ngModel)]="formattedBookingDate"
-                        [attr.placeholder]="bookTicketBookingInformationInputPlaceholderBookingTime"
-                        [disabled]="immediateBooking"
-                        class="input"
-                        id="book-ticket-booking-date-picker"
-                        type="datetime-local"
-                />
-                <span class="input-error-hint">{{ bookTicketBookingTimeError }}</span>
-            </div>
-        </div>
-        <div class="book-ticket-popup-component-container6">
+        <input
+          [(ngModel)]="formattedBookingDate"
+          [attr.placeholder]="bookTicketBookingInformationInputPlaceholderBookingTime"
+          [disabled]="immediateBooking"
+          class="input"
+          id="book-ticket-booking-date-picker"
+          type="datetime-local"
+        />
+        <span class="input-error-hint">{{ bookTicketBookingTimeError }}</span>
+      </div>
+    </div>
+    <div class="book-ticket-popup-component-container6">
       <span class="book-ticket-popup-component-text06 input-label-text">
         {{ bookTicketRentingInformationLabelRentDuration }}
       </span>
-            <input
-                    (change)="updateTotalPrice()"
-                    [(ngModel)]="bookingDuration"
-                    [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
-                    class="input"
-                    id="book-ticket-rent-duration-time-picker"
-                    type="time"
-            />
-            <span class="input-error-hint">{{ bookTicketRentDurationError }}</span>
-        </div>
+      <input
+        (change)="updateTotalPrice()"
+        [(ngModel)]="bookingDuration"
+        [attr.placeholder]="bookTicketInputPlaceholderRentingInformation"
+        class="input"
+        id="book-ticket-rent-duration-time-picker"
+        type="time"
+      />
+      <span class="input-error-hint">{{ bookTicketRentDurationError }}</span>
     </div>
-    <div class="book-ticket-popup-component-container7">
+  </div>
+  <div class="book-ticket-popup-component-container7">
     <span class="model-bike-category-general-text">
       {{ bookTicketPopupCategory }}
     </span>
-        <span class="model-bike-category-general-text">
+    <span class="model-bike-category-general-text">
       {{ bookTicketPopupName }}
     </span>
-        <span
-                class="book-ticket-popup-component-text10 model-bike-category-general-text"
-        >
+    <span
+      class="book-ticket-popup-component-text10 model-bike-category-general-text"
+    >
       {{ bookTicketPopupTotalPrice }}
     </span>
-    </div>
-    <span class="book-ticket-popup-component-text11">
+  </div>
+  <span class="book-ticket-popup-component-text11">
     {{ bookTicketPopupNewWalletAmount }}
   </span>
-    <span class="input-error-hint">{{ bookTicketWalletError }}</span>
-    <div class="book-ticket-popup-component-container8">
-        <button
-                (click)="performBook()"
-                class="button-general button-green"
-                id="book-ticket-button"
-                type="button"
-        >
-            {{ bookTicketPopupButtonBook }}
-        </button>
-        <button
-                (click)="performCancel()"
-                class="book-ticket-popup-component-button1 button-general button-red"
-                id="book-ticket-discard-button"
-                type="button"
-        >
-            {{ bookTicketPopupButtonDiscard }}
-        </button>
-    </div>
+  <span class="input-error-hint">{{ bookTicketWalletError }}</span>
+  <div class="book-ticket-popup-component-container8">
+    <button
+      (click)="performBook()"
+      class="button-general button-green"
+      id="book-ticket-button"
+      type="button"
+    >
+      {{ bookTicketPopupButtonBook }}
+    </button>
+    <button
+      (click)="performCancel()"
+      class="book-ticket-popup-component-button1 button-general button-red"
+      id="book-ticket-discard-button"
+      type="button"
+    >
+      {{ bookTicketPopupButtonDiscard }}
+    </button>
+  </div>
 </div>

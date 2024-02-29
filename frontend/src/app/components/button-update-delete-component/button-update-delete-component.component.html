@@ -1,16 +1,16 @@
 <div
-        [ngClass]="rootClassName"
-        class="button-update-delete-component-container button-container"
+  [ngClass]="rootClassName"
+  class="button-update-delete-component-container button-container"
 >
-    <button
-            (click)="updateButtonClicked()"
-            class="button-update-delete-component-button button-blue button-general"
-            id="update-button"
-            type="button"
-    >
-        {{ adminCategoryButtonUpdate }}
-    </button>
-    <button (click)="deleteButtonClicked()" class="button-general button-red" id="delete-button" type="button">
-        {{ adminCategoryButtonDelete }}
-    </button>
+  <button
+    (click)="updateButtonClicked()"
+    class="button-update-delete-component-button button-blue button-general"
+    id="update-button"
+    type="button"
+  >
+    {{ adminCategoryButtonUpdate }}
+  </button>
+  <button (click)="deleteButtonClicked()" class="button-general button-red" id="delete-button" type="button">
+    {{ adminCategoryButtonDelete }}
+  </button>
 </div>

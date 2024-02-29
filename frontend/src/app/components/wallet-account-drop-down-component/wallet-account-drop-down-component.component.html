@@ -1,82 +1,82 @@
 <div [ngClass]="rootClassName" class="drop-down-component">
-    <div class="drop-down-main-element">
-        <div class="drop-down-toggle-main">
-            <svg
-                    class="wallet-account-drop-down-component-icon"
-                    viewBox="0 0 1024 1024"
-            >
-                <path
-                        d="M504 466q44 12 73 24t61 33 49 53 17 76q0 62-41 101t-109 51v92h-128v-92q-66-14-109-56t-47-108h94q8 90 126 90 62 0 89-23t27-53q0-72-128-104-200-46-200-176 0-58 42-99t106-55v-92h128v94q66 16 101 60t37 102h-94q-4-90-108-90-52 0-83 22t-31 58q0 58 128 92z"
-                ></path>
-            </svg>
-            <span class="drop-down-title">{{ walletSettingsTitle }}</span>
-            <div class="drop-down-arrow">
-                <svg class="arrow-style" viewBox="0 0 1024 1024">
-                    <path d="M298 426h428l-214 214z"></path>
-                </svg>
-            </div>
-        </div>
+  <div class="drop-down-main-element">
+    <div class="drop-down-toggle-main">
+      <svg
+        class="wallet-account-drop-down-component-icon"
+        viewBox="0 0 1024 1024"
+      >
+        <path
+          d="M504 466q44 12 73 24t61 33 49 53 17 76q0 62-41 101t-109 51v92h-128v-92q-66-14-109-56t-47-108h94q8 90 126 90 62 0 89-23t27-53q0-72-128-104-200-46-200-176 0-58 42-99t106-55v-92h128v94q66 16 101 60t37 102h-94q-4-90-108-90-52 0-83 22t-31 58q0 58 128 92z"
+        ></path>
+      </svg>
+      <span class="drop-down-title">{{ walletSettingsTitle }}</span>
+      <div class="drop-down-arrow">
+        <svg class="arrow-style" viewBox="0 0 1024 1024">
+          <path d="M298 426h428l-214 214z"></path>
+        </svg>
+      </div>
     </div>
-    <div class="drop-down-list">
-        <div class="drop-down-list-drop-down">
-            <div class="drop-down-toggle">
-                <div class="drop-down-container-style" id="deposit-money-container">
+  </div>
+  <div class="drop-down-list">
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div class="drop-down-container-style" id="deposit-money-container">
           <span class="wallet-account-drop-down-component-text1">
             {{ walletSettingsTitleDepositMoney }}
           </span>
-                    <span class="wallet-account-drop-down-component-text2">
+          <span class="wallet-account-drop-down-component-text2">
             {{ walletSettingsMoneyAmount }}
           </span>
-                    <span class="wallet-account-drop-down-component-text3">
+          <span class="wallet-account-drop-down-component-text3">
             {{ walletSettingsDepositMoneySubtitle }}
           </span>
-                    <button
-                            (click)="depositMoney()"
-                            class="button-account-settings button-blue button-general"
-                            id="wallet-deposit-money-button"
-                            type="button"
-                    >
-                        {{ walletSettingsButtonDepositMoney }}
-                    </button>
-                    <span
-                            class="wallet-account-drop-down-component-text4 input-error-hint"
-                    >
+          <button
+            (click)="depositMoney()"
+            class="button-account-settings button-blue button-general"
+            id="wallet-deposit-money-button"
+            type="button"
+          >
+            {{ walletSettingsButtonDepositMoney }}
+          </button>
+          <span
+            class="wallet-account-drop-down-component-text4 input-error-hint"
+          >
             {{ walletSettingsDepositMoneyError }}
           </span>
-                </div>
-            </div>
         </div>
-        <div class="drop-down-list-drop-down">
-            <div class="drop-down-toggle">
-                <div class="drop-down-container-style" id="toggle-wallet-container">
+      </div>
+    </div>
+    <div class="drop-down-list-drop-down">
+      <div class="drop-down-toggle">
+        <div class="drop-down-container-style" id="toggle-wallet-container">
           <span class="wallet-account-drop-down-component-text5">
             {{ walletSettingsTitleConnectWallet }}
           </span>
-                    <span class="wallet-account-drop-down-component-text6">
+          <span class="wallet-account-drop-down-component-text6">
             {{ walletSettingsConnectWalletSubtitle }}
           </span>
-                    <div class="wallet-account-drop-down-component-container09">
-                        <button
-                                (click)="connectBankAccount()"
-                                [disabled]="connectedBankAccount"
-                                class="wallet-account-drop-down-component-button1 button-general button-green"
-                                id="wallet-connect-wallet-button"
-                                type="button"
-                        >
-                            {{ walletSettingsButtonConnectWallet }}
-                        </button>
-                        <button
-                                (click)="removeBankAccount()"
-                                [disabled]="!connectedBankAccount"
-                                class="wallet-account-drop-down-component-button2 button-general button-red"
-                                id="wallet-remove-wallet-button"
-                                type="button"
-                        >
-                            {{ walletSettingsButtonRemoveWallet }}
-                        </button>
-                    </div>
-                </div>
-            </div>
+          <div class="wallet-account-drop-down-component-container09">
+            <button
+              (click)="connectBankAccount()"
+              [disabled]="connectedBankAccount"
+              class="wallet-account-drop-down-component-button1 button-general button-green"
+              id="wallet-connect-wallet-button"
+              type="button"
+            >
+              {{ walletSettingsButtonConnectWallet }}
+            </button>
+            <button
+              (click)="removeBankAccount()"
+              [disabled]="!connectedBankAccount"
+              class="wallet-account-drop-down-component-button2 button-general button-red"
+              id="wallet-remove-wallet-button"
+              type="button"
+            >
+              {{ walletSettingsButtonRemoveWallet }}
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

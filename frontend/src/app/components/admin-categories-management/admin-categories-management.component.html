@@ -1,23 +1,23 @@
 <div [ngClass]="rootClassName" class="admin-categories-management-container">
-    <span class="heading">{{ adminManageCategoriesTitle }}</span>
-    <searching-component (create)="performCreate()" (search)="performSearch($event)"
-                         [searchInputPlaceholder]="'Search for categories...'"
-                         rootClassName="searching-component-root-class-name3"
-    ></searching-component>
+  <span class="heading">{{ adminManageCategoriesTitle }}</span>
+  <searching-component (create)="performCreate()" (search)="performSearch($event)"
+                       [searchInputPlaceholder]="'Search for categories...'"
+                       rootClassName="searching-component-root-class-name3"
+  ></searching-component>
 
-    <div *ngIf="categories.length == 0">
-        <no-entries-component></no-entries-component>
-    </div>
+  <div *ngIf="categories.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
 
-    <div
-            *ngIf="categories.length > 0"
-            class="admin-categories-management-container1"
-            id="manage-categories-entry-list-container"
-    >
-        <category-component (onCategoryDelete)="handleCategoryDelete()" (onCategoryUpdate)="handleUpdatedCategory()"
-                            *ngFor="let category of filteredCategories" [categoryData]="category"
-                            [visibleBookButton]="false"
-                            rootClassName="category-component-root-class-name3"
-        ></category-component>
-    </div>
+  <div
+    *ngIf="categories.length > 0"
+    class="admin-categories-management-container1"
+    id="manage-categories-entry-list-container"
+  >
+    <category-component (onCategoryDelete)="handleCategoryDelete()" (onCategoryUpdate)="handleUpdatedCategory()"
+                        *ngFor="let category of filteredCategories" [categoryData]="category"
+                        [visibleBookButton]="false"
+                        rootClassName="category-component-root-class-name3"
+    ></category-component>
+  </div>
 </div>

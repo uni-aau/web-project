@@ -1,57 +1,57 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .admin-manage-category-popup-component-container {
-    width: 500px;
+  width: 500px;
 }
 
 .admin-manage-category-popup-component-form {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--dl-space-space-unit);
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: center;
 }
 
 .admin-manage-category-popup-component-container1 {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 .admin-manage-category-popup-component-container2 {
-    flex: 0 0 auto;
-    width: 65%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    padding-right: var(--dl-space-space-halfunit);
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 65%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
 }
 
 .admin-manage-category-popup-component-textinput {
-    width: 100%;
+  width: 100%;
 }
 
 .admin-manage-category-popup-component-container3 {
-    flex: 0 0 auto;
-    width: 35%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 35%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .admin-manage-category-popup-component-textinput1 {
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
-    .admin-manage-category-popup-component-container {
-        width: 100%;
-    }
+  .admin-manage-category-popup-component-container {
+    width: 100%;
+  }
 }

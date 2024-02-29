@@ -1,15 +1,15 @@
 <div
-        [ngClass]="rootClassName"
-        class="booking-active-rentals-user-component-container"
+  [ngClass]="rootClassName"
+  class="booking-active-rentals-user-component-container"
 >
-    <span class="heading">{{ bookingActiveRentalsTitle }}</span>
-    <div class="booking-active-rentals-user-component-container1">
-        <booking-active-rentals-list-entry-component (onReturnBike)="handleReturnBike()" *ngFor="let rental of rentals"
-                                                     [rentalsData]="rental"
-                                                     rootClassName="booking-active-rentals-list-entry-component-root-class-name"
-        ></booking-active-rentals-list-entry-component>
-    </div>
-    <no-entries-component
-            rootClassName="no-entries-component-root-class-name"
-    ></no-entries-component>
+  <span class="heading">{{ bookingActiveRentalsTitle }}</span>
+  <div class="booking-active-rentals-user-component-container1">
+    <booking-active-rentals-list-entry-component (onReturnBike)="handleReturnBike()" *ngFor="let rental of rentals"
+                                                 [rentalsData]="rental"
+                                                 rootClassName="booking-active-rentals-list-entry-component-root-class-name"
+    ></booking-active-rentals-list-entry-component>
+  </div>
+  <no-entries-component
+    rootClassName="no-entries-component-root-class-name"
+  ></no-entries-component>
 </div>

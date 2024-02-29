@@ -1,11 +1,11 @@
 <div class="booking-container">
-    <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
-    <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
-    <admin-navbar *ngIf="AuthService.getRole() === 'admin'"
-                  rootClassName="admin-navbar-root-class-name1"></admin-navbar>
+  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+  <admin-navbar *ngIf="AuthService.getRole() === 'admin'"
+                rootClassName="admin-navbar-root-class-name1"></admin-navbar>
 
-    <booking-component
-            rootClassName="booking-component-root-class-name"
-    ></booking-component>
-    <app-footer rootClassName="footer-root-class-name12"></app-footer>
+  <booking-component
+    rootClassName="booking-component-root-class-name"
+  ></booking-component>
+  <app-footer rootClassName="footer-root-class-name12"></app-footer>
 </div>

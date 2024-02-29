@@ -1,55 +1,55 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .admin-update-bike-station-component-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .admin-update-bike-station-component-container1 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--dl-space-space-twounits);
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-twounits);
 }
 
 .admin-update-bike-station-component-container2 {
-    flex: 0 0 auto;
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .admin-update-bike-station-component-button {
-    margin-right: var(--dl-space-space-fourunits);
+  margin-right: var(--dl-space-space-fourunits);
 }
 
 .admin-update-bike-station-component-button1 {
-    margin-left: var(--dl-space-space-fourunits);
+  margin-left: var(--dl-space-space-fourunits);
 }
 
 @media (max-width: 767px) {
-    .admin-update-bike-station-component-container {
-        margin-right: 0px;
-    }
+  .admin-update-bike-station-component-container {
+    margin-right: 0px;
+  }
 
-    .admin-update-bike-station-component-container1 {
-        flex-direction: column;
-    }
+  .admin-update-bike-station-component-container1 {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 479px) {
-    .admin-update-bike-station-component-container2 {
-        margin-bottom: var(--dl-space-space-unit);
-    }
+  .admin-update-bike-station-component-container2 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
 }

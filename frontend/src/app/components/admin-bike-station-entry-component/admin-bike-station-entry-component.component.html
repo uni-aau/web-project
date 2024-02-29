@@ -1,86 +1,87 @@
 <div
-        [ngClass]="rootClassName"
-        class="admin-bike-station-entry-component-container"
+  [ngClass]="rootClassName"
+  class="admin-bike-station-entry-component-container"
 >
-    <div class="admin-bike-station-entry-component-container01">
-        <div class="admin-bike-station-entry-component-container02">
-            <div class="admin-bike-station-entry-component-container03">
-                <div class="admin-bike-station-entry-component-container04">
+  <div class="admin-bike-station-entry-component-container01">
+    <div class="admin-bike-station-entry-component-container02">
+      <div class="admin-bike-station-entry-component-container03">
+        <div class="admin-bike-station-entry-component-container04">
           <span
-                  class="admin-bike-station-entry-component-text model-bike-category-title"
+            class="admin-bike-station-entry-component-text model-bike-category-title"
           >
             {{ adminBikeStationEntryStationName }}
           </span>
-                    <span class="admin-bike-station-entry-component-text1">
+          <span class="admin-bike-station-entry-component-text1">
             {{ adminBikeStationEntryLocation }}
           </span>
-                    <span class="admin-bike-station-entry-component-text2">
+          <span class="admin-bike-station-entry-component-text2">
             {{ adminBikeStationEntryDescription }}
           </span>
-                </div>
-                <div class="admin-bike-station-entry-component-container05">
-                    <div *ngFor="let number of ratingNumber">
-                        <svg class="review-star" viewBox="0 0 1024 1024">
-                            <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
-                        </svg>
-                    </div>
+        </div>
+        <div class="admin-bike-station-entry-component-container05">
+          <div *ngFor="let number of ratingNumber">
+            <svg class="review-star" viewBox="0 0 1024 1024">
+              <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+            </svg>
+          </div>
 
-                    <div *ngFor="let number of ratingNumberReversed">
-                        <svg class="review-star" viewBox="0 0 1024 1024">
-                            <path d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
-                        </svg>
-                    </div>
-                    <span class="admin-bike-station-entry-component-text3">
+          <div *ngFor="let number of ratingNumberReversed">
+            <svg class="review-star" viewBox="0 0 1024 1024">
+              <path
+                d="M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"></path>
+            </svg>
+          </div>
+          <span class="admin-bike-station-entry-component-text3">
             {{ adminBikeStationEntryStarRatingNumber }}
           </span>
-                </div>
-            </div>
-            <div class="admin-bike-station-entry-component-container06">
-                <img
-                        [attr.alt]="adminBikeStationEntryImageAlt"
-                        [attr.src]="adminBikeStationEntryImageSrc"
-                        class="admin-bike-station-entry-component-image"
-                        id="bike-station-image"
-                />
-            </div>
         </div>
-        <div class="admin-bike-station-entry-component-container07">
-            <div class="admin-bike-station-entry-component-container08">
-                <button
-                        (click)="performManageRatingsClick()"
-                        class="admin-bike-station-entry-component-button button-blue button-general"
-                        id="button-manage-ratings"
-                        type="button"
-                >
-                    {{ adminBikeStationEntryButtonManageRatings }}
-                </button>
-                <button
-                        (click)="onDeleteRatings()"
-                        class="admin-bike-station-entry-component-button1 button-general button-red"
-                        id="button-delete-ratings"
-                        type="button"
-                >
-                    {{ adminBikeStationEntryButtonDeleteRatings }}
-                </button>
-            </div>
-            <div class="admin-bike-station-entry-component-container09">
-                <button
-                        (click)="onUpdate()"
-                        class="admin-bike-station-entry-component-button2 button-blue button-general"
-                        id="button-update-bike-station"
-                        type="button"
-                >
-                    {{ adminBikeStationEntryButtonUpdate }}
-                </button>
-                <button
-                        (click)="onDeleteStation()"
-                        class="button-general button-red"
-                        id="button-delete-bike-station"
-                        type="button"
-                >
-                    {{ adminBikeStationEntryButtonDelete }}
-                </button>
-            </div>
-        </div>
+      </div>
+      <div class="admin-bike-station-entry-component-container06">
+        <img
+          [attr.alt]="adminBikeStationEntryImageAlt"
+          [attr.src]="adminBikeStationEntryImageSrc"
+          class="admin-bike-station-entry-component-image"
+          id="bike-station-image"
+        />
+      </div>
     </div>
+    <div class="admin-bike-station-entry-component-container07">
+      <div class="admin-bike-station-entry-component-container08">
+        <button
+          (click)="performManageRatingsClick()"
+          class="admin-bike-station-entry-component-button button-blue button-general"
+          id="button-manage-ratings"
+          type="button"
+        >
+          {{ adminBikeStationEntryButtonManageRatings }}
+        </button>
+        <button
+          (click)="onDeleteRatings()"
+          class="admin-bike-station-entry-component-button1 button-general button-red"
+          id="button-delete-ratings"
+          type="button"
+        >
+          {{ adminBikeStationEntryButtonDeleteRatings }}
+        </button>
+      </div>
+      <div class="admin-bike-station-entry-component-container09">
+        <button
+          (click)="onUpdate()"
+          class="admin-bike-station-entry-component-button2 button-blue button-general"
+          id="button-update-bike-station"
+          type="button"
+        >
+          {{ adminBikeStationEntryButtonUpdate }}
+        </button>
+        <button
+          (click)="onDeleteStation()"
+          class="button-general button-red"
+          id="button-delete-bike-station"
+          type="button"
+        >
+          {{ adminBikeStationEntryButtonDelete }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

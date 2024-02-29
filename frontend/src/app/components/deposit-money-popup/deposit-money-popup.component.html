@@ -1,16 +1,16 @@
 <div class="deposit-money-popup-container popup-container">
-    <span class="popup-heading">{{ depositMoneyTitle }}</span>
-    <span class="popup-text">{{ depositMoneyText }}</span>
-    <div class="deposit-money-popup-container1">
-        <input
-                #moneyInput
-                [attr.placeholder]="depositMoneyInputPlaceholder"
-                class="input"
-                type="number"
-        />
-        <span class="input-error-hint">{{ depositMoneyError }}</span>
-    </div>
-    <button-yes-cancel (cancel)="handleCancel()" (confirm)="handleConfirm(moneyInput.value)"
-                       rootClassName="button-yes-cancel-root-class-name1"
-    ></button-yes-cancel>
+  <span class="popup-heading">{{ depositMoneyTitle }}</span>
+  <span class="popup-text">{{ depositMoneyText }}</span>
+  <div class="deposit-money-popup-container1">
+    <input
+      #moneyInput
+      [attr.placeholder]="depositMoneyInputPlaceholder"
+      class="input"
+      type="number"
+    />
+    <span class="input-error-hint">{{ depositMoneyError }}</span>
+  </div>
+  <button-yes-cancel (cancel)="handleCancel()" (confirm)="handleConfirm(moneyInput.value)"
+                     rootClassName="button-yes-cancel-root-class-name1"
+  ></button-yes-cancel>
 </div>

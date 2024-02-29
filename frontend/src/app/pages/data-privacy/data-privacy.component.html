@@ -1,12 +1,12 @@
 <div class="data-privacy-container">
-    <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
-    <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
-    <admin-navbar *ngIf="AuthService.getRole() === 'admin'"
-                  rootClassName="admin-navbar-root-class-name1"></admin-navbar>
+  <app-navbar *ngIf="AuthService.getRole() === 'guest'" rootClassName="navbar-root-class-name1"></app-navbar>
+  <navbar-user *ngIf="AuthService.getRole() === 'user'" rootClassName="navbar-root-class-name1"></navbar-user>
+  <admin-navbar *ngIf="AuthService.getRole() === 'admin'"
+                rootClassName="admin-navbar-root-class-name1"></admin-navbar>
 
 
-    <data-privacy-component
-            rootClassName="data-privacy-component-root-class-name"
-    ></data-privacy-component>
-    <app-footer rootClassName="footer-root-class-name1"></app-footer>
+  <data-privacy-component
+    rootClassName="data-privacy-component-root-class-name"
+  ></data-privacy-component>
+  <app-footer rootClassName="footer-root-class-name1"></app-footer>
 </div>

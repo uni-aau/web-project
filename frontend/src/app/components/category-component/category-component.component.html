@@ -1,25 +1,25 @@
 <div [ngClass]="rootClassName" class="category-component-container">
-    <div class="model-bike-category-main-component">
-        <div class="category-component-container2">
-            <span class="model-bike-category-title">{{ categoryName }}</span>
-            <span class="model-bike-category-subtitle">
+  <div class="model-bike-category-main-component">
+    <div class="category-component-container2">
+      <span class="model-bike-category-title">{{ categoryName }}</span>
+      <span class="model-bike-category-subtitle">
         {{ categoryHintSubtitle }}
       </span>
-            <span class="model-bike-category-general-text">
+      <span class="model-bike-category-general-text">
         {{ categoryAssignedModels }}
       </span>
-            <span class="model-bike-category-general-text">{{ categoryPrice }}</span>
-        </div>
-        <div class="list-button-container">
-            <button-update-delete-component (buttonClicked)="handleButtonClicked($event)"
-                                            *ngIf="showAdminButtons"
-                                            rootClassName="button-update-delete-component-root-class-name1"
-            ></button-update-delete-component>
-            <button-book-component
-                    (click)="performBook($event)"
-                    *ngIf="visibleBookButton"
-                    rootClassName="button-book-component-root-class-name1"
-            ></button-book-component>
-        </div>
+      <span class="model-bike-category-general-text">{{ categoryPrice }}</span>
     </div>
+    <div class="list-button-container">
+      <button-update-delete-component (buttonClicked)="handleButtonClicked($event)"
+                                      *ngIf="showAdminButtons"
+                                      rootClassName="button-update-delete-component-root-class-name1"
+      ></button-update-delete-component>
+      <button-book-component
+        (click)="performBook($event)"
+        *ngIf="visibleBookButton"
+        rootClassName="button-book-component-root-class-name1"
+      ></button-book-component>
+    </div>
+  </div>
 </div>

@@ -1,38 +1,38 @@
 <div [ngClass]="rootClassName" class="admin-bike-stations-component-container">
-    <span class="heading">{{ adminManageBikeStationsTitle }}</span>
-    <searching-component
-            (create)="createStation($event)"
-            (search)="performSearch($event)"
-            [searchInputPlaceholder]="'Search for stations...'"
-            [visibleCreateButton]="true"
-            rootClassName="searching-component-root-class-name5"
-    ></searching-component>
+  <span class="heading">{{ adminManageBikeStationsTitle }}</span>
+  <searching-component
+    (create)="createStation($event)"
+    (search)="performSearch($event)"
+    [searchInputPlaceholder]="'Search for stations...'"
+    [visibleCreateButton]="true"
+    rootClassName="searching-component-root-class-name5"
+  ></searching-component>
 
   <map-component
     [stations]="filteredBikeStations"
     rootClassName="map-component-root-class-name1">
   </map-component>
 
-    <div *ngIf="bikeStations.length == 0">
-        <no-entries-component></no-entries-component>
-    </div>
+  <div *ngIf="bikeStations.length == 0">
+    <no-entries-component></no-entries-component>
+  </div>
 
-    <div
-            class="admin-bike-stations-component-container1"
-            id="manage-bike-stations-entry-list-container"
-    >
-        <admin-bike-station-entry-component
-                (onStationDelete)="handleStationDelete()"
-                (onStationReviewDelete)="handleReviewDeletion()"
-                (onStationUpdate)="handleUpdatedStation()"
-                *ngFor="let station of filteredBikeStations"
-                [adminBikeStationEntryDescription]="station.description"
-                [adminBikeStationEntryImageSrc]="station.station_image_location"
-                [adminBikeStationEntryImageAlt]="station.station_name"
-                [adminBikeStationEntryLocation]="station.station_address"
-                [adminBikeStationEntryStationName]="station.station_name"
-                [bikeStation]=station
-                rootClassName="admin-bike-station-entry-component-root-class-name2"
-        ></admin-bike-station-entry-component>
-    </div>
+  <div
+    class="admin-bike-stations-component-container1"
+    id="manage-bike-stations-entry-list-container"
+  >
+    <admin-bike-station-entry-component
+      (onStationDelete)="handleStationDelete()"
+      (onStationReviewDelete)="handleReviewDeletion()"
+      (onStationUpdate)="handleUpdatedStation()"
+      *ngFor="let station of filteredBikeStations"
+      [adminBikeStationEntryDescription]="station.description"
+      [adminBikeStationEntryImageSrc]="station.station_image_location"
+      [adminBikeStationEntryImageAlt]="station.station_name"
+      [adminBikeStationEntryLocation]="station.station_address"
+      [adminBikeStationEntryStationName]="station.station_name"
+      [bikeStation]=station
+      rootClassName="admin-bike-station-entry-component-root-class-name2"
+    ></admin-bike-station-entry-component>
+  </div>
 </div>

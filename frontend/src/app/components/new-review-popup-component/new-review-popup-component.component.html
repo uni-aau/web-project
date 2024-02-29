@@ -1,63 +1,63 @@
 <div
-        [ngClass]="rootClassName"
-        class="new-review-popup-component-container popup-container"
+  [ngClass]="rootClassName"
+  class="new-review-popup-component-container popup-container"
 >
-    <div class="new-review-popup-component-container1">
-        <h1 class="popup-heading">{{ newReviewTitle }}</h1>
-        <div class="new-review-popup-component-container2">
+  <div class="new-review-popup-component-container1">
+    <h1 class="popup-heading">{{ newReviewTitle }}</h1>
+    <div class="new-review-popup-component-container2">
       <span class="new-review-popup-component-text1">
         {{ newReviewSubtitleRating }}
       </span>
-        </div>
-        <div class="new-review-popup-component-container3">
-            <svg (click)="setRating(i + 1)" *ngFor="let star of stars; let i = index" class="review-star"
-                 viewBox="0 0 1024 1024">
-                <path [attr.d]="getPath(i)"></path>
-            </svg>
-        </div>
-
-        <div class="new-review-popup-component-form">
-            <div class="new-review-popup-component-container4">
-                <span class="input-label-text">{{ newReviewLabelTitle }}</span>
-                <input
-                        [(ngModel)]="ratingTitle"
-                        [attr.placeholder]="newReviewInputPlaceholderTitle"
-                        class="new-review-popup-component-textinput input"
-                        id="rating-title-input"
-                        name="title"
-                        required
-                        type="text"
-                />
-                <span class="input-error-hint">{{ newReviewTitleError }}</span>
-            </div>
-            <div class="new-review-popup-component-container5">
-                <span class="input-label-text">{{ newReviewLabelSelectModel }}</span>
-                <select
-                        (change)="handleSelect($event)"
-                        class="new-review-popup-component-select selector-style"
-                        id="rating-model-selector"
-                >
-                    <option [value]="-1">{{newRatingGeneralSelection}}</option>
-                    <option *ngFor="let model of bikeModels" [value]="model.model_id">{{model.model_name}}</option>
-                </select>
-                <span class="input-error-hint">{{ newReviewModelError }}</span>
-            </div>
-            <span class="input-label-text">{{ newReviewLabelDescription }}</span>
-            <textarea
-                    [(ngModel)]="ratingDescription"
-                    [attr.placeholder]="newReviewInputPlaceholderDescription"
-                    class="new-review-popup-component-textarea textarea"
-                    id="rating-description-input"
-            ></textarea>
-            <span class="input-error-hint">{{ newReviewDescriptionError }}</span>
-        </div>
     </div>
-    <button
-            (click)="handleConfirm()"
-            class="new-review-popup-component-button button-blue button-general"
-            id="rating-send-button"
-            type="button"
-    >
-        {{ newReviewButtonSend }}
-    </button>
+    <div class="new-review-popup-component-container3">
+      <svg (click)="setRating(i + 1)" *ngFor="let star of stars; let i = index" class="review-star"
+           viewBox="0 0 1024 1024">
+        <path [attr.d]="getPath(i)"></path>
+      </svg>
+    </div>
+
+    <div class="new-review-popup-component-form">
+      <div class="new-review-popup-component-container4">
+        <span class="input-label-text">{{ newReviewLabelTitle }}</span>
+        <input
+          [(ngModel)]="ratingTitle"
+          [attr.placeholder]="newReviewInputPlaceholderTitle"
+          class="new-review-popup-component-textinput input"
+          id="rating-title-input"
+          name="title"
+          required
+          type="text"
+        />
+        <span class="input-error-hint">{{ newReviewTitleError }}</span>
+      </div>
+      <div class="new-review-popup-component-container5">
+        <span class="input-label-text">{{ newReviewLabelSelectModel }}</span>
+        <select
+          (change)="handleSelect($event)"
+          class="new-review-popup-component-select selector-style"
+          id="rating-model-selector"
+        >
+          <option [value]="-1">{{newRatingGeneralSelection}}</option>
+          <option *ngFor="let model of bikeModels" [value]="model.model_id">{{model.model_name}}</option>
+        </select>
+        <span class="input-error-hint">{{ newReviewModelError }}</span>
+      </div>
+      <span class="input-label-text">{{ newReviewLabelDescription }}</span>
+      <textarea
+        [(ngModel)]="ratingDescription"
+        [attr.placeholder]="newReviewInputPlaceholderDescription"
+        class="new-review-popup-component-textarea textarea"
+        id="rating-description-input"
+      ></textarea>
+      <span class="input-error-hint">{{ newReviewDescriptionError }}</span>
+    </div>
+  </div>
+  <button
+    (click)="handleConfirm()"
+    class="new-review-popup-component-button button-blue button-general"
+    id="rating-send-button"
+    type="button"
+  >
+    {{ newReviewButtonSend }}
+  </button>
 </div>

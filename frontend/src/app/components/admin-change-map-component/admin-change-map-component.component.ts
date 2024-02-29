@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import {icon, Marker} from 'leaflet';
-import { BikeStation } from '../../types/bikeStation.type';
+import {BikeStation} from '../../types/bikeStation.type';
 
 const iconRetinaUrl = '/assets/marker-icon-2x.png';
 const iconUrl = '/assets/marker-icon.png';
@@ -25,7 +25,7 @@ const iconDefault = icon({
 export class AdminChangeMapComponent implements OnInit, OnChanges, OnDestroy {
   @Input() station: BikeStation | undefined;
   @Input() rootClassName: string = '';
-  @Input() mapHint : string = 'Select Longitude/Latitude by clicking anywhere on the map'
+  @Input() mapHint: string = 'Select Longitude/Latitude by clicking anywhere on the map'
   @Output() mapChange: EventEmitter<any> = new EventEmitter<any>();
 
   private map: L.Map | undefined;

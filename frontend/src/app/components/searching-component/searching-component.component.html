@@ -1,22 +1,22 @@
 <div [ngClass]="rootClassName" class="searching-component-container">
-    <input
-            [(ngModel)]="searchTerm"
-            [attr.placeholder]="searchInputPlaceholder"
-            class="searching-component-textinput input"
-            id="searching-input"
-            type="text"
-    />
-    <div class="searching-component-container1">
-        <button-search-component
-                (click)="onSearch()"
-                rootClassName="button-search-component-root-class-name"
-        ></button-search-component>
-        <button-create-component
-                (click)="onCreate()"
-                *ngIf="visibleCreateButton"
-                rootClassName="button-create-component-root-class-name"
-        ></button-create-component>
-    </div>
+  <input
+    [(ngModel)]="searchTerm"
+    [attr.placeholder]="searchInputPlaceholder"
+    class="searching-component-textinput input"
+    id="searching-input"
+    type="text"
+  />
+  <div class="searching-component-container1">
+    <button-search-component
+      (click)="onSearch()"
+      rootClassName="button-search-component-root-class-name"
+    ></button-search-component>
+    <button-create-component
+      (click)="onCreate()"
+      *ngIf="visibleCreateButton"
+      rootClassName="button-create-component-root-class-name"
+    ></button-create-component>
+  </div>
 </div>
 
 <!--    (keyup)="onSearch()"-->

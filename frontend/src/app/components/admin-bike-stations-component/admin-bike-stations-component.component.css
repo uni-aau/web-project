@@ -1,23 +1,23 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .admin-bike-stations-component-container {
-    width: 100%;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .admin-bike-stations-component-container1 {
-    flex: 0 0 auto;
-    width: 95%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  flex: 0 0 auto;
+  width: 95%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 

@@ -1,79 +1,79 @@
 <div [ngClass]="rootClassName" class="navbar-container">
-    <header class="navbar-general" data-thq="thq-navbar">
-        <a routerLink="/">
-            <img [attr.src]="navbarLogoSrc" alt="logo" class="navbar-image"/>
+  <header class="navbar-general" data-thq="thq-navbar">
+    <a routerLink="/">
+      <img [attr.src]="navbarLogoSrc" alt="logo" class="navbar-image"/>
+    </a>
+    <div class="navbar-desktop-menu" data-thq="thq-navbar-nav">
+      <nav class="navbar-links">
+        <a class="navbar-links-style" routerLink="/">{{ navbarLinkAbout }}</a>
+        <a class="navbar-links-style" routerLink="/bike-stations">
+          {{ navbarLinkBikeStations }}
         </a>
-        <div class="navbar-desktop-menu" data-thq="thq-navbar-nav">
-            <nav class="navbar-links">
-                <a class="navbar-links-style" routerLink="/">{{ navbarLinkAbout }}</a>
-                <a class="navbar-links-style" routerLink="/bike-stations">
-                    {{ navbarLinkBikeStations }}
-                </a>
-            </nav>
-            <div class="navbar-buttons">
-                <a
-                        class="navbar-navlink3 button"
-                        id="navbar-button-login"
-                        routerLink="/login"
-                >
-                    {{ navbarButtonLogin }}
-                </a>
-                <a
-                        class="button navbar-navlink4"
-                        id="navbar-button-register"
-                        routerLink="/register"
-                >
-                    {{ navbarButtonRegister }}
-                </a>
-            </div>
-        </div>
-        <div class="navbar-burger-menu" data-thq="thq-burger-menu">
-            <svg class="navbar-icon" viewBox="0 0 1024 1024">
-                <path
-                        d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-                ></path>
-            </svg>
-        </div>
-        <div
-                class="navbar-mobile-menu navbar-general-mobile"
-                data-thq="thq-mobile-menu"
+      </nav>
+      <div class="navbar-buttons">
+        <a
+          class="navbar-navlink3 button"
+          id="navbar-button-login"
+          routerLink="/login"
         >
-            <div class="navbar-nav">
-                <div class="navbar-top">
-                    <img [attr.src]="navbarLogoSrc" alt="image" class="navbar-logo"/>
-                    <div class="navbar-close-menu" data-thq="thq-close-menu">
-                        <svg class="navbar-icon2" viewBox="0 0 1024 1024">
-                            <path
-                                    d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                            ></path>
-                        </svg>
-                    </div>
-                </div>
-                <nav class="navbar-links1">
-                    <a class="navbar-links-style-mobile" routerLink="/">
-                        {{ navbarLinkAbout }}
-                    </a>
-                    <a class="navbar-links-style-mobile" routerLink="/bike-stations">
-                        {{ navbarLinkBikeStations }}
-                    </a>
-                </nav>
-                <div class="navbar-buttons1">
-                    <a
-                            class="navbar-login button"
-                            id="navbar-button-login-mobile"
-                            routerLink="/login"
-                    >
-                        {{ navbarButtonLogin }}
-                    </a>
-                    <a
-                            class="button"
-                            id="navbar-button-register-mobile"
-                            routerLink="/register"
-                    >
-                        {{ navbarButtonRegister }}
-                    </a>
-                </div>
-            </div>
+          {{ navbarButtonLogin }}
+        </a>
+        <a
+          class="button navbar-navlink4"
+          id="navbar-button-register"
+          routerLink="/register"
+        >
+          {{ navbarButtonRegister }}
+        </a>
+      </div>
+    </div>
+    <div class="navbar-burger-menu" data-thq="thq-burger-menu">
+      <svg class="navbar-icon" viewBox="0 0 1024 1024">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+        ></path>
+      </svg>
+    </div>
+    <div
+      class="navbar-mobile-menu navbar-general-mobile"
+      data-thq="thq-mobile-menu"
+    >
+      <div class="navbar-nav">
+        <div class="navbar-top">
+          <img [attr.src]="navbarLogoSrc" alt="image" class="navbar-logo"/>
+          <div class="navbar-close-menu" data-thq="thq-close-menu">
+            <svg class="navbar-icon2" viewBox="0 0 1024 1024">
+              <path
+                d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+              ></path>
+            </svg>
+          </div>
         </div>
-    </header>
+        <nav class="navbar-links1">
+          <a class="navbar-links-style-mobile" routerLink="/">
+            {{ navbarLinkAbout }}
+          </a>
+          <a class="navbar-links-style-mobile" routerLink="/bike-stations">
+            {{ navbarLinkBikeStations }}
+          </a>
+        </nav>
+        <div class="navbar-buttons1">
+          <a
+            class="navbar-login button"
+            id="navbar-button-login-mobile"
+            routerLink="/login"
+          >
+            {{ navbarButtonLogin }}
+          </a>
+          <a
+            class="button"
+            id="navbar-button-register-mobile"
+            routerLink="/register"
+          >
+            {{ navbarButtonRegister }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
 </div>

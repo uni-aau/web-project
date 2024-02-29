@@ -1,74 +1,74 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .admin-manage-model-popup-component-container {
-    width: 450px;
+  width: 450px;
 }
 
 .admin-manage-model-popup-component-form {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--dl-space-space-unit);
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: center;
 }
 
 .admin-manage-model-popup-component-container1 {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 
 .admin-manage-model-popup-component-container2 {
-    flex: 0 0 auto;
-    width: 65%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    padding-right: var(--dl-space-space-halfunit);
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 65%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-right: var(--dl-space-space-halfunit);
+  flex-direction: column;
 }
 
 .admin-manage-model-popup-component-textinput {
-    width: 100%;
+  width: 100%;
 }
 
 .admin-manage-model-popup-component-container3 {
-    flex: 0 0 auto;
-    width: 35%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  flex: 0 0 auto;
+  width: 35%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .admin-manage-model-popup-component-textinput1 {
-    width: 100%;
+  width: 100%;
 }
 
 .admin-manage-model-popup-component-text5 {
-    font-size: 22px;
-    align-self: center;
-    margin-bottom: var(--dl-space-space-halfunit);
+  font-size: 22px;
+  align-self: center;
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 
 .admin-manage-model-popup-component-select {
-    width: 65%;
-    height: 40px;
-    align-self: center;
+  width: 65%;
+  height: 40px;
+  align-self: center;
 }
 
 .admin-manage-model-popup-component-text6 {
-    align-self: center;
+  align-self: center;
 }
 
 @media (max-width: 767px) {
-    .admin-manage-model-popup-component-container {
-        width: 100%;
-    }
+  .admin-manage-model-popup-component-container {
+    width: 100%;
+  }
 }

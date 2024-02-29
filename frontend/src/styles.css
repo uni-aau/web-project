@@ -34,6 +34,7 @@
   --dl-space-space-threeunits: 48px;
   --dl-space-space-oneandhalfunits: 24px;
 }
+
 .button {
   color: var(--dl-color-gray-black);
   cursor: pointer;
@@ -45,6 +46,7 @@
   border-radius: 4px;
   background-color: var(--dl-color-gray-white);
 }
+
 .button-blue {
   color: var(--dl-color-gray-white);
   font-size: 17px;
@@ -54,10 +56,12 @@
   border-radius: 4px;
   background-color: #1f75cb;
 }
+
 .button-blue:hover {
   color: var(--dl-color-gray-white);
   background: #084f9e;
 }
+
 .button-disabled {
   color: var(--dl-color-gray-white);
   font-size: 17px;
@@ -67,6 +71,7 @@
   border-radius: 4px;
   background-color: #878787;
 }
+
 .button-red {
   color: var(--dl-color-gray-white);
   font-size: 17px;
@@ -76,9 +81,11 @@
   border-radius: 4px;
   background-color: #c91313;
 }
+
 .button-red:hover {
   background-color: #a20b0b;
 }
+
 .button-green {
   color: var(--dl-color-gray-white);
   font-size: 17px;
@@ -88,9 +95,11 @@
   border-radius: 4px;
   background-color: #1b831a;
 }
+
 .button-green:hover {
   background-color: #0c6f0b;
 }
+
 .button-general {
   cursor: pointer;
   display: inline-block;
@@ -98,6 +107,7 @@
   text-align: center;
   transition: 0.3s;
 }
+
 .input {
   color: var(--dl-color-gray-black);
   cursor: auto;
@@ -107,6 +117,7 @@
   border-radius: 4px;
   background-color: var(--dl-color-gray-white);
 }
+
 .textarea {
   color: var(--dl-color-gray-black);
   cursor: auto;
@@ -116,6 +127,7 @@
   border-radius: 4px;
   background-color: var(--dl-color-gray-white);
 }
+
 .list {
   width: 100%;
   margin: 1em 0px 1em 0px;
@@ -124,12 +136,15 @@
   list-style-type: none;
   list-style-position: outside;
 }
+
 .list-item {
   display: list-item;
 }
+
 .teleport-show {
   display: flex !important;
 }
+
 .heading {
   color: var(--dl-color-gray-black);
   font-size: 2.5em;
@@ -138,6 +153,7 @@
   font-weight: 700;
   margin-bottom: var(--dl-space-space-twounits);
 }
+
 .popup-heading {
   color: var(--dl-color-gray-black);
   font-size: 2.3em;
@@ -146,12 +162,14 @@
   font-weight: 700;
   margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
+
 .drop-down-main-element {
   width: 100%;
   display: inline-block;
   position: relative;
   border-radius: var(--dl-radius-radius-radius2);
 }
+
 .drop-down-list {
   left: 0%;
   z-index: 100;
@@ -166,6 +184,7 @@
   background-color: var(--dl-color-gray-white);
   list-style-position: inside;
 }
+
 .drop-down-toggle-main {
   width: 100%;
   height: 70px;
@@ -181,9 +200,11 @@
   padding-bottom: var(--dl-space-space-halfunit);
   background-color: #f2f2f2;
 }
+
 .drop-down-toggle-main:hover {
   background-color: #dedede;
 }
+
 .drop-down-list-drop-down {
   position: relative;
   border-color: var(--dl-color-gray-900);
@@ -191,6 +212,7 @@
   border-radius: var(--dl-radius-radius-radius2);
   background-color: #ecebeb;
 }
+
 .drop-down-toggle {
   width: 100%;
   display: inline-flex;
@@ -201,33 +223,40 @@
   padding-bottom: var(--dl-space-space-halfunit);
   justify-content: flex-start;
 }
+
 .drop-down-arrow {
   top: auto;
   right: 0px;
   position: absolute;
   transition: 0.3s;
 }
+
 .arrow-style {
   width: 40px;
   height: 35px;
   transition: 0.3s;
 }
+
 .review-star {
   width: 28px;
   height: 28px;
 }
+
 .link-text-font {
   color: #3582d0;
   font-weight: 500;
 }
+
 .link-text-font:hover {
   color: #1e76d2;
 }
+
 .bike-info-texts {
   font-size: 17px;
   align-self: flex-start;
   margin-bottom: 5px;
 }
+
 .bike-showcase-image {
   width: 100%;
   height: 80%;
@@ -236,6 +265,7 @@
   object-fit: cover;
   margin-bottom: var(--dl-space-space-halfunit);
 }
+
 .bike-showcase-image-container {
   flex: 0 0 auto;
   width: 25%;
@@ -248,6 +278,7 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+
 .drop-down-container-style {
   flex: 0 0 auto;
   width: 100%;
@@ -257,6 +288,7 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .drop-down-component {
   width: 60%;
   height: 100%;
@@ -267,9 +299,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .account-settings-input {
   width: 35%;
 }
+
 .input-label-text {
   font-size: 18px;
   align-self: flex-start;
@@ -277,17 +311,20 @@
   text-align: center;
   font-weight: 600;
 }
+
 .selector-style {
   border-color: var(--dl-color-gray-500);
   border-width: 1px;
   border-radius: var(--dl-radius-radius-radius4);
 }
+
 .booking-navbar-title {
   font-size: 32px;
   font-weight: 600;
   margin-left: var(--dl-space-space-unit);
   margin-right: var(--dl-space-space-unit);
 }
+
 .model-bike-category-main-component {
   flex: 0 0 auto;
   width: 100%;
@@ -299,6 +336,7 @@
   flex-direction: column;
   background-color: #f5f5f5;
 }
+
 .model-bike-category-general-text {
   width: 100%;
   font-size: 17px;
@@ -308,6 +346,7 @@
   padding-left: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
+
 .model-bike-category-title {
   width: 100%;
   font-size: 20px;
@@ -316,12 +355,15 @@
   padding-left: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-unit);
 }
+
 .button-book {
   width: 200px;
 }
+
 .button-container {
   padding: var(--dl-space-space-halfunit);
 }
+
 .list-button-container {
   flex: 0 0 auto;
   width: 100%;
@@ -332,6 +374,7 @@
   align-items: center;
   justify-content: flex-end;
 }
+
 .subheading {
   font-size: 30px;
   align-self: center;
@@ -340,6 +383,7 @@
   font-weight: 700;
   margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
+
 .checkbox-style {
   width: 30px;
   border: 2px solid #555;
@@ -347,6 +391,7 @@
   height: 30px;
   padding: 2px;
 }
+
 .booking-information-component {
   flex: 0 0 auto;
   width: 100%;
@@ -361,9 +406,11 @@
   margin-bottom: var(--dl-space-space-twounits);
   justify-content: center;
 }
+
 .bike-showcase-heading {
   font-size: 30px;
 }
+
 .navbar-links-style {
   font-style: normal;
   text-align: center;
@@ -372,16 +419,20 @@
   margin-left: var(--dl-space-space-oneandhalfunits);
   text-decoration: none;
 }
+
 .navbar-links-style:hover {
   color: var(--dl-color-primary-300);
 }
+
 .navbar-links-style-mobile {
   font-weight: 400;
   margin-bottom: var(--dl-space-space-unit);
 }
+
 .navbar-links-style-mobile:hover {
   color: var(--dl-color-primary-300);
 }
+
 .navbar-general {
   width: 100%;
   height: 100%;
@@ -394,6 +445,7 @@
   padding-bottom: var(--dl-space-space-unit);
   justify-content: space-between;
 }
+
 .navbar-general-mobile {
   top: 0px;
   left: 0px;
@@ -406,11 +458,13 @@
   justify-content: space-between;
   background-color: #fff;
 }
+
 .button-account-settings {
   align-self: flex-end;
   margin-top: var(--dl-space-space-halfunit);
   margin-bottom: var(--dl-space-space-halfunit);
 }
+
 .model-bike-category-subtitle {
   color: var(--dl-color-gray-500);
   font-size: 16px;
@@ -421,6 +475,7 @@
   padding-left: var(--dl-space-space-unit);
   margin-bottom: var(--dl-space-space-unit);
 }
+
 .drop-down-title {
   font-size: 16px;
   font-style: normal;
@@ -429,10 +484,12 @@
   margin-right: 4px;
   vertical-align: middle;
 }
+
 .input-error-hint {
   color: #ec0c0c;
   font-weight: 500;
 }
+
 .popup-container {
   height: auto;
   display: flex;
@@ -447,6 +504,7 @@
   font-size: 18px;
   text-align: center;
 }
+
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -455,6 +513,7 @@
   text-transform: none;
   text-decoration: none;
 }
+
 .Content {
   font-size: 16px;
   font-family: Inter;
@@ -463,89 +522,112 @@
   text-transform: none;
   text-decoration: none;
 }
-@media(max-width: 1200px) {
+
+@media (max-width: 1200px) {
   .drop-down-component {
     width: 70%;
   }
 }
-@media(max-width: 991px) {
+
+@media (max-width: 991px) {
   .drop-down-component {
     width: 75%;
   }
+
   .bike-showcase-heading {
     font-size: 23px;
   }
 }
-@media(max-width: 767px) {
+
+@media (max-width: 767px) {
   .bike-showcase-image {
     width: 50%;
     height: 50%;
     margin-bottom: var(--dl-space-space-halfunit);
   }
+
   .bike-showcase-image-container {
     width: 100%;
     height: 20%;
     margin-bottom: var(--dl-space-space-unit);
     padding-right: var(--dl-space-space-halfunit);
   }
+
   .drop-down-component {
     width: 80%;
   }
+
   .account-settings-input {
     width: auto;
   }
+
   .booking-information-component {
     flex-direction: column;
   }
+
   .bike-showcase-heading {
     font-size: 28px;
   }
+
   .navbar-general {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
 }
-@media(max-width: 479px) {
+
+@media (max-width: 479px) {
   .heading {
     font-size: 2.3em;
     margin-bottom: var(--dl-space-space-oneandhalfunits);
   }
+
   .popup-heading {
     font-size: 2.1em;
     margin-bottom: var(--dl-space-space-oneandhalfunits);
   }
+
   .drop-down-container-style {
     align-items: center;
   }
+
   .drop-down-component {
     width: 90%;
   }
+
   .account-settings-input {
     width: 100%;
   }
+
   .booking-navbar-title {
     margin-bottom: var(--dl-space-space-halfunit);
   }
+
   .model-bike-category-main-component {
     padding: 0px;
   }
+
   .model-bike-category-title {
     text-align: center;
   }
+
   .button-book {
     align-self: center;
     margin-bottom: var(--dl-space-space-halfunit);
   }
+
   .list-button-container {
     margin-bottom: 0px;
     justify-content: center;
   }
+
   .navbar-general {
     padding: var(--dl-space-space-unit);
   }
+
   .navbar-general-mobile {
     padding: 16px;
   }
+
   .button-account-settings {
     align-self: center;
   }

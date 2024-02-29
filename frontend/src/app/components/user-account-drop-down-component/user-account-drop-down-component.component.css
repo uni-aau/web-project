@@ -1,66 +1,66 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 .user-account-drop-down-component-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: var(--dl-space-space-halfunit);
+  width: 24px;
+  height: 24px;
+  margin-right: var(--dl-space-space-halfunit);
 }
 
 .user-account-drop-down-component-text01 {
-    color: var(--dl-color-gray-black);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 .user-account-drop-down-component-text02 {
-    color: var(--dl-color-gray-black);
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 .user-account-drop-down-component-textinput {
-    margin-bottom: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
 }
 
 .user-account-drop-down-component-text04 {
-    color: var(--dl-color-gray-black);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 .user-account-drop-down-component-text05 {
-    color: var(--dl-color-gray-black);
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 .user-account-drop-down-component-text07 {
-    color: var(--dl-color-gray-black);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 .user-account-drop-down-component-text08 {
-    color: var(--dl-color-gray-black);
-    margin-bottom: var(--dl-space-space-unit);
+  color: var(--dl-color-gray-black);
+  margin-bottom: var(--dl-space-space-unit);
 }
 
 @media (max-width: 479px) {
-    .user-account-drop-down-component-text01 {
-        text-align: center;
-    }
+  .user-account-drop-down-component-text01 {
+    text-align: center;
+  }
 
-    .user-account-drop-down-component-text04 {
-        text-align: center;
-    }
+  .user-account-drop-down-component-text04 {
+    text-align: center;
+  }
 
-    .user-account-drop-down-component-text07 {
-        text-align: center;
-    }
+  .user-account-drop-down-component-text07 {
+    text-align: center;
+  }
 }
