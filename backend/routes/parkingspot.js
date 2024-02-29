@@ -48,7 +48,6 @@ router.get('/spot/:spotId/assigned-bikes', async (req, res) => {
         });
 });
 
-// TODO COMMIT?
 router.post('/spot', async (req, res) => {
     // Hint categoryIds is an array, since multiple categories can be held in one spot
     const {stationId, spotNumber, categoryIds} = req.body;

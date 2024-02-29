@@ -72,27 +72,28 @@ router.get('/station/:stationId/bike-status', verifyUserToken, async (req, res) 
 router.delete('/station/:stationId', verifyAdminToken, async (req, res) => {
     const {stationId} = req.params;
 
-    DatabaseService.executeUpdateQuery({
-        text: 'UPDATE BIKE SET station_id = NULL, assigned_to = NULL where station_id = $1',
-        values: [stationId]
-    })
-        .then(() => {
-            DatabaseService.executeDeleteQuery({
-                text: 'DELETE FROM parkingspot WHERE station_id = $1',
-                values: [stationId]
-            })
-                .then(() => {
-                    DatabaseService.executeDeleteQuery({
-                        text: 'DELETE FROM station WHERE station_id = $1',
-                        values: [stationId]
-                    })
-                        .then(result => res.status(200).json({success: true, rowsChanged: result}))
-                        .catch(e => res.status(500).json({error: "Error while deleting bike station: " + e.message}))
-                })
-                .catch(e => res.status(500).json({error: "Error while deleting parking spots from station: " + e.message}))
-        })
-        .catch(e => res.status(500).json({error: "Error while updating station assignments (station deletion): " + e.message}))
+    try {
+        await DatabaseService.executeUpdateQuery({
+            text: 'UPDATE BIKE SET station_id = NULL, assigned_to = NULL where station_id = $1',
+            values: [stationId]
+        }).catch(e => console.log("Error while updating station assignments (station deletion):", e.message));
+
+        await DatabaseService.executeDeleteQuery({
+            text: 'DELETE FROM parkingspot WHERE station_id = $1',
+            values: [stationId]
+        }).catch(e => console.log("Error while deleting parking spots (station deletion):", e.message));;
+
+        const result = await DatabaseService.executeDeleteQuery({
+            text: 'DELETE FROM station WHERE station_id = $1',
+            values: [stationId]
+        });
+
+        res.status(200).json({success: true, rowsChanged: result});
+    } catch (e) {
+        res.status(500).json({error: "Error while deleting station or parking spots: " + e.message});
+    }
 });
+
 
 router.get('/free-spot/', verifyUserToken, function (req, res) {
     const {categoryId, stationId} = req.query;
