@@ -83,6 +83,7 @@ export class AdminManageBikeStationComponent {
       this.stationAddress = this.bikeStation.station_address;
       this.stationDescription = this.bikeStation.description;
       this.stationId = this.bikeStation.station_id;
+      this.imageLink = this.bikeStation.station_image_location;
     }
   }
 
@@ -119,7 +120,7 @@ export class AdminManageBikeStationComponent {
       return;
     }
 
-    this.imageLink = Config.noImageLink;
+    if (!this.imageLink) this.imageLink = Config.noImageLink;
 
     if (this.stationId > 0) this.executeUpdateQuery()
     else this.executeInsertionQuery();
