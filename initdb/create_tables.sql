@@ -136,14 +136,10 @@ VALUES (100.00, 100.00),
        (1000.00, 1000.00);
 
 INSERT INTO "User" (username, firstname, lastname, email, is_admin, password_hash, wallet_id)
-VALUES ('johnDoe', 'John', 'Doe', 'john@example.com', true,
-        '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 1),
-       ('janeDoe', 'Jane', 'Doe', 'jane@example.com', false,
-        '$2b$10$C8/6shgBAg45RkxyVoMbRu27jXwhL0FiwFHvdQlEUq.TWWjo.y5vi', 2),
-       ('dadi', 'Dado', 'Dodo', 'dadi1@speed.at', true, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
-        3),
-       ('dad', 'Dado', 'Dodo', 'dadi2@speed.at', false, '$2b$10$tV2RaIco6XYHRPnGZwtZX.ClQEtsfsnkRakXqPu7WRIBkTzx1ykxm',
-        4);
+VALUES ('testuser', 'John', 'Doe', 'john@example.com', false,
+        '$2b$10$EDDV24vF1n8tmQ4a4n9mi..SmkMCOHVLUEeaj94IJb3er90ARt19i', 1),
+       ('testadmin', 'Jane', 'Doe', 'jane@example.com', true,
+        '$2b$10$EDDV24vF1n8tmQ4a4n9mi..SmkMCOHVLUEeaj94IJb3er90ARt19i', 2),
 
 INSERT INTO Station (station_name, description, station_address, longitude, latitude, station_image_location)
 VALUES ('Central Station', 'Nice Station Description', 'Klagenfurt', 14.305278, 46.624722, '/assets/central-station.png'),

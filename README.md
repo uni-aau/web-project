@@ -28,8 +28,39 @@
   - Start backend with **node server.js**
 - Check out to /frontend-folder
   - Start frontend with **ng serve --open**
+- Create a new user with ``is_admin = false`` & one with ``is_admin = true`` to check out the Bike Rental System.
+  - You can also use predefined users (import DB using Docker Compose):
+    - Username: testuser / Password: 123456
+    - Username: testadmin / Password: 123456
 
-## Task
+## Web Page
+Start your journey on our landing page and search for a specific bike, model or category you want to rent. 
+![Landing](/assets/Unbenannt.png)
+
+To be able to rent something, create an account or log in into an existing one.
+![Landing](/assets/Screenshot_144.png)
+
+Then you can search for specific bike stations.
+![Landing](/assets/Screenshot_138.png)
+Here you can rent a specific bike, model or category
+![Landing](/assets/Screenshot_139.png)
+You can then manage your rented bikes, return them or see the history of rented bikes. 
+![Landing](/assets/Screenshot_140.png)
+
+After renting, feel free to leave a rating for the bike station ;)
+![Landing](/assets/Screenshot_145.png)
+
+As an admin you can of course manage the whole Bike Rental System.
+For example you can manage/create bike stations
+![Landing](/assets/Screenshot_142.png)
+
+Also feel free to manage bikes, models and also categories
+![Landing](/assets/Screenshot_143.png)
+
+
+... and a lot more :)
+
+## Task 
 As you have mastered web development fundamentals, you are now asked to implement an online system for the local bike rental.
 The customers should be able to buy tickets either remotely (e.g., from their smartphones) or locally via special terminals. In both cases, the customer uses the same web service interface.
 
